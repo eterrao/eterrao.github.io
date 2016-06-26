@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android, Shutu" />
+  <meta name="keywords" content="Android" />
 
 
 
@@ -99,7 +99,7 @@ ObjectAnimator:属性动画（ObjectAnimator）的概念这里就不解释了，
 先说说我的思路： 
 首先下载Periscope然后改名zip解包，获取对应的png图片（搜索相关的loading文件：ps__bg_">
 <meta property="og:image" content="https://raw.githubusercontent.com/eterrao/AnimationExamples/master/periscopeLoading.gif">
-<meta property="og:updated_time" content="2016-06-26T11:52:43.000Z">
+<meta property="og:updated_time" content="2016-06-26T12:30:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android动画浅析+模仿">
 <meta name="twitter:description" content="说明Android动画浅析+模仿
@@ -203,7 +203,7 @@ ObjectAnimator:属性动画（ObjectAnimator）的概念这里就不解释了，
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/Android" rel="section">
+          <a href="/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -283,6 +283,15 @@ ObjectAnimator:属性动画（ObjectAnimator）的概念这里就不解释了，
 
           
           
+             <span id="/2016/05/20/AnimationExamples/" class="leancloud_visitors" data-flag-title="Android动画浅析+模仿">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
 
           
         </div>
@@ -300,8 +309,7 @@ ObjectAnimator:属性动画（ObjectAnimator）的概念这里就不解释了，
 </code></pre><h4 id="ObjectAnimator"><a href="#ObjectAnimator" class="headerlink" title="ObjectAnimator:"></a>ObjectAnimator:</h4><p>属性动画（ObjectAnimator）的概念这里就不解释了，直接从代码中说明，以下是模仿Persicope的加载动画，简单的几行代码即可实现，当然我也是模仿的，更好的实现思路还请各位朋友自己仔细思考。</p>
 <p><strong>先说说我的思路：</strong> </p>
 <p>首先下载Periscope然后改名zip解包，获取对应的png图片（搜索相关的loading文件：ps__bg_loading.png），看到了该文件的大小，仔细观察后，发现可以把很多张图连在一起从右–&gt;左的连续位移动画，而这里我用到了属性动画，当然不是最好的选择，而且我这里实现的方法很笨，就是将两个LinearLayout不同x的坐标轴同样的距离和时间进行右到左的translate。实现结果如下图：</p>
-<h4 id="模仿Periscope的加载动画"><a href="#模仿Periscope的加载动画" class="headerlink" title="模仿Periscope的加载动画"></a>模仿Periscope的加载动画</h4><pre><code>A demo of Loading animation to imitate Periscope.
-</code></pre><h4 id="Demo-GIF"><a href="#Demo-GIF" class="headerlink" title="Demo GIF:"></a>Demo GIF:</h4><p><img src="https://raw.githubusercontent.com/eterrao/AnimationExamples/master/periscopeLoading.gif" alt="Loading"></p>
+<h4 id="Demo-演示"><a href="#Demo-演示" class="headerlink" title="Demo 演示:"></a>Demo 演示:</h4><p><img src="https://raw.githubusercontent.com/eterrao/AnimationExamples/master/periscopeLoading.gif" alt="Loading"></p>
 <p><strong>Demo地址：</strong> <a href="https://github.com/eterrao/AnimationExamples" target="_blank" rel="external">https://github.com/eterrao/AnimationExamples</a></p>
 
       
@@ -321,6 +329,12 @@ ObjectAnimator:属性动画（ObjectAnimator）的概念这里就不解释了，
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
       
 
       
@@ -417,6 +431,13 @@ ObjectAnimator:属性动画（ObjectAnimator）的概念这里就不解释了，
           
 
           
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
 
         </nav>
 
@@ -477,7 +498,7 @@ ObjectAnimator:属性动画（ObjectAnimator）的概念这里就不解释了，
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ObjectAnimator"><span class="nav-number">2.</span> <span class="nav-text">ObjectAnimator:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模仿Periscope的加载动画"><span class="nav-number">3.</span> <span class="nav-text">模仿Periscope的加载动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo-GIF"><span class="nav-number">4.</span> <span class="nav-text">Demo GIF:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ObjectAnimator"><span class="nav-number">2.</span> <span class="nav-text">ObjectAnimator:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo-演示"><span class="nav-number">3.</span> <span class="nav-text">Demo 演示:</span></a></li></ol></div>
             
           </div>
         </section>
@@ -629,6 +650,113 @@ ObjectAnimator:属性动画（ObjectAnimator）的概念这里就不解释了，
   
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("yJRSkUSfIEVQN5nXYHd2ibqh-gzGzoHsz", "yuNAcELkB0SkVGhLfl06MLe3");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
