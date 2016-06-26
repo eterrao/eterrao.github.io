@@ -1,0 +1,919 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android, Shutu" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Code纪念册" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="说明　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完事后将最近所学总结一下，以方便之后的人别踩太多坑。  
+　　首先想要了解YUV为何物:请猛戳我　　
+　　上面的链接中微软已经写的很详细了，国内大部分文章都是翻译这篇文章的，如果还有疑问的同学可以参考下面这些大神的博客：
+
+最简单的基于FFmpeg的libs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android常用的几种格式：NV21/NV12/YV12/YUV420P的区别">
+<meta property="og:url" content="http://eterrao.github.io/2016/06/13/DifferenceOfYUV/index.html">
+<meta property="og:site_name" content="Code纪念册">
+<meta property="og:description" content="说明　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完事后将最近所学总结一下，以方便之后的人别踩太多坑。  
+　　首先想要了解YUV为何物:请猛戳我　　
+　　上面的链接中微软已经写的很详细了，国内大部分文章都是翻译这篇文章的，如果还有疑问的同学可以参考下面这些大神的博客：
+
+最简单的基于FFmpeg的libs">
+<meta property="og:image" content="https://raw.githubusercontent.com/eterrao/BlogExamples/master/Blogs/DifferenceOfYUV/fig1.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/eterrao/BlogExamples/master/Blogs/DifferenceOfYUV/fig2.gif">
+<meta property="og:updated_time" content="2016-06-26T11:52:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android常用的几种格式：NV21/NV12/YV12/YUV420P的区别">
+<meta name="twitter:description" content="说明　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完事后将最近所学总结一下，以方便之后的人别踩太多坑。  
+　　首先想要了解YUV为何物:请猛戳我　　
+　　上面的链接中微软已经写的很详细了，国内大部分文章都是翻译这篇文章的，如果还有疑问的同学可以参考下面这些大神的博客：
+
+最简单的基于FFmpeg的libs">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/eterrao/BlogExamples/master/Blogs/DifferenceOfYUV/fig1.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://eterrao.github.io/2016/06/13/DifferenceOfYUV/"/>
+
+  <title> Android常用的几种格式：NV21/NV12/YV12/YUV420P的区别 | Code纪念册 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Code纪念册</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">不积跬步，无以至千里</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="http://eterrao.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/Android" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android常用的几种格式：NV21/NV12/YV12/YUV420P的区别
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-13T21:26:08+08:00" content="2016-06-13">
+              2016-06-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/13/DifferenceOfYUV/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/13/DifferenceOfYUV/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><p>　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完事后将最近所学总结一下，以方便之后的人别踩太多坑。  </p>
+<p>　　首先想要了解YUV为何物:<a href="https://msdn.microsoft.com/en-us/library/aa904813" target="_blank" rel="external">请猛戳我</a>　　</p>
+<p>　　上面的链接中微软已经写的很详细了，国内大部分文章都是翻译这篇文章的，如果还有疑问的同学可以参考下面这些大神的博客：</p>
+<ul>
+<li><a href="http://blog.csdn.net/leixiaohua1020/article/details/42134965" target="_blank" rel="external">最简单的基于FFmpeg的libswscale的示例（YUV转RGB）</a>  </li>
+<li><a href="http://www.cnblogs.com/azraelly/archive/2013/01/01/2841269.htm" target="_blank" rel="external">图文详解YUV420数据格式</a></li>
+<li><a href="http://tangzm.com/blog/?p=18" target="_blank" rel="external">ANDROID 高性能图形处理</a></li>
+<li><a href="http://blog.csdn.net/yanzi1225627/article/details/8626411" target="_blank" rel="external">Android摄像头开发：实时摄像头视频预览帧的编码问题（二）</a></li>
+</ul>
+<hr>
+<p>　　看完上面的文章应该都会有所了解和认识了，因为在<strong>Android SDK &lt;= 20（Android5.0）</strong>中Google支持的Camera Preview Callback的YUV常用格式有两种：NV21 / YV12，在此针对这两种格式做分析。</p>
+<h5 id="NV21："><a href="#NV21：" class="headerlink" title="NV21："></a>NV21：</h5><p>引用一段微软的叙述：</p>
+<h6 id="4-2-0-Formats-12-Bits-per-Pixel"><a href="#4-2-0-Formats-12-Bits-per-Pixel" class="headerlink" title="4:2:0 Formats, 12 Bits per Pixel"></a>4:2:0 Formats, 12 Bits per Pixel</h6><blockquote>
+<p>Four 4:2:0 12-bpp formats are recommended, with the following FOURCC codes:  </p>
+<ul>
+<li>IMC2  </li>
+<li>IMC4  </li>
+<li>YV12  </li>
+<li>NV12<br>  In all of these formats, the chroma channels are subsampled by a factor of two in both the horizontal and vertical dimensions. </li>
+</ul>
+</blockquote>
+<h5 id="YV12"><a href="#YV12" class="headerlink" title="YV12"></a>YV12</h5><blockquote>
+<p><code>All of the Y samples appear first in memory as an array of unsigned char values.</code> This array is followed immediately by all of the V (Cr) samples. The stride of the V plane is half the stride of the Y plane, and the V plane contains half as many lines as the Y plane. The V plane is followed immediately by all of the U (Cb) samples, with the same stride and number of lines as the V plane (Figure 12).<br><strong>Figure 12:</strong><br><img src="https://raw.githubusercontent.com/eterrao/BlogExamples/master/Blogs/DifferenceOfYUV/fig1.gif" alt="YV12 memory layout"></p>
+</blockquote>
+<h5 id="NV12"><a href="#NV12" class="headerlink" title="NV12"></a>NV12</h5><blockquote>
+<p><code>All of the Y samples are found first in memory as an array of unsigned char values with an even number of lines.</code> The Y plane is followed immediately by an array of unsigned char values that contains packed U (Cb) and V (Cr) samples, as shown in Figure 13. When the combined U-V array is addressed as an array of little-endian WORD values, the LSBs contain the U values, and the MSBs contain the V values. NV12 is the preferred 4:2:0 pixel format for DirectX VA. It is expected to be an intermediate-term requirement for DirectX VA accelerators supporting 4:2:0 video.<br><strong>Figure 13:</strong><br><img src="https://raw.githubusercontent.com/eterrao/BlogExamples/master/Blogs/DifferenceOfYUV/fig2.gif" alt="NV12 memory layout"></p>
+</blockquote>
+<p>　　从上可知YV12和NV12所占内存是<strong>12bits/Pixel</strong>，因为<strong>每个Y就是一个像素点</strong>，注意着色加粗的叙述，YUV值在内存中是按照数组的形式存放的，而由于<strong>YV12和NV21都是属于planar</strong>格式，也就是Y值和UV值是独立采样的：</p>
+<blockquote>
+<p><code>In a planar format, the Y, U, and V components are stored as three separate planes.</code>  </p>
+</blockquote>
+<p>　　既然Y、U、V值都是独立的，那就意味着我们可以分别处理相应的值，比如在YV12中，排列方式是这样的，<strong>每4个Y共用一对UV值</strong>，而U、V值又是按照如下格式排列<br><strong>下面是YV12格式中宽为16，高为4像素的排列</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Y第一行:</th>
+<th style="text-align:center">Y　　Y</th>
+<th style="text-align:center">Y　　Y</th>
+<th style="text-align:center">Y　　Y</th>
+<th style="text-align:center">Y　　Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Y第二行：</td>
+<td style="text-align:center">Y　　Y</td>
+<td style="text-align:center">Y　　Y</td>
+<td style="text-align:center">Y　　Y</td>
+<td style="text-align:center">Y　　Y</td>
+</tr>
+<tr>
+<td style="text-align:center">Y第三行：</td>
+<td style="text-align:center">Y　　Y</td>
+<td style="text-align:center">Y　　Y</td>
+<td style="text-align:center">Y　　Y</td>
+<td style="text-align:center">Y　　Y</td>
+</tr>
+<tr>
+<td style="text-align:center">Y第四行：</td>
+<td style="text-align:center">Y　　Y</td>
+<td style="text-align:center">Y　　Y</td>
+<td style="text-align:center">Y　　Y</td>
+<td style="text-align:center">Y　　Y</td>
+</tr>
+<tr>
+<td style="text-align:center">V第一行：</td>
+<td style="text-align:center">V0</td>
+<td style="text-align:center">V1</td>
+<td style="text-align:center">V2</td>
+<td style="text-align:center">V3</td>
+</tr>
+<tr>
+<td style="text-align:center">U第一行：</td>
+<td style="text-align:center">U0</td>
+<td style="text-align:center">U1</td>
+<td style="text-align:center">U2</td>
+<td style="text-align:center">U3</td>
+</tr>
+<tr>
+<td style="text-align:center">V第二行：</td>
+<td style="text-align:center">V4</td>
+<td style="text-align:center">V5</td>
+<td style="text-align:center">V6</td>
+<td style="text-align:center">V7</td>
+</tr>
+<tr>
+<td style="text-align:center">U第二行：</td>
+<td style="text-align:center">U4</td>
+<td style="text-align:center">U5</td>
+<td style="text-align:center">U6</td>
+<td style="text-align:center">U7</td>
+</tr>
+</tbody>
+</table>
+<p>　　既然知道了YUV值的结构，我们就可以任性的对此图像做Rotate，scale等等。这里我以480ｘ270 （16:9)的一张原始帧图像举例，贴出部分代码示例：<br>任意设定的一个带有onPreviewFrame的类，<strong>CameraPreviewFrame.java:</strong></p>
+<pre><code>/**
+ * 获取preview的原始帧：
+ * 
+ * 这里有个前提，因为Android camera preview默认格式为NV21的，所以需要
+ * 调用setPreviewFormat()方法设置为我们需要的格式
+ * 
+ */
+
+@Override
+public void onPreviewFrame(byte[] data, Camera camera) {// 假设这里的data为480x270原始帧
+
+        String SRC_FRAME_WIDTH = 480;
+        String SRC_FRAME_HEIGHT = 270;
+
+        String DES_FRAME_WIDTH = 480;
+        String DES_FRAME_HEIGHT = 270;
+        // 此处将data数组保存在了指定的路径，保存类型为jpeg格式，但是普通的图片浏
+        // 览器是无法打开的，需要使用RawView等专业的工具打开。
+        saveImageData(data);
+
+        // 定义与原始帧大小一样的outputData，因为YUV420所占内存是12Bits/Pixel，
+         // 每个Y为一个像素8bit＝1Byte，U＝2bit＝1/4(Byte)，V＝2bit=1/4(Byte)，
+         // Y值数量为480*270，则U=V＝480*270*(1/4)
+        byte[] outputData = new byte[DES_FRAME_WIDTH * DES_FRAME_HEIGHT * 3 / 2]; 
+        // call the JNI method to rotate frame data clockwise 90 degrees
+        YuvUtil.DealYV12(data, outputData, SRC_FRAME_WIDTH, SRC_FRAME_HEIGHT, 90);
+        saveImageData(outputData);
+
+    }
+}
+
+    // save image to sdcard path: Pictures/MyTestImage/
+public void saveImageData(byte[] imageData) {
+        File imageFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+        if (imageFile == null) {
+            return;
+        }
+
+        try {
+            FileOutputStream fos = new FileOutputStream(imageFile);
+            fos.write(imageData);
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Log.e(TAG, &quot;File not found: &quot; + e.getMessage());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e(TAG, &quot;Error accessing file: &quot; + e.getMessage());
+        }
+    }
+
+public static File getOutputMediaFile(int type) {
+        File imageFileDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), &quot;MyTestImage&quot;);
+
+        if (!imageFileDir.exists()) {
+            if (!imageFileDir.mkdirs()) {
+                Log.e(TAG, &quot;can&apos;t makedir for imagefile&quot;);
+                return null;
+            }
+        }
+        // Create a media file name
+        String timeStamp = new SimpleDateFormat(&quot;yyyyMMdd_HHmmss&quot;).format(new Date());
+        File imageFile;
+        if (type == MEDIA_TYPE_IMAGE) {
+            imageFile = new File(imageFileDir.getPath() + File.separator +
+                    &quot;IMG_&quot; + timeStamp + &quot;.jpg&quot;);
+        } else if (type == MEDIA_TYPE_VIDEO) {
+            imageFile = new File(imageFileDir.getPath() + File.separator +
+                    &quot;VID_&quot; + timeStamp + &quot;.mp4&quot;);
+        } else {
+            return null;
+        }
+        return imageFile;
+}
+</code></pre><p>上面的代码中可以看到调用了JNI的方法：<strong>YuvUtil.RotateYV12()</strong></p>
+<pre><code>public class YuvUtil {
+    // 初始化，为data分配相应大小的内存
+    public static native void initYV12(int length, int scale_length);
+
+    public static native void DealYV12(byte[] src_data, byte[] dst_data, int width, int height, int rotation);
+}
+</code></pre><p><strong>com_example_jni_YuvUtil.h</strong></p>
+<pre><code>/* DO NOT EDIT THIS FILE - it is machine generated */
+#include &lt;jni.h&gt;
+/* Header for class _Included_com_example_jni_YuvUtil */
+
+#ifndef _Included_com_example_jni_YuvUtil
+#define _Included_com_example_jni_YuvUtil
+#ifdef __cplusplus
+extern &quot;C&quot; {
+#endif
+/*
+ * Class:     com_example_jni_YuvUtil
+ * Method:    initYV12
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_com_example_jni_YuvUtil_initYV12
+  (JNIEnv *, jclass, jint, jint);
+
+/*
+ * Class:     com_example_jni_YuvUtil
+ * Method:    DealYV12
+ * Signature: ([B[BIIIII)V
+ */
+JNIEXPORT void JNICALL Java_com_example_jni_YuvUtil_DealYV12
+  (JNIEnv *, jclass, jbyteArray, jbyteArray, jint, jint, jint, jint, jint);
+
+
+#ifdef __cplusplus
+}
+#endif
+#endif
+</code></pre><p><strong>com_example_jni_YuvUtil.c</strong></p>
+<pre><code>#include &quot;com_example_jni_YuvUtil.h&quot;
+#include &lt;android/log.h&gt;
+#include &lt;string.h&gt;
+#include &lt;jni.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define TAG &quot;jni-log-jni&quot; // 这个是自定义的LOG的标识
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG ,__VA_ARGS__) // 定义LOGD类型
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG ,__VA_ARGS__) // 定义LOGI类型
+#define LOGW(...) __android_log_print(ANDROID_LOG_WARN,TAG ,__VA_ARGS__) // 定义LOGW类型
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG ,__VA_ARGS__) // 定义LOGE类型
+#define LOGF(...) __android_log_print(ANDROID_LOG_FATAL,TAG ,__VA_ARGS__) // 定义LOGF类型
+
+char *input_src_data, *output_src_data, *src_y_data,
+     *src_u_data, *src_v_data, *dst_y_data, *dst_v_data;
+int src_data_width, src_data_height, len_src;
+
+/*
+ * Class:     com_example_jni_YuvUtil
+ */
+JNIEXPORT void JNICALL Java_com_example_jni_YuvUtil_initYV12
+(JNIEnv *env, jclass jcls, jint length, jint scaleDataLength) {
+len_src = length;
+len_scale = scaleDataLength;
+LOGD(&quot;########## len_src  = %d, len_scale = %d \n&quot;, len_src, len_scale);
+
+input_src_data = malloc(sizeof(char) * len_src);
+LOGD(&quot;########## input_src_data  = %d \n&quot;, input_src_data);
+
+src_y_data = malloc(sizeof(char) * (len_src * 2 / 3));
+src_u_data = malloc(sizeof(char) * (len_src / 6));
+src_v_data = malloc(sizeof(char) * (len_src / 6));
+
+dst_y_data = malloc(sizeof(char) * (len_src * 2 / 3));
+dst_u_data = malloc(sizeof(char) * (len_src / 6));
+dst_v_data = malloc(sizeof(char) * (len_src / 6));
+
+}
+
+JNIEXPORT void JNICALL Java_com_example_jni_YuvUtil_DealYV12
+(JNIEnv *env, jclass jcls, jbyteArray src_data,
+    jbyteArray dst_data, jint width, jint height, jint rotation, jint dst_width, jint dst_height) {
+src_data_width = width;
+src_data_height = height;
+
+// 将src_data的数据传给input_src_data
+(*env)-&gt;GetByteArrayRegion (env, src_data, 0, len_src, (jbyte*)(input_src_data));
+
+/*以下三个memcpy分别将Y、U、V值从src_data中提取出来,将YUV值分别scale或者rotate，则可得到对应格式的图像数据*/
+// get y plane
+memcpy(src_y_data, input_src_data , (len_src * 2 /3));
+// get u plane
+memcpy(src_u_data, input_src_data + (len_src * 2 / 3), len_src / 6);
+// get v plane
+memcpy(src_v_data, input_src_data + (len_src * 5 / 6 ), len_src / 6);
+/*获取yuv三个值的数据可以做相应操作*/
+// ......... 
+// .........
+
+
+// 例：将Y值置为0，则得到没有灰度的图像；
+memset(input_src_data + src_data_width * src_data_height, 0, src_data_width * src_data_height);
+
+// 将input_src_data的数据返回给dst_data输出
+// output to the dst_data
+(*env)-&gt;SetByteArrayRegion (env, dst_data, 0, len_src, (jbyte*)(input_src_data));
+
+}
+
+/**
+ * free memory
+ */
+JNIEXPORT void JNICALL Java_com_example_jni_YuvUtil_ReleaseYV12
+(JNIEnv *env , jclass jcls) {
+free(output_src_data);
+free(input_src_data);
+}
+</code></pre><p><strong>注意：以上代码不是完全的，只是用于说明而已，如果需要更多的操作还请各位朋友自己完善，因为没怎么写过这类博客代码很乱，如有表述的不清楚和有问题的地方，大家可以给我留言。</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/20/AnimationExamples/" rel="next" title="Android动画浅析+模仿">
+                <i class="fa fa-chevron-left"></i> Android动画浅析+模仿
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/13/DifferenceOfYUV/"
+           data-title="Android常用的几种格式：NV21/NV12/YV12/YUV420P的区别" data-url="http://eterrao.github.io/2016/06/13/DifferenceOfYUV/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Codios" />
+          <p class="site-author-name" itemprop="name">Codios</p>
+          <p class="site-description motion-element" itemprop="description">记录经典</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/eterrao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/raomengyang" target="_blank" title="Cnblogs">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Cnblogs
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="weibo.com/raomengyang/" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NV21："><span class="nav-number">2.</span> <span class="nav-text">NV21：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#4-2-0-Formats-12-Bits-per-Pixel"><span class="nav-number">2.1.</span> <span class="nav-text">4:2:0 Formats, 12 Bits per Pixel</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#YV12"><span class="nav-number">3.</span> <span class="nav-text">YV12</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NV12"><span class="nav-number">4.</span> <span class="nav-text">NV12</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Codios</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"raomengyang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

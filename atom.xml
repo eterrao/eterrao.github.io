@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Code纪念册</title>
+  <subtitle>不积跬步，无以至千里</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://eterrao.github.io/"/>
+  <updated>2016-06-26T11:52:32.000Z</updated>
+  <id>http://eterrao.github.io/</id>
+  
+  <author>
+    <name>Codios</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android常用的几种格式：NV21/NV12/YV12/YUV420P的区别</title>
+    <link href="http://eterrao.github.io/2016/06/13/DifferenceOfYUV/"/>
+    <id>http://eterrao.github.io/2016/06/13/DifferenceOfYUV/</id>
+    <published>2016-06-13T13:26:08.000Z</published>
+    <updated>2016-06-26T11:52:32.000Z</updated>
+    
+    <content type="html">&lt;h5 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h5&gt;&lt;p&gt;　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完事后将最近所学总结一下，以方便之后的人别踩太多坑。  &lt;/p&gt;
+&lt;p&gt;　　首先想要了解YUV为何物:&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/aa904813&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;请猛戳我&lt;/a&gt;　　&lt;/p&gt;
+&lt;p&gt;　　上面的链接中微软已经写的很详细了，国内大部分文章都是翻译这篇文章的，如果还有疑问的同学可以参考下面这些大神的博客：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/leixiaohua1020/article/details/42134965&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;最简单的基于FFmpeg的libswscale的示例（YUV转RGB）&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/azraelly/archive/2013/01/01/2841269.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;图文详解YUV420数据格式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tangzm.com/blog/?p=18&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ANDROID 高性能图形处理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/yanzi1225627/article/details/8626411&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android摄像头开发：实时摄像头视频预览帧的编码问题（二）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;　　看完上面的文章应该都会有所了解和认识了，因为在&lt;strong&gt;Android SDK &amp;lt;= 20（Android5.0）&lt;/strong&gt;中Google支持的Camera Preview Callback的YUV常用格式有两种：NV21 / YV12，在此针对这两种格式做分析。&lt;/p&gt;
+&lt;h5 id=&quot;NV21：&quot;&gt;&lt;a href=&quot;#NV21：&quot; class=&quot;headerlink&quot; title=&quot;NV21：&quot;&gt;&lt;/a&gt;NV21：&lt;/h5&gt;&lt;p&gt;引用一段微软的叙述：&lt;/p&gt;
+&lt;h6 id=&quot;4-2-0-Formats-12-Bits-per-Pixel&quot;&gt;&lt;a href=&quot;#4-2-0-Formats-12-Bits-per-Pixel&quot; class=&quot;headerlink&quot; title=&quot;4:2:0 Formats, 12 Bits per Pixel&quot;&gt;&lt;/a&gt;4:2:0 Formats, 12 Bits per Pixel&lt;/h6&gt;&lt;blockquote&gt;
+&lt;p&gt;Four 4:2:0 12-bpp formats are recommended, with the following FOURCC codes:  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IMC2  &lt;/li&gt;
+&lt;li&gt;IMC4  &lt;/li&gt;
+&lt;li&gt;YV12  &lt;/li&gt;
+&lt;li&gt;NV12&lt;br&gt;  In all of these formats, the chroma channels are subsampled by a factor of two in both the horizontal and vertical dimensions. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&quot;YV12&quot;&gt;&lt;a href=&quot;#YV12&quot; class=&quot;headerlink&quot; title=&quot;YV12&quot;&gt;&lt;/a&gt;YV12&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;All of the Y samples appear first in memory as an array of unsigned char values.&lt;/code&gt; This array is followed immediately by all of the V (Cr) samples. The stride of the V plane is half the stride of the Y plane, and the V plane contains half as many lines as the Y plane. The V plane is followed immediately by all of the U (Cb) samples, with the same stride and number of lines as the V plane (Figure 12).&lt;br&gt;&lt;strong&gt;Figure 12:&lt;/strong&gt;&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/eterrao/BlogExamples/master/Blogs/DifferenceOfYUV/fig1.gif&quot; alt=&quot;YV12 memory layout&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&quot;NV12&quot;&gt;&lt;a href=&quot;#NV12&quot; class=&quot;headerlink&quot; title=&quot;NV12&quot;&gt;&lt;/a&gt;NV12&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;All of the Y samples are found first in memory as an array of unsigned char values with an even number of lines.&lt;/code&gt; The Y plane is followed immediately by an array of unsigned char values that contains packed U (Cb) and V (Cr) samples, as shown in Figure 13. When the combined U-V array is addressed as an array of little-endian WORD values, the LSBs contain the U values, and the MSBs contain the V values. NV12 is the preferred 4:2:0 pixel format for DirectX VA. It is expected to be an intermediate-term requirement for DirectX VA accelerators supporting 4:2:0 video.&lt;br&gt;&lt;strong&gt;Figure 13:&lt;/strong&gt;&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/eterrao/BlogExamples/master/Blogs/DifferenceOfYUV/fig2.gif&quot; alt=&quot;NV12 memory layout&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;　　从上可知YV12和NV12所占内存是&lt;strong&gt;12bits/Pixel&lt;/strong&gt;，因为&lt;strong&gt;每个Y就是一个像素点&lt;/strong&gt;，注意着色加粗的叙述，YUV值在内存中是按照数组的形式存放的，而由于&lt;strong&gt;YV12和NV21都是属于planar&lt;/strong&gt;格式，也就是Y值和UV值是独立采样的：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;In a planar format, the Y, U, and V components are stored as three separate planes.&lt;/code&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;　　既然Y、U、V值都是独立的，那就意味着我们可以分别处理相应的值，比如在YV12中，排列方式是这样的，&lt;strong&gt;每4个Y共用一对UV值&lt;/strong&gt;，而U、V值又是按照如下格式排列&lt;br&gt;&lt;strong&gt;下面是YV12格式中宽为16，高为4像素的排列&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Y第一行:&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y第二行：&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y第三行：&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y第四行：&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y　　Y&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;V第一行：&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;V0&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;V1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;V2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;V3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;U第一行：&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;U0&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;U1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;U2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;U3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;V第二行：&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;V4&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;V5&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;V6&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;V7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;U第二行：&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;U4&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;U5&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;U6&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;U7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;　　既然知道了YUV值的结构，我们就可以任性的对此图像做Rotate，scale等等。这里我以480ｘ270 （16:9)的一张原始帧图像举例，贴出部分代码示例：&lt;br&gt;任意设定的一个带有onPreviewFrame的类，&lt;strong&gt;CameraPreviewFrame.java:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/**
+ * 获取preview的原始帧：
+ * 
+ * 这里有个前提，因为Android camera preview默认格式为NV21的，所以需要
+ * 调用setPreviewFormat()方法设置为我们需要的格式
+ * 
+ */
+
+@Override
+public void onPreviewFrame(byte[] data, Camera camera) {// 假设这里的data为480x270原始帧
+
+        String SRC_FRAME_WIDTH = 480;
+        String SRC_FRAME_HEIGHT = 270;
+
+        String DES_FRAME_WIDTH = 480;
+        String DES_FRAME_HEIGHT = 270;
+        // 此处将data数组保存在了指定的路径，保存类型为jpeg格式，但是普通的图片浏
+        // 览器是无法打开的，需要使用RawView等专业的工具打开。
+        saveImageData(data);
+
+        // 定义与原始帧大小一样的outputData，因为YUV420所占内存是12Bits/Pixel，
+         // 每个Y为一个像素8bit＝1Byte，U＝2bit＝1/4(Byte)，V＝2bit=1/4(Byte)，
+         // Y值数量为480*270，则U=V＝480*270*(1/4)
+        byte[] outputData = new byte[DES_FRAME_WIDTH * DES_FRAME_HEIGHT * 3 / 2]; 
+        // call the JNI method to rotate frame data clockwise 90 degrees
+        YuvUtil.DealYV12(data, outputData, SRC_FRAME_WIDTH, SRC_FRAME_HEIGHT, 90);
+        saveImageData(outputData);
+
+    }
+}
+
+    // save image to sdcard path: Pictures/MyTestImage/
+public void saveImageData(byte[] imageData) {
+        File imageFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+        if (imageFile == null) {
+            return;
+        }
+
+        try {
+            FileOutputStream fos = new FileOutputStream(imageFile);
+            fos.write(imageData);
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Log.e(TAG, &amp;quot;File not found: &amp;quot; + e.getMessage());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e(TAG, &amp;quot;Error accessing file: &amp;quot; + e.getMessage());
+        }
+    }
+
+public static File getOutputMediaFile(int type) {
+        File imageFileDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), &amp;quot;MyTestImage&amp;quot;);
+
+        if (!imageFileDir.exists()) {
+            if (!imageFileDir.mkdirs()) {
+                Log.e(TAG, &amp;quot;can&amp;apos;t makedir for imagefile&amp;quot;);
+                return null;
+            }
+        }
+        // Create a media file name
+        String timeStamp = new SimpleDateFormat(&amp;quot;yyyyMMdd_HHmmss&amp;quot;).format(new Date());
+        File imageFile;
+        if (type == MEDIA_TYPE_IMAGE) {
+            imageFile = new File(imageFileDir.getPath() + File.separator +
+                    &amp;quot;IMG_&amp;quot; + timeStamp + &amp;quot;.jpg&amp;quot;);
+        } else if (type == MEDIA_TYPE_VIDEO) {
+            imageFile = new File(imageFileDir.getPath() + File.separator +
+                    &amp;quot;VID_&amp;quot; + timeStamp + &amp;quot;.mp4&amp;quot;);
+        } else {
+            return null;
+        }
+        return imageFile;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面的代码中可以看到调用了JNI的方法：&lt;strong&gt;YuvUtil.RotateYV12()&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public class YuvUtil {
+    // 初始化，为data分配相应大小的内存
+    public static native void initYV12(int length, int scale_length);
+
+    public static native void DealYV12(byte[] src_data, byte[] dst_data, int width, int height, int rotation);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;com_example_jni_YuvUtil.h&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/* DO NOT EDIT THIS FILE - it is machine generated */
+#include &amp;lt;jni.h&amp;gt;
+/* Header for class _Included_com_example_jni_YuvUtil */
+
+#ifndef _Included_com_example_jni_YuvUtil
+#define _Included_com_example_jni_YuvUtil
+#ifdef __cplusplus
+extern &amp;quot;C&amp;quot; {
+#endif
+/*
+ * Class:     com_example_jni_YuvUtil
+ * Method:    initYV12
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_com_example_jni_YuvUtil_initYV12
+  (JNIEnv *, jclass, jint, jint);
+
+/*
+ * Class:     com_example_jni_YuvUtil
+ * Method:    DealYV12
+ * Signature: ([B[BIIIII)V
+ */
+JNIEXPORT void JNICALL Java_com_example_jni_YuvUtil_DealYV12
+  (JNIEnv *, jclass, jbyteArray, jbyteArray, jint, jint, jint, jint, jint);
+
+
+#ifdef __cplusplus
+}
+#endif
+#endif
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;com_example_jni_YuvUtil.c&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;quot;com_example_jni_YuvUtil.h&amp;quot;
+#include &amp;lt;android/log.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;jni.h&amp;gt;
+#include &amp;lt;stdlib.h&amp;gt;
+
+#define TAG &amp;quot;jni-log-jni&amp;quot; // 这个是自定义的LOG的标识
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG ,__VA_ARGS__) // 定义LOGD类型
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG ,__VA_ARGS__) // 定义LOGI类型
+#define LOGW(...) __android_log_print(ANDROID_LOG_WARN,TAG ,__VA_ARGS__) // 定义LOGW类型
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG ,__VA_ARGS__) // 定义LOGE类型
+#define LOGF(...) __android_log_print(ANDROID_LOG_FATAL,TAG ,__VA_ARGS__) // 定义LOGF类型
+
+char *input_src_data, *output_src_data, *src_y_data,
+     *src_u_data, *src_v_data, *dst_y_data, *dst_v_data;
+int src_data_width, src_data_height, len_src;
+
+/*
+ * Class:     com_example_jni_YuvUtil
+ */
+JNIEXPORT void JNICALL Java_com_example_jni_YuvUtil_initYV12
+(JNIEnv *env, jclass jcls, jint length, jint scaleDataLength) {
+len_src = length;
+len_scale = scaleDataLength;
+LOGD(&amp;quot;########## len_src  = %d, len_scale = %d \n&amp;quot;, len_src, len_scale);
+
+input_src_data = malloc(sizeof(char) * len_src);
+LOGD(&amp;quot;########## input_src_data  = %d \n&amp;quot;, input_src_data);
+
+src_y_data = malloc(sizeof(char) * (len_src * 2 / 3));
+src_u_data = malloc(sizeof(char) * (len_src / 6));
+src_v_data = malloc(sizeof(char) * (len_src / 6));
+
+dst_y_data = malloc(sizeof(char) * (len_src * 2 / 3));
+dst_u_data = malloc(sizeof(char) * (len_src / 6));
+dst_v_data = malloc(sizeof(char) * (len_src / 6));
+
+}
+
+JNIEXPORT void JNICALL Java_com_example_jni_YuvUtil_DealYV12
+(JNIEnv *env, jclass jcls, jbyteArray src_data,
+    jbyteArray dst_data, jint width, jint height, jint rotation, jint dst_width, jint dst_height) {
+src_data_width = width;
+src_data_height = height;
+
+// 将src_data的数据传给input_src_data
+(*env)-&amp;gt;GetByteArrayRegion (env, src_data, 0, len_src, (jbyte*)(input_src_data));
+
+/*以下三个memcpy分别将Y、U、V值从src_data中提取出来,将YUV值分别scale或者rotate，则可得到对应格式的图像数据*/
+// get y plane
+memcpy(src_y_data, input_src_data , (len_src * 2 /3));
+// get u plane
+memcpy(src_u_data, input_src_data + (len_src * 2 / 3), len_src / 6);
+// get v plane
+memcpy(src_v_data, input_src_data + (len_src * 5 / 6 ), len_src / 6);
+/*获取yuv三个值的数据可以做相应操作*/
+// ......... 
+// .........
+
+
+// 例：将Y值置为0，则得到没有灰度的图像；
+memset(input_src_data + src_data_width * src_data_height, 0, src_data_width * src_data_height);
+
+// 将input_src_data的数据返回给dst_data输出
+// output to the dst_data
+(*env)-&amp;gt;SetByteArrayRegion (env, dst_data, 0, len_src, (jbyte*)(input_src_data));
+
+}
+
+/**
+ * free memory
+ */
+JNIEXPORT void JNICALL Java_com_example_jni_YuvUtil_ReleaseYV12
+(JNIEnv *env , jclass jcls) {
+free(output_src_data);
+free(input_src_data);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;注意：以上代码不是完全的，只是用于说明而已，如果需要更多的操作还请各位朋友自己完善，因为没怎么写过这类博客代码很乱，如有表述的不清楚和有问题的地方，大家可以给我留言。&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h5&gt;&lt;p&gt;　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Android动画浅析+模仿</title>
+    <link href="http://eterrao.github.io/2016/05/20/AnimationExamples/"/>
+    <id>http://eterrao.github.io/2016/05/20/AnimationExamples/</id>
+    <published>2016-05-19T16:19:54.000Z</published>
+    <updated>2016-06-26T11:52:43.000Z</updated>
+    
+    <content type="html">&lt;h4 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;Android动画浅析+模仿
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;ObjectAnimator&quot;&gt;&lt;a href=&quot;#ObjectAnimator&quot; class=&quot;headerlink&quot; title=&quot;ObjectAnimator:&quot;&gt;&lt;/a&gt;ObjectAnimator:&lt;/h4&gt;&lt;p&gt;属性动画（ObjectAnimator）的概念这里就不解释了，直接从代码中说明，以下是模仿Persicope的加载动画，简单的几行代码即可实现，当然我也是模仿的，更好的实现思路还请各位朋友自己仔细思考。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;先说说我的思路：&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;首先下载Periscope然后改名zip解包，获取对应的png图片（搜索相关的loading文件：ps__bg_loading.png），看到了该文件的大小，仔细观察后，发现可以把很多张图连在一起从右–&amp;gt;左的连续位移动画，而这里我用到了属性动画，当然不是最好的选择，而且我这里实现的方法很笨，就是将两个LinearLayout不同x的坐标轴同样的距离和时间进行右到左的translate。实现结果如下图：&lt;/p&gt;
+&lt;h4 id=&quot;模仿Periscope的加载动画&quot;&gt;&lt;a href=&quot;#模仿Periscope的加载动画&quot; class=&quot;headerlink&quot; title=&quot;模仿Periscope的加载动画&quot;&gt;&lt;/a&gt;模仿Periscope的加载动画&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;A demo of Loading animation to imitate Periscope.
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Demo-GIF&quot;&gt;&lt;a href=&quot;#Demo-GIF&quot; class=&quot;headerlink&quot; title=&quot;Demo GIF:&quot;&gt;&lt;/a&gt;Demo GIF:&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/eterrao/AnimationExamples/master/periscopeLoading.gif&quot; alt=&quot;Loading&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Demo地址：&lt;/strong&gt; &lt;a href=&quot;https://github.com/eterrao/AnimationExamples&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/eterrao/AnimationExamples&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;Android动画浅析+模仿
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;ObjectAnimator&quot;&gt;&lt;a href=&quot;#
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Android-Classical-OpenSource</title>
+    <link href="http://eterrao.github.io/2016/05/09/Android-Classical-OpenSource/"/>
+    <id>http://eterrao.github.io/2016/05/09/Android-Classical-OpenSource/</id>
+    <published>2016-05-09T05:02:52.000Z</published>
+    <updated>2016-06-26T11:49:58.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;p&gt;&lt;code&gt;Android开发中 个人遇到和使用过的值得分享的资源合集&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&quot;Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&quot;&gt;&lt;/a&gt;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/Trinea/android-open-project&lt;/a&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;项目说明：
+Android 开源项目第一篇——个性化控件(View)篇
+  包括ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style、其他
+Android 开源项目第二篇——工具库篇
+  包括依赖注入、图片缓存、网络请求、数据库 ORM 工具包、Android 公共库、高版本向低版本兼容库、多媒体、事件总线、传感器、安全、插件化、文件、其他
+Android 开源项目第三篇——优秀项目篇
+  比较有意思的完整的 Android 项目
+Android 开源项目第四篇——开发及测试工具篇
+  包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他
+Android 开源项目第五篇——优秀个人和团体篇
+  乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;awesome-android-ui&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/wasabeef/awesome-android-ui&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;项目说明：
+国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。
+A curated list of awesome Android UI/UX libraries.                        
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;AndroidDevTools 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/inferjay/AndroidDevTools&lt;/a&gt;&lt;br&gt;官方网站：&lt;a href=&quot;http://www.androiddevtools.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.androiddevtools.cn/&lt;/a&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;项目说明：
+收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。
+欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;android-tech-frontier&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/eterrao/android-tech-frontier.git&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;项目说明：
+一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。
+
+我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;####个人博客资源：&lt;/p&gt;
+&lt;h4 id=&quot;stormZhang&quot;&gt;&lt;a href=&quot;#stormZhang&quot; class=&quot;headerlink&quot; title=&quot;stormZhang&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://stormzhang.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stormZhang&lt;/a&gt;&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;每个人都有一段艰辛、苦逼的成长时光，所以学会从博客开始记录自己一点一滴。这个博客的文章每次看都让自己有更多的动力去学习。提醒我自己别忘了还有梦想。
+PS：还有很多干货。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;####&lt;a href=&quot;http://ticktick.blog.51cto.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tickTick 的BLOG&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;本目录下的代码都是来自于我的博客《Android应用开发》系列文章，本系列文章介绍Android开发的一些基础和进阶知识，并附带有一些简单的Demo示例，这些示例代码中很多Java文件都对Android API进行了良好的封装，可以直接拿到自己的项目中使用。
+
+Code List
+
+Builder 给出了使用ant编译Android工程的通用shell脚本，相关博文：Android开发实践：用脚本编译Android工程
+
+GroupList 封装并演示了如何使用Android的ExpandableListView控件，相关博文：Android开发实践：多级列表的封装与应用
+
+PopDialog 封装并演示了如何使用Android的PopupWindow控件，相关博文：Android开发实践：用PopupWindow实现自定义Dailog
+
+JniCallback 演示了如何从Native线程回调Java的函数，相关博文：Android开发实践：JNI层线程回调Java函数示例
+
+JniBuffer 演示了各种从Java端到Native层的Buffer传递方法，相关博文：Android开发实践：Java层与Jni层的数组传递
+
+LoopThread 演示了如何实现一个自定义的带Loop消息循环的线程，相关博文：Android开发实践：自定义带消息循环（Looper）的工作线程
+
+VideoPlayer 演示了Android隐式Intent的用法，相关博文：Android开发实践：实战演练隐式Intent的用法
+
+VideoServer 演示了如何利用NanoHttpd搭建一个Android视频服务器，相关博文：基于NanoHttpd的Android视频服务器开发
+
+CustomView 演示了如何自定义View和ViewGroup，并给出了一个柱状图动画自定义View的实现，相关博文：
+
+（1）Android开发实践：为什么要继承onMeasure()
+
+（2）Android开发实践：自定义ViewGroup的onLayout()分析
+
+（3）Android开发实践：自定义带动画的View
+
+WIFI 封装了Andriod WIFI扫描和连接的相关API，相关博文：
+
+（1）Android开发实践：WIFI扫描功能的封装
+
+（2）Android开发实践：WIFI连接功能的封装
+
+Socket封装了Android中的Socket相关API
+
+（1） Broadcaster.java 封装了UDP广播包的收发操作，相关博文：Android Socket 发送广播包的那些坑
+
+MediaDemo 给出了Android平台下多媒体相关API的demo代码，相关博文：Android中如何提取和生成mp4文件
+
+Utils 给出了一系列的工具类代码
+
+（1）SignatureGen.java 一个可以生成Java函数签名字符串的工具类，相关博文: Android开发实践：JNI函数签名生成器
+
+（2）BitmapHelper.java 一个封装了Bitmap操作的工具类，包括图片的打开、保存、剪裁、旋转等操作，相关博文: Android开发实践：自己动手编写图片剪裁应用（3）
+
+（3）ImageConvertor.java 封装了Android中各种图像格式转换，包括：NV21，YUY2、RGB565、ARGB8888、PNG、JPEG、Bitmap之间的转换操作。
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;工具类：&quot;&gt;&lt;a href=&quot;#工具类：&quot; class=&quot;headerlink&quot; title=&quot;工具类：&quot;&gt;&lt;/a&gt;工具类：&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;关于APK瘦身值得分享的一些经验：&lt;a href=&quot;http://www.jianshu.com/p/bd90dee57ad0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/bd90dee57ad0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PNG压缩：&lt;a href=&quot;https://tinypng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://tinypng.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;真机调试：&quot;&gt;&lt;a href=&quot;#真机调试：&quot; class=&quot;headerlink&quot; title=&quot;真机调试：&quot;&gt;&lt;/a&gt;真机调试：&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;云测 (Testin): &lt;a href=&quot;http://www.testin.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.testin.cn/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;优测 (腾讯的): &lt;a href=&quot;http://utest.qq.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://utest.qq.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;数据统计，Bug-Log-Crash-Reporter：&quot;&gt;&lt;a href=&quot;#数据统计，Bug-Log-Crash-Reporter：&quot; class=&quot;headerlink&quot; title=&quot;数据统计，Bug Log/Crash Reporter：**&quot;&gt;&lt;/a&gt;数据统计，Bug Log/Crash Reporter：**&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;国内：
+　　　　&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;友盟 ：&lt;a href=&quot;http://www.umeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.umeng.com/&lt;/a&gt;&lt;br&gt;　　　　说明：友盟的功能集成挺多，常用的基本都覆盖了，社会化组件/数据统计/Bug分析基本都通用，并且使用起来比较直观。SDK使用的话也不算麻烦。&lt;br&gt;　　　　优点就不说了，说说缺点吧，就是Crash Report不能实时邮件反馈，第二天9点30左右才会收到前一天的统计概况。详情的话倒是可以实时查询。
+　　　　&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;国外：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Twitter的Fabric：官网： &lt;a href=&quot;https://fabric.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://fabric.io/&lt;/a&gt;&lt;br&gt;　　　　优点：反馈及时，一般有了Bug邮件没过多久就收到了，并且集成起来很方便，基于Android Studio的一个插件自动将SDK打入项目中。&lt;br&gt;　　　　缺点：不知道是不是我的环境问题，经常会Connect出错或者项目Build中断。
+　　　　&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;An
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
