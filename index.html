@@ -299,108 +299,20 @@
 
       
         
-          
-            <h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><p>　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完事后将最近所学总结一下，以方便之后的人别踩太多坑。  </p>
-<p>　　首先想要了解YUV为何物:<a href="https://msdn.microsoft.com/en-us/library/aa904813" target="_blank" rel="external">请猛戳我</a>　　</p>
+          <h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><p>　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完事后将最近所学总结一下，以方便之后的人别踩太多坑。  </p>
+<p>　　首先想要了解YUV为何物:<a href="https://msdn.microsoft.com/en-us/library/aa904813">请猛戳我</a>　　</p>
 <p>　　上面的链接中微软已经写的很详细了，国内大部分文章都是翻译这篇文章的，如果还有疑问的同学可以参考下面这些大神的博客：</p>
 <ul>
-<li><a href="http://blog.csdn.net/leixiaohua1020/article/details/42134965" target="_blank" rel="external">最简单的基于FFmpeg的libswscale的示例（YUV转RGB）</a>  </li>
-<li><a href="http://www.cnblogs.com/azraelly/archive/2013/01/01/2841269.htm" target="_blank" rel="external">图文详解YUV420数据格式</a></li>
-<li><a href="http://tangzm.com/blog/?p=18" target="_blank" rel="external">ANDROID 高性能图形处理</a></li>
-<li><a href="http://blog.csdn.net/yanzi1225627/article/details/8626411" target="_blank" rel="external">Android摄像头开发：实时摄像头视频预览帧的编码问题（二）</a></li>
+<li><a href="http://blog.csdn.net/leixiaohua1020/article/details/42134965">最简单的基于FFmpeg的libswscale的示例（YUV转RGB）</a>  </li>
+<li><a href="http://www.cnblogs.com/azraelly/archive/2013/01/01/2841269.htm">图文详解YUV420数据格式</a></li>
+<li><a href="http://tangzm.com/blog/?p=18">ANDROID 高性能图形处理</a></li>
+<li><a href="http://blog.csdn.net/yanzi1225627/article/details/8626411">Android摄像头开发：实时摄像头视频预览帧的编码问题（二）</a></li>
 </ul>
-<hr>
-<p>　　看完上面的文章应该都会有所了解和认识了，因为在<strong>Android SDK &lt;= 20（Android5.0）</strong>中Google支持的Camera Preview Callback的YUV常用格式有两种：NV21 / YV12，在此针对这两种格式做分析。</p>
-<h5 id="NV21："><a href="#NV21：" class="headerlink" title="NV21："></a>NV21：</h5><p>引用一段微软的叙述：</p>
-<h6 id="4-2-0-Formats-12-Bits-per-Pixel"><a href="#4-2-0-Formats-12-Bits-per-Pixel" class="headerlink" title="4:2:0 Formats, 12 Bits per Pixel"></a>4:2:0 Formats, 12 Bits per Pixel</h6><blockquote>
-<p>Four 4:2:0 12-bpp formats are recommended, with the following FOURCC codes:  </p>
-<ul>
-<li>IMC2  </li>
-<li>IMC4  </li>
-<li>YV12  </li>
-<li>NV12<br>  In all of these formats, the chroma channels are subsampled by a factor of two in both the horizontal and vertical dimensions. </li>
-</ul>
-</blockquote>
-<h5 id="YV12"><a href="#YV12" class="headerlink" title="YV12"></a>YV12</h5><blockquote>
-<p><code>All of the Y samples appear first in memory as an array of unsigned char values.</code> This array is followed immediately by all of the V (Cr) samples. The stride of the V plane is half the stride of the Y plane, and the V plane contains half as many lines as the Y plane. The V plane is followed immediately by all of the U (Cb) samples, with the same stride and number of lines as the V plane (Figure 12).<br><strong>Figure 12:</strong><br><img src="https://raw.githubusercontent.com/eterrao/BlogExamples/master/Blogs/DifferenceOfYUV/fig1.gif" alt="YV12 memory layout"></p>
-</blockquote>
-<h5 id="NV12"><a href="#NV12" class="headerlink" title="NV12"></a>NV12</h5><blockquote>
-<p><code>All of the Y samples are found first in memory as an array of unsigned char values with an even number of lines.</code> The Y plane is followed immediately by an array of unsigned char values that contains packed U (Cb) and V (Cr) samples, as shown in Figure 13. When the combined U-V array is addressed as an array of little-endian WORD values, the LSBs contain the U values, and the MSBs contain the V values. NV12 is the preferred 4:2:0 pixel format for DirectX VA. It is expected to be an intermediate-term requirement for DirectX VA accelerators supporting 4:2:0 video.<br><strong>Figure 13:</strong><br><img src="https://raw.githubusercontent.com/eterrao/BlogExamples/master/Blogs/DifferenceOfYUV/fig2.gif" alt="NV12 memory layout"></p>
-</blockquote>
-<p>　　从上可知YV12和NV12所占内存是<strong>12bits/Pixel</strong>，因为<strong>每个Y就是一个像素点</strong>，注意着色加粗的叙述，YUV值在内存中是按照数组的形式存放的，而由于<strong>YV12和NV21都是属于planar</strong>格式，也就是Y值和UV值是独立采样的：</p>
-<blockquote>
-<p><code>In a planar format, the Y, U, and V components are stored as three separate planes.</code>  </p>
-</blockquote>
-<p>　　既然Y、U、V值都是独立的，那就意味着我们可以分别处理相应的值，比如在YV12中，排列方式是这样的，<strong>每4个Y共用一对UV值</strong>，而U、V值又是按照如下格式排列<br><strong>下面是YV12格式中宽为16，高为4像素的排列</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Y第一行:</th>
-<th style="text-align:center">Y　　Y</th>
-<th style="text-align:center">Y　　Y</th>
-<th style="text-align:center">Y　　Y</th>
-<th style="text-align:center">Y　　Y</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Y第二行：</td>
-<td style="text-align:center">Y　　Y</td>
-<td style="text-align:center">Y　　Y</td>
-<td style="text-align:center">Y　　Y</td>
-<td style="text-align:center">Y　　Y</td>
-</tr>
-<tr>
-<td style="text-align:center">Y第三行：</td>
-<td style="text-align:center">Y　　Y</td>
-<td style="text-align:center">Y　　Y</td>
-<td style="text-align:center">Y　　Y</td>
-<td style="text-align:center">Y　　Y</td>
-</tr>
-<tr>
-<td style="text-align:center">Y第四行：</td>
-<td style="text-align:center">Y　　Y</td>
-<td style="text-align:center">Y　　Y</td>
-<td style="text-align:center">Y　　Y</td>
-<td style="text-align:center">Y　　Y</td>
-</tr>
-<tr>
-<td style="text-align:center">V第一行：</td>
-<td style="text-align:center">V0</td>
-<td style="text-align:center">V1</td>
-<td style="text-align:center">V2</td>
-<td style="text-align:center">V3</td>
-</tr>
-<tr>
-<td style="text-align:center">U第一行：</td>
-<td style="text-align:center">U0</td>
-<td style="text-align:center">U1</td>
-<td style="text-align:center">U2</td>
-<td style="text-align:center">U3</td>
-</tr>
-<tr>
-<td style="text-align:center">V第二行：</td>
-<td style="text-align:center">V4</td>
-<td style="text-align:center">V5</td>
-<td style="text-align:center">V6</td>
-<td style="text-align:center">V7</td>
-</tr>
-<tr>
-<td style="text-align:center">U第二行：</td>
-<td style="text-align:center">U4</td>
-<td style="text-align:center">U5</td>
-<td style="text-align:center">U6</td>
-<td style="text-align:center">U7</td>
-</tr>
-</tbody>
-</table>
-<p>　　既然知道了YUV值的结构，我们就可以任性的对此图像做Rotate，scale等等。这里我以480ｘ270 （16:9)的一张原始帧图像举例，贴出部分代码示例：<br>任意设定的一个带有onPreviewFrame的类，<strong>CameraPreviewFrame.java:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 获取preview的原始帧：</span><br><span class="line"> * </span><br><span class="line"> * 这里有个前提，因为Android camera preview默认格式为NV21的，所以需要</span><br><span class="line"> * 调用setPreviewFormat()方法设置为我们需要的格式</span><br><span class="line"> * </span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPreviewFrame</span><span class="params">(<span class="keyword">byte</span>[] data, Camera camera)</span> </span>&#123;<span class="comment">// 假设这里的data为480x270原始帧</span></span><br><span class="line"></span><br><span class="line">        String SRC_FRAME_WIDTH = <span class="number">480</span>;</span><br><span class="line">        String SRC_FRAME_HEIGHT = <span class="number">270</span>;</span><br><span class="line">        </span><br><span class="line">        String DES_FRAME_WIDTH = <span class="number">480</span>;</span><br><span class="line">        String DES_FRAME_HEIGHT = <span class="number">270</span>;</span><br><span class="line">        <span class="comment">// 此处将data数组保存在了指定的路径，保存类型为jpeg格式，但是普通的图片浏</span></span><br><span class="line">        <span class="comment">// 览器是无法打开的，需要使用RawView等专业的工具打开。</span></span><br><span class="line">        saveImageData(data);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 定义与原始帧大小一样的outputData，因为YUV420所占内存是12Bits/Pixel，</span></span><br><span class="line">         <span class="comment">// 每个Y为一个像素8bit＝1Byte，U＝2bit＝1/4(Byte)，V＝2bit=1/4(Byte)，</span></span><br><span class="line">         <span class="comment">// Y值数量为480*270，则U=V＝480*270*(1/4)</span></span><br><span class="line">        <span class="keyword">byte</span>[] outputData = <span class="keyword">new</span> <span class="keyword">byte</span>[DES_FRAME_WIDTH * DES_FRAME_HEIGHT * <span class="number">3</span> / <span class="number">2</span>]; </span><br><span class="line">        <span class="comment">// call the JNI method to rotate frame data clockwise 90 degrees</span></span><br><span class="line">        YuvUtil.DealYV12(data, outputData, SRC_FRAME_WIDTH, SRC_FRAME_HEIGHT, <span class="number">90</span>);</span><br><span class="line">        saveImageData(outputData);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// save image to sdcard path: Pictures/MyTestImage/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveImageData</span><span class="params">(<span class="keyword">byte</span>[] imageData)</span> </span>&#123;</span><br><span class="line">        File imageFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);</span><br><span class="line">        <span class="keyword">if</span> (imageFile == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(imageFile);</span><br><span class="line">            fos.write(imageData);</span><br><span class="line">            fos.close();</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            Log.e(TAG, <span class="string">"File not found: "</span> + e.getMessage());</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            Log.e(TAG, <span class="string">"Error accessing file: "</span> + e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> File <span class="title">getOutputMediaFile</span><span class="params">(<span class="keyword">int</span> type)</span> </span>&#123;</span><br><span class="line">        File imageFileDir = <span class="keyword">new</span> File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), <span class="string">"MyTestImage"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!imageFileDir.exists()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!imageFileDir.mkdirs()) &#123;</span><br><span class="line">                Log.e(TAG, <span class="string">"can't makedir for imagefile"</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Create a media file name</span></span><br><span class="line">        String timeStamp = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyyMMdd_HHmmss"</span>).format(<span class="keyword">new</span> Date());</span><br><span class="line">        File imageFile;</span><br><span class="line">        <span class="keyword">if</span> (type == MEDIA_TYPE_IMAGE) &#123;</span><br><span class="line">            imageFile = <span class="keyword">new</span> File(imageFileDir.getPath() + File.separator +</span><br><span class="line">                    <span class="string">"IMG_"</span> + timeStamp + <span class="string">".jpg"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == MEDIA_TYPE_VIDEO) &#123;</span><br><span class="line">            imageFile = <span class="keyword">new</span> File(imageFileDir.getPath() + File.separator +</span><br><span class="line">                    <span class="string">"VID_"</span> + timeStamp + <span class="string">".mp4"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> imageFile;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面的代码中可以看到调用了JNI的方法：<strong>YuvUtil.RotateYV12()</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YuvUtil</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化，为data分配相应大小的内存</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">initYV12</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> scale_length)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">DealYV12</span><span class="params">(<span class="keyword">byte</span>[] src_data, <span class="keyword">byte</span>[] dst_data, <span class="keyword">int</span> width, <span class="keyword">int</span> height, <span class="keyword">int</span> rotation)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>com_example_jni_YuvUtil.h</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">/* DO NOT EDIT THIS FILE - it is machine generated */</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></span><br><span class="line">    <span class="comment">/* Header for class _Included_com_example_jni_YuvUtil */</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifndef</span> _Included_com_example_jni_YuvUtil</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> _Included_com_example_jni_YuvUtil</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">    <span class="keyword">extern</span> <span class="string">"C"</span> &#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">/*</span><br><span class="line">     * Class:     com_example_jni_YuvUtil</span><br><span class="line">     * Method:    initYV12</span><br><span class="line">     * Signature: (II)V</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL <span class="title">Java_com_example_jni_YuvUtil_initYV12</span></span><br><span class="line">      <span class="params">(JNIEnv *, jclass, jint, jint)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span><br><span class="line">     * Class:     com_example_jni_YuvUtil</span><br><span class="line">     * Method:    DealYV12</span><br><span class="line">     * Signature: ([B[BIIIII)V</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL <span class="title">Java_com_example_jni_YuvUtil_DealYV12</span></span><br><span class="line">      <span class="params">(JNIEnv *, jclass, jbyteArray, jbyteArray, jint, jint, jint, jint, jint)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">    </span><br><span class="line">**com_example_jni_YuvUtil.c**</span><br><span class="line"></span><br><span class="line">``` c</span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="string">"com_example_jni_YuvUtil.h"</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;android/log.h&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> TAG <span class="string">"jni-log-jni"</span> <span class="comment">// 这个是自定义的LOG的标识</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG ,__VA_ARGS__) <span class="comment">// 定义LOGD类型</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG ,__VA_ARGS__) <span class="comment">// 定义LOGI类型</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> LOGW(...) __android_log_print(ANDROID_LOG_WARN,TAG ,__VA_ARGS__) <span class="comment">// 定义LOGW类型</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG ,__VA_ARGS__) <span class="comment">// 定义LOGE类型</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> LOGF(...) __android_log_print(ANDROID_LOG_FATAL,TAG ,__VA_ARGS__) <span class="comment">// 定义LOGF类型</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> *input_src_data, *output_src_data, *src_y_data,</span><br><span class="line">         *src_u_data, *src_v_data, *dst_y_data, *dst_v_data;</span><br><span class="line">    <span class="keyword">int</span> src_data_width, src_data_height, len_src;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span><br><span class="line">     * Class:     com_example_jni_YuvUtil</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL <span class="title">Java_com_example_jni_YuvUtil_initYV12</span></span><br><span class="line">    <span class="params">(JNIEnv *env, jclass jcls, jint length, jint scaleDataLength)</span> </span>&#123;</span><br><span class="line">    len_src = length;</span><br><span class="line">    len_scale = scaleDataLength;</span><br><span class="line">    LOGD(<span class="string">"########## len_src  = %d, len_scale = %d \n"</span>, len_src, len_scale);</span><br><span class="line"></span><br><span class="line">    input_src_data = <span class="built_in">malloc</span>(sizeof(char) * len_src);</span><br><span class="line">    LOGD(<span class="string">"########## input_src_data  = %d \n"</span>, input_src_data);</span><br><span class="line"></span><br><span class="line">    src_y_data = <span class="built_in">malloc</span>(sizeof(char) * (len_src * <span class="number">2</span> / <span class="number">3</span>));</span><br><span class="line">    src_u_data = <span class="built_in">malloc</span>(sizeof(char) * (len_src / <span class="number">6</span>));</span><br><span class="line">    src_v_data = <span class="built_in">malloc</span>(sizeof(char) * (len_src / <span class="number">6</span>));</span><br><span class="line"></span><br><span class="line">    dst_y_data = <span class="built_in">malloc</span>(sizeof(char) * (len_src * <span class="number">2</span> / <span class="number">3</span>));</span><br><span class="line">    dst_u_data = <span class="built_in">malloc</span>(sizeof(char) * (len_src / <span class="number">6</span>));</span><br><span class="line">    dst_v_data = <span class="built_in">malloc</span>(sizeof(char) * (len_src / <span class="number">6</span>));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL <span class="title">Java_com_example_jni_YuvUtil_DealYV12</span></span><br><span class="line">    <span class="params">(JNIEnv *env, jclass jcls, jbyteArray src_data,</span><br><span class="line">        jbyteArray dst_data, jint width, jint height, jint rotation, jint dst_width, jint dst_height)</span> </span>&#123;</span><br><span class="line">    src_data_width = width;</span><br><span class="line">    src_data_height = height;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将src_data的数据传给input_src_data</span></span><br><span class="line">    (*env)-&gt;GetByteArrayRegion (env, src_data, <span class="number">0</span>, len_src, (jbyte*)(input_src_data));</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*以下三个memcpy分别将Y、U、V值从src_data中提取出来,将YUV值分别scale或者rotate，则可得到对应格式的图像数据*/</span></span><br><span class="line">    <span class="comment">// get y plane</span></span><br><span class="line">    <span class="built_in">memcpy</span>(src_y_data, input_src_data , (len_src * <span class="number">2</span> /<span class="number">3</span>));</span><br><span class="line">    <span class="comment">// get u plane</span></span><br><span class="line">    <span class="built_in">memcpy</span>(src_u_data, input_src_data + (len_src * <span class="number">2</span> / <span class="number">3</span>), len_src / <span class="number">6</span>);</span><br><span class="line">    <span class="comment">// get v plane</span></span><br><span class="line">    <span class="built_in">memcpy</span>(src_v_data, input_src_data + (len_src * <span class="number">5</span> / <span class="number">6</span> ), len_src / <span class="number">6</span>);</span><br><span class="line">    <span class="comment">/*获取yuv三个值的数据可以做相应操作*/</span></span><br><span class="line">    <span class="comment">// ......... </span></span><br><span class="line">    <span class="comment">// .........</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 例：将Y值置为0，则得到没有灰度的图像；</span></span><br><span class="line">    <span class="built_in">memset</span>(input_src_data + src_data_width * src_data_height, <span class="number">0</span>, src_data_width * src_data_height);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将input_src_data的数据返回给dst_data输出</span></span><br><span class="line">    <span class="comment">// output to the dst_data</span></span><br><span class="line">    (*env)-&gt;SetByteArrayRegion (env, dst_data, <span class="number">0</span>, len_src, (jbyte*)(input_src_data));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * free memory</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL <span class="title">Java_com_example_jni_YuvUtil_ReleaseYV12</span></span><br><span class="line">    <span class="params">(JNIEnv *env , jclass jcls)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">free</span>(output_src_data);</span><br><span class="line">    <span class="built_in">free</span>(input_src_data);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意：以上代码不是完全的，只是用于说明而已，如果需要更多的操作还请各位朋友自己完善，因为没怎么写过这类博客代码很乱，如有表述的不清楚和有问题的地方，大家可以给我留言。</strong></p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/13/DifferenceOfYUV/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -622,9 +534,8 @@
 
       
         
-          
-            <h1 id="Android-Classical-OpenSource"><a href="#Android-Classical-OpenSource" class="headerlink" title="Android-Classical-OpenSource"></a>Android-Classical-OpenSource</h1><pre><code>Android开发中 个人遇到和使用过的值得分享的资源合集
-</code></pre><h4 id="Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总"><a href="#Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总" class="headerlink" title="Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总"></a>Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总</h4><p>项目地址：<a href="https://github.com/Trinea/android-open-project" target="_blank" rel="external">https://github.com/Trinea/android-open-project</a> </p>
+          <h1 id="Android-Classical-OpenSource"><a href="#Android-Classical-OpenSource" class="headerlink" title="Android-Classical-OpenSource"></a>Android-Classical-OpenSource</h1><pre><code>Android开发中 个人遇到和使用过的值得分享的资源合集
+</code></pre><h4 id="Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总"><a href="#Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总" class="headerlink" title="Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总"></a>Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总</h4><p>项目地址：<a href="https://github.com/Trinea/android-open-project">https://github.com/Trinea/android-open-project</a> </p>
 <pre><code>项目说明：
 Android 开源项目第一篇——个性化控件(View)篇
   包括ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style、其他
@@ -636,97 +547,25 @@ Android 开源项目第四篇——开发及测试工具篇
   包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他
 Android 开源项目第五篇——优秀个人和团体篇
   乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等
-</code></pre><h4 id="awesome-android-ui"><a href="#awesome-android-ui" class="headerlink" title="awesome-android-ui"></a>awesome-android-ui</h4><p>项目地址：<a href="https://github.com/wasabeef/awesome-android-ui" target="_blank" rel="external">https://github.com/wasabeef/awesome-android-ui</a></p>
+</code></pre><h4 id="awesome-android-ui"><a href="#awesome-android-ui" class="headerlink" title="awesome-android-ui"></a>awesome-android-ui</h4><p>项目地址：<a href="https://github.com/wasabeef/awesome-android-ui">https://github.com/wasabeef/awesome-android-ui</a></p>
 <pre><code>项目说明：
 国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。
 A curated list of awesome Android UI/UX libraries.                        
-</code></pre><h4 id="AndroidDevTools-开源项目分类汇总"><a href="#AndroidDevTools-开源项目分类汇总" class="headerlink" title="AndroidDevTools 开源项目分类汇总"></a>AndroidDevTools 开源项目分类汇总</h4><p>项目地址：<a href="https://github.com/inferjay/AndroidDevTools" target="_blank" rel="external">https://github.com/inferjay/AndroidDevTools</a><br>官方网站：<a href="http://www.androiddevtools.cn/" target="_blank" rel="external">http://www.androiddevtools.cn/</a> </p>
+</code></pre><h4 id="AndroidDevTools-开源项目分类汇总"><a href="#AndroidDevTools-开源项目分类汇总" class="headerlink" title="AndroidDevTools 开源项目分类汇总"></a>AndroidDevTools 开源项目分类汇总</h4><p>项目地址：<a href="https://github.com/inferjay/AndroidDevTools">https://github.com/inferjay/AndroidDevTools</a><br>官方网站：<a href="http://www.androiddevtools.cn/">http://www.androiddevtools.cn/</a> </p>
 <pre><code>项目说明：
 收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。
 欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。
-</code></pre><h4 id="android-tech-frontier"><a href="#android-tech-frontier" class="headerlink" title="android-tech-frontier"></a>android-tech-frontier</h4><p>项目地址：<a href="https://github.com/eterrao/android-tech-frontier.git" target="_blank" rel="external">https://github.com/eterrao/android-tech-frontier.git</a></p>
+</code></pre><h4 id="android-tech-frontier"><a href="#android-tech-frontier" class="headerlink" title="android-tech-frontier"></a>android-tech-frontier</h4><p>项目地址：<a href="https://github.com/eterrao/android-tech-frontier.git">https://github.com/eterrao/android-tech-frontier.git</a></p>
 <pre><code>项目说明：
 一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。
 
 我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;
-</code></pre><p>####个人博客资源：</p>
-<h4 id="stormZhang"><a href="#stormZhang" class="headerlink" title="stormZhang"></a><a href="http://stormzhang.com/" target="_blank" rel="external">stormZhang</a></h4><pre><code>每个人都有一段艰辛、苦逼的成长时光，所以学会从博客开始记录自己一点一滴。这个博客的文章每次看都让自己有更多的动力去学习。提醒我自己别忘了还有梦想。
-PS：还有很多干货。
-</code></pre><p>####<a href="http://ticktick.blog.51cto.com" target="_blank" rel="external">tickTick 的BLOG</a></p>
-<pre><code>本目录下的代码都是来自于我的博客《Android应用开发》系列文章，本系列文章介绍Android开发的一些基础和进阶知识，并附带有一些简单的Demo示例，这些示例代码中很多Java文件都对Android API进行了良好的封装，可以直接拿到自己的项目中使用。
-
-Code List
-
-Builder 给出了使用ant编译Android工程的通用shell脚本，相关博文：Android开发实践：用脚本编译Android工程
-
-GroupList 封装并演示了如何使用Android的ExpandableListView控件，相关博文：Android开发实践：多级列表的封装与应用
-
-PopDialog 封装并演示了如何使用Android的PopupWindow控件，相关博文：Android开发实践：用PopupWindow实现自定义Dailog
-
-JniCallback 演示了如何从Native线程回调Java的函数，相关博文：Android开发实践：JNI层线程回调Java函数示例
-
-JniBuffer 演示了各种从Java端到Native层的Buffer传递方法，相关博文：Android开发实践：Java层与Jni层的数组传递
-
-LoopThread 演示了如何实现一个自定义的带Loop消息循环的线程，相关博文：Android开发实践：自定义带消息循环（Looper）的工作线程
-
-VideoPlayer 演示了Android隐式Intent的用法，相关博文：Android开发实践：实战演练隐式Intent的用法
-
-VideoServer 演示了如何利用NanoHttpd搭建一个Android视频服务器，相关博文：基于NanoHttpd的Android视频服务器开发
-
-CustomView 演示了如何自定义View和ViewGroup，并给出了一个柱状图动画自定义View的实现，相关博文：
-
-（1）Android开发实践：为什么要继承onMeasure()
-
-（2）Android开发实践：自定义ViewGroup的onLayout()分析
-
-（3）Android开发实践：自定义带动画的View
-
-WIFI 封装了Andriod WIFI扫描和连接的相关API，相关博文：
-
-（1）Android开发实践：WIFI扫描功能的封装
-
-（2）Android开发实践：WIFI连接功能的封装
-
-Socket封装了Android中的Socket相关API
-
-（1） Broadcaster.java 封装了UDP广播包的收发操作，相关博文：Android Socket 发送广播包的那些坑
-
-MediaDemo 给出了Android平台下多媒体相关API的demo代码，相关博文：Android中如何提取和生成mp4文件
-
-Utils 给出了一系列的工具类代码
-
-（1）SignatureGen.java 一个可以生成Java函数签名字符串的工具类，相关博文: Android开发实践：JNI函数签名生成器
-
-（2）BitmapHelper.java 一个封装了Bitmap操作的工具类，包括图片的打开、保存、剪裁、旋转等操作，相关博文: Android开发实践：自己动手编写图片剪裁应用（3）
-
-（3）ImageConvertor.java 封装了Android中各种图像格式转换，包括：NV21，YUY2、RGB565、ARGB8888、PNG、JPEG、Bitmap之间的转换操作。
-</code></pre><h4 id="工具类："><a href="#工具类：" class="headerlink" title="工具类："></a>工具类：</h4><ul>
-<li>关于APK瘦身值得分享的一些经验：<a href="http://www.jianshu.com/p/bd90dee57ad0" target="_blank" rel="external">http://www.jianshu.com/p/bd90dee57ad0</a></li>
-<li>PNG压缩：<a href="https://tinypng.com/" target="_blank" rel="external">https://tinypng.com/</a></li>
-</ul>
-<h4 id="真机调试："><a href="#真机调试：" class="headerlink" title="真机调试："></a>真机调试：</h4><ul>
-<li><p>云测 (Testin): <a href="http://www.testin.cn/" target="_blank" rel="external">http://www.testin.cn/</a></p>
-</li>
-<li><p>优测 (腾讯的): <a href="http://utest.qq.com/" target="_blank" rel="external">http://utest.qq.com/</a></p>
-</li>
-</ul>
-<h4 id="数据统计，Bug-Log-Crash-Reporter："><a href="#数据统计，Bug-Log-Crash-Reporter：" class="headerlink" title="数据统计，Bug Log/Crash Reporter：**"></a>数据统计，Bug Log/Crash Reporter：**</h4><ul>
-<li><p>国内：
-　　　　</p>
-<ul>
-<li>友盟 ：<a href="http://www.umeng.com/" target="_blank" rel="external">http://www.umeng.com/</a><br>　　　　说明：友盟的功能集成挺多，常用的基本都覆盖了，社会化组件/数据统计/Bug分析基本都通用，并且使用起来比较直观。SDK使用的话也不算麻烦。<br>　　　　优点就不说了，说说缺点吧，就是Crash Report不能实时邮件反馈，第二天9点30左右才会收到前一天的统计概况。详情的话倒是可以实时查询。
-　　　　</li>
-</ul>
-</li>
-<li><p>国外：</p>
-<ul>
-<li>Twitter的Fabric：官网： <a href="https://fabric.io/" target="_blank" rel="external">https://fabric.io/</a><br>　　　　优点：反馈及时，一般有了Bug邮件没过多久就收到了，并且集成起来很方便，基于Android Studio的一个插件自动将SDK打入项目中。<br>　　　　缺点：不知道是不是我的环境问题，经常会Connect出错或者项目Build中断。
-　　　　</li>
-</ul>
-</li>
-</ul>
-
-          
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/09/Android-Classical-OpenSource/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

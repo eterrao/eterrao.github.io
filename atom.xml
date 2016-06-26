@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://eterrao.github.io/"/>
-  <updated>2016-06-26T12:30:10.000Z</updated>
+  <updated>2016-06-26T13:29:34.000Z</updated>
   <id>http://eterrao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://eterrao.github.io/2016/06/13/DifferenceOfYUV/"/>
     <id>http://eterrao.github.io/2016/06/13/DifferenceOfYUV/</id>
     <published>2016-06-13T13:26:08.000Z</published>
-    <updated>2016-06-26T12:30:10.000Z</updated>
+    <updated>2016-06-26T13:29:34.000Z</updated>
     
     <content type="html">&lt;h5 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h5&gt;&lt;p&gt;　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完事后将最近所学总结一下，以方便之后的人别踩太多坑。  &lt;/p&gt;
 &lt;p&gt;　　首先想要了解YUV为何物:&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/aa904813&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;请猛戳我&lt;/a&gt;　　&lt;/p&gt;
@@ -31,6 +31,7 @@
 &lt;li&gt;&lt;a href=&quot;http://tangzm.com/blog/?p=18&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ANDROID 高性能图形处理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/yanzi1225627/article/details/8626411&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android摄像头开发：实时摄像头视频预览帧的编码问题（二）&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;hr&gt;
 &lt;p&gt;　　看完上面的文章应该都会有所了解和认识了，因为在&lt;strong&gt;Android SDK &amp;lt;= 20（Android5.0）&lt;/strong&gt;中Google支持的Camera Preview Callback的YUV常用格式有两种：NV21 / YV12，在此针对这两种格式做分析。&lt;/p&gt;
 &lt;h5 id=&quot;NV21：&quot;&gt;&lt;a href=&quot;#NV21：&quot; class=&quot;headerlink&quot; title=&quot;NV21：&quot;&gt;&lt;/a&gt;NV21：&lt;/h5&gt;&lt;p&gt;引用一段微软的叙述：&lt;/p&gt;
@@ -125,7 +126,15 @@
     
     <summary type="html">
     
-      &lt;h5 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h5&gt;&lt;p&gt;　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完
+      &lt;h5 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h5&gt;&lt;p&gt;　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完事后将最近所学总结一下，以方便之后的人别踩太多坑。  &lt;/p&gt;
+&lt;p&gt;　　首先想要了解YUV为何物:&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/aa904813&quot;&gt;请猛戳我&lt;/a&gt;　　&lt;/p&gt;
+&lt;p&gt;　　上面的链接中微软已经写的很详细了，国内大部分文章都是翻译这篇文章的，如果还有疑问的同学可以参考下面这些大神的博客：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/leixiaohua1020/article/details/42134965&quot;&gt;最简单的基于FFmpeg的libswscale的示例（YUV转RGB）&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/azraelly/archive/2013/01/01/2841269.htm&quot;&gt;图文详解YUV420数据格式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tangzm.com/blog/?p=18&quot;&gt;ANDROID 高性能图形处理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/yanzi1225627/article/details/8626411&quot;&gt;Android摄像头开发：实时摄像头视频预览帧的编码问题（二）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -164,7 +173,7 @@
     <link href="http://eterrao.github.io/2016/05/09/Android-Classical-OpenSource/"/>
     <id>http://eterrao.github.io/2016/05/09/Android-Classical-OpenSource/</id>
     <published>2016-05-09T05:02:52.000Z</published>
-    <updated>2016-06-26T12:29:53.000Z</updated>
+    <updated>2016-06-26T13:29:13.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;Android开发中 个人遇到和使用过的值得分享的资源合集
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&quot;&gt;&lt;/a&gt;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/Trinea/android-open-project&lt;/a&gt; &lt;/p&gt;
@@ -192,7 +201,8 @@ A curated list of awesome Android UI/UX libraries.
 一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。
 
 我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;####个人博客资源：&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;####个人博客资源：&lt;/p&gt;
 &lt;h4 id=&quot;stormZhang&quot;&gt;&lt;a href=&quot;#stormZhang&quot; class=&quot;headerlink&quot; title=&quot;stormZhang&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://stormzhang.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stormZhang&lt;/a&gt;&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;每个人都有一段艰辛、苦逼的成长时光，所以学会从博客开始记录自己一点一滴。这个博客的文章每次看都让自己有更多的动力去学习。提醒我自己别忘了还有梦想。
 PS：还有很多干货。
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;####&lt;a href=&quot;http://ticktick.blog.51cto.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tickTick 的BLOG&lt;/a&gt;&lt;/p&gt;
@@ -272,7 +282,33 @@ Utils 给出了一系列的工具类代码
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;An
+      &lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;Android开发中 个人遇到和使用过的值得分享的资源合集
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&quot;&gt;&lt;/a&gt;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot;&gt;https://github.com/Trinea/android-open-project&lt;/a&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;项目说明：
+Android 开源项目第一篇——个性化控件(View)篇
+  包括ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style、其他
+Android 开源项目第二篇——工具库篇
+  包括依赖注入、图片缓存、网络请求、数据库 ORM 工具包、Android 公共库、高版本向低版本兼容库、多媒体、事件总线、传感器、安全、插件化、文件、其他
+Android 开源项目第三篇——优秀项目篇
+  比较有意思的完整的 Android 项目
+Android 开源项目第四篇——开发及测试工具篇
+  包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他
+Android 开源项目第五篇——优秀个人和团体篇
+  乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;awesome-android-ui&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot;&gt;https://github.com/wasabeef/awesome-android-ui&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;项目说明：
+国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。
+A curated list of awesome Android UI/UX libraries.                        
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;AndroidDevTools 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot;&gt;https://github.com/inferjay/AndroidDevTools&lt;/a&gt;&lt;br&gt;官方网站：&lt;a href=&quot;http://www.androiddevtools.cn/&quot;&gt;http://www.androiddevtools.cn/&lt;/a&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;项目说明：
+收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。
+欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;android-tech-frontier&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot;&gt;https://github.com/eterrao/android-tech-frontier.git&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;项目说明：
+一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。
+
+我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
