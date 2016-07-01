@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="时间管理，思维导图," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -86,33 +86,34 @@
 
 
 
-<meta name="description" content="前言关于这本书，是通过知乎了解的，不犹豫的下单，结果一发不可收拾。不得不说，作者刘未鹏真的很NB。
+<meta name="description" content="《Thinking in Java》final关键词的总结
+可能使用到final的三种情况：数据，方法，类
 
-心得懒惰的我很少写这种读书笔记，但是既然读了这本书，那么就应该做些什么才对，例如总结阅读后的知识点，问题深思后的理论分析等。
-
-缺点：
-在详细总结这本书的时候，先说说看了一半后感觉到的不足吧。首先是总觉得这本书是在记叙成功学的书，虽然成功没有什么不好，人人都希望成功，但长篇提及成功的字眼让我感觉有">
+final数据
+对于基本类型：final使数值不做改变
+对于对象引用：final使引用总是指向初始化时的对象，无法改变其指向另一个对象，但被引用的对象自身是可以改变的
+一个既是static又是final的域只占据一段不能改变的数据存储空间">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读书笔记 -- 《暗时间》">
-<meta property="og:url" content="http://www.shutu.tech/2016/06/29/读书笔记-《暗时间》/index.html">
+<meta property="og:title" content="《Thinking in Java》知识点记录">
+<meta property="og:url" content="http://www.shutu.tech/2016/07/01/ThinkingInJava/index.html">
 <meta property="og:site_name" content="书途">
-<meta property="og:description" content="前言关于这本书，是通过知乎了解的，不犹豫的下单，结果一发不可收拾。不得不说，作者刘未鹏真的很NB。
+<meta property="og:description" content="《Thinking in Java》final关键词的总结
+可能使用到final的三种情况：数据，方法，类
 
-心得懒惰的我很少写这种读书笔记，但是既然读了这本书，那么就应该做些什么才对，例如总结阅读后的知识点，问题深思后的理论分析等。
-
-缺点：
-在详细总结这本书的时候，先说说看了一半后感觉到的不足吧。首先是总觉得这本书是在记叙成功学的书，虽然成功没有什么不好，人人都希望成功，但长篇提及成功的字眼让我感觉有">
-<meta property="og:image" content="https://raw.githubusercontent.com/eterrao/eterrao.github.io/master/%E6%9A%97%E6%97%B6%E9%97%B4.jpg">
-<meta property="og:updated_time" content="2016-06-29T16:15:08.000Z">
+final数据
+对于基本类型：final使数值不做改变
+对于对象引用：final使引用总是指向初始化时的对象，无法改变其指向另一个对象，但被引用的对象自身是可以改变的
+一个既是static又是final的域只占据一段不能改变的数据存储空间">
+<meta property="og:updated_time" content="2016-07-01T12:01:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读书笔记 -- 《暗时间》">
-<meta name="twitter:description" content="前言关于这本书，是通过知乎了解的，不犹豫的下单，结果一发不可收拾。不得不说，作者刘未鹏真的很NB。
+<meta name="twitter:title" content="《Thinking in Java》知识点记录">
+<meta name="twitter:description" content="《Thinking in Java》final关键词的总结
+可能使用到final的三种情况：数据，方法，类
 
-心得懒惰的我很少写这种读书笔记，但是既然读了这本书，那么就应该做些什么才对，例如总结阅读后的知识点，问题深思后的理论分析等。
-
-缺点：
-在详细总结这本书的时候，先说说看了一半后感觉到的不足吧。首先是总觉得这本书是在记叙成功学的书，虽然成功没有什么不好，人人都希望成功，但长篇提及成功的字眼让我感觉有">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/eterrao/eterrao.github.io/master/%E6%9A%97%E6%97%B6%E9%97%B4.jpg">
+final数据
+对于基本类型：final使数值不做改变
+对于对象引用：final使引用总是指向初始化时的对象，无法改变其指向另一个对象，但被引用的对象自身是可以改变的
+一个既是static又是final的域只占据一段不能改变的数据存储空间">
 
 
 
@@ -133,9 +134,9 @@
 
 
 
-  <link rel="canonical" href="http://www.shutu.tech/2016/06/29/读书笔记-《暗时间》/"/>
+  <link rel="canonical" href="http://www.shutu.tech/2016/07/01/ThinkingInJava/"/>
 
-  <title> 读书笔记 -- 《暗时间》 | 书途 </title>
+  <title> 《Thinking in Java》知识点记录 | 书途 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -275,7 +276,7 @@
             
             
               
-                读书笔记 -- 《暗时间》
+                《Thinking in Java》知识点记录
               
             
           </h1>
@@ -287,8 +288,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-29T23:07:42+08:00" content="2016-06-29">
-              2016-06-29
+            <time itemprop="dateCreated" datetime="2016-07-01T19:57:45+08:00" content="2016-07-01">
+              2016-07-01
             </time>
           </span>
 
@@ -301,8 +302,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/读书/" itemprop="url" rel="index">
-                    <span itemprop="name">读书</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -317,8 +318,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/29/读书笔记-《暗时间》/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/29/读书笔记-《暗时间》/" itemprop="commentsCount"></span>
+                <a href="/2016/07/01/ThinkingInJava/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/01/ThinkingInJava/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -328,7 +329,7 @@
 
           
           
-             <span id="/2016/06/29/读书笔记-《暗时间》/" class="leancloud_visitors" data-flag-title="读书笔记 -- 《暗时间》">
+             <span id="/2016/07/01/ThinkingInJava/" class="leancloud_visitors" data-flag-title="《Thinking in Java》知识点记录">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -355,32 +356,25 @@
       
 
       
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>关于这本书，是通过知乎了解的，不犹豫的下单，结果一发不可收拾。不得不说，作者刘未鹏真的很NB。</p>
-<p><img src="https://raw.githubusercontent.com/eterrao/eterrao.github.io/master/%E6%9A%97%E6%97%B6%E9%97%B4.jpg" alt="暗时间"></p>
-<h4 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h4><p>懒惰的我很少写这种读书笔记，但是既然读了这本书，那么就应该做些什么才对，例如总结阅读后的知识点，问题深思后的理论分析等。</p>
-<ul>
-<li>缺点：<ul>
-<li>在详细总结这本书的时候，先说说看了一半后感觉到的不足吧。首先是总觉得这本书是在记叙成功学的书，虽然成功没有什么不好，人人都希望成功，但长篇提及成功的字眼让我感觉有点难受。这是一本思维导图，时间、自我管理的书籍，如果没有那么多的字眼就完美了。可能是因为我看了《把时间当作朋友》书中提及反对成功学的部分，从此对所谓成功学说心生厌恶。</li>
-<li>如豆友所说的，连贯性不够。如作者提及的，看书要择优选择阅读，所以部分章节我仅仅是粗略的扫了一眼，这本书是挤地铁的时候看的，所以没有那么多精力仔细集中在某些需要细思的章节中，如”逃出你的肖申克“。</li>
+        <h4 id="《Thinking-in-Java》"><a href="#《Thinking-in-Java》" class="headerlink" title="《Thinking in Java》"></a>《Thinking in Java》</h4><h4 id="final关键词的总结"><a href="#final关键词的总结" class="headerlink" title="final关键词的总结"></a>final关键词的总结</h4><ul>
+<li>可能使用到final的三种情况：<strong>数据</strong>，<strong>方法</strong>，<strong>类</strong></li>
 </ul>
-</li>
+<h5 id="final数据"><a href="#final数据" class="headerlink" title="final数据"></a>final数据</h5><ul>
+<li>对于基本类型：final使数值不做改变</li>
+<li>对于对象引用：final使引用总是指向初始化时的对象，无法改变其指向另一个对象，但被引用的对象自身是可以改变的</li>
+<li>一个既是static又是final的域只占据一段不能改变的数据存储空间</li>
 </ul>
-<p>缺点说完了，我该感激作者了，所谓先抑后扬。</p>
 <a id="more"></a>
-<h4 id="环境的重要性"><a href="#环境的重要性" class="headerlink" title="环境的重要性"></a>环境的重要性</h4><p>如果作者没有一位耐心、专注的父亲作为榜样来引导自己，或许会花更多时间来悟出书中的感想。毕竟父母是我们一辈子最好的老师。</p>
-<blockquote>
-<p>写一个博客有很多好处，却没有任何明显的坏处</p>
-<p>书写是为了更好的思考</p>
-<p>如果一件事情你不能讲清楚，十有八九你还没有完全理解</p>
-<p>博客可以激励你去持续学习和思考，如果你没有持续学习和思考的习惯，你的博客很快就没有内容可写，就只能碎碎念或者转载。</p>
-</blockquote>
-<p>此前我一直希望能够写出NB精彩绝伦的博客，引来无数网友的围观和赞赏，以此满足自己的虚荣心并且可以当作找工作的敲门砖。庆幸早读这本书，不然走向不归路啊，我一直没有耐心去写完一篇我满意的博客，原因之一就是每次写什么的时候，根本没有透彻的思考问题，导致写着写着感觉和别人的都一样雷同，千篇一律的像工具说明书一样没有什么价值所在，于是存为草稿，之后只会变为删除草稿的结局。</p>
-<blockquote>
-<p>让你自己成为一个持续学习和思考的人，并只写你真正思考和总结之后的产物，其他的一切就会随之而来</p>
-</blockquote>
-<p>尤为喜欢这句话，所以今天把曾经的博文都整理了一遍，垃圾该清理的清理，接下来学习深度总结和思考，不跟风随波逐流。</p>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>仅仅接触此书两天不到的时间，之后每次写代码之前，都会有意识的去思考更多，不再像曾经拿着就开始着手实现业务逻辑，更注重设计模式，架构的重要性。真的是这种感觉。</p>
-<p>暂时就这么多，看完再说吧。</p>
+<h5 id="空白final"><a href="#空白final" class="headerlink" title="空白final"></a>空白final</h5><p>指被声明final但未赋初值的域。空白final必须在域的定义处或者构造函数中进行初始化。</p>
+<p>优点：灵活，不用先写死，因此创建类的实例时，可以传入参数对其进行构造函数中的初始化赋值。</p>
+<h5 id="final参数："><a href="#final参数：" class="headerlink" title="final参数："></a>final参数：</h5><p>意味着无法在方法中修改参数所引用的对象，可以读取参数，但却无法修改它。有经验的朋友都知道一旦创建匿名内部类的实例时，其引用到的外部参数都需要被指定为final，保证匿名内部类运行的正确性。</p>
+<h5 id="final方法"><a href="#final方法" class="headerlink" title="final方法"></a>final方法</h5><p>实用原因有二：</p>
+<ul>
+<li>锁定该方法，使继承该类的子类无法修改此方法的含义，想要保证方法的行为保持不变，<strong>不被覆盖</strong></li>
+<li>效率，早期Java如果指定一个方法为final，那么就意味着同意编译器将针对该方法的所有调用都转为内嵌调用</li>
+</ul>
+<p>但近期Java版本已经无需这么做了。只有在想要明确禁止覆盖时才将方法设置为final。</p>
+<p>类中所有private方法都隐式地指定为是final的。private肯定无法被外部类调用和继承使用，那么意味着不会被覆盖。可以指定private为final，但无意义。</p>
 
       
     </div>
@@ -402,7 +396,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/时间管理，思维导图/" rel="tag">#时间管理，思维导图</a>
+            <a href="/tags/Java/" rel="tag">#Java</a>
           
         </div>
       
@@ -411,17 +405,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/26/hexo搭建博客的几个小问题/" rel="next" title="hexo搭建博客的几个小问题">
-                <i class="fa fa-chevron-left"></i> hexo搭建博客的几个小问题
+              <a href="/2016/06/29/读书笔记-《暗时间》/" rel="next" title="读书笔记 -- 《暗时间》">
+                <i class="fa fa-chevron-left"></i> 读书笔记 -- 《暗时间》
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/01/ThinkingInJava/" rel="prev" title="《Thinking in Java》知识点记录">
-                《Thinking in Java》知识点记录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -447,8 +437,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/29/读书笔记-《暗时间》/"
-           data-title="读书笔记 -- 《暗时间》" data-url="http://www.shutu.tech/2016/06/29/读书笔记-《暗时间》/">
+      <div class="ds-thread" data-thread-key="2016/07/01/ThinkingInJava/"
+           data-title="《Thinking in Java》知识点记录" data-url="http://www.shutu.tech/2016/07/01/ThinkingInJava/">
       </div>
     
   </div>
@@ -575,7 +565,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#心得"><span class="nav-number">2.</span> <span class="nav-text">心得</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境的重要性"><span class="nav-number">3.</span> <span class="nav-text">环境的重要性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#《Thinking-in-Java》"><span class="nav-number">1.</span> <span class="nav-text">《Thinking in Java》</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final关键词的总结"><span class="nav-number">2.</span> <span class="nav-text">final关键词的总结</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#final数据"><span class="nav-number">2.1.</span> <span class="nav-text">final数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#空白final"><span class="nav-number">2.2.</span> <span class="nav-text">空白final</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#final参数："><span class="nav-number">2.3.</span> <span class="nav-text">final参数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#final方法"><span class="nav-number">2.4.</span> <span class="nav-text">final方法</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
