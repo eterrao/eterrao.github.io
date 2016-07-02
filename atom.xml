@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shutu.tech/"/>
-  <updated>2016-07-01T12:01:35.000Z</updated>
+  <updated>2016-07-02T06:11:27.000Z</updated>
   <id>http://www.shutu.tech/</id>
   
   <author>
@@ -14,6 +14,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode刷题系列</title>
+    <link href="http://www.shutu.tech/2016/07/02/LeetCode%E5%88%B7%E9%A2%98%E7%B3%BB%E5%88%97/"/>
+    <id>http://www.shutu.tech/2016/07/02/LeetCode刷题系列/</id>
+    <published>2016-07-01T23:06:38.000Z</published>
+    <updated>2016-07-02T06:11:27.000Z</updated>
+    
+    <content type="html">&lt;h4 id=&quot;LeetCode&quot;&gt;&lt;a href=&quot;#LeetCode&quot; class=&quot;headerlink&quot; title=&quot;LeetCode&quot;&gt;&lt;/a&gt;LeetCode&lt;/h4&gt;&lt;p&gt;我们工作面试和提高自身数据结构和算法能力的时候往往需要刷刷题，我选择LeetCode是通过一个&lt;a href=&quot;http://www.1point3acres.com/bbs/forum-27-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;留学论坛&lt;/a&gt;了解的。专业，覆盖语种全面。&lt;/p&gt;
+&lt;p&gt;提前说说刷题的心得：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;尽量手写代码，少使用IDE的代码补全和智能提示。既然是提升和锻炼自己的代码功底，那就没有理由再犯&lt;strong&gt;没有IDE写代码会死症&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;让自己去思考本身就是一件艰难的事，所以如果遇到困难，可以借鉴但切不可抄袭他人思考成果。不然刷题就没有意义了，别贪多贪快，自己思考的才是最好的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;进入&lt;a href=&quot;https://leetcode.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeetCode官方网站&lt;/a&gt;，你会看到醒目的&lt;strong&gt;&lt;a href=&quot;https://leetcode.com/problems/unique-paths/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Start coding now&lt;/a&gt;&lt;/strong&gt;，没有账号的同学赶快注册吧，点击此处可以进入题目分类，接着可以根据自己的实际情况，通过难易程度选择题目（PS: 带锁的需要花钱），我是先易后难，找点信心再说 😂。&lt;/p&gt;
+&lt;p&gt;选择题目后就开始刷题之旅吧，&lt;img src=&quot;&quot; alt=&quot;如图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;官方提供多种语言的支持，可以实时运行检测代码，也可以自己设置自定的Testcase，介绍到此，祝各位刷题愉快，学业有成，工作顺利～&lt;/p&gt;
+&lt;h4 id=&quot;题目预览表&quot;&gt;&lt;a href=&quot;#题目预览表&quot; class=&quot;headerlink&quot; title=&quot;题目预览表&quot;&gt;&lt;/a&gt;题目预览表&lt;/h4&gt;&lt;p&gt;由易到难排序，目前官网总共出了390+&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;#&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Title&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Difficulty&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;344&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/reverse-string/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Reverse String&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Easy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;371&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/sum-of-two-integers/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Sum of Two Integers&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Easy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h5 id=&quot;344-Reverse-String&quot;&gt;&lt;a href=&quot;#344-Reverse-String&quot; class=&quot;headerlink&quot; title=&quot;344. Reverse String&quot;&gt;&lt;/a&gt;344. Reverse String&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;Write a function that takes a string as input and returns the string reversed.&lt;/p&gt;
+&lt;p&gt;译：输入一段字符串将其倒序并返回&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;br&gt;Given s = “hello”, return “olleh”.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; String &lt;span class=&quot;title&quot;&gt;reverseString&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String s)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (s == &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt; || s.length() == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		StringBuilder sb = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; StringBuilder();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; index = s.length() - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; ; index &amp;gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; --index )&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; temp = s.charAt(index);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            sb.append(temp);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; sb.toString();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;问题分析：&quot;&gt;&lt;a href=&quot;#问题分析：&quot; class=&quot;headerlink&quot; title=&quot;问题分析：&quot;&gt;&lt;/a&gt;问题分析：&lt;/h5&gt;&lt;p&gt;作为最简单的题，我刚开始写的时候也遇到一些坑：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;忽略空格、回车的存在，结果检测的时候不过关&lt;/li&gt;
+&lt;li&gt;没有没有考虑性能问题，仅仅在乎结果是否正确&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;LeetCode&quot;&gt;&lt;a href=&quot;#LeetCode&quot; class=&quot;headerlink&quot; title=&quot;LeetCode&quot;&gt;&lt;/a&gt;LeetCode&lt;/h4&gt;&lt;p&gt;我们工作面试和提高自身数据结构和算法能力的时候往往需要刷刷题，我选择LeetCode是通过一
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="http://www.shutu.tech/categories/LeetCode/"/>
+    
+    
+      <category term="Java刷题" scheme="http://www.shutu.tech/tags/Java%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>《Thinking in Java》知识点记录</title>
