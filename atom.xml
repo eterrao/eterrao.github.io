@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shutu.tech/"/>
-  <updated>2016-07-02T06:11:27.000Z</updated>
+  <updated>2016-07-02T06:30:19.000Z</updated>
   <id>http://www.shutu.tech/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.shutu.tech/2016/07/02/LeetCode%E5%88%B7%E9%A2%98%E7%B3%BB%E5%88%97/"/>
     <id>http://www.shutu.tech/2016/07/02/LeetCode刷题系列/</id>
     <published>2016-07-01T23:06:38.000Z</published>
-    <updated>2016-07-02T06:11:27.000Z</updated>
+    <updated>2016-07-02T06:30:19.000Z</updated>
     
     <content type="html">&lt;h4 id=&quot;LeetCode&quot;&gt;&lt;a href=&quot;#LeetCode&quot; class=&quot;headerlink&quot; title=&quot;LeetCode&quot;&gt;&lt;/a&gt;LeetCode&lt;/h4&gt;&lt;p&gt;我们工作面试和提高自身数据结构和算法能力的时候往往需要刷刷题，我选择LeetCode是通过一个&lt;a href=&quot;http://www.1point3acres.com/bbs/forum-27-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;留学论坛&lt;/a&gt;了解的。专业，覆盖语种全面。&lt;/p&gt;
 &lt;p&gt;提前说说刷题的心得：&lt;/p&gt;
@@ -28,9 +28,10 @@
 &lt;li&gt;尽量手写代码，少使用IDE的代码补全和智能提示。既然是提升和锻炼自己的代码功底，那就没有理由再犯&lt;strong&gt;没有IDE写代码会死症&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;让自己去思考本身就是一件艰难的事，所以如果遇到困难，可以借鉴但切不可抄袭他人思考成果。不然刷题就没有意义了，别贪多贪快，自己思考的才是最好的&lt;/li&gt;
 &lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;进入&lt;a href=&quot;https://leetcode.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeetCode官方网站&lt;/a&gt;，你会看到醒目的&lt;strong&gt;&lt;a href=&quot;https://leetcode.com/problems/unique-paths/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Start coding now&lt;/a&gt;&lt;/strong&gt;，没有账号的同学赶快注册吧，点击此处可以进入题目分类，接着可以根据自己的实际情况，通过难易程度选择题目（PS: 带锁的需要花钱），我是先易后难，找点信心再说 😂。&lt;/p&gt;
-&lt;p&gt;选择题目后就开始刷题之旅吧，&lt;img src=&quot;&quot; alt=&quot;如图&quot;&gt;&lt;/p&gt;
-&lt;p&gt;官方提供多种语言的支持，可以实时运行检测代码，也可以自己设置自定的Testcase，介绍到此，祝各位刷题愉快，学业有成，工作顺利～&lt;/p&gt;
+&lt;p&gt;选择题目后就开始刷题之旅吧，官方提供多种语言的支持，可以实时运行检测代码，也可以自己设置自定的Testcase，介绍到此，祝各位刷题愉快，学业有成，工作顺利～&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/eterrao/eterrao.github.io/master/LeetCode%E5%88%B7%E9%A2%98%E9%A1%B5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;题目预览表&quot;&gt;&lt;a href=&quot;#题目预览表&quot; class=&quot;headerlink&quot; title=&quot;题目预览表&quot;&gt;&lt;/a&gt;题目预览表&lt;/h4&gt;&lt;p&gt;由易到难排序，目前官网总共出了390+&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -68,7 +69,12 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;LeetCode&quot;&gt;&lt;a href=&quot;#LeetCode&quot; class=&quot;headerlink&quot; title=&quot;LeetCode&quot;&gt;&lt;/a&gt;LeetCode&lt;/h4&gt;&lt;p&gt;我们工作面试和提高自身数据结构和算法能力的时候往往需要刷刷题，我选择LeetCode是通过一
+      &lt;h4 id=&quot;LeetCode&quot;&gt;&lt;a href=&quot;#LeetCode&quot; class=&quot;headerlink&quot; title=&quot;LeetCode&quot;&gt;&lt;/a&gt;LeetCode&lt;/h4&gt;&lt;p&gt;我们工作面试和提高自身数据结构和算法能力的时候往往需要刷刷题，我选择LeetCode是通过一个&lt;a href=&quot;http://www.1point3acres.com/bbs/forum-27-1.html&quot;&gt;留学论坛&lt;/a&gt;了解的。专业，覆盖语种全面。&lt;/p&gt;
+&lt;p&gt;提前说说刷题的心得：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;尽量手写代码，少使用IDE的代码补全和智能提示。既然是提升和锻炼自己的代码功底，那就没有理由再犯&lt;strong&gt;没有IDE写代码会死症&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;让自己去思考本身就是一件艰难的事，所以如果遇到困难，可以借鉴但切不可抄袭他人思考成果。不然刷题就没有意义了，别贪多贪快，自己思考的才是最好的&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
