@@ -101,7 +101,7 @@
 尽量手写代码，少使用IDE的代码补全和智能提示。既然是提升和锻炼自己的代码功底，那就没有理由再犯没有IDE写代码会死症
 让自己去思考本身就是一件艰难的事，所以如果遇到困难，可以借鉴但切不可抄袭他人思考成果。不然刷题就没有意义了，">
 <meta property="og:image" content="https://raw.githubusercontent.com/eterrao/eterrao.github.io/master/LeetCode%E5%88%B7%E9%A2%98%E9%A1%B5.png">
-<meta property="og:updated_time" content="2016-07-02T06:30:19.000Z">
+<meta property="og:updated_time" content="2016-07-08T15:53:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode刷题系列">
 <meta name="twitter:description" content="LeetCode我们工作面试和提高自身数据结构和算法能力的时候往往需要刷刷题，我选择LeetCode是通过一个留学论坛了解的。专业，覆盖语种全面。
@@ -378,23 +378,57 @@
 <td style="text-align:center">Easy</td>
 </tr>
 <tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center"><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="external">Two Sum</a></td>
+<td style="text-align:center">Easy</td>
+</tr>
+<tr>
 <td style="text-align:center">371</td>
 <td style="text-align:center"><a href="https://leetcode.com/problems/sum-of-two-integers/" target="_blank" rel="external">Sum of Two Integers</a></td>
 <td style="text-align:center">Easy</td>
 </tr>
 </tbody>
 </table>
-<h5 id="344-Reverse-String"><a href="#344-Reverse-String" class="headerlink" title="344. Reverse String"></a>344. Reverse String</h5><blockquote>
+<h4 id="344-Reverse-String"><a href="#344-Reverse-String" class="headerlink" title="344. Reverse String"></a>344. Reverse String</h4><blockquote>
 <p>Write a function that takes a string as input and returns the string reversed.</p>
 <p>译：输入一段字符串将其倒序并返回</p>
 <p><strong>Example:</strong><br>Given s = “hello”, return “olleh”.</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseString</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = s.length() - <span class="number">1</span> ; index &gt;= <span class="number">0</span>; --index )&#123;</span><br><span class="line">            <span class="keyword">char</span> temp = s.charAt(index);</span><br><span class="line">            sb.append(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h5><p>作为最简单的题，我刚开始写的时候也遇到一些坑：</p>
+<h4 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h4><p>作为最简单的题，我刚开始写的时候也遇到一些坑：</p>
 <ul>
 <li>忽略空格、回车的存在，结果检测的时候不过关</li>
 <li>没有没有考虑性能问题，仅仅在乎结果是否正确</li>
 </ul>
+<hr>
+<h4 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h4><blockquote>
+<p>Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific target.</p>
+<p>You may assume that each input would have <strong>exactly</strong> one solution.</p>
+<p>译：给定两个只有整数的数组，获取和为指定数值的两个数的索引</p>
+<p>需要假设每个输入的值都仅有一个答案</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; Given nums = [2, 7, 11, 15], target = 9,</span><br><span class="line">&gt;</span><br><span class="line">&gt; Because nums[0] + nums[1] = 2 + 7 = 9,</span><br><span class="line">&gt; return [0, 1].</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><strong>UPDATE (2016/2/13):</strong><br>The return format had been changed to <strong>zero-based</strong> indices. Please read the above updated description carefully.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">  <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; nums.length; k++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> l = k + <span class="number">1</span>; l &lt; nums.length; l++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (nums[k] + nums[l] == target) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> p : nums) &#123;</span><br><span class="line">          <span class="keyword">if</span> (nums[k] == p) &#123;</span><br><span class="line">            result[<span class="number">0</span>] = k;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span> (nums[l] == p) &#123;</span><br><span class="line">            result[<span class="number">1</span>] = l;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="问题分析：-1"><a href="#问题分析：-1" class="headerlink" title="问题分析："></a>问题分析：</h4><p>从问题来看，由于题目给了限制，也就是说给定的数组中肯定仅有两个数满足条件，我使用简单的冒泡挨个相加判断是否满足条件而得到答案。</p>
+<ul>
+<li>第一/二层通过嵌套for循环遍历数组中每个数与其他数之和</li>
+<li>取得两个数后，通过第三个增强for获取两个数在元数组中的索引</li>
+</ul>
+<hr>
+<h5 id="371-Sum-of-Two-Integers"><a href="#371-Sum-of-Two-Integers" class="headerlink" title="371. Sum of Two Integers"></a>371. Sum of Two Integers</h5><blockquote>
+<p>Calculate the sum of two integers <em>a</em> and <em>b</em>, but you are <strong>not allowed</strong> to use the operator <code>+</code> and <code>-</code>.</p>
+<p>译：不用+或者-符号，计算出两个数之和</p>
+<p><strong>Example:</strong></p>
+<p>Given <em>a</em> = 1 and <em>b</em> = 2, return 3.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// todo ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="问题分析：-2"><a href="#问题分析：-2" class="headerlink" title="问题分析："></a>问题分析：</h5><hr>
+<p>##### </p>
 
       
     </div>
@@ -585,7 +619,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#LeetCode"><span class="nav-number">1.</span> <span class="nav-text">LeetCode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目预览表"><span class="nav-number">2.</span> <span class="nav-text">题目预览表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#344-Reverse-String"><span class="nav-number">2.1.</span> <span class="nav-text">344. Reverse String</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题分析："><span class="nav-number">2.2.</span> <span class="nav-text">问题分析：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#LeetCode"><span class="nav-number">1.</span> <span class="nav-text">LeetCode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目预览表"><span class="nav-number">2.</span> <span class="nav-text">题目预览表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#344-Reverse-String"><span class="nav-number">3.</span> <span class="nav-text">344. Reverse String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析："><span class="nav-number">4.</span> <span class="nav-text">问题分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">5.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析：-1"><span class="nav-number">6.</span> <span class="nav-text">问题分析：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#371-Sum-of-Two-Integers"><span class="nav-number">6.1.</span> <span class="nav-text">371. Sum of Two Integers</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题分析：-2"><span class="nav-number">6.2.</span> <span class="nav-text">问题分析：</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
