@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shutu.tech/"/>
-  <updated>2016-07-08T15:53:56.000Z</updated>
+  <updated>2016-07-09T17:00:44.000Z</updated>
   <id>http://www.shutu.tech/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.shutu.tech/2016/07/02/LeetCode%E5%88%B7%E9%A2%98%E7%B3%BB%E5%88%97/"/>
     <id>http://www.shutu.tech/2016/07/02/LeetCode刷题系列/</id>
     <published>2016-07-01T23:06:38.000Z</published>
-    <updated>2016-07-08T15:53:56.000Z</updated>
+    <updated>2016-07-09T17:00:44.000Z</updated>
     
     <content type="html">&lt;h4 id=&quot;LeetCode&quot;&gt;&lt;a href=&quot;#LeetCode&quot; class=&quot;headerlink&quot; title=&quot;LeetCode&quot;&gt;&lt;/a&gt;LeetCode&lt;/h4&gt;&lt;p&gt;我们工作面试和提高自身数据结构和算法能力的时候往往需要刷刷题，我选择LeetCode是通过一个&lt;a href=&quot;http://www.1point3acres.com/bbs/forum-27-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;留学论坛&lt;/a&gt;了解的。专业，覆盖语种全面。&lt;/p&gt;
 &lt;p&gt;提前说说刷题的心得：&lt;/p&gt;
@@ -57,6 +57,11 @@
 &lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/sum-of-two-integers/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Sum of Two Integers&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;Easy&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;7&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/reverse-integer/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Reverse Integer&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Easy&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h4 id=&quot;344-Reverse-String&quot;&gt;&lt;a href=&quot;#344-Reverse-String&quot; class=&quot;headerlink&quot; title=&quot;344. Reverse String&quot;&gt;&lt;/a&gt;344. Reverse String&lt;/h4&gt;&lt;blockquote&gt;
@@ -90,15 +95,30 @@
 &lt;li&gt;取得两个数后，通过第三个增强for获取两个数在元数组中的索引&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h5 id=&quot;371-Sum-of-Two-Integers&quot;&gt;&lt;a href=&quot;#371-Sum-of-Two-Integers&quot; class=&quot;headerlink&quot; title=&quot;371. Sum of Two Integers&quot;&gt;&lt;/a&gt;371. Sum of Two Integers&lt;/h5&gt;&lt;blockquote&gt;
+&lt;h4 id=&quot;371-Sum-of-Two-Integers&quot;&gt;&lt;a href=&quot;#371-Sum-of-Two-Integers&quot; class=&quot;headerlink&quot; title=&quot;371. Sum of Two Integers&quot;&gt;&lt;/a&gt;371. Sum of Two Integers&lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;Calculate the sum of two integers &lt;em&gt;a&lt;/em&gt; and &lt;em&gt;b&lt;/em&gt;, but you are &lt;strong&gt;not allowed&lt;/strong&gt; to use the operator &lt;code&gt;+&lt;/code&gt; and &lt;code&gt;-&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;译：不用+或者-符号，计算出两个数之和&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Given &lt;em&gt;a&lt;/em&gt; = 1 and &lt;em&gt;b&lt;/em&gt; = 2, return 3.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Solution&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getSum&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// todo ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h5 id=&quot;问题分析：-2&quot;&gt;&lt;a href=&quot;#问题分析：-2&quot; class=&quot;headerlink&quot; title=&quot;问题分析：&quot;&gt;&lt;/a&gt;问题分析：&lt;/h5&gt;&lt;hr&gt;
-&lt;p&gt;##### &lt;/p&gt;
+&lt;h4 id=&quot;问题分析：-2&quot;&gt;&lt;a href=&quot;#问题分析：-2&quot; class=&quot;headerlink&quot; title=&quot;问题分析：&quot;&gt;&lt;/a&gt;问题分析：&lt;/h4&gt;&lt;hr&gt;
+&lt;h4 id=&quot;7-Reverse-Integer&quot;&gt;&lt;a href=&quot;#7-Reverse-Integer&quot; class=&quot;headerlink&quot; title=&quot;7. Reverse Integer&quot;&gt;&lt;/a&gt;7. Reverse Integer&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Reverse digits of an integer.&lt;/p&gt;
+&lt;p&gt;译：反转一个整数的数字&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example1:&lt;/strong&gt; x = 123, return 321&lt;br&gt;&lt;strong&gt;Example2:&lt;/strong&gt; x = -123, return -321&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/reverse-integer/#&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;click to show spoilers.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Have you thought about this?&lt;/strong&gt;Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!If the integer’s last digit is 0, what should the output be? ie, cases such as 10, 100.Did you notice that the reversed integer might overflow? Assume the input is a 32-bit integer, then the reverse of 1000000003 overflows. How should you handle such cases?For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.&lt;/p&gt;
+&lt;p&gt;译：你仔细思考过么？写代码前需要考虑到的一些问题，比如你已经考虑到这个整数的最后一个数为0，那么我们应该输出什么呢？例如：输入10，100。你注意到反转的数可能会溢出吗？假设你输入了一个32位的整数，如1000000003反过来就会导致溢出。那你怎么处理这些情况呢？所以对于这个问题来说我们假设如果你反转的数是溢出的，那么就指定它返回0。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ReverseInteger&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; x)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt; isNegativeNum = &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (x == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// 考虑到为0的情况直接返回0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (x &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;comment&quot;&gt;// 如果该数为负数，则使用标志位，并且为了去掉符号实用Math.abs()这个方法取绝对值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            isNegativeNum = &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            x = Math.abs(x); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        String xString = String.valueOf(x);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        String result = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; index = xString.length();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      	&lt;span class=&quot;comment&quot;&gt;// 时间复杂度最糟为O(n)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = index - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; i &amp;gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i--)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            result += String.valueOf(xString.charAt(i));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		  &lt;span class=&quot;comment&quot;&gt;// 此处投机取巧，由于反转后的数可能溢出，导致NumberFormatException，&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;comment&quot;&gt;//所以一旦catch该异常就指定该数为0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!isNegativeNum) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; Integer.valueOf(result);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (- Integer.parseInt(result));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125; &lt;span class=&quot;keyword&quot;&gt;catch&lt;/span&gt; (NumberFormatException e)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            e.printStackTrace();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;问题分析&quot;&gt;&lt;a href=&quot;#问题分析&quot; class=&quot;headerlink&quot; title=&quot;问题分析&quot;&gt;&lt;/a&gt;问题分析&lt;/h4&gt;&lt;p&gt;需要注意几个点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;题目已经说明了，一旦有溢出的情况就返回0；&lt;/li&gt;
+&lt;li&gt;如果正好为尾数为0的整数，那么反转后实际需要舍弃0；&lt;/li&gt;
+&lt;li&gt;正好为0的情况需要考虑到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最近在看《剑指OFFER》，其中提到的边界问题和非法输入的处理尤为重要，所以写的时候都很小心这方面的问题&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -452,7 +472,7 @@
     <link href="http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/"/>
     <id>http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/</id>
     <published>2016-05-09T05:02:52.000Z</published>
-    <updated>2016-06-27T16:14:05.000Z</updated>
+    <updated>2016-07-09T16:58:55.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;Android开发中 个人遇到和使用过的值得分享的资源合集
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&quot;&gt;&lt;/a&gt;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/Trinea/android-open-project&lt;/a&gt; &lt;/p&gt;
@@ -467,20 +487,15 @@ Android 开源项目第四篇——开发及测试工具篇
   包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他
 Android 开源项目第五篇——优秀个人和团体篇
   乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;awesome-android-ui&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/wasabeef/awesome-android-ui&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;项目说明：
-国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。
-A curated list of awesome Android UI/UX libraries.                        
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;AndroidDevTools 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/inferjay/AndroidDevTools&lt;/a&gt;&lt;br&gt;官方网站：&lt;a href=&quot;http://www.androiddevtools.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.androiddevtools.cn/&lt;/a&gt; &lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;awesome-android-ui&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/wasabeef/awesome-android-ui&lt;/a&gt;&lt;br&gt;​&lt;br&gt;    项目说明：&lt;br&gt;    国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。&lt;br&gt;    A curated list of awesome Android UI/UX libraries.                        &lt;/p&gt;
+&lt;h4 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;AndroidDevTools 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/inferjay/AndroidDevTools&lt;/a&gt;&lt;br&gt;官方网站：&lt;a href=&quot;http://www.androiddevtools.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.androiddevtools.cn/&lt;/a&gt; &lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;项目说明：
 收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。
 欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;android-tech-frontier&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/eterrao/android-tech-frontier.git&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;项目说明：
-一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。
-
-我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;android-tech-frontier&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/eterrao/android-tech-frontier.git&lt;/a&gt;&lt;br&gt;​&lt;br&gt;    项目说明：&lt;br&gt;    一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;
 &lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;​    &lt;/p&gt;
 &lt;p&gt;####个人博客资源：&lt;/p&gt;
 &lt;h4 id=&quot;stormZhang&quot;&gt;&lt;a href=&quot;#stormZhang&quot; class=&quot;headerlink&quot; title=&quot;stormZhang&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://stormzhang.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stormZhang&lt;/a&gt;&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;每个人都有一段艰辛、苦逼的成长时光，所以学会从博客开始记录自己一点一滴。这个博客的文章每次看都让自己有更多的动力去学习。提醒我自己别忘了还有梦想。
 PS：还有很多干货。
@@ -532,10 +547,44 @@ Utils 给出了一系列的工具类代码
 （2）BitmapHelper.java 一个封装了Bitmap操作的工具类，包括图片的打开、保存、剪裁、旋转等操作，相关博文: Android开发实践：自己动手编写图片剪裁应用（3）
 
 （3）ImageConvertor.java 封装了Android中各种图像格式转换，包括：NV21，YUY2、RGB565、ARGB8888、PNG、JPEG、Bitmap之间的转换操作。
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;工具类：&quot;&gt;&lt;a href=&quot;#工具类：&quot; class=&quot;headerlink&quot; title=&quot;工具类：&quot;&gt;&lt;/a&gt;工具类：&lt;/h4&gt;&lt;ul&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h4 id=&quot;工具类：&quot;&gt;&lt;a href=&quot;#工具类：&quot; class=&quot;headerlink&quot; title=&quot;工具类：&quot;&gt;&lt;/a&gt;工具类：&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;关于APK瘦身值得分享的一些经验：&lt;a href=&quot;http://www.jianshu.com/p/bd90dee57ad0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/bd90dee57ad0&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;PNG压缩：&lt;a href=&quot;https://tinypng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://tinypng.com/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h4 id=&quot;MarkDown编辑器&quot;&gt;&lt;a href=&quot;#MarkDown编辑器&quot; class=&quot;headerlink&quot; title=&quot;MarkDown编辑器&quot;&gt;&lt;/a&gt;MarkDown编辑器&lt;/h4&gt;&lt;h5 id=&quot;Typora&quot;&gt;&lt;a href=&quot;#Typora&quot; class=&quot;headerlink&quot; title=&quot;Typora&quot;&gt;&lt;/a&gt;Typora&lt;/h5&gt;&lt;p&gt;正在使用，简单方便。&lt;strong&gt;强烈推荐！&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优点：&lt;ul&gt;
+&lt;li&gt;实时预览&lt;/li&gt;
+&lt;li&gt;支持常用的几种主题（GitHub、Night等等）&lt;/li&gt;
+&lt;li&gt;快捷键插入十分方便&lt;/li&gt;
+&lt;li&gt;支持代码的高亮及多种语言的高亮选择&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;Mou&quot;&gt;&lt;a href=&quot;#Mou&quot; class=&quot;headerlink&quot; title=&quot;Mou&quot;&gt;&lt;/a&gt;Mou&lt;/h5&gt;&lt;p&gt;该有的都有了，羞耻的使用了破解版，但是个人唯一受不了的是这货居然不支持多窗口！！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优点：左边编辑右边实时预览；&lt;/li&gt;
+&lt;li&gt;缺点：&lt;ul&gt;
+&lt;li&gt;不支持多窗口，不知道能不能设置；&lt;/li&gt;
+&lt;li&gt;收费软件；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;Cmd-Markdown编辑器&quot;&gt;&lt;a href=&quot;#Cmd-Markdown编辑器&quot; class=&quot;headerlink&quot; title=&quot;Cmd Markdown编辑器&quot;&gt;&lt;/a&gt;Cmd Markdown编辑器&lt;/h5&gt;&lt;p&gt;一款在线编辑的MarkDown编辑器，设计简洁。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优点：&lt;ul&gt;
+&lt;li&gt;浏览器在线编辑，可以实时同步到不同的设备&lt;/li&gt;
+&lt;li&gt;支持导出的格式挺多&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;缺点：&lt;ul&gt;
+&lt;li&gt;需要注册登录账号&lt;/li&gt;
+&lt;li&gt;没有网貌似没法用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
 &lt;h4 id=&quot;真机调试：&quot;&gt;&lt;a href=&quot;#真机调试：&quot; class=&quot;headerlink&quot; title=&quot;真机调试：&quot;&gt;&lt;/a&gt;真机调试：&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;云测 (Testin): &lt;a href=&quot;http://www.testin.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.testin.cn/&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -543,17 +592,16 @@ Utils 给出了一系列的工具类代码
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;数据统计，Bug-Log-Crash-Reporter：&quot;&gt;&lt;a href=&quot;#数据统计，Bug-Log-Crash-Reporter：&quot; class=&quot;headerlink&quot; title=&quot;数据统计，Bug Log/Crash Reporter：**&quot;&gt;&lt;/a&gt;数据统计，Bug Log/Crash Reporter：**&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;国内：
-　　　　&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;友盟 ：&lt;a href=&quot;http://www.umeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.umeng.com/&lt;/a&gt;&lt;br&gt;　　　　说明：友盟的功能集成挺多，常用的基本都覆盖了，社会化组件/数据统计/Bug分析基本都通用，并且使用起来比较直观。SDK使用的话也不算麻烦。&lt;br&gt;　　　　优点就不说了，说说缺点吧，就是Crash Report不能实时邮件反馈，第二天9点30左右才会收到前一天的统计概况。详情的话倒是可以实时查询。
-　　　　&lt;/li&gt;
+&lt;li&gt;国内：&lt;pre&gt;&lt;code&gt;　　　　
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;友盟 ：&lt;a href=&quot;http://www.umeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.umeng.com/&lt;/a&gt;&lt;br&gt;　　　　说明：友盟的功能集成挺多，常用的基本都覆盖了，社会化组件/数据统计/Bug分析基本都通用，并且使用起来比较直观。SDK使用的话也不算麻烦。&lt;br&gt;　　　　优点就不说了，说说缺点吧，就是Crash Report不能实时邮件反馈，第二天9点30左右才会收到前一天的统计概况。详情的话倒是可以实时查询。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;国外：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Twitter的Fabric：官网： &lt;a href=&quot;https://fabric.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://fabric.io/&lt;/a&gt;&lt;br&gt;　　　　优点：反馈及时，一般有了Bug邮件没过多久就收到了，并且集成起来很方便，基于Android Studio的一个插件自动将SDK打入项目中。&lt;br&gt;　　　　缺点：不知道是不是我的环境问题，经常会Connect出错或者项目Build中断。
-　　　　&lt;/li&gt;
+&lt;li&gt;Twitter的Fabric：官网： &lt;a href=&quot;https://fabric.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://fabric.io/&lt;/a&gt;&lt;br&gt;　　　　优点：反馈及时，一般有了Bug邮件没过多久就收到了，并且集成起来很方便，基于Android Studio的一个插件自动将SDK打入项目中。&lt;br&gt;　　　　缺点：不知道是不是我的环境问题，经常会Connect出错或者项目Build中断。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -574,19 +622,13 @@ Android 开源项目第四篇——开发及测试工具篇
   包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他
 Android 开源项目第五篇——优秀个人和团体篇
   乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;awesome-android-ui&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot;&gt;https://github.com/wasabeef/awesome-android-ui&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;项目说明：
-国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。
-A curated list of awesome Android UI/UX libraries.                        
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;AndroidDevTools 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot;&gt;https://github.com/inferjay/AndroidDevTools&lt;/a&gt;&lt;br&gt;官方网站：&lt;a href=&quot;http://www.androiddevtools.cn/&quot;&gt;http://www.androiddevtools.cn/&lt;/a&gt; &lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;awesome-android-ui&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot;&gt;https://github.com/wasabeef/awesome-android-ui&lt;/a&gt;&lt;br&gt;​&lt;br&gt;    项目说明：&lt;br&gt;    国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。&lt;br&gt;    A curated list of awesome Android UI/UX libraries.                        &lt;/p&gt;
+&lt;h4 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;AndroidDevTools 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot;&gt;https://github.com/inferjay/AndroidDevTools&lt;/a&gt;&lt;br&gt;官方网站：&lt;a href=&quot;http://www.androiddevtools.cn/&quot;&gt;http://www.androiddevtools.cn/&lt;/a&gt; &lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;项目说明：
 收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。
 欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;android-tech-frontier&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot;&gt;https://github.com/eterrao/android-tech-frontier.git&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;项目说明：
-一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。
-
-我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;android-tech-frontier&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot;&gt;https://github.com/eterrao/android-tech-frontier.git&lt;/a&gt;&lt;br&gt;​&lt;br&gt;    项目说明：&lt;br&gt;    一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>
