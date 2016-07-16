@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shutu.tech/"/>
-  <updated>2016-07-09T17:00:44.000Z</updated>
+  <updated>2016-07-16T16:53:08.000Z</updated>
   <id>http://www.shutu.tech/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《算法》</title>
+    <link href="http://www.shutu.tech/2016/07/11/%E3%80%8A%E7%AE%97%E6%B3%95%E3%80%8B/"/>
+    <id>http://www.shutu.tech/2016/07/11/《算法》/</id>
+    <published>2016-07-11T13:16:08.000Z</published>
+    <updated>2016-07-16T16:53:08.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;排序篇&quot;&gt;&lt;a href=&quot;#排序篇&quot; class=&quot;headerlink&quot; title=&quot;排序篇&quot;&gt;&lt;/a&gt;排序篇&lt;/h2&gt;&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;在数据结构与算法中，排序是面试笔试中最常被问到和提及的知识点，虽然在工作中很少用到相关的基础知识，但是对于基础的系统性学习却是必不可少的，通过学习和理解可以培养锻炼我们写代码的思维逻辑。多考虑性能，少制造垃圾代码。&lt;/p&gt;
+&lt;p&gt;此书介绍得比较详细易懂，并且使用Java语言所以用到了很多相关的标准类库或模板，学习比较容易上手。同时还有另一本Java基础的书籍推荐《Introdution to Java Programming》（作者：Y. Daniel Liang），书中同样介绍了基础的数据结构与算法，并且图文并茂通俗易懂。&lt;/p&gt;
+&lt;h4 id=&quot;重点&quot;&gt;&lt;a href=&quot;#重点&quot; class=&quot;headerlink&quot; title=&quot;重点&quot;&gt;&lt;/a&gt;重点&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;排序成本模型：&lt;/strong&gt;在研究排序算法时，需要计算&lt;strong&gt;比较&lt;/strong&gt;和&lt;strong&gt;交换&lt;/strong&gt;的数量，对于不交换元素的算法，会计算&lt;strong&gt;访问数组的次数&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;看法&quot;&gt;&lt;a href=&quot;#看法&quot; class=&quot;headerlink&quot; title=&quot;看法&quot;&gt;&lt;/a&gt;看法&lt;/h4&gt;&lt;p&gt;从2.1.5节的介绍，个人认为这几点是&lt;strong&gt;比较排序之间优缺点&lt;/strong&gt;的精髓：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;实现并调试&lt;/li&gt;
+&lt;li&gt;分析它们的基本性质&lt;/li&gt;
+&lt;li&gt;对它们的相对性能作出猜想&lt;/li&gt;
+&lt;li&gt;实验验证猜想&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;选择排序&quot;&gt;&lt;a href=&quot;#选择排序&quot; class=&quot;headerlink&quot; title=&quot;选择排序&quot;&gt;&lt;/a&gt;选择排序&lt;/h3&gt;&lt;h4 id=&quot;分析&quot;&gt;&lt;a href=&quot;#分析&quot; class=&quot;headerlink&quot; title=&quot;分析&quot;&gt;&lt;/a&gt;分析&lt;/h4&gt;&lt;p&gt;理解上来说，就是两个for循环嵌套后，每一趟分别将数组中的每一个元素进行比较然后选出最小的那个移动到最左（顺序递增），最外层遍历N - 1趟，内层遍历N - 1 - i (i为外层index值)，所以显然选择排序中元素交换和数组的长度是&lt;strong&gt;线性关系&lt;/strong&gt;的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;比较次数：(N - 1) + (N - 2) + … + 2 + 1 = (N - 1) / 2 &lt;em&gt; (1 + (N - 1)) ~ &lt;em&gt;*N² / 2&lt;/em&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;交换次数：N (外层for)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h4&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SelectionSort&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Comparable[] array)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; N = array.length();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; N; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; min = i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j = i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; j &amp;lt; N; j++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (array[j] &amp;lt; array[min]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					min = j;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; temp = array[min];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				array[min] = array[j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				array[j] = temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;插入排序&quot;&gt;&lt;a href=&quot;#插入排序&quot; class=&quot;headerlink&quot; title=&quot;插入排序&quot;&gt;&lt;/a&gt;插入排序&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;排序篇&quot;&gt;&lt;a href=&quot;#排序篇&quot; class=&quot;headerlink&quot; title=&quot;排序篇&quot;&gt;&lt;/a&gt;排序篇&lt;/h2&gt;&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p
+    
+    </summary>
+    
+      <category term="数据结构与算法" scheme="http://www.shutu.tech/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="Algorithms" scheme="http://www.shutu.tech/tags/Algorithms/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode刷题系列</title>
@@ -192,7 +234,7 @@
     <link href="http://www.shutu.tech/2016/06/29/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E3%80%8A%E6%9A%97%E6%97%B6%E9%97%B4%E3%80%8B/"/>
     <id>http://www.shutu.tech/2016/06/29/读书笔记-《暗时间》/</id>
     <published>2016-06-29T15:07:42.000Z</published>
-    <updated>2016-07-07T15:45:10.000Z</updated>
+    <updated>2016-07-16T16:52:28.000Z</updated>
     
     <content type="html">&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;关于这本书，是通过知乎了解的，不犹豫的下单，结果一发不可收拾。不得不说，作者刘未鹏真的很NB。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/eterrao/eterrao.github.io/master/%E6%9A%97%E6%97%B6%E9%97%B4.jpg&quot; alt=&quot;暗时间&quot;&gt;&lt;/p&gt;
@@ -226,10 +268,12 @@
 &lt;li&gt;每个人都有自己的思维体力，需要锻炼才能持续更长更久&lt;/li&gt;
 &lt;li&gt;嘈杂的环境看书是最能锻炼注意力的（地铁上）&lt;/li&gt;
 &lt;li&gt;睡觉前思考一些问题，让大脑长时间保持对问题的思考，潜意识就能解决很多问题&lt;/li&gt;
+&lt;li&gt;最近正在复习数据结构与算法，每当自己觉得明白了以后，会习惯的反问和思考自己是否真的理解透彻了，受益匪浅；&lt;/li&gt;
+&lt;li&gt;每当走在路上的时候，曾经的我会看天看地看人，如今却总觉得这部分暗时间需要利用起来，毕竟我也想“多活一段时间”嘛；&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;“跟波利亚学解题”后篇&quot;&gt;&lt;a href=&quot;#“跟波利亚学解题”后篇&quot; class=&quot;headerlink&quot; title=&quot;“跟波利亚学解题”后篇&quot;&gt;&lt;/a&gt;“跟波利亚学解题”后篇&lt;/h4&gt;&lt;p&gt;今天又继续阅读”跟波利亚学解题”，发现以前的我好傻，庆幸现在还不晚。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;学会总结，一个问题从理解到运用相差十万八千里，所以曾经做题并不是看完答案恍然大悟就可以了，而需要仔细思考实现的思想，把能够举一反三的部分提取出来&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;学会总结，一个问题从理解到运用相差十万八千里，所以曾经做题并不是看完答案恍然大悟就可以了，而需要仔细思考实现的思想，把能够举一反三的部分提取出来；&lt;/p&gt;
 &lt;p&gt;​&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
