@@ -101,7 +101,7 @@
 尽量手写代码，少使用IDE的代码补全和智能提示。既然是提升和锻炼自己的代码功底，那就没有理由再犯没有IDE写代码会死症
 让自己去思考本身就是一件艰难的事，所以如果遇到困难，可以借鉴但切不可抄袭他人思考成果。不然刷题就没有意义了，">
 <meta property="og:image" content="https://raw.githubusercontent.com/eterrao/eterrao.github.io/master/LeetCode%E5%88%B7%E9%A2%98%E9%A1%B5.png">
-<meta property="og:updated_time" content="2016-07-09T17:00:44.000Z">
+<meta property="og:updated_time" content="2016-07-19T16:29:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode刷题系列">
 <meta name="twitter:description" content="LeetCode我们工作面试和提高自身数据结构和算法能力的时候往往需要刷刷题，我选择LeetCode是通过一个留学论坛了解的。专业，覆盖语种全面。
@@ -392,6 +392,11 @@
 <td style="text-align:center"><a href="https://leetcode.com/problems/reverse-integer/" target="_blank" rel="external">Reverse Integer</a></td>
 <td style="text-align:center">Easy</td>
 </tr>
+<tr>
+<td style="text-align:center">75</td>
+<td style="text-align:center"><a href="https://leetcode.com/problems/sort-colors/" target="_blank" rel="external">Sort Colors</a></td>
+<td style="text-align:center">Medium</td>
+</tr>
 </tbody>
 </table>
 <h4 id="344-Reverse-String"><a href="#344-Reverse-String" class="headerlink" title="344. Reverse String"></a>344. Reverse String</h4><blockquote>
@@ -449,6 +454,15 @@
 <li>正好为0的情况需要考虑到</li>
 </ul>
 <p>最近在看《剑指OFFER》，其中提到的边界问题和非法输入的处理尤为重要，所以写的时候都很小心这方面的问题</p>
+<h4 id="75-Sort-Colors"><a href="#75-Sort-Colors" class="headerlink" title="75. Sort Colors"></a>75. Sort Colors</h4><blockquote>
+<p>Given an array with <em>n</em> objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
+<p>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</p>
+<p>译： 给定一个大小为n的数组，其中包含的元素对象为红、白、蓝，将其进行毗连的排序，顺序为红、白、蓝。在此我们用0，1，2来代表红白蓝三个颜色。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (nums == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">       <span class="keyword">if</span> (nums.length &lt;= <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">       ArrayList&lt;Integer&gt; redList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">       ArrayList&lt;Integer&gt; whiteList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">       ArrayList&lt;Integer&gt; blueList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> currentColor : nums)&#123;</span><br><span class="line">           <span class="keyword">if</span> (currentColor == <span class="number">0</span>) &#123;</span><br><span class="line">               redList.add(currentColor);</span><br><span class="line">           &#125; <span class="keyword">else</span> <span class="keyword">if</span> (currentColor == <span class="number">1</span>) &#123;</span><br><span class="line">               whiteList.add(currentColor);</span><br><span class="line">           &#125; <span class="keyword">else</span> <span class="keyword">if</span> (currentColor == <span class="number">2</span>)&#123;</span><br><span class="line">               blueList.add(currentColor);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       redList.addAll(whiteList);</span><br><span class="line">       redList.addAll(blueList);</span><br><span class="line">       <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> color : redList)&#123;</span><br><span class="line">           nums[i] = color;</span><br><span class="line">           i++;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="问题分析-1"><a href="#问题分析-1" class="headerlink" title="问题分析"></a>问题分析</h4><p>看起来越简单清晰的题，越需要谨慎的对待</p>
+<p>首先题中已经给定了数组，虽然三种颜色是随机的，但是可以遍历出每种颜色的数量，在此我将每种颜色使用一个ArrayList存放（个人感觉这么做是最笨的办法），分成三个list后再组合成一个数组。</p>
+<p>代码中的两个for的时间复杂度分别为N，总的为2N。</p>
 
       
     </div>
@@ -643,7 +657,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#LeetCode"><span class="nav-number">1.</span> <span class="nav-text">LeetCode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目预览表"><span class="nav-number">2.</span> <span class="nav-text">题目预览表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#344-Reverse-String"><span class="nav-number">3.</span> <span class="nav-text">344. Reverse String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析："><span class="nav-number">4.</span> <span class="nav-text">问题分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">5.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析：-1"><span class="nav-number">6.</span> <span class="nav-text">问题分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#371-Sum-of-Two-Integers"><span class="nav-number">7.</span> <span class="nav-text">371. Sum of Two Integers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析：-2"><span class="nav-number">8.</span> <span class="nav-text">问题分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Reverse-Integer"><span class="nav-number">9.</span> <span class="nav-text">7. Reverse Integer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析"><span class="nav-number">10.</span> <span class="nav-text">问题分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#LeetCode"><span class="nav-number">1.</span> <span class="nav-text">LeetCode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目预览表"><span class="nav-number">2.</span> <span class="nav-text">题目预览表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#344-Reverse-String"><span class="nav-number">3.</span> <span class="nav-text">344. Reverse String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析："><span class="nav-number">4.</span> <span class="nav-text">问题分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">5.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析：-1"><span class="nav-number">6.</span> <span class="nav-text">问题分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#371-Sum-of-Two-Integers"><span class="nav-number">7.</span> <span class="nav-text">371. Sum of Two Integers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析：-2"><span class="nav-number">8.</span> <span class="nav-text">问题分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Reverse-Integer"><span class="nav-number">9.</span> <span class="nav-text">7. Reverse Integer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析"><span class="nav-number">10.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#75-Sort-Colors"><span class="nav-number">11.</span> <span class="nav-text">75. Sort Colors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析-1"><span class="nav-number">12.</span> <span class="nav-text">问题分析</span></a></li></ol></div>
             
           </div>
         </section>

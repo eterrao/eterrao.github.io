@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shutu.tech/"/>
-  <updated>2016-07-17T01:06:04.000Z</updated>
+  <updated>2016-07-17T02:08:21.000Z</updated>
   <id>http://www.shutu.tech/</id>
   
   <author>
@@ -20,13 +20,14 @@
     <link href="http://www.shutu.tech/2016/07/11/%E3%80%8A%E7%AE%97%E6%B3%95%E3%80%8B/"/>
     <id>http://www.shutu.tech/2016/07/11/《算法》/</id>
     <published>2016-07-11T13:16:08.000Z</published>
-    <updated>2016-07-17T01:06:04.000Z</updated>
+    <updated>2016-07-17T02:08:21.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;排序篇&quot;&gt;&lt;a href=&quot;#排序篇&quot; class=&quot;headerlink&quot; title=&quot;排序篇&quot;&gt;&lt;/a&gt;排序篇&lt;/h2&gt;&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;在数据结构与算法中，排序是面试笔试中最常被问到和提及的知识点，虽然在工作中很少用到相关的基础知识，但是对于基础的系统性学习却是必不可少的，通过学习和理解可以培养锻炼我们写代码的思维逻辑。多考虑性能，少制造垃圾代码。&lt;/p&gt;
 &lt;p&gt;此书介绍得比较详细易懂，并且使用Java语言所以用到了很多相关的标准类库或模板，学习比较容易上手。同时还有另一本Java基础的书籍推荐《Introdution to Java Programming》（作者：Y. Daniel Liang），书中同样介绍了基础的数据结构与算法，并且图文并茂通俗易懂。&lt;/p&gt;
 &lt;h4 id=&quot;重点&quot;&gt;&lt;a href=&quot;#重点&quot; class=&quot;headerlink&quot; title=&quot;重点&quot;&gt;&lt;/a&gt;重点&lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;排序成本模型：&lt;/strong&gt;在研究排序算法时，需要计算&lt;strong&gt;比较&lt;/strong&gt;和&lt;strong&gt;交换&lt;/strong&gt;的数量，对于不交换元素的算法，会计算&lt;strong&gt;访问数组的次数&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h4 id=&quot;看法&quot;&gt;&lt;a href=&quot;#看法&quot; class=&quot;headerlink&quot; title=&quot;看法&quot;&gt;&lt;/a&gt;看法&lt;/h4&gt;&lt;p&gt;从2.1.5节的介绍，个人认为这几点是&lt;strong&gt;比较排序之间优缺点&lt;/strong&gt;的精髓：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
@@ -86,7 +87,11 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;排序篇&quot;&gt;&lt;a href=&quot;#排序篇&quot; class=&quot;headerlink&quot; title=&quot;排序篇&quot;&gt;&lt;/a&gt;排序篇&lt;/h2&gt;&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p
+      &lt;h2 id=&quot;排序篇&quot;&gt;&lt;a href=&quot;#排序篇&quot; class=&quot;headerlink&quot; title=&quot;排序篇&quot;&gt;&lt;/a&gt;排序篇&lt;/h2&gt;&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;在数据结构与算法中，排序是面试笔试中最常被问到和提及的知识点，虽然在工作中很少用到相关的基础知识，但是对于基础的系统性学习却是必不可少的，通过学习和理解可以培养锻炼我们写代码的思维逻辑。多考虑性能，少制造垃圾代码。&lt;/p&gt;
+&lt;p&gt;此书介绍得比较详细易懂，并且使用Java语言所以用到了很多相关的标准类库或模板，学习比较容易上手。同时还有另一本Java基础的书籍推荐《Introdution to Java Programming》（作者：Y. Daniel Liang），书中同样介绍了基础的数据结构与算法，并且图文并茂通俗易懂。&lt;/p&gt;
+&lt;h4 id=&quot;重点&quot;&gt;&lt;a href=&quot;#重点&quot; class=&quot;headerlink&quot; title=&quot;重点&quot;&gt;&lt;/a&gt;重点&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;排序成本模型：&lt;/strong&gt;在研究排序算法时，需要计算&lt;strong&gt;比较&lt;/strong&gt;和&lt;strong&gt;交换&lt;/strong&gt;的数量，对于不交换元素的算法，会计算&lt;strong&gt;访问数组的次数&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -102,7 +107,7 @@
     <link href="http://www.shutu.tech/2016/07/02/LeetCode%E5%88%B7%E9%A2%98%E7%B3%BB%E5%88%97/"/>
     <id>http://www.shutu.tech/2016/07/02/LeetCode刷题系列/</id>
     <published>2016-07-01T23:06:38.000Z</published>
-    <updated>2016-07-09T17:00:44.000Z</updated>
+    <updated>2016-07-19T16:29:26.000Z</updated>
     
     <content type="html">&lt;h4 id=&quot;LeetCode&quot;&gt;&lt;a href=&quot;#LeetCode&quot; class=&quot;headerlink&quot; title=&quot;LeetCode&quot;&gt;&lt;/a&gt;LeetCode&lt;/h4&gt;&lt;p&gt;我们工作面试和提高自身数据结构和算法能力的时候往往需要刷刷题，我选择LeetCode是通过一个&lt;a href=&quot;http://www.1point3acres.com/bbs/forum-27-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;留学论坛&lt;/a&gt;了解的。专业，覆盖语种全面。&lt;/p&gt;
 &lt;p&gt;提前说说刷题的心得：&lt;/p&gt;
@@ -143,6 +148,11 @@
 &lt;td style=&quot;text-align:center&quot;&gt;7&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/reverse-integer/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Reverse Integer&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;Easy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;75&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/sort-colors/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Sort Colors&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Medium&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -201,6 +211,15 @@
 &lt;li&gt;正好为0的情况需要考虑到&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;最近在看《剑指OFFER》，其中提到的边界问题和非法输入的处理尤为重要，所以写的时候都很小心这方面的问题&lt;/p&gt;
+&lt;h4 id=&quot;75-Sort-Colors&quot;&gt;&lt;a href=&quot;#75-Sort-Colors&quot; class=&quot;headerlink&quot; title=&quot;75. Sort Colors&quot;&gt;&lt;/a&gt;75. Sort Colors&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Given an array with &lt;em&gt;n&lt;/em&gt; objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.&lt;/p&gt;
+&lt;p&gt;Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.&lt;/p&gt;
+&lt;p&gt;译： 给定一个大小为n的数组，其中包含的元素对象为红、白、蓝，将其进行毗连的排序，顺序为红、白、蓝。在此我们用0，1，2来代表红白蓝三个颜色。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sortColors&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;[] nums)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (nums == &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (nums.length &amp;lt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       ArrayList&amp;lt;Integer&amp;gt; redList = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       ArrayList&amp;lt;Integer&amp;gt; whiteList = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       ArrayList&amp;lt;Integer&amp;gt; blueList = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; currentColor : nums)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (currentColor == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;               redList.add(currentColor);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (currentColor == &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;               whiteList.add(currentColor);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (currentColor == &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;               blueList.add(currentColor);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       redList.addAll(whiteList);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       redList.addAll(blueList);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; color : redList)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           nums[i] = color;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           i++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;问题分析-1&quot;&gt;&lt;a href=&quot;#问题分析-1&quot; class=&quot;headerlink&quot; title=&quot;问题分析&quot;&gt;&lt;/a&gt;问题分析&lt;/h4&gt;&lt;p&gt;看起来越简单清晰的题，越需要谨慎的对待&lt;/p&gt;
+&lt;p&gt;首先题中已经给定了数组，虽然三种颜色是随机的，但是可以遍历出每种颜色的数量，在此我将每种颜色使用一个ArrayList存放（个人感觉这么做是最笨的办法），分成三个list后再组合成一个数组。&lt;/p&gt;
+&lt;p&gt;代码中的两个for的时间复杂度分别为N，总的为2N。&lt;/p&gt;
 </content>
     
     <summary type="html">
