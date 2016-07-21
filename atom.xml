@@ -575,7 +575,7 @@
     <link href="http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/"/>
     <id>http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/</id>
     <published>2016-05-09T05:02:52.000Z</published>
-    <updated>2016-07-09T16:58:55.000Z</updated>
+    <updated>2016-07-21T02:24:06.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;Android开发中 个人遇到和使用过的值得分享的资源合集
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&quot;&gt;&lt;/a&gt;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/Trinea/android-open-project&lt;/a&gt; &lt;/p&gt;
@@ -599,7 +599,7 @@ Android 开源项目第五篇——优秀个人和团体篇
 &lt;pre&gt;&lt;code&gt;我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;
 &lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;​    &lt;/p&gt;
-&lt;p&gt;####个人博客资源：&lt;/p&gt;
+&lt;p&gt;###个人博客资源：&lt;/p&gt;
 &lt;h4 id=&quot;stormZhang&quot;&gt;&lt;a href=&quot;#stormZhang&quot; class=&quot;headerlink&quot; title=&quot;stormZhang&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://stormzhang.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stormZhang&lt;/a&gt;&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;每个人都有一段艰辛、苦逼的成长时光，所以学会从博客开始记录自己一点一滴。这个博客的文章每次看都让自己有更多的动力去学习。提醒我自己别忘了还有梦想。
 PS：还有很多干货。
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;####&lt;a href=&quot;http://ticktick.blog.51cto.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tickTick 的BLOG&lt;/a&gt;&lt;/p&gt;
@@ -651,11 +651,11 @@ Utils 给出了一系列的工具类代码
 
 （3）ImageConvertor.java 封装了Android中各种图像格式转换，包括：NV21，YUY2、RGB565、ARGB8888、PNG、JPEG、Bitmap之间的转换操作。
 &lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
-&lt;h4 id=&quot;工具类：&quot;&gt;&lt;a href=&quot;#工具类：&quot; class=&quot;headerlink&quot; title=&quot;工具类：&quot;&gt;&lt;/a&gt;工具类：&lt;/h4&gt;&lt;ul&gt;
+&lt;h3 id=&quot;工具类：&quot;&gt;&lt;a href=&quot;#工具类：&quot; class=&quot;headerlink&quot; title=&quot;工具类：&quot;&gt;&lt;/a&gt;工具类：&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;关于APK瘦身值得分享的一些经验：&lt;a href=&quot;http://www.jianshu.com/p/bd90dee57ad0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/bd90dee57ad0&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;PNG压缩：&lt;a href=&quot;https://tinypng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://tinypng.com/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;MarkDown编辑器&quot;&gt;&lt;a href=&quot;#MarkDown编辑器&quot; class=&quot;headerlink&quot; title=&quot;MarkDown编辑器&quot;&gt;&lt;/a&gt;MarkDown编辑器&lt;/h4&gt;&lt;h5 id=&quot;Typora&quot;&gt;&lt;a href=&quot;#Typora&quot; class=&quot;headerlink&quot; title=&quot;Typora&quot;&gt;&lt;/a&gt;Typora&lt;/h5&gt;&lt;p&gt;正在使用，简单方便。&lt;strong&gt;强烈推荐！&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;MarkDown编辑器&quot;&gt;&lt;a href=&quot;#MarkDown编辑器&quot; class=&quot;headerlink&quot; title=&quot;MarkDown编辑器&quot;&gt;&lt;/a&gt;MarkDown编辑器&lt;/h3&gt;&lt;h4 id=&quot;Typora&quot;&gt;&lt;a href=&quot;#Typora&quot; class=&quot;headerlink&quot; title=&quot;Typora&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.typora.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Typora&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;正在使用，简单方便。&lt;strong&gt;强烈推荐！&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;优点：&lt;ul&gt;
 &lt;li&gt;实时预览&lt;/li&gt;
@@ -665,7 +665,8 @@ Utils 给出了一系列的工具类代码
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5 id=&quot;Mou&quot;&gt;&lt;a href=&quot;#Mou&quot; class=&quot;headerlink&quot; title=&quot;Mou&quot;&gt;&lt;/a&gt;Mou&lt;/h5&gt;&lt;p&gt;该有的都有了，羞耻的使用了破解版，但是个人唯一受不了的是这货居然不支持多窗口！！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;: 由于是国外网站，所以下载比较慢，耐心等待&lt;/p&gt;
+&lt;h4 id=&quot;Mou&quot;&gt;&lt;a href=&quot;#Mou&quot; class=&quot;headerlink&quot; title=&quot;Mou&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://25.io/mou/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mou&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;该有的都有了，羞耻的使用了破解版，但是个人唯一受不了的是这货居然不支持多窗口！！&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;优点：左边编辑右边实时预览；&lt;/li&gt;
 &lt;li&gt;缺点：&lt;ul&gt;
@@ -674,7 +675,7 @@ Utils 给出了一系列的工具类代码
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5 id=&quot;Cmd-Markdown编辑器&quot;&gt;&lt;a href=&quot;#Cmd-Markdown编辑器&quot; class=&quot;headerlink&quot; title=&quot;Cmd Markdown编辑器&quot;&gt;&lt;/a&gt;Cmd Markdown编辑器&lt;/h5&gt;&lt;p&gt;一款在线编辑的MarkDown编辑器，设计简洁。&lt;/p&gt;
+&lt;h4 id=&quot;Cmd-Markdown编辑器&quot;&gt;&lt;a href=&quot;#Cmd-Markdown编辑器&quot; class=&quot;headerlink&quot; title=&quot;Cmd Markdown编辑器&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.zybuluo.com/mdeditor#403095&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cmd Markdown编辑器&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;一款&lt;strong&gt;在线&lt;/strong&gt;编辑的MarkDown编辑器，设计简洁。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;优点：&lt;ul&gt;
 &lt;li&gt;浏览器在线编辑，可以实时同步到不同的设备&lt;/li&gt;
@@ -687,15 +688,16 @@ Utils 给出了一系列的工具类代码
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h4 id=&quot;StackEdit&quot;&gt;&lt;a href=&quot;#StackEdit&quot; class=&quot;headerlink&quot; title=&quot;StackEdit&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://stackedit.io/editor&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;StackEdit&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;同样是&lt;strong&gt;在线&lt;/strong&gt;编辑器，国外的&lt;/p&gt;
 &lt;hr&gt;
-&lt;h4 id=&quot;真机调试：&quot;&gt;&lt;a href=&quot;#真机调试：&quot; class=&quot;headerlink&quot; title=&quot;真机调试：&quot;&gt;&lt;/a&gt;真机调试：&lt;/h4&gt;&lt;ul&gt;
+&lt;h3 id=&quot;真机调试：&quot;&gt;&lt;a href=&quot;#真机调试：&quot; class=&quot;headerlink&quot; title=&quot;真机调试：&quot;&gt;&lt;/a&gt;真机调试：&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;云测 (Testin): &lt;a href=&quot;http://www.testin.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.testin.cn/&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;优测 (腾讯的): &lt;a href=&quot;http://utest.qq.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://utest.qq.com/&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;数据统计，Bug-Log-Crash-Reporter：&quot;&gt;&lt;a href=&quot;#数据统计，Bug-Log-Crash-Reporter：&quot; class=&quot;headerlink&quot; title=&quot;数据统计，Bug Log/Crash Reporter：**&quot;&gt;&lt;/a&gt;数据统计，Bug Log/Crash Reporter：**&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;国内：&lt;pre&gt;&lt;code&gt;　　　　
+&lt;h3 id=&quot;数据统计，Bug-Log-Crash-Reporter：&quot;&gt;&lt;a href=&quot;#数据统计，Bug-Log-Crash-Reporter：&quot; class=&quot;headerlink&quot; title=&quot;数据统计，Bug Log/Crash Reporter：**&quot;&gt;&lt;/a&gt;数据统计，Bug Log/Crash Reporter：**&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;国内：&lt;pre&gt;&lt;code&gt;​    　　　　
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;友盟 ：&lt;a href=&quot;http://www.umeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.umeng.com/&lt;/a&gt;&lt;br&gt;　　　　说明：友盟的功能集成挺多，常用的基本都覆盖了，社会化组件/数据统计/Bug分析基本都通用，并且使用起来比较直观。SDK使用的话也不算麻烦。&lt;br&gt;　　　　优点就不说了，说说缺点吧，就是Crash Report不能实时邮件反馈，第二天9点30左右才会收到前一天的统计概况。详情的话倒是可以实时查询。&lt;/li&gt;
 &lt;/ul&gt;
