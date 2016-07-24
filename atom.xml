@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shutu.tech/"/>
-  <updated>2016-07-17T02:08:21.000Z</updated>
+  <updated>2016-07-24T15:53:20.000Z</updated>
   <id>http://www.shutu.tech/</id>
   
   <author>
@@ -14,6 +14,150 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android设计模式总结</title>
+    <link href="http://www.shutu.tech/2016/07/24/Android%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.shutu.tech/2016/07/24/Android设计模式总结/</id>
+    <published>2016-07-24T05:48:00.000Z</published>
+    <updated>2016-07-24T15:53:20.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;看《Android源码设计模式》之前设计模式没怎么接触，代码写的强耦合，复用性可读性都差到极致，于是有了设计模式的学习之路。&lt;/p&gt;
+&lt;p&gt;设计模式相关的还推荐《敏捷软件开发 — 原则、模式与实践》作者Robert C.Martin和《设计模式 — 可复用面向对象软件的基础》四人帮写的这两本书。前者对设计原则有详细描述，后者主要涉及经典的设计模式讲解。&lt;/p&gt;
+&lt;p&gt;本文主要引用内容主要出自《敏捷软件开发 — 原则、模式与实践》和《Android源码设计模式》。&lt;/p&gt;
+&lt;h2 id=&quot;面向对象的六大原则&quot;&gt;&lt;a href=&quot;#面向对象的六大原则&quot; class=&quot;headerlink&quot; title=&quot;面向对象的六大原则&quot;&gt;&lt;/a&gt;面向对象的六大原则&lt;/h2&gt;&lt;h3 id=&quot;单一职责原则-Single-Responsibility-Principle-SRP&quot;&gt;&lt;a href=&quot;#单一职责原则-Single-Responsibility-Principle-SRP&quot; class=&quot;headerlink&quot; title=&quot;单一职责原则 (Single Responsibility Principle, SRP)&quot;&gt;&lt;/a&gt;单一职责原则 (Single Responsibility Principle, SRP)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;就一个类而言，应该仅有一个引起它变化的原因&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;开放封闭原则-The-Open-Closed-Principle-OCP&quot;&gt;&lt;a href=&quot;#开放封闭原则-The-Open-Closed-Principle-OCP&quot; class=&quot;headerlink&quot; title=&quot;开放封闭原则 (The Open - Closed Principle, OCP)&quot;&gt;&lt;/a&gt;开放封闭原则 (The Open - Closed Principle, OCP)&lt;/h3&gt;&lt;h4 id=&quot;定义-1&quot;&gt;&lt;a href=&quot;#定义-1&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;软件实体（类、模块、函数等等）应该是可以扩展的，但是不可修改的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot; title=&quot;描述&quot;&gt;&lt;/a&gt;描述&lt;/h4&gt;&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;”对于扩展是开放的“（Open for extension）&lt;/p&gt;
+&lt;p&gt;模块的行为是可扩展的，需求改变时我们可以对模块进行扩展，使其满足新行为，也就是说改变模块的功能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;”对于更改是封闭的“ (Closed for modification)&lt;/p&gt;
+&lt;p&gt;对模块进行扩展时，不必改动模块的源码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;抽象&quot;&gt;&lt;a href=&quot;#抽象&quot; class=&quot;headerlink&quot; title=&quot;抽象&quot;&gt;&lt;/a&gt;抽象&lt;/h4&gt;&lt;p&gt;模块可依赖于一个固定却能够描述一组任意个可能性为的抽象体（抽象基类）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;里氏替换原则-Liskov-Substitution-Principle-LSP&quot;&gt;&lt;a href=&quot;#里氏替换原则-Liskov-Substitution-Principle-LSP&quot; class=&quot;headerlink&quot; title=&quot;里氏替换原则 (Liskov Substitution Principle, LSP)&quot;&gt;&lt;/a&gt;里氏替换原则 (Liskov Substitution Principle, LSP)&lt;/h3&gt;&lt;h4 id=&quot;定义-2&quot;&gt;&lt;a href=&quot;#定义-2&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;p&gt;父类所实现的子类都能代替实现&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;老鼠的儿子会打洞&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;依赖倒置原则-Dependence-Inversion-Pinciple-DIP&quot;&gt;&lt;a href=&quot;#依赖倒置原则-Dependence-Inversion-Pinciple-DIP&quot; class=&quot;headerlink&quot; title=&quot;依赖倒置原则 (Dependence Inversion Pinciple, DIP)&quot;&gt;&lt;/a&gt;依赖倒置原则 (Dependence Inversion Pinciple, DIP)&lt;/h3&gt;&lt;h4 id=&quot;定义-3&quot;&gt;&lt;a href=&quot;#定义-3&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;高层模块不应该依赖于底层模块，二者都应该依赖于抽象；&lt;/li&gt;
+&lt;li&gt;抽象不应该依赖于细节；&lt;/li&gt;
+&lt;li&gt;细节应该依赖于抽象。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;接口隔离原则-Interface-Segregation-Principle&quot;&gt;&lt;a href=&quot;#接口隔离原则-Interface-Segregation-Principle&quot; class=&quot;headerlink&quot; title=&quot;接口隔离原则 (Interface Segregation Principle)&quot;&gt;&lt;/a&gt;接口隔离原则 (Interface Segregation Principle)&lt;/h3&gt;&lt;h4 id=&quot;定义-4&quot;&gt;&lt;a href=&quot;#定义-4&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;客户端不应该依赖于它不需要的接口；&lt;/li&gt;
+&lt;li&gt;类间的依赖关系应该建立在最小接口之上。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;目的&quot;&gt;&lt;a href=&quot;#目的&quot; class=&quot;headerlink&quot; title=&quot;目的&quot;&gt;&lt;/a&gt;目的&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;系统解开耦合，从而容易重构、更改和重新部署。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;迪米特原则-Law-of-Demeter-LOD&quot;&gt;&lt;a href=&quot;#迪米特原则-Law-of-Demeter-LOD&quot; class=&quot;headerlink&quot; title=&quot;迪米特原则 (Law of Demeter, LOD)&quot;&gt;&lt;/a&gt;迪米特原则 (Law of Demeter, LOD)&lt;/h3&gt;&lt;p&gt;又称&lt;strong&gt;最少认知原则&lt;/strong&gt; (Least Knowledge Principle, LKP)&lt;/p&gt;
+&lt;h4 id=&quot;定义-5&quot;&gt;&lt;a href=&quot;#定义-5&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt; 一个对象应该对其他对象有最少的了解。&lt;/p&gt;
+&lt;p&gt; 通俗地讲，一个类应该对自己需要耦合或调用的类知道的最少，类的内部调用或者依赖者没关系，调用者或者依赖者只需要知道它需要的方法即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;设计模式&quot;&gt;&lt;a href=&quot;#设计模式&quot; class=&quot;headerlink&quot; title=&quot;设计模式&quot;&gt;&lt;/a&gt;设计模式&lt;/h2&gt;&lt;h3 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h3&gt;&lt;p&gt;单例模式的特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;构造函数需要私有化，不允许在外部对其进行实例化，整个域中只允许有一个实例存在。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;单例模式又有三种常用的建立方法，如下所示。&lt;/p&gt;
+&lt;h4 id=&quot;饿汉式&quot;&gt;&lt;a href=&quot;#饿汉式&quot; class=&quot;headerlink&quot; title=&quot;饿汉式&quot;&gt;&lt;/a&gt;饿汉式&lt;/h4&gt;&lt;p&gt;程序猿乐趣多多啊，取名都这么逗比。从名字上面看就容易理解既然饿了就吃东西，那么意味着一开始就将实例初始化了，饿汉嘛，要先吃东西。代码如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* 单例模式之饿汉模式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;publc &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SingleTonOfEager&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  	&lt;span class=&quot;comment&quot;&gt;// 刚开始就进行初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; SingleTonOfEager sInstance = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; SingleTonOfEager();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SingleTonOfEager&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;comment&quot;&gt;// do nothing...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  	&lt;span class=&quot;comment&quot;&gt;// 仅能靠getInstance()获取实例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; SingleTonOfEager &lt;span class=&quot;title&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; sInstance;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;缺点&quot;&gt;&lt;a href=&quot;#缺点&quot; class=&quot;headerlink&quot; title=&quot;缺点&quot;&gt;&lt;/a&gt;缺点&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;占用资源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;懒汉式&quot;&gt;&lt;a href=&quot;#懒汉式&quot; class=&quot;headerlink&quot; title=&quot;懒汉式&quot;&gt;&lt;/a&gt;懒汉式&lt;/h4&gt;&lt;p&gt;懒人都是伸手党，要用的时候才伸手取东西，所以使用的时候开始实例化。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;特点&lt;/strong&gt;：需要使用同步锁，保证多线程情况下调用的安全性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;缺点&lt;/strong&gt;：有了同步锁，虽然第一次已经实例化了，但是之后的调用依然有同步锁保证线程安全的，那么会导致资源不必要的消耗和同步开销，&lt;strong&gt;不建议使用该模式&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* 单例模式之懒汉模式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;publc &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SingletonOfLazy&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; SingletonOfLazy sInstance;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SingletonOfLazy&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;comment&quot;&gt;// do nothing...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  	&lt;span class=&quot;comment&quot;&gt;// 仅能靠getInstance()获取实例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;synchronized&lt;/span&gt; SingletonOfLazy &lt;span class=&quot;title&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;comment&quot;&gt;// 需要用到的时候再初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (sInstance == &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			sInstance = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; SingletonOfLazy();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; sInstance;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;Double-Lock-Check-DLC&quot;&gt;&lt;a href=&quot;#Double-Lock-Check-DLC&quot; class=&quot;headerlink&quot; title=&quot;Double Lock Check, DLC&quot;&gt;&lt;/a&gt;Double Lock Check, DLC&lt;/h4&gt;&lt;h5 id=&quot;优点&quot;&gt;&lt;a href=&quot;#优点&quot; class=&quot;headerlink&quot; title=&quot;优点&quot;&gt;&lt;/a&gt;优点&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;需要时才进行初始化；&lt;/li&gt;
+&lt;li&gt;保证线程安全；&lt;/li&gt;
+&lt;li&gt;已经初始化后的实例被调用时不需要再次进行同步锁，保证资源的高利用率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * 单例模式之Double Check Lock模式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SingletonOfDCL&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; SingletonOfDCL sInstance;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SingletonOfDCL&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;comment&quot;&gt;// do nothing...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; SingletonOfDCL &lt;span class=&quot;title&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (sInstance == &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;synchronized&lt;/span&gt; (SingletonOfDCL.class) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (sInstance == &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					sInstance = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; SingletonOfDCL();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; sInstance;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;缺点-1&quot;&gt;&lt;a href=&quot;#缺点-1&quot; class=&quot;headerlink&quot; title=&quot;缺点&quot;&gt;&lt;/a&gt;缺点&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;可能会发生DCL失效  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;DCL模式是使用最多的模式。这种方式一般能满足需求&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;静态内部类单例模式&quot;&gt;&lt;a href=&quot;#静态内部类单例模式&quot; class=&quot;headerlink&quot; title=&quot;静态内部类单例模式&quot;&gt;&lt;/a&gt;静态内部类单例模式&lt;/h4&gt;&lt;p&gt;DCL有可能会失效，所以不建议使用该模式，看到这里又惊呆了，DCL都不建议使用，所以衍生出了下面这种模式：&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SingletonOfInnerClass&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SingletonOfInnerClass&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; SingletonOfInnerClass &lt;span class=&quot;title&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; SingletonHolder.sInstance;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SingletonHolder&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;final&lt;/span&gt; SingletonOfInnerClass sInstance = &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; SingletonOfInnerClass();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;优点-1&quot;&gt;&lt;a href=&quot;#优点-1&quot; class=&quot;headerlink&quot; title=&quot;优点&quot;&gt;&lt;/a&gt;优点&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;只在需要使用时进行初始化；&lt;/li&gt;
+&lt;li&gt;初始化完成后不再进行二次初始化；&lt;/li&gt;
+&lt;li&gt;保证现成安全。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;分析&quot;&gt;&lt;a href=&quot;#分析&quot; class=&quot;headerlink&quot; title=&quot;分析&quot;&gt;&lt;/a&gt;分析&lt;/h5&gt;&lt;p&gt;这个模式是通过《Android源码设计模式》了解的，但是书中仅仅只是介绍优点，并没有过多的解释为什么。所以分析一下，静态内部类找中的sInstance对象，既然是final的，如我在Thinking In Java总结中：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于对象引用：final使引用总是指向初始化时的对象，无法改变其指向另一个对象，但被引用的对象自身是可以改变的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;那么第一次初始化后就算再进行初始化，由于sInstance是final的总指向初始化时的对象，所以不会被覆盖。&lt;/p&gt;
+&lt;p&gt;### &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;看《Android源码设计模式》之前设计模式没怎么接触，代码写的强耦合，复用性可读性都差到极致，于是有了设计模式的学习之路。&lt;/p&gt;
+&lt;p&gt;
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://www.shutu.tech/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="http://www.shutu.tech/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《App研发录》总结</title>
+    <link href="http://www.shutu.tech/2016/07/24/%E3%80%8AApp%E7%A0%94%E5%8F%91%E5%BD%95%E3%80%8B--%20%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.shutu.tech/2016/07/24/《App研发录》-- 读书总结/</id>
+    <published>2016-07-24T03:55:46.000Z</published>
+    <updated>2016-07-24T03:59:29.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;看这本书的时候，总感觉怪怪的。&lt;/p&gt;
+&lt;p&gt;因为在地铁上看完的，作者书中基本都是他自己工作中遇到的问题和坑，虽说这样会让人感觉找到了解决方案，可以再进行深入的研究，可是某些地方介绍的有点片面，仅仅是引用部分博客就以偏概全了。还有可能是涉及的内容大部分都是我自己已经踩过的坑，所以觉得学到的东西不太多。&lt;/p&gt;
+&lt;p&gt;再说说值得一看的地方吧，首先也如前面提到的，书中内容基本都是作者工作之谈，所以有很实用的内容，推荐阅读章节：&lt;/p&gt;
+&lt;h3 id=&quot;App竞品技术分析&quot;&gt;&lt;a href=&quot;#App竞品技术分析&quot; class=&quot;headerlink&quot; title=&quot;App竞品技术分析&quot;&gt;&lt;/a&gt;App竞品技术分析&lt;/h3&gt;&lt;p&gt;个人认为这是本书的精华，很少看到有人愿意这样详尽的介绍自己的“机密”经验，感谢作者的无私分享。&lt;/p&gt;
+&lt;h3 id=&quot;五、六、七章的异常和ProGuard&quot;&gt;&lt;a href=&quot;#五、六、七章的异常和ProGuard&quot; class=&quot;headerlink&quot; title=&quot;五、六、七章的异常和ProGuard&quot;&gt;&lt;/a&gt;五、六、七章的异常和ProGuard&lt;/h3&gt;&lt;p&gt;介绍很详细，网上都是非常琐碎的介绍，推荐新人看看这部分，尤其是ProGuard，虽然现在第三方已经给出了完善的解决方案，帮我们做了这部分事情，不过了解最基本的原理才能学得更透彻。&lt;/p&gt;
+&lt;h3 id=&quot;项目、团队管理部分&quot;&gt;&lt;a href=&quot;#项目、团队管理部分&quot; class=&quot;headerlink&quot; title=&quot;项目、团队管理部分&quot;&gt;&lt;/a&gt;项目、团队管理部分&lt;/h3&gt;&lt;p&gt;这部分是时间的积累才能收获的，提前学习了解以后我们必须经历的路没什么不好的。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;看这本书的时候，总感觉怪怪的。&lt;/p&gt;
+&lt;p&gt;因为在地铁上看完的，作者书中基本都是他自己工作中遇到的问题和坑，虽说这样会让人感觉找到了解决方
+    
+    </summary>
+    
+      <category term="读书" scheme="http://www.shutu.tech/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+      <category term="Android" scheme="http://www.shutu.tech/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>《算法》</title>

@@ -260,6 +260,360 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/24/Android设计模式总结/" itemprop="url">
+                  Android设计模式总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-24T13:48:00+08:00" content="2016-07-24">
+              2016-07-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/24/Android设计模式总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/Android设计模式总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/24/Android设计模式总结/" class="leancloud_visitors" data-flag-title="Android设计模式总结">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看《Android源码设计模式》之前设计模式没怎么接触，代码写的强耦合，复用性可读性都差到极致，于是有了设计模式的学习之路。</p>
+<p>设计模式相关的还推荐《敏捷软件开发 — 原则、模式与实践》作者Robert C.Martin和《设计模式 — 可复用面向对象软件的基础》四人帮写的这两本书。前者对设计原则有详细描述，后者主要涉及经典的设计模式讲解。</p>
+<p>本文主要引用内容主要出自《敏捷软件开发 — 原则、模式与实践》和《Android源码设计模式》。</p>
+<h2 id="面向对象的六大原则"><a href="#面向对象的六大原则" class="headerlink" title="面向对象的六大原则"></a>面向对象的六大原则</h2><h3 id="单一职责原则-Single-Responsibility-Principle-SRP"><a href="#单一职责原则-Single-Responsibility-Principle-SRP" class="headerlink" title="单一职责原则 (Single Responsibility Principle, SRP)"></a>单一职责原则 (Single Responsibility Principle, SRP)</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><blockquote>
+<p>就一个类而言，应该仅有一个引起它变化的原因</p>
+</blockquote>
+<hr>
+<h3 id="开放封闭原则-The-Open-Closed-Principle-OCP"><a href="#开放封闭原则-The-Open-Closed-Principle-OCP" class="headerlink" title="开放封闭原则 (The Open - Closed Principle, OCP)"></a>开放封闭原则 (The Open - Closed Principle, OCP)</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><blockquote>
+<p>软件实体（类、模块、函数等等）应该是可以扩展的，但是不可修改的</p>
+</blockquote>
+<h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><blockquote>
+<ol>
+<li><p>”对于扩展是开放的“（Open for extension）</p>
+<p>模块的行为是可扩展的，需求改变时我们可以对模块进行扩展，使其满足新行为，也就是说改变模块的功能。</p>
+</li>
+<li><p>”对于更改是封闭的“ (Closed for modification)</p>
+<p>对模块进行扩展时，不必改动模块的源码。</p>
+</li>
+</ol>
+</blockquote>
+<h4 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h4><p>模块可依赖于一个固定却能够描述一组任意个可能性为的抽象体（抽象基类）。</p>
+<hr>
+<h3 id="里氏替换原则-Liskov-Substitution-Principle-LSP"><a href="#里氏替换原则-Liskov-Substitution-Principle-LSP" class="headerlink" title="里氏替换原则 (Liskov Substitution Principle, LSP)"></a>里氏替换原则 (Liskov Substitution Principle, LSP)</h3><h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>父类所实现的子类都能代替实现</p>
+<blockquote>
+<p>老鼠的儿子会打洞</p>
+</blockquote>
+<hr>
+<h3 id="依赖倒置原则-Dependence-Inversion-Pinciple-DIP"><a href="#依赖倒置原则-Dependence-Inversion-Pinciple-DIP" class="headerlink" title="依赖倒置原则 (Dependence Inversion Pinciple, DIP)"></a>依赖倒置原则 (Dependence Inversion Pinciple, DIP)</h3><h4 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h4><blockquote>
+<ol>
+<li>高层模块不应该依赖于底层模块，二者都应该依赖于抽象；</li>
+<li>抽象不应该依赖于细节；</li>
+<li>细节应该依赖于抽象。</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="接口隔离原则-Interface-Segregation-Principle"><a href="#接口隔离原则-Interface-Segregation-Principle" class="headerlink" title="接口隔离原则 (Interface Segregation Principle)"></a>接口隔离原则 (Interface Segregation Principle)</h3><h4 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h4><blockquote>
+<ol>
+<li>客户端不应该依赖于它不需要的接口；</li>
+<li>类间的依赖关系应该建立在最小接口之上。</li>
+</ol>
+</blockquote>
+<h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><blockquote>
+<p>系统解开耦合，从而容易重构、更改和重新部署。</p>
+</blockquote>
+<hr>
+<h3 id="迪米特原则-Law-of-Demeter-LOD"><a href="#迪米特原则-Law-of-Demeter-LOD" class="headerlink" title="迪米特原则 (Law of Demeter, LOD)"></a>迪米特原则 (Law of Demeter, LOD)</h3><p>又称<strong>最少认知原则</strong> (Least Knowledge Principle, LKP)</p>
+<h4 id="定义-5"><a href="#定义-5" class="headerlink" title="定义"></a>定义</h4><blockquote>
+<p> 一个对象应该对其他对象有最少的了解。</p>
+<p> 通俗地讲，一个类应该对自己需要耦合或调用的类知道的最少，类的内部调用或者依赖者没关系，调用者或者依赖者只需要知道它需要的方法即可。</p>
+</blockquote>
+<hr>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>单例模式的特点：</p>
+<ul>
+<li>构造函数需要私有化，不允许在外部对其进行实例化，整个域中只允许有一个实例存在。</li>
+</ul>
+<p>单例模式又有三种常用的建立方法，如下所示。</p>
+<h4 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h4><p>程序猿乐趣多多啊，取名都这么逗比。从名字上面看就容易理解既然饿了就吃东西，那么意味着一开始就将实例初始化了，饿汉嘛，要先吃东西。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* 单例模式之饿汉模式</span><br><span class="line">*/</span></span><br><span class="line">publc <span class="class"><span class="keyword">class</span> <span class="title">SingleTonOfEager</span> </span>&#123;</span><br><span class="line">  	<span class="comment">// 刚开始就进行初始化</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SingleTonOfEager sInstance = <span class="keyword">new</span> SingleTonOfEager();</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">SingleTonOfEager</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">// do nothing...</span></span><br><span class="line">	&#125;</span><br><span class="line">  </span><br><span class="line">  	<span class="comment">// 仅能靠getInstance()获取实例</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleTonOfEager <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sInstance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>占用资源</li>
+</ul>
+<h4 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h4><p>懒人都是伸手党，要用的时候才伸手取东西，所以使用的时候开始实例化。</p>
+<ul>
+<li><strong>特点</strong>：需要使用同步锁，保证多线程情况下调用的安全性。</li>
+<li><strong>缺点</strong>：有了同步锁，虽然第一次已经实例化了，但是之后的调用依然有同步锁保证线程安全的，那么会导致资源不必要的消耗和同步开销，<strong>不建议使用该模式</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* 单例模式之懒汉模式</span><br><span class="line">*/</span></span><br><span class="line">publc <span class="class"><span class="keyword">class</span> <span class="title">SingletonOfLazy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SingletonOfLazy sInstance;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">SingletonOfLazy</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">// do nothing...</span></span><br><span class="line">	&#125;</span><br><span class="line">  </span><br><span class="line">  	<span class="comment">// 仅能靠getInstance()获取实例</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> SingletonOfLazy <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">// 需要用到的时候再初始化</span></span><br><span class="line">		<span class="keyword">if</span> (sInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">			sInstance = <span class="keyword">new</span> SingletonOfLazy();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> sInstance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Double-Lock-Check-DLC"><a href="#Double-Lock-Check-DLC" class="headerlink" title="Double Lock Check, DLC"></a>Double Lock Check, DLC</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>需要时才进行初始化；</li>
+<li>保证线程安全；</li>
+<li>已经初始化后的实例被调用时不需要再次进行同步锁，保证资源的高利用率。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 单例模式之Double Check Lock模式</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonOfDCL</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SingletonOfDCL sInstance;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">SingletonOfDCL</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">// do nothing...</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonOfDCL <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (sInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (SingletonOfDCL.class) &#123;</span><br><span class="line">				<span class="keyword">if</span> (sInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">					sInstance = <span class="keyword">new</span> SingletonOfDCL();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> sInstance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>可能会发生DCL失效  </li>
+</ul>
+<blockquote>
+<p>DCL模式是使用最多的模式。这种方式一般能满足需求</p>
+</blockquote>
+<h4 id="静态内部类单例模式"><a href="#静态内部类单例模式" class="headerlink" title="静态内部类单例模式"></a>静态内部类单例模式</h4><p>DCL有可能会失效，所以不建议使用该模式，看到这里又惊呆了，DCL都不建议使用，所以衍生出了下面这种模式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonOfInnerClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">SingletonOfInnerClass</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonOfInnerClass <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> SingletonHolder.sInstance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span> </span>&#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> SingletonOfInnerClass sInstance = </span><br><span class="line">          <span class="keyword">new</span> SingletonOfInnerClass();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>只在需要使用时进行初始化；</li>
+<li>初始化完成后不再进行二次初始化；</li>
+<li>保证现成安全。</li>
+</ul>
+<h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h5><p>这个模式是通过《Android源码设计模式》了解的，但是书中仅仅只是介绍优点，并没有过多的解释为什么。所以分析一下，静态内部类找中的sInstance对象，既然是final的，如我在Thinking In Java总结中：</p>
+<blockquote>
+<p>对于对象引用：final使引用总是指向初始化时的对象，无法改变其指向另一个对象，但被引用的对象自身是可以改变的。</p>
+</blockquote>
+<p>那么第一次初始化后就算再进行初始化，由于sInstance是final的总指向初始化时的对象，所以不会被覆盖。</p>
+<p>### </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/24/《App研发录》-- 读书总结/" itemprop="url">
+                  《App研发录》总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-24T11:55:46+08:00" content="2016-07-24">
+              2016-07-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/读书/" itemprop="url" rel="index">
+                    <span itemprop="name">读书</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/24/《App研发录》-- 读书总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/《App研发录》-- 读书总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/24/《App研发录》-- 读书总结/" class="leancloud_visitors" data-flag-title="《App研发录》总结">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>看这本书的时候，总感觉怪怪的。</p>
+<p>因为在地铁上看完的，作者书中基本都是他自己工作中遇到的问题和坑，虽说这样会让人感觉找到了解决方案，可以再进行深入的研究，可是某些地方介绍的有点片面，仅仅是引用部分博客就以偏概全了。还有可能是涉及的内容大部分都是我自己已经踩过的坑，所以觉得学到的东西不太多。</p>
+<p>再说说值得一看的地方吧，首先也如前面提到的，书中内容基本都是作者工作之谈，所以有很实用的内容，推荐阅读章节：</p>
+<h3 id="App竞品技术分析"><a href="#App竞品技术分析" class="headerlink" title="App竞品技术分析"></a>App竞品技术分析</h3><p>个人认为这是本书的精华，很少看到有人愿意这样详尽的介绍自己的“机密”经验，感谢作者的无私分享。</p>
+<h3 id="五、六、七章的异常和ProGuard"><a href="#五、六、七章的异常和ProGuard" class="headerlink" title="五、六、七章的异常和ProGuard"></a>五、六、七章的异常和ProGuard</h3><p>介绍很详细，网上都是非常琐碎的介绍，推荐新人看看这部分，尤其是ProGuard，虽然现在第三方已经给出了完善的解决方案，帮我们做了这部分事情，不过了解最基本的原理才能学得更透彻。</p>
+<h3 id="项目、团队管理部分"><a href="#项目、团队管理部分" class="headerlink" title="项目、团队管理部分"></a>项目、团队管理部分</h3><p>这部分是时间的积累才能收获的，提前学习了解以后我们必须经历的路没什么不好的。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/11/《算法》/" itemprop="url">
                   《算法》
                 </a>
@@ -1390,7 +1744,7 @@ Android 开源项目第五篇——优秀个人和团体篇
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1398,7 +1752,7 @@ Android 开源项目第五篇——优秀个人和团体篇
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1407,7 +1761,7 @@ Android 开源项目第五篇——优秀个人和团体篇
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
