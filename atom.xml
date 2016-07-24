@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shutu.tech/"/>
-  <updated>2016-07-24T15:53:20.000Z</updated>
+  <updated>2016-07-24T15:56:48.000Z</updated>
   <id>http://www.shutu.tech/</id>
   
   <author>
@@ -20,11 +20,12 @@
     <link href="http://www.shutu.tech/2016/07/24/Android%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/"/>
     <id>http://www.shutu.tech/2016/07/24/Android设计模式总结/</id>
     <published>2016-07-24T05:48:00.000Z</published>
-    <updated>2016-07-24T15:53:20.000Z</updated>
+    <updated>2016-07-24T15:56:48.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;看《Android源码设计模式》之前设计模式没怎么接触，代码写的强耦合，复用性可读性都差到极致，于是有了设计模式的学习之路。&lt;/p&gt;
 &lt;p&gt;设计模式相关的还推荐《敏捷软件开发 — 原则、模式与实践》作者Robert C.Martin和《设计模式 — 可复用面向对象软件的基础》四人帮写的这两本书。前者对设计原则有详细描述，后者主要涉及经典的设计模式讲解。&lt;/p&gt;
 &lt;p&gt;本文主要引用内容主要出自《敏捷软件开发 — 原则、模式与实践》和《Android源码设计模式》。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;面向对象的六大原则&quot;&gt;&lt;a href=&quot;#面向对象的六大原则&quot; class=&quot;headerlink&quot; title=&quot;面向对象的六大原则&quot;&gt;&lt;/a&gt;面向对象的六大原则&lt;/h2&gt;&lt;h3 id=&quot;单一职责原则-Single-Responsibility-Principle-SRP&quot;&gt;&lt;a href=&quot;#单一职责原则-Single-Responsibility-Principle-SRP&quot; class=&quot;headerlink&quot; title=&quot;单一职责原则 (Single Responsibility Principle, SRP)&quot;&gt;&lt;/a&gt;单一职责原则 (Single Responsibility Principle, SRP)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;就一个类而言，应该仅有一个引起它变化的原因&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -119,7 +120,8 @@
     <summary type="html">
     
       &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;看《Android源码设计模式》之前设计模式没怎么接触，代码写的强耦合，复用性可读性都差到极致，于是有了设计模式的学习之路。&lt;/p&gt;
-&lt;p&gt;
+&lt;p&gt;设计模式相关的还推荐《敏捷软件开发 — 原则、模式与实践》作者Robert C.Martin和《设计模式 — 可复用面向对象软件的基础》四人帮写的这两本书。前者对设计原则有详细描述，后者主要涉及经典的设计模式讲解。&lt;/p&gt;
+&lt;p&gt;本文主要引用内容主要出自《敏捷软件开发 — 原则、模式与实践》和《Android源码设计模式》。&lt;/p&gt;
     
     </summary>
     
