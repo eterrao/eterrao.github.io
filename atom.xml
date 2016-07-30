@@ -166,7 +166,7 @@
     <link href="http://www.shutu.tech/2016/07/11/%E3%80%8A%E7%AE%97%E6%B3%95%E3%80%8B/"/>
     <id>http://www.shutu.tech/2016/07/11/《算法》/</id>
     <published>2016-07-11T13:16:08.000Z</published>
-    <updated>2016-07-17T02:08:21.000Z</updated>
+    <updated>2016-07-25T14:44:25.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;排序篇&quot;&gt;&lt;a href=&quot;#排序篇&quot; class=&quot;headerlink&quot; title=&quot;排序篇&quot;&gt;&lt;/a&gt;排序篇&lt;/h2&gt;&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;在数据结构与算法中，排序是面试笔试中最常被问到和提及的知识点，虽然在工作中很少用到相关的基础知识，但是对于基础的系统性学习却是必不可少的，通过学习和理解可以培养锻炼我们写代码的思维逻辑。多考虑性能，少制造垃圾代码。&lt;/p&gt;
 &lt;p&gt;此书介绍得比较详细易懂，并且使用Java语言所以用到了很多相关的标准类库或模板，学习比较容易上手。同时还有另一本Java基础的书籍推荐《Introdution to Java Programming》（作者：Y. Daniel Liang），书中同样介绍了基础的数据结构与算法，并且图文并茂通俗易懂。&lt;/p&gt;
@@ -229,7 +229,7 @@
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&quot;代码-1&quot;&gt;&lt;a href=&quot;#代码-1&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h4&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;InsertionSort&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Comparabale[] array)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; N = array.length();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; N ; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j = i; j &amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &amp;amp;&amp;amp; less(array[j], array[j - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]); j-- ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				exchange(array, j, j - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (a - b &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) ? &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt; : &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;exchange&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Comparabale[] array, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i, j)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; temp = array[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		array[i] = array[j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		array[j] = temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
+&lt;h3 id=&quot;归并排序&quot;&gt;&lt;a href=&quot;#归并排序&quot; class=&quot;headerlink&quot; title=&quot;归并排序&quot;&gt;&lt;/a&gt;归并排序&lt;/h3&gt;</content>
     
     <summary type="html">
     
@@ -721,86 +721,66 @@
     <link href="http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/"/>
     <id>http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/</id>
     <published>2016-05-09T05:02:52.000Z</published>
-    <updated>2016-07-21T02:24:06.000Z</updated>
+    <updated>2016-07-30T06:35:31.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;Android开发中 个人遇到和使用过的值得分享的资源合集
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&quot;&gt;&lt;/a&gt;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/Trinea/android-open-project&lt;/a&gt; &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;项目说明：
-Android 开源项目第一篇——个性化控件(View)篇
-  包括ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style、其他
-Android 开源项目第二篇——工具库篇
-  包括依赖注入、图片缓存、网络请求、数据库 ORM 工具包、Android 公共库、高版本向低版本兼容库、多媒体、事件总线、传感器、安全、插件化、文件、其他
-Android 开源项目第三篇——优秀项目篇
-  比较有意思的完整的 Android 项目
-Android 开源项目第四篇——开发及测试工具篇
-  包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他
-Android 开源项目第五篇——优秀个人和团体篇
-  乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;awesome-android-ui&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/wasabeef/awesome-android-ui&lt;/a&gt;&lt;br&gt;​&lt;br&gt;    项目说明：&lt;br&gt;    国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。&lt;br&gt;    A curated list of awesome Android UI/UX libraries.                        &lt;/p&gt;
-&lt;h4 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;AndroidDevTools 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/inferjay/AndroidDevTools&lt;/a&gt;&lt;br&gt;官方网站：&lt;a href=&quot;http://www.androiddevtools.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.androiddevtools.cn/&lt;/a&gt; &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;项目说明：
-收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。
-欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;android-tech-frontier&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/eterrao/android-tech-frontier.git&lt;/a&gt;&lt;br&gt;​&lt;br&gt;    项目说明：&lt;br&gt;    一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;
-&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;​    &lt;/p&gt;
-&lt;p&gt;###个人博客资源：&lt;/p&gt;
-&lt;h4 id=&quot;stormZhang&quot;&gt;&lt;a href=&quot;#stormZhang&quot; class=&quot;headerlink&quot; title=&quot;stormZhang&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://stormzhang.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stormZhang&lt;/a&gt;&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;每个人都有一段艰辛、苦逼的成长时光，所以学会从博客开始记录自己一点一滴。这个博客的文章每次看都让自己有更多的动力去学习。提醒我自己别忘了还有梦想。
-PS：还有很多干货。
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;####&lt;a href=&quot;http://ticktick.blog.51cto.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tickTick 的BLOG&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;本目录下的代码都是来自于我的博客《Android应用开发》系列文章，本系列文章介绍Android开发的一些基础和进阶知识，并附带有一些简单的Demo示例，这些示例代码中很多Java文件都对Android API进行了良好的封装，可以直接拿到自己的项目中使用。
-
-Code List
-
-Builder 给出了使用ant编译Android工程的通用shell脚本，相关博文：Android开发实践：用脚本编译Android工程
-
-GroupList 封装并演示了如何使用Android的ExpandableListView控件，相关博文：Android开发实践：多级列表的封装与应用
-
-PopDialog 封装并演示了如何使用Android的PopupWindow控件，相关博文：Android开发实践：用PopupWindow实现自定义Dailog
-
-JniCallback 演示了如何从Native线程回调Java的函数，相关博文：Android开发实践：JNI层线程回调Java函数示例
-
-JniBuffer 演示了各种从Java端到Native层的Buffer传递方法，相关博文：Android开发实践：Java层与Jni层的数组传递
-
-LoopThread 演示了如何实现一个自定义的带Loop消息循环的线程，相关博文：Android开发实践：自定义带消息循环（Looper）的工作线程
-
-VideoPlayer 演示了Android隐式Intent的用法，相关博文：Android开发实践：实战演练隐式Intent的用法
-
-VideoServer 演示了如何利用NanoHttpd搭建一个Android视频服务器，相关博文：基于NanoHttpd的Android视频服务器开发
-
-CustomView 演示了如何自定义View和ViewGroup，并给出了一个柱状图动画自定义View的实现，相关博文：
-
-（1）Android开发实践：为什么要继承onMeasure()
-
-（2）Android开发实践：自定义ViewGroup的onLayout()分析
-
-（3）Android开发实践：自定义带动画的View
-
-WIFI 封装了Andriod WIFI扫描和连接的相关API，相关博文：
-
-（1）Android开发实践：WIFI扫描功能的封装
-
-（2）Android开发实践：WIFI连接功能的封装
-
-Socket封装了Android中的Socket相关API
-
-（1） Broadcaster.java 封装了UDP广播包的收发操作，相关博文：Android Socket 发送广播包的那些坑
-
-MediaDemo 给出了Android平台下多媒体相关API的demo代码，相关博文：Android中如何提取和生成mp4文件
-
-Utils 给出了一系列的工具类代码
-
-（1）SignatureGen.java 一个可以生成Java函数签名字符串的工具类，相关博文: Android开发实践：JNI函数签名生成器
-
-（2）BitmapHelper.java 一个封装了Bitmap操作的工具类，包括图片的打开、保存、剪裁、旋转等操作，相关博文: Android开发实践：自己动手编写图片剪裁应用（3）
-
-（3）ImageConvertor.java 封装了Android中各种图像格式转换，包括：NV21，YUY2、RGB565、ARGB8888、PNG、JPEG、Bitmap之间的转换操作。
-&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
-&lt;h3 id=&quot;工具类：&quot;&gt;&lt;a href=&quot;#工具类：&quot; class=&quot;headerlink&quot; title=&quot;工具类：&quot;&gt;&lt;/a&gt;工具类：&lt;/h3&gt;&lt;ul&gt;
+    <content type="html">&lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;p&gt;Android开发中 个人遇到和使用过的值得分享的资源合集&lt;/p&gt;
+&lt;h2 id=&quot;Trinea的OpenProject&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Trinea的OpenProject&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;强烈推荐的Android 开源项目分类汇总，star数量1.7W+&lt;/p&gt;
+&lt;h4 id=&quot;项目说明：&quot;&gt;&lt;a href=&quot;#项目说明：&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Android 开源项目第一篇——个性化控件(View)篇&lt;br&gt;  包括ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style、其他&lt;br&gt;Android 开源项目第二篇——工具库篇&lt;br&gt;  包括依赖注入、图片缓存、网络请求、数据库 ORM 工具包、Android 公共库、高版本向低版本兼容库、多媒体、事件总线、传感器、安全、插件化、文件、其他&lt;br&gt;Android 开源项目第三篇——优秀项目篇&lt;br&gt;  比较有意思的完整的 Android 项目&lt;br&gt;Android 开源项目第四篇——开发及测试工具篇&lt;br&gt;  包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他&lt;br&gt;Android 开源项目第五篇——优秀个人和团体篇&lt;br&gt;  乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;awesome-android-ui&lt;/a&gt;&lt;/h3&gt;&lt;h4 id=&quot;项目说明：-1&quot;&gt;&lt;a href=&quot;#项目说明：-1&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;p&gt;国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A curated list of awesome Android UI/UX libraries.                       &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AndroidDevTools 开源项目分类汇总&lt;/a&gt;&lt;/h3&gt;&lt;h4 id=&quot;官方网站&quot;&gt;&lt;a href=&quot;#官方网站&quot; class=&quot;headerlink&quot; title=&quot;官方网站&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.androiddevtools.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方网站&lt;/a&gt;&lt;/h4&gt;&lt;h4 id=&quot;项目说明：-2&quot;&gt;&lt;a href=&quot;#项目说明：-2&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。&lt;br&gt;欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;android-tech-frontier&lt;/a&gt;&lt;/h3&gt;&lt;h4 id=&quot;项目说明：-3&quot;&gt;&lt;a href=&quot;#项目说明：-3&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。&lt;/p&gt;
+&lt;p&gt;我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;List-of-Free-Learning-Resources&quot;&gt;&lt;a href=&quot;#List-of-Free-Learning-Resources&quot; class=&quot;headerlink&quot; title=&quot;List of Free Learning Resources&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/vhf/free-programming-books&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;List of Free Learning Resources&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;超神的资源网站，各种国家的编程资料、电子书和博客，应有尽有。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;##个人博客资源：&lt;/p&gt;
+&lt;h3 id=&quot;stormZhang&quot;&gt;&lt;a href=&quot;#stormZhang&quot; class=&quot;headerlink&quot; title=&quot;stormZhang&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://stormzhang.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stormZhang&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;每个人都有一段艰辛、苦逼的成长时光，所以学会从博客开始记录自己一点一滴。这个博客的文章每次看都让自己有更多的动力去学习。提醒自己别忘了还有梦想。&lt;br&gt;PS：&lt;code&gt;还有很多干货&lt;/code&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;###&lt;a href=&quot;http://ticktick.blog.51cto.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tickTick 的BLOG&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本目录下的代码都是来自于我的博客《Android应用开发》系列文章，本系列文章介绍Android开发的一些基础和进阶知识，并附带有一些简单的Demo示例，这些示例代码中很多Java文件都对Android API进行了良好的封装，可以直接拿到自己的项目中使用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Code List&lt;/strong&gt;&lt;br&gt;Builder 给出了使用ant编译Android工程的通用shell脚本，相关博文：Android开发实践：用脚本编译Android工程&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GroupList&lt;/strong&gt;&lt;br&gt;封装并演示了如何使用Android的ExpandableListView控件，相关博文：Android开发实践：多级列表的封装与应用&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PopDialog&lt;/strong&gt;&lt;br&gt;封装并演示了如何使用Android的PopupWindow控件，相关博文：Android开发实践：用PopupWindow实现自定义Dailog&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JniCallback&lt;/strong&gt;&lt;br&gt;演示了如何从Native线程回调Java的函数，相关博文：Android开发实践：JNI层线程回调Java函数示例&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JniBuffer&lt;/strong&gt;&lt;br&gt;演示了各种从Java端到Native层的Buffer传递方法，相关博文：Android开发实践：Java层与Jni层的数组传递&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;LoopThread&lt;/strong&gt;&lt;br&gt;演示了如何实现一个自定义的带Loop消息循环的线程，相关博文：Android开发实践：自定义带消息循环（Looper）的工作线程&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VideoPlayer&lt;/strong&gt;&lt;br&gt;演示了Android隐式Intent的用法，相关博文：Android开发实践：实战演练隐式Intent的用法&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VideoServer&lt;/strong&gt;&lt;br&gt;演示了如何利用NanoHttpd搭建一个Android视频服务器，相关博文：基于NanoHttpd的Android视频服务器开发&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CustomView&lt;/strong&gt;&lt;br&gt;演示了如何自定义View和ViewGroup，并给出了一个柱状图动画自定义View的实现，相关博文：&lt;/p&gt;
+&lt;p&gt;（1）Android开发实践：为什么要继承onMeasure()&lt;/p&gt;
+&lt;p&gt;（2）Android开发实践：自定义ViewGroup的onLayout()分析&lt;/p&gt;
+&lt;p&gt;（3）Android开发实践：自定义带动画的View&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;WIFI&lt;/strong&gt; 封装了Andriod WIFI扫描和连接的相关API，相关博文：&lt;/p&gt;
+&lt;p&gt;（1）Android开发实践：WIFI扫描功能的封装&lt;/p&gt;
+&lt;p&gt;（2）Android开发实践：WIFI连接功能的封装&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Socket&lt;/strong&gt;封装了Android中的Socket相关API&lt;/p&gt;
+&lt;p&gt;（1） Broadcaster.java 封装了UDP广播包的收发操作，相关博文：Android Socket 发送广播包的那些坑&lt;/p&gt;
+&lt;p&gt;MediaDemo 给出了Android平台下多媒体相关API的demo代码，相关博文：Android中如何提取和生成mp4文件&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Utils&lt;/strong&gt; 给出了一系列的工具类代码&lt;/p&gt;
+&lt;p&gt;（1）SignatureGen.java 一个可以生成Java函数签名字符串的工具类，相关博文: Android开发实践：JNI函数签名生成器&lt;/p&gt;
+&lt;p&gt;（2）BitmapHelper.java 一个封装了Bitmap操作的工具类，包括图片的打开、保存、剪裁、旋转等操作，相关博文: Android开发实践：自己动手编写图片剪裁应用（3）&lt;/p&gt;
+&lt;p&gt;（3）ImageConvertor.java 封装了Android中各种图像格式转换，包括：NV21，YUY2、RGB565、ARGB8888、PNG、JPEG、Bitmap之间的转换操作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;工具类：&quot;&gt;&lt;a href=&quot;#工具类：&quot; class=&quot;headerlink&quot; title=&quot;工具类：&quot;&gt;&lt;/a&gt;工具类：&lt;/h2&gt;&lt;h3 id=&quot;通用&quot;&gt;&lt;a href=&quot;#通用&quot; class=&quot;headerlink&quot; title=&quot;通用&quot;&gt;&lt;/a&gt;通用&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;关于APK瘦身值得分享的一些经验：&lt;a href=&quot;http://www.jianshu.com/p/bd90dee57ad0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/bd90dee57ad0&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;PNG压缩：&lt;a href=&quot;https://tinypng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://tinypng.com/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
 &lt;h3 id=&quot;MarkDown编辑器&quot;&gt;&lt;a href=&quot;#MarkDown编辑器&quot; class=&quot;headerlink&quot; title=&quot;MarkDown编辑器&quot;&gt;&lt;/a&gt;MarkDown编辑器&lt;/h3&gt;&lt;h4 id=&quot;Typora&quot;&gt;&lt;a href=&quot;#Typora&quot; class=&quot;headerlink&quot; title=&quot;Typora&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.typora.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Typora&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;正在使用，简单方便。&lt;strong&gt;强烈推荐！&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;优点：&lt;ul&gt;
@@ -836,51 +816,49 @@ Utils 给出了一系列的工具类代码
 &lt;/ul&gt;
 &lt;h4 id=&quot;StackEdit&quot;&gt;&lt;a href=&quot;#StackEdit&quot; class=&quot;headerlink&quot; title=&quot;StackEdit&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://stackedit.io/editor&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;StackEdit&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;同样是&lt;strong&gt;在线&lt;/strong&gt;编辑器，国外的&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&quot;真机调试：&quot;&gt;&lt;a href=&quot;#真机调试：&quot; class=&quot;headerlink&quot; title=&quot;真机调试：&quot;&gt;&lt;/a&gt;真机调试：&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;云测 (Testin): &lt;a href=&quot;http://www.testin.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.testin.cn/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;真机调试&quot;&gt;&lt;a href=&quot;#真机调试&quot; class=&quot;headerlink&quot; title=&quot;真机调试&quot;&gt;&lt;/a&gt;真机调试&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.testin.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;云测 (Testin)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;优测 (腾讯的): &lt;a href=&quot;http://utest.qq.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://utest.qq.com/&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;数据统计，Bug-Log-Crash-Reporter：&quot;&gt;&lt;a href=&quot;#数据统计，Bug-Log-Crash-Reporter：&quot; class=&quot;headerlink&quot; title=&quot;数据统计，Bug Log/Crash Reporter：**&quot;&gt;&lt;/a&gt;数据统计，Bug Log/Crash Reporter：**&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;国内：&lt;pre&gt;&lt;code&gt;​    　　　　
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;友盟 ：&lt;a href=&quot;http://www.umeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.umeng.com/&lt;/a&gt;&lt;br&gt;　　　　说明：友盟的功能集成挺多，常用的基本都覆盖了，社会化组件/数据统计/Bug分析基本都通用，并且使用起来比较直观。SDK使用的话也不算麻烦。&lt;br&gt;　　　　优点就不说了，说说缺点吧，就是Crash Report不能实时邮件反馈，第二天9点30左右才会收到前一天的统计概况。详情的话倒是可以实时查询。&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://utest.qq.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;优测 (腾讯的)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&quot;数据统计-Bug-Crash-Reporter&quot;&gt;&lt;a href=&quot;#数据统计-Bug-Crash-Reporter&quot; class=&quot;headerlink&quot; title=&quot;数据统计 / Bug / Crash Reporter&quot;&gt;&lt;/a&gt;数据统计 / Bug / Crash Reporter&lt;/h3&gt;&lt;h4 id=&quot;国内&quot;&gt;&lt;a href=&quot;#国内&quot; class=&quot;headerlink&quot; title=&quot;国内&quot;&gt;&lt;/a&gt;&lt;strong&gt;国内&lt;/strong&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.umeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;友盟&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;友盟的功能集成挺多，常用的基本都覆盖了，社会化组件/数据统计/Bug分析基本都通用，并且使用起来比较直观。SDK使用的话也不算麻烦。&lt;br&gt;优点就不说了，说说缺点吧，就是Crash Report不能实时邮件反馈，第二天9点30左右才会收到前一天的统计概况。详情的话倒是可以实时查询。&lt;/p&gt;
+&lt;h4 id=&quot;国外&quot;&gt;&lt;a href=&quot;#国外&quot; class=&quot;headerlink&quot; title=&quot;国外&quot;&gt;&lt;/a&gt;国外&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://fabric.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Fabric&lt;/a&gt; (Twitter出的)&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;国外：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Twitter的Fabric：官网： &lt;a href=&quot;https://fabric.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://fabric.io/&lt;/a&gt;&lt;br&gt;　　　　优点：反馈及时，一般有了Bug邮件没过多久就收到了，并且集成起来很方便，基于Android Studio的一个插件自动将SDK打入项目中。&lt;br&gt;　　　　缺点：不知道是不是我的环境问题，经常会Connect出错或者项目Build中断。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优点&lt;/strong&gt;：反馈及时，一般有了Bug邮件没过多久就收到了，并且集成起来很方便，基于Android Studio的一个插件自动将SDK打入项目中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;缺点&lt;/strong&gt;：如果平时Debug频率高的话建议关闭，每次切换分之如果有什么意外总会重新拉取最新的版本，一等就是十几分钟，等待真正公测的时候再打开，这样信息比较准确，还有建议测试的时候打包使用Debug版本号，能够在日志清楚的区分线上线下版本。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;面试相关&quot;&gt;&lt;a href=&quot;#面试相关&quot; class=&quot;headerlink&quot; title=&quot;面试相关&quot;&gt;&lt;/a&gt;面试相关&lt;/h2&gt;&lt;p&gt;面试，面试，面试！重要的事情说三遍！&lt;/p&gt;
+&lt;h3 id=&quot;AndroidInterview-Q-A&quot;&gt;&lt;a href=&quot;#AndroidInterview-Q-A&quot; class=&quot;headerlink&quot; title=&quot;AndroidInterview-Q-A&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/JackyAndroid/AndroidInterview-Q-A&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AndroidInterview-Q-A&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;以下面试题来自于百度、小米、乐视、美团、58、猎豹、360、新浪、搜狐内部题库&lt;/p&gt;
+&lt;p&gt;熟悉本文中列出的知识点会大大增加通过前两轮技术面试的几率。&lt;/p&gt;
+&lt;h3 id=&quot;一、Java基础&quot;&gt;&lt;a href=&quot;#一、Java基础&quot; class=&quot;headerlink&quot; title=&quot;一、Java基础&quot;&gt;&lt;/a&gt;一、Java基础&lt;/h3&gt;&lt;h3 id=&quot;二、Android基础&quot;&gt;&lt;a href=&quot;#二、Android基础&quot; class=&quot;headerlink&quot; title=&quot;二、Android基础&quot;&gt;&lt;/a&gt;二、Android基础&lt;/h3&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;LearningNotes&quot;&gt;&lt;a href=&quot;#LearningNotes&quot; class=&quot;headerlink&quot; title=&quot;LearningNotes&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/GeniusVJR/LearningNotes&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LearningNotes&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;内容涵盖了Android各大知识点，不必要都看别人总结的，可以自己试着总结这样学习更快，但可以根据别人列出的知识点查缺补漏。博主第六部分的&lt;strong&gt;面试经验&lt;/strong&gt;值得借鉴&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;Android开发中 个人遇到和使用过的值得分享的资源合集
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject：强烈推荐的Android-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&quot;&gt;&lt;/a&gt;Trinea的OpenProject：强烈推荐的Android 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot;&gt;https://github.com/Trinea/android-open-project&lt;/a&gt; &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;项目说明：
-Android 开源项目第一篇——个性化控件(View)篇
-  包括ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style、其他
-Android 开源项目第二篇——工具库篇
-  包括依赖注入、图片缓存、网络请求、数据库 ORM 工具包、Android 公共库、高版本向低版本兼容库、多媒体、事件总线、传感器、安全、插件化、文件、其他
-Android 开源项目第三篇——优秀项目篇
-  比较有意思的完整的 Android 项目
-Android 开源项目第四篇——开发及测试工具篇
-  包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他
-Android 开源项目第五篇——优秀个人和团体篇
-  乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;awesome-android-ui&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot;&gt;https://github.com/wasabeef/awesome-android-ui&lt;/a&gt;&lt;br&gt;​&lt;br&gt;    项目说明：&lt;br&gt;    国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。&lt;br&gt;    A curated list of awesome Android UI/UX libraries.                        &lt;/p&gt;
-&lt;h4 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;AndroidDevTools 开源项目分类汇总&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot;&gt;https://github.com/inferjay/AndroidDevTools&lt;/a&gt;&lt;br&gt;官方网站：&lt;a href=&quot;http://www.androiddevtools.cn/&quot;&gt;http://www.androiddevtools.cn/&lt;/a&gt; &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;项目说明：
-收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。
-欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;android-tech-frontier&lt;/h4&gt;&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot;&gt;https://github.com/eterrao/android-tech-frontier.git&lt;/a&gt;&lt;br&gt;​&lt;br&gt;    项目说明：&lt;br&gt;    一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;
-&lt;/code&gt;&lt;/pre&gt;
+      &lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;p&gt;Android开发中 个人遇到和使用过的值得分享的资源合集&lt;/p&gt;
+&lt;h2 id=&quot;Trinea的OpenProject&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot;&gt;Trinea的OpenProject&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;强烈推荐的Android 开源项目分类汇总，star数量1.7W+&lt;/p&gt;
+&lt;h4 id=&quot;项目说明：&quot;&gt;&lt;a href=&quot;#项目说明：&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Android 开源项目第一篇——个性化控件(View)篇&lt;br&gt;  包括ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style、其他&lt;br&gt;Android 开源项目第二篇——工具库篇&lt;br&gt;  包括依赖注入、图片缓存、网络请求、数据库 ORM 工具包、Android 公共库、高版本向低版本兼容库、多媒体、事件总线、传感器、安全、插件化、文件、其他&lt;br&gt;Android 开源项目第三篇——优秀项目篇&lt;br&gt;  比较有意思的完整的 Android 项目&lt;br&gt;Android 开源项目第四篇——开发及测试工具篇&lt;br&gt;  包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他&lt;br&gt;Android 开源项目第五篇——优秀个人和团体篇&lt;br&gt;  乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot;&gt;awesome-android-ui&lt;/a&gt;&lt;/h3&gt;&lt;h4 id=&quot;项目说明：-1&quot;&gt;&lt;a href=&quot;#项目说明：-1&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;p&gt;国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A curated list of awesome Android UI/UX libraries.                       &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot;&gt;AndroidDevTools 开源项目分类汇总&lt;/a&gt;&lt;/h3&gt;&lt;h4 id=&quot;官方网站&quot;&gt;&lt;a href=&quot;#官方网站&quot; class=&quot;headerlink&quot; title=&quot;官方网站&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.androiddevtools.cn/&quot;&gt;官方网站&lt;/a&gt;&lt;/h4&gt;&lt;h4 id=&quot;项目说明：-2&quot;&gt;&lt;a href=&quot;#项目说明：-2&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。&lt;br&gt;欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot;&gt;android-tech-frontier&lt;/a&gt;&lt;/h3&gt;&lt;h4 id=&quot;项目说明：-3&quot;&gt;&lt;a href=&quot;#项目说明：-3&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。&lt;/p&gt;
+&lt;p&gt;我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
