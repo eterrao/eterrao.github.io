@@ -137,7 +137,7 @@
     <link href="http://www.shutu.tech/2016/07/24/%E3%80%8AApp%E7%A0%94%E5%8F%91%E5%BD%95%E3%80%8B--%20%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/"/>
     <id>http://www.shutu.tech/2016/07/24/《App研发录》-- 读书总结/</id>
     <published>2016-07-24T03:55:46.000Z</published>
-    <updated>2016-08-07T04:15:24.000Z</updated>
+    <updated>2016-08-07T04:26:55.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h1&gt;&lt;p&gt;看这本书的时候，总感觉怪怪的。&lt;/p&gt;
 &lt;p&gt;因为在地铁上看完的，作者书中基本都是他自己工作中遇到的问题和坑，虽说这样会让人感觉找到了解决方案，可以再进行深入的研究，可是某些地方介绍的有点片面，仅仅是引用部分博客就以偏概全了。还有可能是涉及的内容大部分都是我自己已经踩过的坑，所以觉得学到的东西不太多。&lt;/p&gt;
@@ -145,6 +145,7 @@
 &lt;h3 id=&quot;App竞品技术分析&quot;&gt;&lt;a href=&quot;#App竞品技术分析&quot; class=&quot;headerlink&quot; title=&quot;App竞品技术分析&quot;&gt;&lt;/a&gt;App竞品技术分析&lt;/h3&gt;&lt;p&gt;个人认为这是本书的精华，很少看到有人愿意这样详尽的介绍自己的“机密”经验，感谢作者的无私分享。&lt;/p&gt;
 &lt;h3 id=&quot;五、六、七章的异常和ProGuard&quot;&gt;&lt;a href=&quot;#五、六、七章的异常和ProGuard&quot; class=&quot;headerlink&quot; title=&quot;五、六、七章的异常和ProGuard&quot;&gt;&lt;/a&gt;五、六、七章的异常和ProGuard&lt;/h3&gt;&lt;p&gt;介绍很详细，网上都是非常琐碎的介绍，推荐新人看看这部分，尤其是ProGuard，虽然现在第三方已经给出了完善的解决方案，帮我们做了这部分事情，不过了解最基本的原理才能学得更透彻。&lt;/p&gt;
 &lt;h3 id=&quot;项目、团队管理部分&quot;&gt;&lt;a href=&quot;#项目、团队管理部分&quot; class=&quot;headerlink&quot; title=&quot;项目、团队管理部分&quot;&gt;&lt;/a&gt;项目、团队管理部分&lt;/h3&gt;&lt;p&gt;这部分是时间的积累才能收获的，提前学习了解以后我们必须经历的路没什么不好的。测试部分相关的部分是很少有书籍能够提及，值得看看。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h1 id=&quot;第一章小结&quot;&gt;&lt;a href=&quot;#第一章小结&quot; class=&quot;headerlink&quot; title=&quot;第一章小结&quot;&gt;&lt;/a&gt;第一章小结&lt;/h1&gt;&lt;h2 id=&quot;重构目录&quot;&gt;&lt;a href=&quot;#重构目录&quot; class=&quot;headerlink&quot; title=&quot;重构目录&quot;&gt;&lt;/a&gt;重构目录&lt;/h2&gt;&lt;p&gt;将混乱类文件按照自己的职责划分并存放在相关目录下，如：&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;com.xxx.xxx. | -- activity&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			| -- utils&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  			| -- adapter&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  			| -- entity&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  			| -- ui&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  			| -- interface&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  			| -- listener&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;有了清晰的目录结构，寻找各功能的类文件方便得多，而且便于团队间多人协作开发。谁也不愿意找个相关类全路径的到处搜，干这种事的人不被同事骂死才怪。&lt;/p&gt;
@@ -188,7 +189,11 @@
     <summary type="html">
     
       &lt;h1 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h1&gt;&lt;p&gt;看这本书的时候，总感觉怪怪的。&lt;/p&gt;
-&lt;p&gt;因为在地铁上看完的，作者书中基本都是他自己工作中遇到的问题和坑，虽说这样会让人感觉找到了解决方
+&lt;p&gt;因为在地铁上看完的，作者书中基本都是他自己工作中遇到的问题和坑，虽说这样会让人感觉找到了解决方案，可以再进行深入的研究，可是某些地方介绍的有点片面，仅仅是引用部分博客就以偏概全了。还有可能是涉及的内容大部分都是我自己已经踩过的坑，所以觉得学到的东西不太多。&lt;/p&gt;
+&lt;p&gt;再说说值得一看的地方吧，首先也如前面提到的，书中内容基本都是作者工作之谈，所以有很实用的内容，推荐阅读章节：&lt;/p&gt;
+&lt;h3 id=&quot;App竞品技术分析&quot;&gt;&lt;a href=&quot;#App竞品技术分析&quot; class=&quot;headerlink&quot; title=&quot;App竞品技术分析&quot;&gt;&lt;/a&gt;App竞品技术分析&lt;/h3&gt;&lt;p&gt;个人认为这是本书的精华，很少看到有人愿意这样详尽的介绍自己的“机密”经验，感谢作者的无私分享。&lt;/p&gt;
+&lt;h3 id=&quot;五、六、七章的异常和ProGuard&quot;&gt;&lt;a href=&quot;#五、六、七章的异常和ProGuard&quot; class=&quot;headerlink&quot; title=&quot;五、六、七章的异常和ProGuard&quot;&gt;&lt;/a&gt;五、六、七章的异常和ProGuard&lt;/h3&gt;&lt;p&gt;介绍很详细，网上都是非常琐碎的介绍，推荐新人看看这部分，尤其是ProGuard，虽然现在第三方已经给出了完善的解决方案，帮我们做了这部分事情，不过了解最基本的原理才能学得更透彻。&lt;/p&gt;
+&lt;h3 id=&quot;项目、团队管理部分&quot;&gt;&lt;a href=&quot;#项目、团队管理部分&quot; class=&quot;headerlink&quot; title=&quot;项目、团队管理部分&quot;&gt;&lt;/a&gt;项目、团队管理部分&lt;/h3&gt;&lt;p&gt;这部分是时间的积累才能收获的，提前学习了解以后我们必须经历的路没什么不好的。测试部分相关的部分是很少有书籍能够提及，值得看看。&lt;/p&gt;
     
     </summary>
     
