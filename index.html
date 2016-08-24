@@ -280,6 +280,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据结构与算法，Java，翻译/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法，Java，翻译</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -319,34 +338,18 @@
 
       
         
-          
-            <h1 id="25章-排序"><a href="#25章-排序" class="headerlink" title="25章 排序"></a>25章 排序</h1><h2 id="25-2-冒泡排序"><a href="#25-2-冒泡排序" class="headerlink" title="25.2 冒泡排序"></a>25.2 冒泡排序</h2><blockquote>
+          <h1 id="25章-排序"><a href="#25章-排序" class="headerlink" title="25章 排序"></a>25章 排序</h1><h2 id="25-2-冒泡排序"><a href="#25-2-冒泡排序" class="headerlink" title="25.2 冒泡排序"></a>25.2 冒泡排序</h2><blockquote>
 <p>冒泡排序排序数组时多阶的，每一趟会连续的交换相邻元素，如果这部分元素不是顺序排列的。</p>
 </blockquote>
 <p>暂时不翻译。</p>
 <h2 id="25-3-归并排序算法"><a href="#25-3-归并排序算法" class="headerlink" title="25.3 归并排序算法"></a>25.3 归并排序算法</h2><blockquote>
 <p>归并排序算法能够这样的描述递归的：这个算法将数组划分为两半（halves）并且每一半递归的使用归并算法。当两半都被排序之后，再将它们归并。</p>
 </blockquote>
-<h3 id="Listing-25-4-归并算法"><a href="#Listing-25-4-归并算法" class="headerlink" title="Listing 25.4 归并算法"></a>Listing 25.4 归并算法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] list)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (list.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">		mergeSort(list[<span class="number">0</span>... list.length / <span class="number">2</span>]);</span><br><span class="line">		mergeSort(list[list.length / <span class="number">2</span> + <span class="number">1</span> ... list.length]);</span><br><span class="line">		merge list[<span class="number">0</span>... list.length / <span class="number">2</span>] with </span><br><span class="line">		list[list.length / <span class="number">2</span> + <span class="number">1</span>... list.length];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>表25.2 举例说明了一个归并排序8各元素的数组（2 9 5 4 8  1 6 7）的例子。原始数组被分为2954和8167.应用一个归并排序在两个子数组中递归的在氛围39和54，而8 1 6 7分为8 1和6 7。这个过程会继续执行知道字数组只包含一个元素。例如，数组（2 9）被分为2和9。因为数组2只有一个元素的时候，它不能再继续分割。现在就归并2和9到一个新的排好序的数组（2 9）中；归并5和4到新的数组（4 5）。再次归并29和4 5 到新的数组2 4 5 9，最后归并2 4 5 9 和1 6 7 8到新的数组1 2 4 5 6 7 8 9。</p>
-<p>会递归的调用划分数组到子数组中之道每一个子数组都只包含一个元素。改算法党归并这些小子数组到大的排序好的子数组中直到最后结果为一个已排好序的数组。</p>
-<p>归并算法的实现在Listing 25.5。</p>
-<h3 id="Listing-25-5"><a href="#Listing-25-5" class="headerlink" title="Listing 25.5"></a>Listing 25.5</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MergeSort</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">int</span>[] firstHalfArray = <span class="keyword">new</span> <span class="keyword">int</span>[list.length / <span class="number">2</span>];</span><br><span class="line">      System.arrayCopy(list, <span class="number">0</span>, firstHalfArray, <span class="number">0</span>, list.length / <span class="number">2</span>);</span><br><span class="line">      mergeSort(firstHalfArray);</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">int</span> secondHalfArrayLength = list.length - (list.length / <span class="number">2</span>);</span><br><span class="line">      <span class="keyword">int</span>[] secondHalfArray = <span class="keyword">new</span> <span class="keyword">int</span>[sencondHalfArrayLength];</span><br><span class="line">      System.arrayCopy(list, list.length / <span class="number">2</span>, secondHalfArray, <span class="number">0</span>, secondHalfArrayLength);</span><br><span class="line">      mergeSort(secondHalfArray);</span><br><span class="line">      </span><br><span class="line">      merge(firstHalfArray, secondHalfArray);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] firstHalfArray, <span class="keyword">int</span>[] secondHalfArray, <span class="keyword">int</span>[] temp)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> current1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> current2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> current3 = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (current1 &lt; firstHalfArray.length &amp;&amp; current2 &lt; secondHalfArray.length) &#123;</span><br><span class="line">      <span class="keyword">if</span> (firstHalfArray[current1] &lt; secondHalfArray[current2]) &#123;</span><br><span class="line">        temp[current3++] = firstHalfArray[current1++]</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        temp[current3++] = firstHalfArray[current2++]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (current1 &lt; firstHalfArray.length) &#123;</span><br><span class="line">      temp[current3++] = firstHalfArray[current1++];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (current2 &lt; secondHalfArray.length) &#123;</span><br><span class="line">      temp[current3++] = secondHalfArray[current2++];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>归并的方法是创建一个新的数组firstHalftArray，将list的前一半复制到其中。算法在firstHalfArray中递归的唤起mergeSort这个方法。sencondHalfArray同firstHalfArray一样复制list剩余的元素，并且递归调用。最后firstHalfArray和sencondHalfArray被排好序后悔归并到list中。这样数组list就被排好序了。</p>
-<h2 id="（Me）小结"><a href="#（Me）小结" class="headerlink" title="（Me）小结"></a>（Me）小结</h2><p>总而言之归并算法重要的三步：</p>
-<ul>
-<li>将原数组一分为二，并且需要new出额外的内存地址存放当前两个字数组</li>
-<li>子数组递归的调用mergeSort方法来进行自我排序</li>
-<li>将排好序的两个子数组归并到原数组中</li>
-</ul>
-<p>子数组归并时merge方法重要的三步：</p>
-<ul>
-<li>创建两个子数组和原数组的Index</li>
-<li>循环将子数组排序及存入原数组中</li>
-<li>将剩下的Index分别存入原数组中</li>
-</ul>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/25/《Introduction-to-Java-Programming-Language》译文/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1662,7 +1665,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

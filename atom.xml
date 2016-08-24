@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shutu.tech/"/>
-  <updated>2016-08-24T16:22:50.000Z</updated>
+  <updated>2016-08-24T16:27:43.000Z</updated>
   <id>http://www.shutu.tech/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.shutu.tech/2016/08/25/%E3%80%8AIntroduction-to-Java-Programming-Language%E3%80%8B%E8%AF%91%E6%96%87/"/>
     <id>http://www.shutu.tech/2016/08/25/《Introduction-to-Java-Programming-Language》译文/</id>
     <published>2016-08-24T16:22:50.000Z</published>
-    <updated>2016-08-24T16:22:50.000Z</updated>
+    <updated>2016-08-24T16:27:43.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;25章-排序&quot;&gt;&lt;a href=&quot;#25章-排序&quot; class=&quot;headerlink&quot; title=&quot;25章 排序&quot;&gt;&lt;/a&gt;25章 排序&lt;/h1&gt;&lt;h2 id=&quot;25-2-冒泡排序&quot;&gt;&lt;a href=&quot;#25-2-冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;25.2 冒泡排序&quot;&gt;&lt;/a&gt;25.2 冒泡排序&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;冒泡排序排序数组时多阶的，每一趟会连续的交换相邻元素，如果这部分元素不是顺序排列的。&lt;/p&gt;
@@ -29,6 +29,7 @@
 &lt;h2 id=&quot;25-3-归并排序算法&quot;&gt;&lt;a href=&quot;#25-3-归并排序算法&quot; class=&quot;headerlink&quot; title=&quot;25.3 归并排序算法&quot;&gt;&lt;/a&gt;25.3 归并排序算法&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;归并排序算法能够这样的描述递归的：这个算法将数组划分为两半（halves）并且每一半递归的使用归并算法。当两半都被排序之后，再将它们归并。&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;Listing-25-4-归并算法&quot;&gt;&lt;a href=&quot;#Listing-25-4-归并算法&quot; class=&quot;headerlink&quot; title=&quot;Listing 25.4 归并算法&quot;&gt;&lt;/a&gt;Listing 25.4 归并算法&lt;/h3&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;mergeSort&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;[] list)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (list.length &amp;gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		mergeSort(list[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;... list.length / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		mergeSort(list[list.length / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; ... list.length]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		merge list[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;... list.length / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;] with &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		list[list.length / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;... list.length];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;表25.2 举例说明了一个归并排序8各元素的数组（2 9 5 4 8  1 6 7）的例子。原始数组被分为2954和8167.应用一个归并排序在两个子数组中递归的在氛围39和54，而8 1 6 7分为8 1和6 7。这个过程会继续执行知道字数组只包含一个元素。例如，数组（2 9）被分为2和9。因为数组2只有一个元素的时候，它不能再继续分割。现在就归并2和9到一个新的排好序的数组（2 9）中；归并5和4到新的数组（4 5）。再次归并29和4 5 到新的数组2 4 5 9，最后归并2 4 5 9 和1 6 7 8到新的数组1 2 4 5 6 7 8 9。&lt;/p&gt;
 &lt;p&gt;会递归的调用划分数组到子数组中之道每一个子数组都只包含一个元素。改算法党归并这些小子数组到大的排序好的子数组中直到最后结果为一个已排好序的数组。&lt;/p&gt;
@@ -51,9 +52,17 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;25章-排序&quot;&gt;&lt;a href=&quot;#25章-排序&quot; class=&quot;headerlink&quot; title=&quot;25章 排序&quot;&gt;&lt;/a&gt;25章 排序&lt;/h1&gt;&lt;h2 id=&quot;25-2-冒泡排序&quot;&gt;&lt;a href=&quot;#25-2-冒泡排序&quot; class=&quot;headerlink
+      &lt;h1 id=&quot;25章-排序&quot;&gt;&lt;a href=&quot;#25章-排序&quot; class=&quot;headerlink&quot; title=&quot;25章 排序&quot;&gt;&lt;/a&gt;25章 排序&lt;/h1&gt;&lt;h2 id=&quot;25-2-冒泡排序&quot;&gt;&lt;a href=&quot;#25-2-冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;25.2 冒泡排序&quot;&gt;&lt;/a&gt;25.2 冒泡排序&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;冒泡排序排序数组时多阶的，每一趟会连续的交换相邻元素，如果这部分元素不是顺序排列的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;暂时不翻译。&lt;/p&gt;
+&lt;h2 id=&quot;25-3-归并排序算法&quot;&gt;&lt;a href=&quot;#25-3-归并排序算法&quot; class=&quot;headerlink&quot; title=&quot;25.3 归并排序算法&quot;&gt;&lt;/a&gt;25.3 归并排序算法&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;归并排序算法能够这样的描述递归的：这个算法将数组划分为两半（halves）并且每一半递归的使用归并算法。当两半都被排序之后，再将它们归并。&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
+    
+      <category term="数据结构与算法，Java，翻译" scheme="http://www.shutu.tech/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%8CJava%EF%BC%8C%E7%BF%BB%E8%AF%91/"/>
     
     
       <category term="翻译，Java，数据结构" scheme="http://www.shutu.tech/tags/%E7%BF%BB%E8%AF%91%EF%BC%8CJava%EF%BC%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
