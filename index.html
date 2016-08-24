@@ -260,6 +260,140 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/25/《Introduction-to-Java-Programming-Language》译文/" itemprop="url">
+                  《Introduction to Java Programming Language》译文
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-25T00:22:50+08:00" content="2016-08-25">
+              2016-08-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/25/《Introduction-to-Java-Programming-Language》译文/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/25/《Introduction-to-Java-Programming-Language》译文/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/25/《Introduction-to-Java-Programming-Language》译文/" class="leancloud_visitors" data-flag-title="《Introduction to Java Programming Language》译文">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="25章-排序"><a href="#25章-排序" class="headerlink" title="25章 排序"></a>25章 排序</h1><h2 id="25-2-冒泡排序"><a href="#25-2-冒泡排序" class="headerlink" title="25.2 冒泡排序"></a>25.2 冒泡排序</h2><blockquote>
+<p>冒泡排序排序数组时多阶的，每一趟会连续的交换相邻元素，如果这部分元素不是顺序排列的。</p>
+</blockquote>
+<p>暂时不翻译。</p>
+<h2 id="25-3-归并排序算法"><a href="#25-3-归并排序算法" class="headerlink" title="25.3 归并排序算法"></a>25.3 归并排序算法</h2><blockquote>
+<p>归并排序算法能够这样的描述递归的：这个算法将数组划分为两半（halves）并且每一半递归的使用归并算法。当两半都被排序之后，再将它们归并。</p>
+</blockquote>
+<h3 id="Listing-25-4-归并算法"><a href="#Listing-25-4-归并算法" class="headerlink" title="Listing 25.4 归并算法"></a>Listing 25.4 归并算法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] list)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (list.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">		mergeSort(list[<span class="number">0</span>... list.length / <span class="number">2</span>]);</span><br><span class="line">		mergeSort(list[list.length / <span class="number">2</span> + <span class="number">1</span> ... list.length]);</span><br><span class="line">		merge list[<span class="number">0</span>... list.length / <span class="number">2</span>] with </span><br><span class="line">		list[list.length / <span class="number">2</span> + <span class="number">1</span>... list.length];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>表25.2 举例说明了一个归并排序8各元素的数组（2 9 5 4 8  1 6 7）的例子。原始数组被分为2954和8167.应用一个归并排序在两个子数组中递归的在氛围39和54，而8 1 6 7分为8 1和6 7。这个过程会继续执行知道字数组只包含一个元素。例如，数组（2 9）被分为2和9。因为数组2只有一个元素的时候，它不能再继续分割。现在就归并2和9到一个新的排好序的数组（2 9）中；归并5和4到新的数组（4 5）。再次归并29和4 5 到新的数组2 4 5 9，最后归并2 4 5 9 和1 6 7 8到新的数组1 2 4 5 6 7 8 9。</p>
+<p>会递归的调用划分数组到子数组中之道每一个子数组都只包含一个元素。改算法党归并这些小子数组到大的排序好的子数组中直到最后结果为一个已排好序的数组。</p>
+<p>归并算法的实现在Listing 25.5。</p>
+<h3 id="Listing-25-5"><a href="#Listing-25-5" class="headerlink" title="Listing 25.5"></a>Listing 25.5</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MergeSort</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">int</span>[] firstHalfArray = <span class="keyword">new</span> <span class="keyword">int</span>[list.length / <span class="number">2</span>];</span><br><span class="line">      System.arrayCopy(list, <span class="number">0</span>, firstHalfArray, <span class="number">0</span>, list.length / <span class="number">2</span>);</span><br><span class="line">      mergeSort(firstHalfArray);</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">int</span> secondHalfArrayLength = list.length - (list.length / <span class="number">2</span>);</span><br><span class="line">      <span class="keyword">int</span>[] secondHalfArray = <span class="keyword">new</span> <span class="keyword">int</span>[sencondHalfArrayLength];</span><br><span class="line">      System.arrayCopy(list, list.length / <span class="number">2</span>, secondHalfArray, <span class="number">0</span>, secondHalfArrayLength);</span><br><span class="line">      mergeSort(secondHalfArray);</span><br><span class="line">      </span><br><span class="line">      merge(firstHalfArray, secondHalfArray);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] firstHalfArray, <span class="keyword">int</span>[] secondHalfArray, <span class="keyword">int</span>[] temp)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> current1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> current2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> current3 = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (current1 &lt; firstHalfArray.length &amp;&amp; current2 &lt; secondHalfArray.length) &#123;</span><br><span class="line">      <span class="keyword">if</span> (firstHalfArray[current1] &lt; secondHalfArray[current2]) &#123;</span><br><span class="line">        temp[current3++] = firstHalfArray[current1++]</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        temp[current3++] = firstHalfArray[current2++]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (current1 &lt; firstHalfArray.length) &#123;</span><br><span class="line">      temp[current3++] = firstHalfArray[current1++];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (current2 &lt; secondHalfArray.length) &#123;</span><br><span class="line">      temp[current3++] = secondHalfArray[current2++];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>归并的方法是创建一个新的数组firstHalftArray，将list的前一半复制到其中。算法在firstHalfArray中递归的唤起mergeSort这个方法。sencondHalfArray同firstHalfArray一样复制list剩余的元素，并且递归调用。最后firstHalfArray和sencondHalfArray被排好序后悔归并到list中。这样数组list就被排好序了。</p>
+<h2 id="（Me）小结"><a href="#（Me）小结" class="headerlink" title="（Me）小结"></a>（Me）小结</h2><p>总而言之归并算法重要的三步：</p>
+<ul>
+<li>将原数组一分为二，并且需要new出额外的内存地址存放当前两个字数组</li>
+<li>子数组递归的调用mergeSort方法来进行自我排序</li>
+<li>将排好序的两个子数组归并到原数组中</li>
+</ul>
+<p>子数组归并时merge方法重要的三步：</p>
+<ul>
+<li>创建两个子数组和原数组的Index</li>
+<li>循环将子数组排序及存入原数组中</li>
+<li>将剩下的Index分别存入原数组中</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/24/Android设计模式总结/" itemprop="url">
                   Android设计模式总结
                 </a>
@@ -615,7 +749,7 @@
 <li>特点：FIFO</li>
 <li>实例场景：收费站</li>
 </ul>
-<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><h1 id="排序篇"><a href="#排序篇" class="headerlink" title="排序篇"></a>排序篇</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在数据结构与算法中，排序是面试笔试中最常被问到和提及的知识点，虽然在工作中很少用到相关的基础知识，但是对于基础的系统性学习却是必不可少的，通过学习和理解可以培养锻炼我们写代码的思维逻辑。多考虑性能，少制造垃圾代码。</p>
+<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><h1 id="排序篇"><a href="#排序篇" class="headerlink" title="排序篇"></a>排序篇</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在数据结构与算法中，排序是面试笔试中最常被问到和提及的知识点，虽然在工作中很少用到相关的基础知识，但是对于基础的系统性学习却是必不可少的，通过学习和理解可以培养锻炼我们写代码的思维逻辑。多考虑性能，少制造垃圾代码。</p>
 <p>此书介绍得比较详细易懂，并且使用Java语言所以用到了很多相关的标准类库或模板，学习比较容易上手。同时还有另一本Java基础的书籍推荐《Introdution to Java Programming》（作者：Y. Daniel Liang），书中同样介绍了基础的数据结构与算法，并且图文并茂通俗易懂。</p>
 <h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><blockquote>
 <p><strong>排序成本模型：</strong>在研究排序算法时，需要计算<strong>比较</strong>和<strong>交换</strong>的数量，对于不交换元素的算法，会计算<strong>访问数组的次数</strong></p>
@@ -1475,158 +1609,13 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/09/Android-Classical-OpenSource/" itemprop="url">
-                  Android-Classical-OpenSource
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-09T13:02:52+08:00" content="2016-05-09">
-              2016-05-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/09/Android-Classical-OpenSource/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/09/Android-Classical-OpenSource/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/09/Android-Classical-OpenSource/" class="leancloud_visitors" data-flag-title="Android-Classical-OpenSource">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Android-Classical-OpenSource"><a href="#Android-Classical-OpenSource" class="headerlink" title="Android-Classical-OpenSource"></a>Android-Classical-OpenSource</h1><p>Android开发中 个人遇到和使用过的值得分享的资源合集</p>
-<h1 id="Trinea的OpenProject"><a href="#Trinea的OpenProject" class="headerlink" title="Trinea的OpenProject"></a><a href="https://github.com/Trinea/android-open-project">Trinea的OpenProject</a></h1><p>强烈推荐的Android 开源项目分类汇总，star数量1.7W+</p>
-<h4 id="项目说明："><a href="#项目说明：" class="headerlink" title="项目说明："></a>项目说明：</h4><blockquote>
-<p>Android 开源项目第一篇——个性化控件(View)篇<br>  包括ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style、其他<br>Android 开源项目第二篇——工具库篇<br>  包括依赖注入、图片缓存、网络请求、数据库 ORM 工具包、Android 公共库、高版本向低版本兼容库、多媒体、事件总线、传感器、安全、插件化、文件、其他<br>Android 开源项目第三篇——优秀项目篇<br>  比较有意思的完整的 Android 项目<br>Android 开源项目第四篇——开发及测试工具篇<br>  包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他<br>Android 开源项目第五篇——优秀个人和团体篇<br>  乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等</p>
-</blockquote>
-<hr>
-<h1 id="awesome-android-ui"><a href="#awesome-android-ui" class="headerlink" title="awesome-android-ui"></a><a href="https://github.com/wasabeef/awesome-android-ui">awesome-android-ui</a></h1><h4 id="项目说明：-1"><a href="#项目说明：-1" class="headerlink" title="项目说明："></a>项目说明：</h4><p>国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。</p>
-<blockquote>
-<p>A curated list of awesome Android UI/UX libraries.                       </p>
-</blockquote>
-<hr>
-<h1 id="AndroidDevTools-开源项目分类汇总"><a href="#AndroidDevTools-开源项目分类汇总" class="headerlink" title="AndroidDevTools 开源项目分类汇总"></a><a href="https://github.com/inferjay/AndroidDevTools">AndroidDevTools 开源项目分类汇总</a></h1><h4 id="官方网站"><a href="#官方网站" class="headerlink" title="官方网站"></a><a href="http://www.androiddevtools.cn/">官方网站</a></h4><h4 id="项目说明：-2"><a href="#项目说明：-2" class="headerlink" title="项目说明："></a>项目说明：</h4><blockquote>
-<p>收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。<br>欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。</p>
-</blockquote>
-<hr>
-<h1 id="android-tech-frontier"><a href="#android-tech-frontier" class="headerlink" title="android-tech-frontier"></a><a href="https://github.com/eterrao/android-tech-frontier.git">android-tech-frontier</a></h1><h4 id="项目说明：-3"><a href="#项目说明：-3" class="headerlink" title="项目说明："></a>项目说明：</h4><blockquote>
-<p>一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。</p>
-<p>我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/09/Android-Classical-OpenSource/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1665,7 +1654,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1682,7 +1671,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
