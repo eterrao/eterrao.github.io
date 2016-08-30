@@ -1,0 +1,825 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Android面试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="书途" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="写在前面该博客思路源于在简书看到goeasyway博主写的Android面试一天一题系列，无copy之意，仅为让自己总结知识点，成长一点点。先感谢各位大神的无私分享~！
+关于题目，大部分则出自AndroidInterview-Q-A和LearningNotes，当然既然是Android面试，主要是Android部分，Java基础之后再写。
+IntentService作用是什么，AIDL解决了什么问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android面试一天一题（Day1）">
+<meta property="og:url" content="http://www.shutu.tech/2016/08/31/Android面试一天一题（Day1）/index.html">
+<meta property="og:site_name" content="书途">
+<meta property="og:description" content="写在前面该博客思路源于在简书看到goeasyway博主写的Android面试一天一题系列，无copy之意，仅为让自己总结知识点，成长一点点。先感谢各位大神的无私分享~！
+关于题目，大部分则出自AndroidInterview-Q-A和LearningNotes，当然既然是Android面试，主要是Android部分，Java基础之后再写。
+IntentService作用是什么，AIDL解决了什么问">
+<meta property="og:updated_time" content="2016-08-30T17:30:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android面试一天一题（Day1）">
+<meta name="twitter:description" content="写在前面该博客思路源于在简书看到goeasyway博主写的Android面试一天一题系列，无copy之意，仅为让自己总结知识点，成长一点点。先感谢各位大神的无私分享~！
+关于题目，大部分则出自AndroidInterview-Q-A和LearningNotes，当然既然是Android面试，主要是Android部分，Java基础之后再写。
+IntentService作用是什么，AIDL解决了什么问">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.shutu.tech/2016/08/31/Android面试一天一题（Day1）/"/>
+
+  <title> Android面试一天一题（Day1） | 书途 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">书途</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人无书而涂，因书而智，终老以书为伴，是为书途</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="http://eterrao.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android面试一天一题（Day1）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-31T01:27:42+08:00" content="2016-08-31">
+              2016-08-31
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/31/Android面试一天一题（Day1）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/31/Android面试一天一题（Day1）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/31/Android面试一天一题（Day1）/" class="leancloud_visitors" data-flag-title="Android面试一天一题（Day1）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>该博客思路源于在简书看到<a href="http://www.jianshu.com/users/f9fbc7a39b36" target="_blank" rel="external">goeasyway</a>博主写的Android面试一天一题系列，无copy之意，仅为让自己总结知识点，成长一点点。先感谢各位大神的无私分享~！</p>
+<p>关于题目，大部分则出自<a href="https://github.com/JackyAndroid/AndroidInterview-Q-A/blob/master/README-CN.md" target="_blank" rel="external">AndroidInterview-Q-A</a>和<a href="https://github.com/GeniusVJR/LearningNotes" target="_blank" rel="external">LearningNotes</a>，当然既然是Android面试，主要是Android部分，Java基础之后再写。</p>
+<h1 id="IntentService作用是什么，AIDL解决了什么问题-—-小米"><a href="#IntentService作用是什么，AIDL解决了什么问题-—-小米" class="headerlink" title="IntentService作用是什么，AIDL解决了什么问题 — 小米"></a>IntentService作用是什么，AIDL解决了什么问题 — 小米</h1><p>想知道IntentService的作用，当然需要先了解何为IntentService。</p>
+<a id="more"></a>
+<h2 id="IntentService"><a href="#IntentService" class="headerlink" title="IntentService"></a>IntentService</h2><p>官方解释是这样说的：</p>
+<blockquote>
+<p>IntentService是一个基于Service的子类，其能够根据需求处理异步请求（作为Intent一样来表示）。客户端通过startService（Intent）发送异步请求调用；服务作为需要而开始，控制每个Intent来转向使用一个工作线程，并且当工作完成后自己会停止。    </p>
+<p>这个<code>工作队列处理器</code>部分通常用于从应用的主线程卸下任务IntentService类纯在为了简化这个部分和考虑到了mechanics。为了使用它，扩展IntentService和实现onHandleIntent(Intent)。IntentService会收到Intents，启动一个工作线程和恰当地停止服务。</p>
+<p>所有请求被耽搁工作线程控制 — 他们可能只需要（切不会阻塞应用主线程），但每次只处理一个请求。</p>
+</blockquote>
+<p>先抛开官方解释不说，其实我们应该想想为什么有了Service还需要一个IntentService呢？这里就引出Service与IntentService之间的区别，那么两者是否应该有联系，区别又是什么呢？考虑问题时我们应该往深度和广度去探索，当然别太深无法自拔最后自己都不知道想要了解什么问题。所以接下来的几个问题：</p>
+<h2 id="Service的弊端？为什么会出现IntentService，Service和IntentService的区别？"><a href="#Service的弊端？为什么会出现IntentService，Service和IntentService的区别？" class="headerlink" title="Service的弊端？为什么会出现IntentService，Service和IntentService的区别？"></a>Service的弊端？为什么会出现IntentService，Service和IntentService的区别？</h2><p>如果说Service是依附于主线程的，也就是说不能进行耗时操作，而继承于它的子类IntentService中新增了哪些代码呢，这就可以从源码入手了，下面是IntentService的几个重要元素：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">IntentService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Looper可以知道需要与handler的套用，进行MessageQueue的资源存放和索取</span></span><br><span class="line">  	<span class="keyword">private</span> <span class="keyword">volatile</span> Looper mServiceLooper; </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> ServiceHandler mServiceHandler;</span><br><span class="line">	<span class="comment">// ... 代码省略 ...</span></span><br><span class="line">  </span><br><span class="line">  	<span class="comment">// 实际上也是通过Handler的机制来实现耗时操作</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ServiceHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ServiceHandler</span><span class="params">(Looper looper)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(looper);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">            onHandleIntent((Intent)msg.obj);</span><br><span class="line">            stopSelf(msg.arg1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">	<span class="comment">// ... 代码省略 ...</span></span><br><span class="line">      </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        HandlerThread thread = <span class="keyword">new</span> HandlerThread(<span class="string">"IntentService["</span> + mName + <span class="string">"]"</span>);</span><br><span class="line">        thread.start();</span><br><span class="line"></span><br><span class="line">      	<span class="comment">// 从上面实例化的线程中获取Looper，然后再传入ServiceHandler</span></span><br><span class="line">        mServiceLooper = thread.getLooper();</span><br><span class="line">        mServiceHandler = <span class="keyword">new</span> ServiceHandler(mServiceLooper);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">   	<span class="comment">// ... 代码省略 ...</span></span><br><span class="line">  </span><br><span class="line">   <span class="comment">/**</span><br><span class="line">     * This method is invoked on the worker thread with a request to process.</span><br><span class="line">     * Only one Intent is processed at a time, but the processing happens on a</span><br><span class="line">     * worker thread that runs independently from other application logic.</span><br><span class="line">     * So, if this code takes a long time, it will hold up other requests to</span><br><span class="line">     * the same IntentService, but it will not hold up anything else.</span><br><span class="line">     * When all requests have been handled, the IntentService stops itself,</span><br><span class="line">     * so you should not call &#123;<span class="doctag">@link</span> #stopSelf&#125;.</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> intent The value passed to &#123;<span class="doctag">@link</span></span><br><span class="line">     *               android.content.Context#startService(Intent)&#125;.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="meta">@WorkerThread</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">onHandleIntent</span><span class="params">(Intent intent)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意onHandleIntent方法的注释：</p>
+<blockquote>
+<p>该方法可以为唤起一个工作线程，而每次只能处理一个Intent，但是这个<strong>过程发生在工作线程中，并且运行在一个独立于其他的应用逻辑中</strong>，因此如果这部分代码会花一些时间的话，就会先拦截别的请求对于同一个IntentService，但不会拦截除此之外的事件。一旦所有请求都被处理了以后，IntentService会自动停止，你不需要调用stopSelf。</p>
+</blockquote>
+<p>啰嗦一大堆，说白了IntentService就是<strong>为了实现让Service能够进行耗时操作的功能。</strong></p>
+<h2 id="IntentService的用法"><a href="#IntentService的用法" class="headerlink" title="IntentService的用法"></a>IntentService的用法</h2><p>光知道概念和原理，但是不会用怎么行呢，我们以一个简单的Demo来进行示例，首先创建一个MainActivity负责事件开始，点击onClick的时候启动IntentService：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> serviceRunning = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="keyword">final</span> TextView serviceStates = (TextView) findViewById(R.id.tv_service_states);</span><br><span class="line">        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);</span><br><span class="line">        fab.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">                Intent serviceIntent = <span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>, CustomIntentService.class);</span><br><span class="line">                serviceIntent.putExtra(<span class="string">"sleep_flag"</span>, <span class="keyword">true</span>);</span><br><span class="line">                <span class="keyword">if</span> (!serviceRunning) &#123;</span><br><span class="line">                    startService(serviceIntent);</span><br><span class="line">                    serviceStates.setText(<span class="string">"Service is running..."</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    stopService(serviceIntent);</span><br><span class="line">                    serviceStates.setText(<span class="string">"Service is stop..."</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                serviceRunning = !serviceRunning;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomIntentService</span> <span class="keyword">extends</span> <span class="title">IntentService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = CustomIntentService.class.getSimpleName();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CustomIntentService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"CustomIntentService"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onHandleIntent</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">" onHandleIntent====&gt; "</span>);</span><br><span class="line">        <span class="keyword">boolean</span> flag = intent.getBooleanExtra(<span class="string">"sleep_flag"</span>, <span class="keyword">false</span>);</span><br><span class="line">        Log.e(TAG, <span class="string">" onHandleIntent flag  ====&gt; "</span> + flag);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">" onCreate ====&gt;  executed "</span>);</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">" onDestroy ====&gt;  executed "</span>);</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">" onStartCommand ====&gt;  executed "</span>);</span><br><span class="line">        <span class="keyword">boolean</span> flag = intent.getBooleanExtra(<span class="string">"sleep_flag"</span>, <span class="keyword">false</span>);</span><br><span class="line">        Log.e(TAG, <span class="string">" onStartCommand flag  ====&gt; "</span> + flag);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onStartCommand(intent, flags, startId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">" onBind ====&gt;  executed "</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onBind(intent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onUnbind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">" onUnbind ====&gt;  executed "</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onUnbind(intent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRebind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">" onRebind ====&gt;  executed "</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">super</span>.onRebind(intent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为我在Intent中传递了一个boolean值作为标记，可以在下面的执行结果中看到IntentService方法的执行顺序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">E/CustomIntentService:  onCreate ====&gt;  executed </span><br><span class="line">E/CustomIntentService:  onStartCommand ====&gt;  executed </span><br><span class="line">E/CustomIntentService:  onStartCommand flag  ====&gt; <span class="keyword">true</span></span><br><span class="line">E/CustomIntentService:  onHandleIntent====&gt; </span><br><span class="line">E/CustomIntentService:  onHandleIntent flag  ====&gt; <span class="keyword">true</span></span><br><span class="line">E/CustomIntentService:  onDestroy ====&gt;  executed</span><br></pre></td></tr></table></figure>
+<p>当我在onHandleIntent()中使线程睡眠10s时，连续点击两次启动Button，可以看到并没有出现Service中ANR的问题，过了一会sleeping end才结束，因为IntentService通过新的子线程来进行耗时操作，从而不会影响主线程的业务逻辑。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onHandleIntent</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">    Log.e(TAG, <span class="string">" onHandleIntent====&gt; "</span>);</span><br><span class="line">    <span class="keyword">boolean</span> flag = intent.getBooleanExtra(<span class="string">"sleep_flag"</span>, <span class="keyword">false</span>);</span><br><span class="line">    Log.e(TAG, <span class="string">" onHandleIntent flag  ====&gt; "</span> + flag);</span><br><span class="line">    Log.e(TAG, <span class="string">" onHandleIntent====&gt; sleeping start"</span>);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Thread.sleep(<span class="number">10</span> * <span class="number">1000</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    Log.e(TAG, <span class="string">" onHandleIntent====&gt; sleeping end"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一次点击</span></span><br><span class="line">E/CustomIntentService:  onCreate ====&gt;  executed </span><br><span class="line">E/CustomIntentService:  onStartCommand ====&gt;  executed </span><br><span class="line">E/CustomIntentService:  onStartCommand flag  ====&gt; <span class="keyword">true</span></span><br><span class="line">E/CustomIntentService:  onHandleIntent====&gt; </span><br><span class="line">E/CustomIntentService:  onHandleIntent flag  ====&gt; <span class="keyword">true</span></span><br><span class="line">E/CustomIntentService:  onHandleIntent====&gt; sleeping start</span><br><span class="line">E/CustomIntentService:  onDestroy ====&gt;  executed </span><br><span class="line"><span class="comment">// 第二次点击  </span></span><br><span class="line">E/CustomIntentService:  onCreate ====&gt;  executed </span><br><span class="line">E/CustomIntentService:  onStartCommand ====&gt;  executed </span><br><span class="line">E/CustomIntentService:  onStartCommand flag  ====&gt; <span class="keyword">true</span></span><br><span class="line">E/CustomIntentService:  onHandleIntent====&gt; </span><br><span class="line">E/CustomIntentService:  onHandleIntent flag  ====&gt; <span class="keyword">true</span></span><br><span class="line">E/CustomIntentService:  onHandleIntent====&gt; sleeping start</span><br><span class="line">E/CustomIntentService:  onDestroy ====&gt;  executed </span><br><span class="line"><span class="comment">// sleep结束</span></span><br><span class="line">E/CustomIntentService:  onHandleIntent====&gt; sleeping end</span><br><span class="line">E/CustomIntentService:  onHandleIntent====&gt; sleeping end</span><br></pre></td></tr></table></figure>
+<p>问题（1）已经解决，继续问题（2）“AIDL解决了什么问题？”</p>
+<h2 id="AIDL的概念"><a href="#AIDL的概念" class="headerlink" title="AIDL的概念"></a>AIDL的概念</h2><p>AIDL（Android Interface Definition Language）</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android-Android面试/" rel="tag">#Android,Android面试</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/28/五年计划-内功修炼/" rel="next" title="五年计划 -- 内功修炼">
+                <i class="fa fa-chevron-left"></i> 五年计划 -- 内功修炼
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/31/Android面试一天一题（Day1）/"
+           data-title="Android面试一天一题（Day1）" data-url="http://www.shutu.tech/2016/08/31/Android面试一天一题（Day1）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Codios" />
+          <p class="site-author-name" itemprop="name">Codios</p>
+          <p class="site-description motion-element" itemprop="description">积跬步而至千里</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/eterrao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/raomengyang" target="_blank" title="Cnblogs">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Cnblogs
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="weibo.com/raomengyang/" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IntentService作用是什么，AIDL解决了什么问题-—-小米"><span class="nav-number">2.</span> <span class="nav-text">IntentService作用是什么，AIDL解决了什么问题 — 小米</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IntentService"><span class="nav-number">2.1.</span> <span class="nav-text">IntentService</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service的弊端？为什么会出现IntentService，Service和IntentService的区别？"><span class="nav-number">2.2.</span> <span class="nav-text">Service的弊端？为什么会出现IntentService，Service和IntentService的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IntentService的用法"><span class="nav-number">2.3.</span> <span class="nav-text">IntentService的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AIDL的概念"><span class="nav-number">2.4.</span> <span class="nav-text">AIDL的概念</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Codios</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"raomengyang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("yJRSkUSfIEVQN5nXYHd2ibqh-gzGzoHsz", "yuNAcELkB0SkVGhLfl06MLe3");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
