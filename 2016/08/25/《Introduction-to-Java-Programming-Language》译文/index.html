@@ -102,7 +102,7 @@
 暂时留白。
 25.3 归并排序算法
 归并排序算法能够这样的描述递归的：这个算法将数组划分为两半（halves）并且每一半递归的使用归并算法。当两半都被排序之后，再将它们归并。">
-<meta property="og:updated_time" content="2016-08-27T14:59:01.000Z">
+<meta property="og:updated_time" content="2016-09-01T15:38:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Introduction to Java Programming Language》译文">
 <meta name="twitter:description" content="25章 排序25.2 冒泡排序
@@ -387,7 +387,7 @@
 <p>在分割点处，中轴的右部分，中轴的选择会影响算法的性能。通常来说，快排算法应该选择中轴来划分成两个部分。但为了方便，假设数组中的第一个元素被选为中轴。(编程练习25.4提到了选择中轴变动的策略)。</p>
 <p>表25.5举例说明了如何使用快排来排序一个数组(5 2 9 3 8 4 0 1 6 7)。选择第一个元素，5，作为一个中轴。这个数组被分为了两部分，如表25.5b。高亮的中轴被放置在数组的右部分。应用快速排序进行两部分数组的排序(4 2 1 3 0)和(8 9 6 7),。。。。。。。。。</p>
 <p>partition方法使用中轴将数组分为list[first…last]</p>
-<p>。第一部分数组的第一个元素被选为当作中轴。初始的low点指向该数组的第二个元素，high指向最后一个元素。</p>
+<p>第一部分数组的第一个元素被选为当作中轴。初始的low点指向该数组的第二个元素，high指向最后一个元素。</p>
 <p>先从左边开始，这个方法向前搜索大于中轴的第一个元素，当搜索从右后部分的第一个元素开始，小于或等于中轴。这样交换两个元素并重复搜索和交换操作，直到在while循环中，所有元素都被搜索完毕。</p>
 <p>这个方法返回一个新的中轴的索引，如果中轴移动了，那就划分数组。否则中轴返回一个原始的索引。</p>
 <p>表25.6举例说明了如何划分一个数组(5 2 9 3 8 4 0 1 6 7)。选择第一个元素5作为中轴，起初low是索引指向元素2，high指向7，如表25.6a。先向前索引low搜索第一个元素9，比中轴大，则进行high的后续搜索第一个元素1，小于等于中轴，如表25.6b。交换9和1，如表25.6c。继续搜索和移动low指向8，high指向0，如表25.6d</p>
@@ -503,7 +503,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -511,7 +511,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

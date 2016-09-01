@@ -260,6 +260,144 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/02/Android-context-getSystemService-浅析/" itemprop="url">
+                  Android context.getSystemService()浅析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-02T00:55:52+08:00" content="2016-09-02">
+              2016-09-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android源码分析/" itemprop="url" rel="index">
+                    <span itemprop="name">Android源码分析</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/02/Android-context-getSystemService-浅析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/02/Android-context-getSystemService-浅析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/02/Android-context-getSystemService-浅析/" class="leancloud_visitors" data-flag-title="Android context.getSystemService()浅析">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>同事在进行code review的时候问到我context中的getSystemService方法在哪实现的，他看到了一个ClipBoardManager来进行剪切板存储数据的工具方法中用到了context.getSystemService()，而此处我使用的是Application级别的Context进行调用的，可IDE跳转时发现当前类中的getSystemService()方法居然是抽象的，Context类就是一个抽象类，没有具体的实现，可在进行调用的时候却一切正常，同事好奇该方法具体实现在哪实现的，于是我俩一起看源码和查资料后发现有几个值得注意的地方：</p>
+<ul>
+<li>系统service获取和分享的问题，源码中提示到：</li>
+</ul>
+<blockquote>
+<p>Note:  System services obtained via this API may be closely associated with the Context in which they are obtained from.  In general, do not share the service objects between various different contexts (Activities, Applications, Services, Providers, etc.)</p>
+<p> 大意： 获取的系统service可能和他们的context有紧密联系，一般来说不要在不同的context之间分享服务对象，如Activity、Application、Service、Provider</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/02/Android-context-getSystemService-浅析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/31/Android面试一天一题（Day1）/" itemprop="url">
                   Android面试一天一题（Day1）
                 </a>
@@ -340,7 +478,7 @@
         
           <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>该博客思路源于在简书看到<a href="http://www.jianshu.com/users/f9fbc7a39b36">goeasyway</a>博主写的Android面试一天一题系列，无copy之意，仅为让自己总结知识点，成长一点点。先感谢各位大神的无私分享~！</p>
 <p>关于题目，大部分则出自<a href="https://github.com/JackyAndroid/AndroidInterview-Q-A/blob/master/README-CN.md">AndroidInterview-Q-A</a>和<a href="https://github.com/GeniusVJR/LearningNotes">LearningNotes</a>，当然既然是Android面试，主要是Android部分，Java基础之后再写。</p>
-<h1 id="IntentService作用是什么，AIDL解决了什么问题-—-小米"><a href="#IntentService作用是什么，AIDL解决了什么问题-—-小米" class="headerlink" title="IntentService作用是什么，AIDL解决了什么问题 — 小米"></a>IntentService作用是什么，AIDL解决了什么问题 — 小米</h1><p>想知道IntentService的作用，当然需要先了解何为IntentService。</p>
+<h1 id="IntentService作用是什么-—-小米"><a href="#IntentService作用是什么-—-小米" class="headerlink" title="IntentService作用是什么 — 小米"></a>IntentService作用是什么 — 小米</h1>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/31/Android面试一天一题（Day1）/#more" rel="contents">
               阅读全文 &raquo;
@@ -1467,142 +1605,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/26/hexo搭建博客的几个小问题/" itemprop="url">
-                  hexo搭建博客的几个小问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-26T22:04:53+08:00" content="2016-06-26">
-              2016-06-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/26/hexo搭建博客的几个小问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/hexo搭建博客的几个小问题/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/26/hexo搭建博客的几个小问题/" class="leancloud_visitors" data-flag-title="hexo搭建博客的几个小问题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="所有博客显示未命名-untitled"><a href="#所有博客显示未命名-untitled" class="headerlink" title="所有博客显示未命名(untitled)"></a>所有博客显示未命名(untitled)</h4><p>因为接触hexo不多，刚开始写的博客都是通过自己创建MarkDown文件导入到post中的，所以自然没有前缀，解决方式如下即可</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#以如下格式输入相应的字段</span><br><span class="line">---</span><br><span class="line">title: hexo搭建博客的几个小问题</span><br><span class="line">date: 2016-06-26 22:04:53</span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line">#####正文内容</span><br></pre></td></tr></table></figure>
-<p>hexo在generate的时候会自动索引当前文件的标题、时间和tags等</p>
-<h4 id="博客首页折叠"><a href="#博客首页折叠" class="headerlink" title="博客首页折叠"></a>博客首页折叠</h4><p>部署后发现首页的文章都是全部预览的，但别人的都是有个<strong>阅读全文</strong>，其实在MD文件中添加一行代码就搞定了</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#####首页显示内容</span><br><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br><span class="line">#####隐藏内容</span><br></pre></td></tr></table></figure>
-<h4 id="hexo部署后，CNAME会被自动删除"><a href="#hexo部署后，CNAME会被自动删除" class="headerlink" title="hexo部署后，CNAME会被自动删除"></a>hexo部署后，CNAME会被自动删除</h4><p>将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/26/hexo搭建博客的几个小问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1648,7 +1650,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1656,7 +1658,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

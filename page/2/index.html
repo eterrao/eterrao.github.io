@@ -260,6 +260,142 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/26/hexo搭建博客的几个小问题/" itemprop="url">
+                  hexo搭建博客的几个小问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-26T22:04:53+08:00" content="2016-06-26">
+              2016-06-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/26/hexo搭建博客的几个小问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/hexo搭建博客的几个小问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/26/hexo搭建博客的几个小问题/" class="leancloud_visitors" data-flag-title="hexo搭建博客的几个小问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="所有博客显示未命名-untitled"><a href="#所有博客显示未命名-untitled" class="headerlink" title="所有博客显示未命名(untitled)"></a>所有博客显示未命名(untitled)</h4><p>因为接触hexo不多，刚开始写的博客都是通过自己创建MarkDown文件导入到post中的，所以自然没有前缀，解决方式如下即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#以如下格式输入相应的字段</span><br><span class="line">---</span><br><span class="line">title: hexo搭建博客的几个小问题</span><br><span class="line">date: 2016-06-26 22:04:53</span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line">#####正文内容</span><br></pre></td></tr></table></figure>
+<p>hexo在generate的时候会自动索引当前文件的标题、时间和tags等</p>
+<h4 id="博客首页折叠"><a href="#博客首页折叠" class="headerlink" title="博客首页折叠"></a>博客首页折叠</h4><p>部署后发现首页的文章都是全部预览的，但别人的都是有个<strong>阅读全文</strong>，其实在MD文件中添加一行代码就搞定了</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#####首页显示内容</span><br><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br><span class="line">#####隐藏内容</span><br></pre></td></tr></table></figure>
+<h4 id="hexo部署后，CNAME会被自动删除"><a href="#hexo部署后，CNAME会被自动删除" class="headerlink" title="hexo部署后，CNAME会被自动删除"></a>hexo部署后，CNAME会被自动删除</h4><p>将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/26/hexo搭建博客的几个小问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/13/DifferenceOfYUV/" itemprop="url">
                   Android常用的几种格式：NV21/NV12/YV12/YUV420P的区别
                 </a>
@@ -706,7 +842,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -714,7 +850,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

@@ -1,0 +1,833 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android, Shutu" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="书途" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="同事在进行code review的时候问到我context中的getSystemService方法在哪实现的，他看到了一个ClipBoardManager来进行剪切板存储数据的工具方法中用到了context.getSystemService()，而此处我使用的是Application级别的Context进行调用的，可IDE跳转时发现当前类中的getSystemService()方法居然是抽象的，C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android context.getSystemService()浅析">
+<meta property="og:url" content="http://www.shutu.tech/2016/09/02/Android-context-getSystemService-浅析/index.html">
+<meta property="og:site_name" content="书途">
+<meta property="og:description" content="同事在进行code review的时候问到我context中的getSystemService方法在哪实现的，他看到了一个ClipBoardManager来进行剪切板存储数据的工具方法中用到了context.getSystemService()，而此处我使用的是Application级别的Context进行调用的，可IDE跳转时发现当前类中的getSystemService()方法居然是抽象的，C">
+<meta property="og:updated_time" content="2016-09-01T16:57:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android context.getSystemService()浅析">
+<meta name="twitter:description" content="同事在进行code review的时候问到我context中的getSystemService方法在哪实现的，他看到了一个ClipBoardManager来进行剪切板存储数据的工具方法中用到了context.getSystemService()，而此处我使用的是Application级别的Context进行调用的，可IDE跳转时发现当前类中的getSystemService()方法居然是抽象的，C">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.shutu.tech/2016/09/02/Android-context-getSystemService-浅析/"/>
+
+  <title> Android context.getSystemService()浅析 | 书途 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">书途</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人无书而涂，因书而智，终老以书为伴，是为书途</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="http://eterrao.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android context.getSystemService()浅析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-02T00:55:52+08:00" content="2016-09-02">
+              2016-09-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android源码分析/" itemprop="url" rel="index">
+                    <span itemprop="name">Android源码分析</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/02/Android-context-getSystemService-浅析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/02/Android-context-getSystemService-浅析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/02/Android-context-getSystemService-浅析/" class="leancloud_visitors" data-flag-title="Android context.getSystemService()浅析">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>同事在进行code review的时候问到我context中的getSystemService方法在哪实现的，他看到了一个ClipBoardManager来进行剪切板存储数据的工具方法中用到了context.getSystemService()，而此处我使用的是Application级别的Context进行调用的，可IDE跳转时发现当前类中的getSystemService()方法居然是抽象的，Context类就是一个抽象类，没有具体的实现，可在进行调用的时候却一切正常，同事好奇该方法具体实现在哪实现的，于是我俩一起看源码和查资料后发现有几个值得注意的地方：</p>
+<ul>
+<li>系统service获取和分享的问题，源码中提示到：</li>
+</ul>
+<blockquote>
+<p>Note:  System services obtained via this API may be closely associated with the Context in which they are obtained from.  In general, do not share the service objects between various different contexts (Activities, Applications, Services, Providers, etc.)</p>
+<p> 大意： 获取的系统service可能和他们的context有紧密联系，一般来说不要在不同的context之间分享服务对象，如Activity、Application、Service、Provider</p>
+</blockquote>
+<a id="more"></a>
+<p>明显同样的方法调用的具体实现不同，从同样拥有getSystemService的Activity的实现可以看到，虽然最终调用还是从LayoutInflater的context获取</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * Activity中的getSystemService()</span><br><span class="line"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">getSystemService</span><span class="params">(@ServiceName @NonNull String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (getBaseContext() == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(</span><br><span class="line">                <span class="string">"System services not available to Activities before onCreate()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (WINDOW_SERVICE.equals(name)) &#123;</span><br><span class="line">        <span class="keyword">return</span> mWindowManager;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (SEARCH_SERVICE.equals(name)) &#123;</span><br><span class="line">        ensureSearchManager();</span><br><span class="line">        <span class="keyword">return</span> mSearchManager;</span><br><span class="line">    &#125;</span><br><span class="line">  	<span class="comment">// 以上的判断仅仅是为了检查是否为WindowManager获取窗口的服务</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.getSystemService(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过super.getSystemService(name)跳转到ContextThemeWrapper这个Context.java类的代理类中，然而也并非是真正的具体实现，但是在此我们可以得知LayoutInflater实际上也是获取的是Application级别的全局context，因为该context也是该类中的mBase获取的😄：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Context <span class="title">getApplicationContext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mBase.getApplicationContext();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * ContextThemeWrapper中的getSystemService()</span><br><span class="line"> */</span></span><br><span class="line"><span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> Object <span class="title">getSystemService</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (LAYOUT_INFLATER_SERVICE.equals(name)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mInflater == <span class="keyword">null</span>) &#123;</span><br><span class="line">            mInflater = LayoutInflater.from(getBaseContext()).cloneInContext(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mInflater;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> getBaseContext().getSystemService(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后又追溯到了Context.java中的getSystemService()，什么情况呢，具体实现在哪？？一番折腾后，找到了对应的Context实现类：ContextImpl.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">getSystemService</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> SystemServiceRegistry.getSystemService(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getSystemServiceName</span><span class="params">(Class&lt;?&gt; serviceClass)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> SystemServiceRegistry.getSystemServiceName(serviceClass);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>终于SystemServiceRegistry这个类中有了getSystemService的具体实现，调用的方法其实是getService()，这里三个方法很重要：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Creates an array which is used to cache per-Context service instances.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Object[] createServiceCache() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Object[sServiceCacheSize];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Gets a system service from a given context.</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">getSystemService</span><span class="params">(ContextImpl ctx, String name)</span> </span>&#123;</span><br><span class="line">    ServiceFetcher&lt;?&gt; fetcher = SYSTEM_SERVICE_FETCHERS.get(name);</span><br><span class="line">    <span class="keyword">return</span> fetcher != <span class="keyword">null</span> ? fetcher.getService(ctx) : <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Gets the name of the system-level service that is represented by the specified class.</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getSystemServiceName</span><span class="params">(Class&lt;?&gt; serviceClass)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> SYSTEM_SERVICE_NAMES.get(serviceClass);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Statically registers a system service with the context.</span><br><span class="line"> * This method must be called during static initialization only.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">registerService</span><span class="params">(String serviceName, Class&lt;T&gt; serviceClass,</span><br><span class="line">        ServiceFetcher&lt;T&gt; serviceFetcher)</span> </span>&#123;</span><br><span class="line">    SYSTEM_SERVICE_NAMES.put(serviceClass, serviceName);</span><br><span class="line">    SYSTEM_SERVICE_FETCHERS.put(serviceName, serviceFetcher);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出三个方法对service进行了创建、获取和注册。而SystemServiceRegistry这个类负责创建、启动和管理所有的服务，当需要用到哪个服务的时候，调用到getService方法然后进行名字的索引来找到需要的服务，里面的关键元素：</p>
+<ul>
+<li>serviceFetcher</li>
+<li>IBinder，没错，实际上刚开始初始化的时候就是通过匿名内部类生成对应名字的服务，然后因为这些都是binder</li>
+</ul>
+<p>在启动APP时进行了必备的service注册，关于注册的服务就不列举了太多了，结构大致如此：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    registerService(Context.ACCESSIBILITY_SERVICE, AccessibilityManager.class,</span><br><span class="line">            <span class="keyword">new</span> CachedServiceFetcher&lt;AccessibilityManager&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> AccessibilityManager <span class="title">createService</span><span class="params">(ContextImpl ctx)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> AccessibilityManager.getInstance(ctx);</span><br><span class="line">        &#125;&#125;);</span><br><span class="line"></span><br><span class="line">    registerService(Context.CAPTIONING_SERVICE, CaptioningManager.class,</span><br><span class="line">            <span class="keyword">new</span> CachedServiceFetcher&lt;CaptioningManager&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> CaptioningManager <span class="title">createService</span><span class="params">(ContextImpl ctx)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> CaptioningManager(ctx);</span><br><span class="line">        &#125;&#125;);</span><br><span class="line"></span><br><span class="line">    registerService(Context.ACCOUNT_SERVICE, AccountManager.class,</span><br><span class="line">            <span class="keyword">new</span> CachedServiceFetcher&lt;AccountManager&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> AccountManager <span class="title">createService</span><span class="params">(ContextImpl ctx)</span> </span>&#123;</span><br><span class="line">            IBinder b = ServiceManager.getService(Context.ACCOUNT_SERVICE);</span><br><span class="line">            IAccountManager service = IAccountManager.Stub.asInterface(b);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> AccountManager(ctx, service);</span><br><span class="line">        &#125;&#125;);</span><br><span class="line">  </span><br><span class="line">     <span class="comment">// 代码省略。。。。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>感兴趣的朋友可以自己看看，进行注册时候是通过HashMap的方式将服务的名字进行了索引存放。</p>
+<p>上部分的代码中，可以看到有serviceFetcher相关的匿名内部类，每个服务对应了不同的实现，因此方法也是抽象的，下面是三个对应的静态抽象内部类和一个接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Base interface for classes that fetch services.</span><br><span class="line"> * These objects must only be created during static initialization.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">interface</span> <span class="title">ServiceFetcher</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">T <span class="title">getService</span><span class="params">(ContextImpl ctx)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Override this class when the system service constructor needs a</span><br><span class="line"> * ContextImpl and should be cached and retained by that context.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">CachedServiceFetcher</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">ServiceFetcher</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> mCacheIndex;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CachedServiceFetcher</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mCacheIndex = sServiceCacheSize++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> T <span class="title">getService</span><span class="params">(ContextImpl ctx)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Object[] cache = ctx.mServiceCache;</span><br><span class="line">        <span class="keyword">synchronized</span> (cache) &#123;</span><br><span class="line">            <span class="comment">// Fetch or create the service.</span></span><br><span class="line">            Object service = cache[mCacheIndex];</span><br><span class="line">            <span class="keyword">if</span> (service == <span class="keyword">null</span>) &#123;</span><br><span class="line">                service = createService(ctx);</span><br><span class="line">                cache[mCacheIndex] = service;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> (T)service;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> T <span class="title">createService</span><span class="params">(ContextImpl ctx)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Override this class when the system service does not need a ContextImpl</span><br><span class="line"> * and should be cached and retained process-wide.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticServiceFetcher</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">ServiceFetcher</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T mCachedInstance;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> T <span class="title">getService</span><span class="params">(ContextImpl unused)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (StaticServiceFetcher.<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mCachedInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">                mCachedInstance = createService();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> mCachedInstance;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> T <span class="title">createService</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Like StaticServiceFetcher, creates only one instance of the service per process, but when</span><br><span class="line"> * creating the service for the first time, passes it the outer context of the creating</span><br><span class="line"> * component.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">TODO:</span> Is this safe in the case where multiple applications share the same process?</span><br><span class="line"> * <span class="doctag">TODO:</span> Delete this once its only user (ConnectivityManager) is known to work well in the</span><br><span class="line"> * case where multiple application components each have their own ConnectivityManager object.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticOuterContextServiceFetcher</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">ServiceFetcher</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T mCachedInstance;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> T <span class="title">getService</span><span class="params">(ContextImpl ctx)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (StaticOuterContextServiceFetcher.<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mCachedInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">                mCachedInstance = createService(ctx.getOuterContext());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> mCachedInstance;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> T <span class="title">createService</span><span class="params">(Context applicationContext)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我俩整个过程花了15分钟就了解了getSystemService的具体调用和实现的方式，还是源码来得快，在进阶Android开发过程中，阅读系统和三方类库的源码能够帮我们事半功倍的效果。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/31/Android面试一天一题（Day1）/" rel="next" title="Android面试一天一题（Day1）">
+                <i class="fa fa-chevron-left"></i> Android面试一天一题（Day1）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/02/Android-context-getSystemService-浅析/"
+           data-title="Android context.getSystemService()浅析" data-url="http://www.shutu.tech/2016/09/02/Android-context-getSystemService-浅析/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Codios" />
+          <p class="site-author-name" itemprop="name">Codios</p>
+          <p class="site-description motion-element" itemprop="description">积跬步而至千里</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/eterrao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/raomengyang" target="_blank" title="Cnblogs">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Cnblogs
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="weibo.com/raomengyang/" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Codios</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"raomengyang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("yJRSkUSfIEVQN5nXYHd2ibqh-gzGzoHsz", "yuNAcELkB0SkVGhLfl06MLe3");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
