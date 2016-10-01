@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android, Shutu" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -86,15 +86,16 @@
 
 
 
-<meta name="description" content="积跬步而至千里">
-<meta property="og:type" content="website">
-<meta property="og:title" content="书途">
-<meta property="og:url" content="http://www.shutu.tech/categories/设计模式/index.html">
+<meta name="description" content="大周末的，突然接到老大的电话说很多用户无法安装新上线的APK，让我紧急Fix（现Android项目就我一己之力）。但奇怪的是也没有Bug Reporter，而且开发过程中也一直没问题。根据上报的几个用户的机型，我初步推断都是5.0以下的设备无法启动App，通过云测和优测的真机模拟（在此强烈推荐这两个测试平台，前者是腾讯的，机型较新，后者做的规模还不错，测试较为准确，并且每天都有免费兼容测试的资格和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android5.0以下NoClassDefFoundError的Bug">
+<meta property="og:url" content="http://www.shutu.tech/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/index.html">
 <meta property="og:site_name" content="书途">
-<meta property="og:description" content="积跬步而至千里">
+<meta property="og:description" content="大周末的，突然接到老大的电话说很多用户无法安装新上线的APK，让我紧急Fix（现Android项目就我一己之力）。但奇怪的是也没有Bug Reporter，而且开发过程中也一直没问题。根据上报的几个用户的机型，我初步推断都是5.0以下的设备无法启动App，通过云测和优测的真机模拟（在此强烈推荐这两个测试平台，前者是腾讯的，机型较新，后者做的规模还不错，测试较为准确，并且每天都有免费兼容测试的资格和">
+<meta property="og:updated_time" content="2016-09-11T16:19:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="书途">
-<meta name="twitter:description" content="积跬步而至千里">
+<meta name="twitter:title" content="Android5.0以下NoClassDefFoundError的Bug">
+<meta name="twitter:description" content="大周末的，突然接到老大的电话说很多用户无法安装新上线的APK，让我紧急Fix（现Android项目就我一己之力）。但奇怪的是也没有Bug Reporter，而且开发过程中也一直没问题。根据上报的几个用户的机型，我初步推断都是5.0以下的设备无法启动App，通过云测和优测的真机模拟（在此强烈推荐这两个测试平台，前者是腾讯的，机型较新，后者做的规模还不错，测试较为准确，并且每天都有免费兼容测试的资格和">
 
 
 
@@ -115,9 +116,9 @@
 
 
 
-  <link rel="canonical" href="http://www.shutu.tech/categories/设计模式/"/>
+  <link rel="canonical" href="http://www.shutu.tech/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/"/>
 
-  <title> 分类: 设计模式 | 书途 </title>
+  <title> Android5.0以下NoClassDefFoundError的Bug | 书途 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -138,7 +139,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -236,47 +237,171 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        设计模式
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android5.0以下NoClassDefFoundError的Bug
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-11T23:46:28+08:00" content="2016-09-11">
+              2016-09-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android异常/" itemprop="url" rel="index">
+                    <span itemprop="name">Android异常</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/11/Android5-0以下NoClassDefFoundError的Bug/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/" class="leancloud_visitors" data-flag-title="Android5.0以下NoClassDefFoundError的Bug">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>大周末的，突然接到老大的电话说很多用户无法安装新上线的APK，让我紧急Fix（现Android项目就我一己之力）。但奇怪的是也没有Bug Reporter，而且开发过程中也一直没问题。根据上报的几个用户的机型，我初步推断都是5.0以下的设备无法启动App，通过云测和优测的真机模拟（在此强烈推荐这两个测试平台，前者是腾讯的，机型较新，后者做的规模还不错，测试较为准确，并且每天都有免费兼容测试的资格和限时免费的机型）打印出Log后得出判断，错误异常居然是这个：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.NoClassDefFoundError</span><br></pre></td></tr></table></figure>
+<p>这可就折腾了，因为Log打印的是某个类没有找到，开始以为是该类的代码问题，仔细检查后发现根本不应该是这个类引发的问题。而分别打的两个正式包（Mac和PC环境）设备报错都不是同一个类，刚开始Google的时候，关键字是<code>NoClassDefFoundError android</code>，SF上网友遇到的是Eclipse的路径配置问题，和我遇到的不是同一个Bug，就在希望快崩溃的时候，再次Google<code>NoClassDefFoundError android studio</code>发现<a href="http://stackoverflow.com/questions/27698287/noclassdeffounderror-with-android-studio-on-android-4" target="_blank" rel="external">该问题描述</a>和我遇到的一模一样，回想前些日子遇到过<a href="https://developer.android.com/studio/build/multidex.html" target="_blank" rel="external">Configure Apps with Over 64K Methods</a>该问题，检查后发现Application并没继承<a href="https://developer.android.com/reference/android/support/multidex/MultiDexApplication.html" target="_blank" rel="external">MultiDexApplication</a>，而build.gradle中依赖也没了，仅仅剩余下述开关<code>multiDexEnabled true</code> 。重新打包测试后果然是这个问题引发的血案，而出现这个问题是因为我和同事merge代码时候丢失部分修改导致的。</p>
+<p>解决方法：</p>
+<ol>
+<li>配置build.gradle (app)</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 21</span><br><span class="line">    buildToolsVersion "21.1.0"</span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        ...</span><br><span class="line">        minSdkVersion 14</span><br><span class="line">        targetSdkVersion 21</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        // Enabling multidex support. 开关</span><br><span class="line">        multiDexEnabled true</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">  // 添加依赖</span><br><span class="line">  compile 'com.android.support:multidex:1.0.0'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用自定义的Application继承 <code>MultiDexApplication</code> 这个类，或者重写Application的方法attachBaseContext()，并调用<code>MultiDex.install()</code></li>
+</ol>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/07/24/Android设计模式总结/" itemprop="url">
-              
-                <span itemprop="name">Android设计模式总结</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-24T13:48:00+08:00"
-              content="2016-07-24" >
-          07-24
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/02/Android-context-getSystemService-浅析/" rel="next" title="Android context.getSystemService()浅析">
+                <i class="fa fa-chevron-left"></i> Android context.getSystemService()浅析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -284,6 +409,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/11/Android5-0以下NoClassDefFoundError的Bug/"
+           data-title="Android5.0以下NoClassDefFoundError的Bug" data-url="http://www.shutu.tech/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -303,8 +436,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -315,7 +457,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -323,7 +465,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -390,6 +532,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -509,6 +662,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

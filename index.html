@@ -260,6 +260,145 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/" itemprop="url">
+                  Android5.0以下NoClassDefFoundError的Bug
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-11T23:46:28+08:00" content="2016-09-11">
+              2016-09-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android异常/" itemprop="url" rel="index">
+                    <span itemprop="name">Android异常</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/11/Android5-0以下NoClassDefFoundError的Bug/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/" class="leancloud_visitors" data-flag-title="Android5.0以下NoClassDefFoundError的Bug">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>大周末的，突然接到老大的电话说很多用户无法安装新上线的APK，让我紧急Fix（现Android项目就我一己之力）。但奇怪的是也没有Bug Reporter，而且开发过程中也一直没问题。根据上报的几个用户的机型，我初步推断都是5.0以下的设备无法启动App，通过云测和优测的真机模拟（在此强烈推荐这两个测试平台，前者是腾讯的，机型较新，后者做的规模还不错，测试较为准确，并且每天都有免费兼容测试的资格和限时免费的机型）打印出Log后得出判断，错误异常居然是这个：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.NoClassDefFoundError</span><br></pre></td></tr></table></figure>
+<p>这可就折腾了，因为Log打印的是某个类没有找到，开始以为是该类的代码问题，仔细检查后发现根本不应该是这个类引发的问题。而分别打的两个正式包（Mac和PC环境）设备报错都不是同一个类，刚开始Google的时候，关键字是<code>NoClassDefFoundError android</code>，SF上网友遇到的是Eclipse的路径配置问题，和我遇到的不是同一个Bug，就在希望快崩溃的时候，再次Google<code>NoClassDefFoundError android studio</code>发现<a href="http://stackoverflow.com/questions/27698287/noclassdeffounderror-with-android-studio-on-android-4" target="_blank" rel="external">该问题描述</a>和我遇到的一模一样，回想前些日子遇到过<a href="https://developer.android.com/studio/build/multidex.html" target="_blank" rel="external">Configure Apps with Over 64K Methods</a>该问题，检查后发现Application并没继承<a href="https://developer.android.com/reference/android/support/multidex/MultiDexApplication.html" target="_blank" rel="external">MultiDexApplication</a>，而build.gradle中依赖也没了，仅仅剩余下述开关<code>multiDexEnabled true</code> 。重新打包测试后果然是这个问题引发的血案，而出现这个问题是因为我和同事merge代码时候丢失部分修改导致的。</p>
+<p>解决方法：</p>
+<ol>
+<li>配置build.gradle (app)</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 21</span><br><span class="line">    buildToolsVersion "21.1.0"</span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        ...</span><br><span class="line">        minSdkVersion 14</span><br><span class="line">        targetSdkVersion 21</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        // Enabling multidex support. 开关</span><br><span class="line">        multiDexEnabled true</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">  // 添加依赖</span><br><span class="line">  compile 'com.android.support:multidex:1.0.0'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用自定义的Application继承 <code>MultiDexApplication</code> 这个类，或者重写Application的方法attachBaseContext()，并调用<code>MultiDex.install()</code></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/02/Android-context-getSystemService-浅析/" itemprop="url">
                   Android context.getSystemService()浅析
                 </a>
@@ -398,139 +537,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/31/Android面试一天一题（Day1）/" itemprop="url">
-                  Android面试一天一题（Day1）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-31T01:27:42+08:00" content="2016-08-31">
-              2016-08-31
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android面试/" itemprop="url" rel="index">
-                    <span itemprop="name">Android面试</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/31/Android面试一天一题（Day1）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/31/Android面试一天一题（Day1）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/31/Android面试一天一题（Day1）/" class="leancloud_visitors" data-flag-title="Android面试一天一题（Day1）">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>该博客思路源于在简书看到<a href="http://www.jianshu.com/users/f9fbc7a39b36">goeasyway</a>博主写的Android面试一天一题系列，无copy之意，仅为让自己总结知识点，成长一点点。先感谢各位大神的无私分享~！</p>
-<p>关于题目，大部分则出自<a href="https://github.com/JackyAndroid/AndroidInterview-Q-A/blob/master/README-CN.md">AndroidInterview-Q-A</a>和<a href="https://github.com/GeniusVJR/LearningNotes">LearningNotes</a>，当然既然是Android面试，主要是Android部分，Java基础之后再写。</p>
-<h1 id="IntentService作用是什么-—-小米"><a href="#IntentService作用是什么-—-小米" class="headerlink" title="IntentService作用是什么 — 小米"></a>IntentService作用是什么 — 小米</h1>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/31/Android面试一天一题（Day1）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/08/28/五年计划-内功修炼/" itemprop="url">
                   五年计划 -- 内功修炼
                 </a>
@@ -612,276 +618,6 @@
           <h2 id="于2016-6-28-～-8-15记"><a href="#于2016-6-28-～-8-15记" class="headerlink" title="于2016.6.28 ～ 8.15记"></a>于2016.6.28 ～ 8.15记</h2><p>提前五年将你要做的事计划好，并且每天进步一点点，同样的五年后，意味着你比别人提前五年达到一个新的高度。</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/28/五年计划-内功修炼/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/25/《Introduction-to-Java-Programming-Language》译文/" itemprop="url">
-                  《Introduction to Java Programming Language》译文
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-25T00:22:50+08:00" content="2016-08-25">
-              2016-08-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/数据结构与算法，Java，翻译/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法，Java，翻译</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/25/《Introduction-to-Java-Programming-Language》译文/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/25/《Introduction-to-Java-Programming-Language》译文/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/25/《Introduction-to-Java-Programming-Language》译文/" class="leancloud_visitors" data-flag-title="《Introduction to Java Programming Language》译文">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="25章-排序"><a href="#25章-排序" class="headerlink" title="25章 排序"></a>25章 排序</h1><h2 id="25-2-冒泡排序"><a href="#25-2-冒泡排序" class="headerlink" title="25.2 冒泡排序"></a>25.2 冒泡排序</h2><blockquote>
-<p>冒泡排序排序数组时多阶的，每一趟会连续的交换相邻元素，如果这部分元素不是顺序排列的。</p>
-</blockquote>
-<p>暂时留白。</p>
-<h2 id="25-3-归并排序算法"><a href="#25-3-归并排序算法" class="headerlink" title="25.3 归并排序算法"></a>25.3 归并排序算法</h2><blockquote>
-<p>归并排序算法能够这样的描述递归的：这个算法将数组划分为两半（halves）并且每一半递归的使用归并算法。当两半都被排序之后，再将它们归并。</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/25/《Introduction-to-Java-Programming-Language》译文/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/24/Android设计模式总结/" itemprop="url">
-                  Android设计模式总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-24T13:48:00+08:00" content="2016-07-24">
-              2016-07-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/24/Android设计模式总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/Android设计模式总结/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/24/Android设计模式总结/" class="leancloud_visitors" data-flag-title="Android设计模式总结">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看《Android源码设计模式》之前设计模式没怎么接触，代码写的强耦合，复用性可读性都差到极致，于是有了设计模式的学习之路。</p>
-<p>设计模式相关的还推荐《敏捷软件开发 — 原则、模式与实践》作者Robert C.Martin和《设计模式 — 可复用面向对象软件的基础》四人帮写的这两本书。前者对设计原则有详细描述，后者主要涉及经典的设计模式讲解。</p>
-<p>本文主要引用内容主要出自《敏捷软件开发 — 原则、模式与实践》和《Android源码设计模式》。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/24/Android设计模式总结/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1068,423 +804,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/11/《算法》/" itemprop="url">
-                  《算法》
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-11T21:16:08+08:00" content="2016-07-11">
-              2016-07-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/11/《算法》/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/11/《算法》/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/11/《算法》/" class="leancloud_visitors" data-flag-title="《算法》">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="栈、队列和优先队列"><a href="#栈、队列和优先队列" class="headerlink" title="栈、队列和优先队列"></a>栈、队列和优先队列</h1><h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><ul>
-<li>特点：LIFO</li>
-<li>实例场景：盒装可比克薯片</li>
-</ul>
-<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><ul>
-<li>特点：FIFO</li>
-<li>实例场景：收费站</li>
-</ul>
-<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><h1 id="排序篇"><a href="#排序篇" class="headerlink" title="排序篇"></a>排序篇</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在数据结构与算法中，排序是面试笔试中最常被问到和提及的知识点，虽然在工作中很少用到相关的基础知识，但是对于基础的系统性学习却是必不可少的，通过学习和理解可以培养锻炼我们写代码的思维逻辑。多考虑性能，少制造垃圾代码。</p>
-<p>此书介绍得比较详细易懂，并且使用Java语言所以用到了很多相关的标准类库或模板，学习比较容易上手。同时还有另一本Java基础的书籍推荐《Introdution to Java Programming》（作者：Y. Daniel Liang），书中同样介绍了基础的数据结构与算法，并且图文并茂通俗易懂。</p>
-<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><blockquote>
-<p><strong>排序成本模型：</strong>在研究排序算法时，需要计算<strong>比较</strong>和<strong>交换</strong>的数量，对于不交换元素的算法，会计算<strong>访问数组的次数</strong></p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/11/《算法》/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/02/LeetCode刷题系列/" itemprop="url">
-                  LeetCode刷题系列
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-02T07:06:38+08:00" content="2016-07-02">
-              2016-07-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/02/LeetCode刷题系列/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/02/LeetCode刷题系列/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/02/LeetCode刷题系列/" class="leancloud_visitors" data-flag-title="LeetCode刷题系列">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h1><p>我们工作面试和提高自身数据结构和算法能力的时候往往需要刷刷题，我选择LeetCode是通过一个<a href="http://www.1point3acres.com/bbs/forum-27-1.html">留学论坛</a>了解的。专业，覆盖语种全面。</p>
-<p>提前说说刷题的心得：</p>
-<ul>
-<li>尽量手写代码，少使用IDE的代码补全和智能提示。既然是提升和锻炼自己的代码功底，那就没有理由再犯<strong>没有IDE写代码会死症</strong></li>
-<li>让自己去思考本身就是一件艰难的事，所以如果遇到困难，可以借鉴但切不可抄袭他人思考成果。不然刷题就没有意义了，别贪多贪快，自己思考的才是最好的</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/02/LeetCode刷题系列/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/01/ThinkingInJava/" itemprop="url">
-                  《Thinking in Java》知识点记录
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-01T19:57:45+08:00" content="2016-07-01">
-              2016-07-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/01/ThinkingInJava/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/01/ThinkingInJava/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/01/ThinkingInJava/" class="leancloud_visitors" data-flag-title="《Thinking in Java》知识点记录">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="《Thinking-in-Java》"><a href="#《Thinking-in-Java》" class="headerlink" title="《Thinking in Java》"></a>《Thinking in Java》</h4><h4 id="final关键词的总结"><a href="#final关键词的总结" class="headerlink" title="final关键词的总结"></a>final关键词的总结</h4><ul>
-<li>可能使用到final的三种情况：<strong>数据</strong>，<strong>方法</strong>，<strong>类</strong></li>
-</ul>
-<h5 id="final数据"><a href="#final数据" class="headerlink" title="final数据"></a>final数据</h5><ul>
-<li>对于基本类型：final使数值不做改变</li>
-<li>对于对象引用：final使引用总是指向初始化时的对象，无法改变其指向另一个对象，但被引用的对象自身是可以改变的</li>
-<li>一个既是static又是final的域只占据一段不能改变的数据存储空间</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/01/ThinkingInJava/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/06/29/偷偷《暗时间》/" itemprop="url">
                   偷偷《暗时间》
                 </a>
@@ -1605,13 +924,567 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/26/hexo搭建博客的几个小问题/" itemprop="url">
+                  hexo搭建博客的几个小问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-26T22:04:53+08:00" content="2016-06-26">
+              2016-06-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/26/hexo搭建博客的几个小问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/hexo搭建博客的几个小问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/26/hexo搭建博客的几个小问题/" class="leancloud_visitors" data-flag-title="hexo搭建博客的几个小问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="所有博客显示未命名-untitled"><a href="#所有博客显示未命名-untitled" class="headerlink" title="所有博客显示未命名(untitled)"></a>所有博客显示未命名(untitled)</h4><p>因为接触hexo不多，刚开始写的博客都是通过自己创建MarkDown文件导入到post中的，所以自然没有前缀，解决方式如下即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#以如下格式输入相应的字段</span><br><span class="line">---</span><br><span class="line">title: hexo搭建博客的几个小问题</span><br><span class="line">date: 2016-06-26 22:04:53</span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line">#####正文内容</span><br></pre></td></tr></table></figure>
+<p>hexo在generate的时候会自动索引当前文件的标题、时间和tags等</p>
+<h4 id="博客首页折叠"><a href="#博客首页折叠" class="headerlink" title="博客首页折叠"></a>博客首页折叠</h4><p>部署后发现首页的文章都是全部预览的，但别人的都是有个<strong>阅读全文</strong>，其实在MD文件中添加一行代码就搞定了</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#####首页显示内容</span><br><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br><span class="line">#####隐藏内容</span><br></pre></td></tr></table></figure>
+<h4 id="hexo部署后，CNAME会被自动删除"><a href="#hexo部署后，CNAME会被自动删除" class="headerlink" title="hexo部署后，CNAME会被自动删除"></a>hexo部署后，CNAME会被自动删除</h4><p>将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/26/hexo搭建博客的几个小问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/13/DifferenceOfYUV/" itemprop="url">
+                  Android常用的几种格式：NV21/NV12/YV12/YUV420P的区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-13T21:26:08+08:00" content="2016-06-13">
+              2016-06-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/13/DifferenceOfYUV/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/13/DifferenceOfYUV/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/13/DifferenceOfYUV/" class="leancloud_visitors" data-flag-title="Android常用的几种格式：NV21/NV12/YV12/YUV420P的区别">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><p>　　因工作方面接触到图像处理这一块，需要对手机摄像头采集的原始帧做Rotate或者Scale，但无奈对此的了解少之又少，于是网上搜了一顿，完事后将最近所学总结一下，以方便之后的人别踩太多坑。  </p>
+<p>　　首先想要了解YUV为何物:<a href="https://msdn.microsoft.com/en-us/library/aa904813">请猛戳我</a>　　</p>
+<p>　　上面的链接中微软已经写的很详细了，国内大部分文章都是翻译这篇文章的，如果还有疑问的同学可以参考下面这些大神的博客：</p>
+<ul>
+<li><a href="http://blog.csdn.net/leixiaohua1020/article/details/42134965">最简单的基于FFmpeg的libswscale的示例（YUV转RGB）</a>  </li>
+<li><a href="http://www.cnblogs.com/azraelly/archive/2013/01/01/2841269.htm">图文详解YUV420数据格式</a></li>
+<li><a href="http://tangzm.com/blog/?p=18">ANDROID 高性能图形处理</a></li>
+<li><a href="http://blog.csdn.net/yanzi1225627/article/details/8626411">Android摄像头开发：实时摄像头视频预览帧的编码问题（二）</a></li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/13/DifferenceOfYUV/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/20/AnimationExamples/" itemprop="url">
+                  Android动画浅析+模仿
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-20T00:19:54+08:00" content="2016-05-20">
+              2016-05-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/20/AnimationExamples/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/20/AnimationExamples/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/20/AnimationExamples/" class="leancloud_visitors" data-flag-title="Android动画浅析+模仿">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><pre><code>Android动画浅析+模仿
+</code></pre><h4 id="ObjectAnimator"><a href="#ObjectAnimator" class="headerlink" title="ObjectAnimator:"></a>ObjectAnimator:</h4><p>属性动画（ObjectAnimator）的概念这里就不解释了，直接从代码中说明，以下是模仿Persicope的加载动画，简单的几行代码即可实现，当然我也是模仿的，更好的实现思路还请各位朋友自己仔细思考。</p>
+<p><strong>先说说我的思路：</strong> </p>
+<p>首先下载Periscope然后改名zip解包，获取对应的png图片（搜索相关的loading文件：ps__bg_loading.png），看到了该文件的大小，仔细观察后，发现可以把很多张图连在一起从右–&gt;左的连续位移动画，而这里我用到了属性动画，当然不是最好的选择，而且我这里实现的方法很笨，就是将两个LinearLayout不同x的坐标轴同样的距离和时间进行右到左的translate。实现结果如下图：</p>
+<h4 id="Demo-演示"><a href="#Demo-演示" class="headerlink" title="Demo 演示:"></a>Demo 演示:</h4><p><img src="https://raw.githubusercontent.com/eterrao/AnimationExamples/master/periscopeLoading.gif" alt="Loading"></p>
+<p><strong>Demo地址：</strong> <a href="https://github.com/eterrao/AnimationExamples" target="_blank" rel="external">https://github.com/eterrao/AnimationExamples</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/09/Android-Classical-OpenSource/" itemprop="url">
+                  Android-Classical-OpenSource
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-09T13:02:52+08:00" content="2016-05-09">
+              2016-05-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/09/Android-Classical-OpenSource/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/09/Android-Classical-OpenSource/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/09/Android-Classical-OpenSource/" class="leancloud_visitors" data-flag-title="Android-Classical-OpenSource">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Android-Classical-OpenSource"><a href="#Android-Classical-OpenSource" class="headerlink" title="Android-Classical-OpenSource"></a>Android-Classical-OpenSource</h1><p>Android开发中 个人遇到和使用过的值得分享的资源合集</p>
+<h1 id="Trinea的OpenProject"><a href="#Trinea的OpenProject" class="headerlink" title="Trinea的OpenProject"></a><a href="https://github.com/Trinea/android-open-project">Trinea的OpenProject</a></h1><p>强烈推荐的Android 开源项目分类汇总，star数量1.7W+</p>
+<h4 id="项目说明："><a href="#项目说明：" class="headerlink" title="项目说明："></a>项目说明：</h4><blockquote>
+<p>Android 开源项目第一篇——个性化控件(View)篇<br>  包括ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style、其他<br>Android 开源项目第二篇——工具库篇<br>  包括依赖注入、图片缓存、网络请求、数据库 ORM 工具包、Android 公共库、高版本向低版本兼容库、多媒体、事件总线、传感器、安全、插件化、文件、其他<br>Android 开源项目第三篇——优秀项目篇<br>  比较有意思的完整的 Android 项目<br>Android 开源项目第四篇——开发及测试工具篇<br>  包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他<br>Android 开源项目第五篇——优秀个人和团体篇<br>  乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等</p>
+</blockquote>
+<hr>
+<h1 id="awesome-android-ui"><a href="#awesome-android-ui" class="headerlink" title="awesome-android-ui"></a><a href="https://github.com/wasabeef/awesome-android-ui">awesome-android-ui</a></h1><h4 id="项目说明：-1"><a href="#项目说明：-1" class="headerlink" title="项目说明："></a>项目说明：</h4><p>国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。</p>
+<blockquote>
+<p>A curated list of awesome Android UI/UX libraries.                       </p>
+</blockquote>
+<hr>
+<h1 id="AndroidDevTools-开源项目分类汇总"><a href="#AndroidDevTools-开源项目分类汇总" class="headerlink" title="AndroidDevTools 开源项目分类汇总"></a><a href="https://github.com/inferjay/AndroidDevTools">AndroidDevTools 开源项目分类汇总</a></h1><h4 id="官方网站"><a href="#官方网站" class="headerlink" title="官方网站"></a><a href="http://www.androiddevtools.cn/">官方网站</a></h4><h4 id="项目说明：-2"><a href="#项目说明：-2" class="headerlink" title="项目说明："></a>项目说明：</h4><blockquote>
+<p>收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。<br>欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。</p>
+</blockquote>
+<hr>
+<h1 id="android-tech-frontier"><a href="#android-tech-frontier" class="headerlink" title="android-tech-frontier"></a><a href="https://github.com/eterrao/android-tech-frontier.git">android-tech-frontier</a></h1><h4 id="项目说明：-3"><a href="#项目说明：-3" class="headerlink" title="项目说明："></a>项目说明：</h4><blockquote>
+<p>一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。</p>
+<p>我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/09/Android-Classical-OpenSource/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -1650,7 +1523,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1658,7 +1531,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
