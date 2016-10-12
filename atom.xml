@@ -626,7 +626,7 @@
     <link href="http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/"/>
     <id>http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/</id>
     <published>2016-05-09T05:02:52.000Z</published>
-    <updated>2016-08-31T02:15:08.000Z</updated>
+    <updated>2016-10-12T05:24:05.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;p&gt;Android开发中 个人遇到和使用过的值得分享的资源合集&lt;/p&gt;
 &lt;h1 id=&quot;Trinea的OpenProject&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Trinea的OpenProject&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;强烈推荐的Android 开源项目分类汇总，star数量1.7W+&lt;/p&gt;
@@ -682,8 +682,11 @@
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;工具类：&quot;&gt;&lt;a href=&quot;#工具类：&quot; class=&quot;headerlink&quot; title=&quot;工具类：&quot;&gt;&lt;/a&gt;工具类：&lt;/h1&gt;&lt;h2 id=&quot;通用&quot;&gt;&lt;a href=&quot;#通用&quot; class=&quot;headerlink&quot; title=&quot;通用&quot;&gt;&lt;/a&gt;通用&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;关于APK瘦身值得分享的一些经验：&lt;a href=&quot;http://www.jianshu.com/p/bd90dee57ad0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/bd90dee57ad0&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;PNG压缩：&lt;a href=&quot;https://tinypng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://tinypng.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/bd90dee57ad0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于APK瘦身值得分享的一些经验&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tinypng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;PNG压缩&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/ae6749858f28&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;几条小经验帮你美化你的GitHub开源项目&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://audiojungle.net/category/sound/buttons-menus&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;BGM音频素材网站&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.strikingly.com/s/select_template?is_new_user=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一个很好的网站模版&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;MarkDown编辑器&quot;&gt;&lt;a href=&quot;#MarkDown编辑器&quot; class=&quot;headerlink&quot; title=&quot;MarkDown编辑器&quot;&gt;&lt;/a&gt;MarkDown编辑器&lt;/h2&gt;&lt;h3 id=&quot;Typora&quot;&gt;&lt;a href=&quot;#Typora&quot; class=&quot;headerlink&quot; title=&quot;Typora&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.typora.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Typora&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;正在使用，简单方便。&lt;strong&gt;强烈推荐！&lt;/strong&gt;&lt;/p&gt;
@@ -737,11 +740,25 @@
 &lt;h3 id=&quot;干货集中营&quot;&gt;&lt;a href=&quot;#干货集中营&quot; class=&quot;headerlink&quot; title=&quot;干货集中营&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://gank.io/api&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;干货集中营&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;想要更多API？来这里吧，各种福利、干活日日推荐。&lt;/p&gt;
 &lt;h3 id=&quot;Unsplash&quot;&gt;&lt;a href=&quot;#Unsplash&quot; class=&quot;headerlink&quot; title=&quot;Unsplash&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://unsplash.it/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Unsplash&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;一个全球集中的图片开放API&lt;/p&gt;
 &lt;h3 id=&quot;看知乎&quot;&gt;&lt;a href=&quot;#看知乎&quot; class=&quot;headerlink&quot; title=&quot;看知乎&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.kanzhihu.com/api-document&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;看知乎&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;知乎开放的API，同样可以练练手&lt;/p&gt;
-&lt;h1 id=&quot;看看Android新技术&quot;&gt;&lt;a href=&quot;#看看Android新技术&quot; class=&quot;headerlink&quot; title=&quot;看看Android新技术&quot;&gt;&lt;/a&gt;看看Android新技术&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://www.jianshu.com/p/8ed9543b15db&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/8ed9543b15db&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;OhMyBilibili&quot;&gt;&lt;a href=&quot;#OhMyBilibili&quot; class=&quot;headerlink&quot; title=&quot;OhMyBilibili&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.jianshu.com/p/f69a55b94c05&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;OhMyBilibili&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;该作者为了信仰对Bilibili仿写的一个APP&lt;/p&gt;
+&lt;p&gt;Bilibili的API如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;BiliBili API / REST service written in Go&lt;br&gt;&lt;a href=&quot;https://github.com/WhiteBlue&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;WhiteBlue&lt;/a&gt;/&lt;strong&gt;bilibili-go&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;bilibili官方文档搬运(官方文档已不对外开放)&lt;br&gt;&lt;a href=&quot;https://github.com/fython&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;fython&lt;/a&gt;/&lt;strong&gt;BilibiliAPIDocs&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Android资源网站&quot;&gt;&lt;a href=&quot;#Android资源网站&quot; class=&quot;headerlink&quot; title=&quot;Android资源网站&quot;&gt;&lt;/a&gt;Android资源网站&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.see-source.com/androidwidget/list.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;资源网站：看源社区&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tech.meituan.com/archives&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;美团点评技术团队博客&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;看看Android新技术&quot;&gt;&lt;a href=&quot;#看看Android新技术&quot; class=&quot;headerlink&quot; title=&quot;看看Android新技术&quot;&gt;&lt;/a&gt;看看Android新技术&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.jianshu.com/p/8ed9543b15db&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/8ed9543b15db&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;感觉Android不停的更新迭代，技术也是层出不穷，在深度学习的同时也要了解当今技术广度的变化嘛，这篇博客写的挺全面，涉及Retrofit，RxJava，MVP，MVVM等等&lt;/p&gt;
+&lt;h2 id=&quot;VR相关资源&quot;&gt;&lt;a href=&quot;#VR相关资源&quot; class=&quot;headerlink&quot; title=&quot;VR相关资源&quot;&gt;&lt;/a&gt;VR相关资源&lt;/h2&gt;&lt;p&gt;一个VR资源汇总贴：&lt;a href=&quot;https://github.com/GeekLiB/Lee-VR-Source&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/GeekLiB/Lee-VR-Source&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;设计&quot;&gt;&lt;a href=&quot;#设计&quot; class=&quot;headerlink&quot; title=&quot;设计&quot;&gt;&lt;/a&gt;设计&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://share.jike.ruguoapp.com/topics/5517b3d3e4b08971ae480d7d&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dribbble每日最佳设计推送&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;面试相关&quot;&gt;&lt;a href=&quot;#面试相关&quot; class=&quot;headerlink&quot; title=&quot;面试相关&quot;&gt;&lt;/a&gt;面试相关&lt;/h1&gt;&lt;p&gt;面试，面试，面试！重要的事情说三遍！&lt;/p&gt;
+&lt;h2 id=&quot;Android面试经验-–-乐视&quot;&gt;&lt;a href=&quot;#Android面试经验-–-乐视&quot; class=&quot;headerlink&quot; title=&quot;Android面试经验 – 乐视&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/52733726&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android面试经验 – 乐视&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;此次投的是三年经验的&lt;a href=&quot;http://lib.csdn.net/base/15&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android&lt;/a&gt;开发，最后反而因为自己的失误，没有准备充分而导致结果很悲剧，以此告诫自己千万不能疏忽大意。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&quot;AndroidInterview-Q-A&quot;&gt;&lt;a href=&quot;#AndroidInterview-Q-A&quot; class=&quot;headerlink&quot; title=&quot;AndroidInterview-Q-A&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/JackyAndroid/AndroidInterview-Q-A&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AndroidInterview-Q-A&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;以下面试题来自于百度、小米、乐视、美团、58、猎豹、360、新浪、搜狐内部题库&lt;/p&gt;
 &lt;p&gt;熟悉本文中列出的知识点会大大增加通过前两轮技术面试的几率。&lt;/p&gt;
