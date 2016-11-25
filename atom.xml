@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shutu.tech/"/>
-  <updated>2016-11-09T08:21:35.000Z</updated>
+  <updated>2016-11-25T15:43:50.000Z</updated>
   <id>http://www.shutu.tech/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2016 Beijing GDG DevFest大会参后感</title>
+    <link href="http://www.shutu.tech/2016/11/25/2016-Beijing-GDG-DevFest%E5%A4%A7%E4%BC%9A%E5%8F%82%E5%90%8E%E6%84%9F/"/>
+    <id>http://www.shutu.tech/2016/11/25/2016-Beijing-GDG-DevFest大会参后感/</id>
+    <published>2016-11-25T15:43:50.000Z</published>
+    <updated>2016-11-25T15:43:50.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/eterrao/BlogExamples/master/GDGTicket.jpg&quot; alt=&quot;GDG DevFest 2016 Beijing&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前话&quot;&gt;&lt;a href=&quot;#前话&quot; class=&quot;headerlink&quot; title=&quot;前话&quot;&gt;&lt;/a&gt;前话&lt;/h2&gt;&lt;p&gt;15年初的时候参加过一次GDG线下举办的一次分享会，因为当时是实习的公司提供的活动场地。有了那次机会后，就一直关注了GDG的活动。&lt;/p&gt;
+&lt;p&gt;参加的目的最重要的是本次大会是比较盛大的一场技术大会，在经过一年的创业公司的洗礼以后，成长正处于瓶颈期，迷茫却不知所措，本着充电的初衷报了名。&lt;/p&gt;
+&lt;h3 id=&quot;大会还赠送了礼品：&quot;&gt;&lt;a href=&quot;#大会还赠送了礼品：&quot; class=&quot;headerlink&quot; title=&quot;大会还赠送了礼品：&quot;&gt;&lt;/a&gt;大会还赠送了礼品：&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Android小机器人&lt;/li&gt;
+&lt;li&gt;Google Developer的纪念衫一件&lt;/li&gt;
+&lt;li&gt;提供了午餐，茶歇有零食&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;技术简要总结：&quot;&gt;&lt;a href=&quot;#技术简要总结：&quot; class=&quot;headerlink&quot; title=&quot;技术简要总结：&quot;&gt;&lt;/a&gt;技术简要总结：&lt;/h2&gt;&lt;p&gt;本次大会分享的主题有好几类，但我感觉收获较多的有这么几个：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;XiaoyuWang（CastBox的创始人）分享的Firebase相关使用和数据分析，近期关注海外产品较多也接触了Firebase，正遇到一些疑惑在这个会上全解决了。&lt;ul&gt;
+&lt;li&gt;TestLab：可以进行模拟测试，免费且方便迅速&lt;/li&gt;
+&lt;li&gt;Admob的填充率高&lt;/li&gt;
+&lt;li&gt;凡是Google的服务，国内产品反正都是用不上的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;黄帅（博客：猴子搬来的救兵）的Android安全问题，作为开发者的我一直没有考虑过相关的技术点，导致听完分享以后发现漏洞这么多，而自己却什么都不知道。。&lt;/li&gt;
+&lt;li&gt;任玉刚（《Android开发艺术探索》一书的作者）老师这次的分享还是基于《Android开发艺术探索》中的知识点讨论的，第一次见到本人兴奋ing。。。&lt;/li&gt;
+&lt;li&gt;说实话，闫国跃的主题xlog太深奥，听的时候懵懵懂懂的，最后完了只有两个字在心中“这人好牛X！” 不过话说回来，深深佩服微信开发团队，一个Mars框架平台承载了这么多的业务开发，一个框架全搞定。妈蛋自己弱爆了，苦笑。。&lt;/li&gt;
+&lt;li&gt;张铁蕾的异步处理也收获不少。&lt;/li&gt;
+&lt;li&gt;剩下的蓝牙接触不多，所以没仔细听。&lt;/li&gt;
+&lt;li&gt;技术小黑屋分享的Memory Leak是我很关注的主题，可是分享过后有些失望，感觉作者没有准备充分，并且了解也不够深刻，说的都是一些很浅的知识点，准备深入又被一笔带过。&lt;/li&gt;
+&lt;li&gt;最后大神秋百万的闪电分享提到的各项代码优化处理对我帮助很大，曾经总觉得代码算法对UI层的效果影响不大，现在设备的硬件配置都那么高了，还谈什么细节，可听完分享后对自己这种不负责的态度感到羞愧，这就是和优秀程序员的差距！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;会上的技术分享资料都会分享公布，公众号和微博都可以索取。&lt;/p&gt;
+&lt;h2 id=&quot;感受&quot;&gt;&lt;a href=&quot;#感受&quot; class=&quot;headerlink&quot; title=&quot;感受&quot;&gt;&lt;/a&gt;感受&lt;/h2&gt;&lt;p&gt;总的来说这次参与完全出乎我的意料，一直膜拜的技术大神：廖祜秋、任玉刚、黄帅（猴子搬来的救兵）等都亲临现场做分享，还有很多不认识的大牛。曾经在我看来他们就是在我所接触的技术界里面遥不可及的神人，可是见到真人后发现都是很谦逊低调却很牛逼的人，一股“我也要变牛X”的想法油然而生，这才是我想要的人生。仅仅是为了自己能够走得更远，看得更高，那时候或许名利早已抛之脑后了吧。&lt;/p&gt;
+&lt;p&gt;反过来思考了当前自身的现况，只能一个字形容：惨！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自身技术成长的障碍短期内一直没有攻破，牢牢地被套在圈子里死循环。&lt;/li&gt;
+&lt;li&gt;当前的工作环境已经不适合自己的发展，本以为为了参加本次请一天假（本周六加班）会赢得Boss大力支持，倒相反的认为是在浪费工作时间，这样的Boss还有什么盼头。一个人的Android开发，成天就是业务需求，大事没多少，小事没完了。心中无奈只能两个字表达：呵呵！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;吐槽不快之后更多的是陷入未来技术发展的沉思，半路出家本就基础不扎实，距离年终也就两个月的时间，希望在16年内剩下的这一个多月把欠的技术债尽量弥补。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/eterrao/BlogExamples/master/GDGTicket.jpg&quot; alt=&quot;GDG DevFest 2016 Beijing&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前话&quot;&gt;&lt;a href=&quot;#前话&quot; class=&quot;headerlink&quot; title=&quot;前话&quot;&gt;&lt;/a&gt;前话&lt;/h2&gt;&lt;p&gt;15年初的时候参加过一次GDG线下举办的一次分享会，因为当时是实习的公司提供的活动场地。有了那次机会后，就一直关注了GDG的活动。&lt;/p&gt;
+&lt;p&gt;参加的目的最重要的是本次大会是比较盛大的一场技术大会，在经过一年的创业公司的洗礼以后，成长正处于瓶颈期，迷茫却不知所措，本着充电的初衷报了名。&lt;/p&gt;
+&lt;h3 id=&quot;大会还赠送了礼品：&quot;&gt;&lt;a href=&quot;#大会还赠送了礼品：&quot; class=&quot;headerlink&quot; title=&quot;大会还赠送了礼品：&quot;&gt;&lt;/a&gt;大会还赠送了礼品：&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Android小机器人&lt;/li&gt;
+&lt;li&gt;Google Developer的纪念衫一件&lt;/li&gt;
+&lt;li&gt;提供了午餐，茶歇有零食&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="技术分享会" scheme="http://www.shutu.tech/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E4%BC%9A/"/>
+    
+  </entry>
   
   <entry>
     <title>修复ijkPlayer进行m3u8 hls流播放时seek进度条拖动不准确的问题</title>
