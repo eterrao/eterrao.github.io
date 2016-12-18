@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shutu.tech/"/>
-  <updated>2016-11-25T15:43:50.000Z</updated>
+  <updated>2016-12-18T09:43:56.000Z</updated>
   <id>http://www.shutu.tech/</id>
   
   <author>
@@ -14,6 +14,76 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2016末，工作一年后的状态与总结</title>
+    <link href="http://www.shutu.tech/2016/12/18/2016%E6%9C%AB%EF%BC%8C%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E5%90%8E%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.shutu.tech/2016/12/18/2016末，工作一年后的状态与总结/</id>
+    <published>2016-12-18T09:43:56.000Z</published>
+    <updated>2016-12-18T09:43:56.000Z</updated>
+    
+    <content type="html">&lt;p&gt;不知不觉已经2016年末，也该总结一下今年的得失，2015年终总结定的目标和计划是否完成了？&lt;/p&gt;
+&lt;h2 id=&quot;2015年定的工作、学习计划&quot;&gt;&lt;a href=&quot;#2015年定的工作、学习计划&quot; class=&quot;headerlink&quot; title=&quot;2015年定的工作、学习计划&quot;&gt;&lt;/a&gt;2015年定的工作、学习计划&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;2016年：&lt;/p&gt;
+&lt;p&gt;上半年：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优化公司产品，做到拥有优秀的功能和体验&lt;/li&gt;
+&lt;li&gt;开发自己的一款上线产品&lt;/li&gt;
+&lt;li&gt;将LeetCode的算法题刷完&lt;/li&gt;
+&lt;li&gt;Java：基础过关(熟练运用线程的调度，常用语法，网络请求的类库)&lt;/li&gt;
+&lt;li&gt;研究VR方面的开发 (openCV + VR 着装) &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;下半年：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基础攻破后技术应该会有质的提高，后半年根据公司业务开发出自己承认的产品，学以致用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;公司产品前后也删删改改了很多，框架上从强耦合在Activity中的代码，改为了MVP。使用MVP后确实感觉比之前的代码好多了，层次清晰了许多，但近期发现复杂的代码量依旧留存在Presenter中，并没有真正的解决&lt;strong&gt;代码量重&lt;/strong&gt;的问题。最近研究MVVM，希望在剩余不多的时间内进行代码重构。&lt;/p&gt;
+&lt;p&gt;计划中的优秀功能和体验确实有突破，无论是UI也好，功能也罢，都已经慢慢成型为一款产品。对自定义View和动效有了更多的理解。对代码的健壮和容错性变得很在意，中途有一次发生了对精度转换的出错，导致交易的订单金额有损失，还好公司的业务量较小，如果换在大型的商业平台上我就成罪人了。所以细心是做事的关键因素，并且这件事后发现单元测试和集成测试是必不可少的环节。因为项目较小所以从来没有写过测试代码，这犯了Coding的大忌。希望以后能够完善这些不足，避免此类悲剧再次重演。在2017年要提升自己的代码质量和把控能力。&lt;/p&gt;
+&lt;p&gt;自己的上线产品，目前只有Alpha版本的一个小工具，10月拖到现在两个月了还么有完全提交，侧面反映出我做事不果断、拖拉的性格，这也是很严重的问题。无论在写公司的项目代码，还是写写小Demo，其实对自己的代码能力都有一定的提升，切勿认为看到别人的源码后自己就能够写一套出来，就算一模一样的功能，不自己实践一遍是不知道其中有多少坑的。所以很简单的代码，自己能独立实践就一定要做。&lt;/p&gt;
+&lt;p&gt;关于数据结构与算法，延伸到自己的计算机基础一直都是软肋。自己本来就是非科班的，在上次面试后面试官指点后就知道这个坑不填不行了，老实把操作系统、数据结构与算法和网络通信协议都好好学学才是硬道理。刷题仅仅是面试中的一个必备的环节。刷完题不代表自己就有能力拿到心仪的Offer。&lt;/p&gt;
+&lt;p&gt;Java基础倒是补了不少，重新过了很多细节部分。但代码量还是不够，没有达到期望的水准。并发这块经验也不足，遇到高并发的时候线程各种调度控制还没有实际的解决方案。而且感觉面向对象的编程思想还是没有根深蒂固在心中，对于万物皆对象的这门高级程序设计语言来说，使用的时候就应该用正确的打开方式。&lt;/p&gt;
+&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;技术博客没有什么含量，并且写的少&lt;/li&gt;
+&lt;li&gt;写博客的时候，不知道想些什么，或者表述不清晰，理解不透彻，废话稍多&lt;/li&gt;
+&lt;li&gt;面试准备不充分&lt;/li&gt;
+&lt;li&gt;平时积累没有进行有效的总结，导致了有输入没输出&lt;/li&gt;
+&lt;li&gt;做事拖拉，想法偏激有问题&lt;/li&gt;
+&lt;li&gt;对当前工作产生了厌倦，对公司环境产生了不可控的情绪&lt;/li&gt;
+&lt;li&gt;工作重心不明确，项目之间的重心划分明显有偏差&lt;/li&gt;
+&lt;li&gt;对新事物学习的激情少了许多，感觉自己的能力没有充分发挥，成长太慢&lt;/li&gt;
+&lt;li&gt;在变胖的同时更懒了，不愿多做多想&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;2017，未来&quot;&gt;&lt;a href=&quot;#2017，未来&quot; class=&quot;headerlink&quot; title=&quot;2017，未来&quot;&gt;&lt;/a&gt;2017，未来&lt;/h2&gt;&lt;p&gt;明显感觉去年的计划不够细，并且没有一个明确的规划，都是跟随自己的时间随心而定。未来可不能再这样放荡下去了。&lt;/p&gt;
+&lt;p&gt;初定一下2017年的工作学习计划：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;写自定义View的博客专栏&lt;/li&gt;
+&lt;li&gt;写源码分析的博客专栏&lt;/li&gt;
+&lt;li&gt;继续学习数据结构与算法，刷题，把每一个点都用博客记录下来&lt;/li&gt;
+&lt;li&gt;深入探索操作系统的基本原理，网络通信协议等科班必修内容，根基扎实了才能建成高楼大厦&lt;/li&gt;
+&lt;li&gt;写自己的开源库&lt;/li&gt;
+&lt;li&gt;学习更多的语言（C++、JavaScript），让自己的知识广度和眼界更开阔&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;2017关键要点：&quot;&gt;&lt;a href=&quot;#2017关键要点：&quot; class=&quot;headerlink&quot; title=&quot;2017关键要点：&quot;&gt;&lt;/a&gt;2017关键要点：&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;数据结构与算法&lt;/li&gt;
+&lt;li&gt;设计模式&lt;/li&gt;
+&lt;li&gt;Android源码分析&lt;/li&gt;
+&lt;li&gt;网络通信协议&lt;/li&gt;
+&lt;li&gt;操作系统原理&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不知不觉已经2016年末，也该总结一下今年的得失，2015年终总结定的目标和计划是否完成了？&lt;/p&gt;
+&lt;h2 id=&quot;2015年定的工作、学习计划&quot;&gt;&lt;a href=&quot;#2015年定的工作、学习计划&quot; class=&quot;headerlink&quot; title=&quot;2015年定的工作、
+    
+    </summary>
+    
+    
+      <category term="计划" scheme="http://www.shutu.tech/tags/%E8%AE%A1%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>2016 Beijing GDG DevFest大会参后感</title>
