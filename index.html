@@ -260,6 +260,121 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/" itemprop="url">
+                  Android实现录屏直播（一）ScreenRecorder的简单分析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-07T00:53:49+08:00" content="2017-01-07">
+              2017-01-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/" class="leancloud_visitors" data-flag-title="Android实现录屏直播（一）ScreenRecorder的简单分析">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。</p>
+<p>其实官方提供的<a href="https://github.com/googlesamples/android-ScreenCapture">android-ScreenCapture</a>这个Sample中已经有了MediaRecorder的实现与使用方式，还有使用MediaRecorder实现的录制屏幕到本地文件的Demo，从中我们都能了解这些API的使用。</p>
+<p>而如果需要直播推流的话就需要自定义MediaCodec，再从MediaCodec进行编码后获取编码后的帧，免去了我们进行原始帧的采集的步骤省了不少事。可是问题来了，因为之前没有仔细了解H264文件的结构与FLV封装的相关技术，其中爬了不少坑，此后我会一一记录下来，希望对用到的朋友有帮助。</p>
+<p>项目中对我参考意义最大的一个Demo是网友Yrom的GitHub项目<a href="https://github.com/yrom/ScreenRecorder">ScreenRecorder</a>，Demo中实现了录屏并将视频流存为本地的MP4文件（咳咳，其实Yrom就是Bilibili的员工吧？( ゜- ゜)つロ）😏。在此先大致分析一下该Demo的实现，之后我会再说明我的实现方式。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/31/2016年终总结/" itemprop="url">
                   2016年终总结
                 </a>
@@ -1364,142 +1479,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/24/《App研发录》-- 读书总结/" itemprop="url">
-                  《App研发录》总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-24T11:55:46+08:00" content="2016-07-24">
-              2016-07-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/读书/" itemprop="url" rel="index">
-                    <span itemprop="name">读书</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/24/《App研发录》-- 读书总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/《App研发录》-- 读书总结/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/24/《App研发录》-- 读书总结/" class="leancloud_visitors" data-flag-title="《App研发录》总结">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>看这本书的时候，总感觉怪怪的。</p>
-<p>因为在地铁上看完的，作者书中基本都是他自己工作中遇到的问题和坑，虽说这样会让人感觉找到了解决方案，可以再进行深入的研究，可是某些地方介绍的有点片面，仅仅是引用部分博客就以偏概全了。还有可能是涉及的内容大部分都是我自己已经踩过的坑，所以觉得学到的东西不太多。</p>
-<p>再说说值得一看的地方吧，首先也如前面提到的，书中内容基本都是作者工作之谈，所以有很实用的内容，推荐阅读章节：</p>
-<h3 id="App竞品技术分析"><a href="#App竞品技术分析" class="headerlink" title="App竞品技术分析"></a>App竞品技术分析</h3><p>个人认为这是本书的精华，很少看到有人愿意这样详尽的介绍自己的“机密”经验，感谢作者的无私分享。</p>
-<h3 id="五、六、七章的异常和ProGuard"><a href="#五、六、七章的异常和ProGuard" class="headerlink" title="五、六、七章的异常和ProGuard"></a>五、六、七章的异常和ProGuard</h3><p>介绍很详细，网上都是非常琐碎的介绍，推荐新人看看这部分，尤其是ProGuard，虽然现在第三方已经给出了完善的解决方案，帮我们做了这部分事情，不过了解最基本的原理才能学得更透彻。</p>
-<h3 id="项目、团队管理部分"><a href="#项目、团队管理部分" class="headerlink" title="项目、团队管理部分"></a>项目、团队管理部分</h3><p>这部分是时间的积累才能收获的，提前学习了解以后我们必须经历的路没什么不好的。测试部分相关的部分是很少有书籍能够提及，值得看看。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/24/《App研发录》-- 读书总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1545,7 +1524,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1562,7 +1541,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1635,7 +1614,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
