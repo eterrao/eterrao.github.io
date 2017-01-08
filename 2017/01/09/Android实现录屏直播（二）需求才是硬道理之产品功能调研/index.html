@@ -1,0 +1,832 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="直播,录屏," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="书途" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="请尊重分享成果，转载请注明出处，本文来自Coder包子哥，原文链接：http://blog.csdn.net/zxccxzzxz/article/details/54254244
+前面的Android实现录屏直播（一）ScreenRecorder的简单分析一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android实现录屏直播（二）需求才是硬道理之产品功能调研">
+<meta property="og:url" content="http://www.shutu.tech/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/index.html">
+<meta property="og:site_name" content="书途">
+<meta property="og:description" content="请尊重分享成果，转载请注明出处，本文来自Coder包子哥，原文链接：http://blog.csdn.net/zxccxzzxz/article/details/54254244
+前面的Android实现录屏直播（一）ScreenRecorder的简单分析一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，">
+<meta property="og:image" content="https://raw.githubusercontent.com/eterrao/ScreenRecorder/master/images/floating_window.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/eterrao/ScreenRecorder/master/images/notification.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/eterrao/ScreenRecorder/master/images/screenRecorderDemo.gif">
+<meta property="og:updated_time" content="2017-01-08T16:27:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android实现录屏直播（二）需求才是硬道理之产品功能调研">
+<meta name="twitter:description" content="请尊重分享成果，转载请注明出处，本文来自Coder包子哥，原文链接：http://blog.csdn.net/zxccxzzxz/article/details/54254244
+前面的Android实现录屏直播（一）ScreenRecorder的简单分析一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/eterrao/ScreenRecorder/master/images/floating_window.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.shutu.tech/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/"/>
+
+  <title> Android实现录屏直播（二）需求才是硬道理之产品功能调研 | 书途 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">书途</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人无书而涂，因书而智，终老以书为伴，是为书途</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="http://eterrao.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android实现录屏直播（二）需求才是硬道理之产品功能调研
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-09T00:24:46+08:00" content="2017-01-09">
+              2017-01-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/" class="leancloud_visitors" data-flag-title="Android实现录屏直播（二）需求才是硬道理之产品功能调研">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>请尊重分享成果，转载请注明出处，本文来自<a href="http://my.csdn.net/zxccxzzxz" target="_blank" rel="external">Coder包子哥</a>，原文链接：<a href="http://blog.csdn.net/zxccxzzxz/article/details/54254244" target="_blank" rel="external">http://blog.csdn.net/zxccxzzxz/article/details/54254244</a></p>
+<p>前面的<a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396" target="_blank" rel="external">Android实现录屏直播（一）ScreenRecorder的简单分析</a>一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，稍微不注意就会深入每个知识点的细节导致文章又臭又长还表述不清晰，于是我决定把这7天实现该功能的整个流程重新梳理一遍，按照我开发和研究学习的步骤来写，大致过程如下：</p>
+<ol>
+<li><a href="#产品功能调研">产品功能调研</a></li>
+<li>Bilibili 的反编译及 UI 的编写</li>
+<li><a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396" target="_blank" rel="external">ScreenRecorder 等 Demo 的代码分析</a></li>
+<li>对 H264 结构、FLV 格式封装的研究学习</li>
+<li>sps pps avcc 关键帧等视频封装原理的学习与分析</li>
+<li>MediaProjection 实现录屏中 MediaCodec 的详细用法</li>
+<li>编码后的帧进行推流</li>
+</ol>
+<a id="more"></a>
+<h1 id="产品功能调研"><a href="#产品功能调研" class="headerlink" title="产品功能调研"></a>产品功能调研</h1><p>我们作为技术开发人员，任务下发的时候首先要与产品经理进行需求的深入了解，只有了解对方想要的是什么后我们功能实现才能达到他们最大的期望值。当然一旦确定需求后把菜刀亮出来，然后就轻松愉快的写代码吧😜。嗯，本次任务就是尽可能的还原Bilibili的录屏直播功能，汗颜，无需设计，无需讨论，我自己研究吧，反正项目一直都是我一人开发，也习惯了（PS: 尽管是Bilibili的忠实用户，当然不能在工作的时候看番剧啦)，废话不多说，瞄准几个功能：</p>
+<ul>
+<li>直播悬浮窗</li>
+<li>直播提示通知栏</li>
+<li>录屏直播的实现机制</li>
+</ul>
+<h2 id="直播悬浮窗"><a href="#直播悬浮窗" class="headerlink" title="直播悬浮窗"></a>直播悬浮窗</h2><p>说起悬浮窗不得不感谢郭神的博客 <a href="http://blog.csdn.net/guolin_blog/article/details/8689140" target="_blank" rel="external">Android桌面悬浮窗效果实现，仿360手机卫士悬浮窗效果</a>，就是懒直接拿来修修改改就行（郭神别打我~），实现效果如图</p>
+<p><img src="https://raw.githubusercontent.com/eterrao/ScreenRecorder/master/images/floating_window.png" alt="直播悬浮窗"></p>
+<p>悬浮窗包含一个自定义的View（继承自FrameLayout）、服务和自定义WindowManager，更多细节请见源码，代码就不贴出来了，太占地方。值得注意的是，这里的悬浮窗我添加了一个弹幕显示的ListView面板用于显示用户的发言。</p>
+<h2 id="直播提示通知栏"><a href="#直播提示通知栏" class="headerlink" title="直播提示通知栏"></a>直播提示通知栏</h2><p>由于直接录制桌面涉及到用户的个人隐私问题，如果没有一个标识让用户看着那问题就麻烦了（亲测过通过这种录屏方式可以捕获桌面所有的内容，无论是键盘输入状态、摄像头拍照摄像及输入银行卡密码等等），所以Android系统虽然会提示需要进行屏幕录像，但还是有一定的风险！通知栏属于常驻类型，内容如下：</p>
+<p><img src="https://raw.githubusercontent.com/eterrao/ScreenRecorder/master/images/notification.png" alt="录屏通知栏"></p>
+<h3 id="通知栏的实现"><a href="#通知栏的实现" class="headerlink" title="通知栏的实现"></a>通知栏的实现</h3><p>先看看下面这个服务类，主要功能就是开启通知并创建悬浮窗两个功能，注意创建悬浮窗时判断当前设备是否为我们的APP授权了<strong>悬浮窗权限</strong>这个功能我还没有来得及实现，小米、魅族华为等系统需要手动去APP设置中授权，之后有时间再补上。如需此服务与Activity之间有通信机制的话，还需要自定义Binder，在启动服务的Activity中通过bindService()与ServiceConnection来实现数据的传递，这里先挖一个坑，后续我完善功能后再回来填上。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.app.Notification;</span><br><span class="line"><span class="keyword">import</span> android.app.NotificationManager;</span><br><span class="line"><span class="keyword">import</span> android.app.PendingIntent;</span><br><span class="line"><span class="keyword">import</span> android.os.Binder;</span><br><span class="line"><span class="keyword">import</span> android.os.Handler;</span><br><span class="line"><span class="keyword">import</span> android.support.v4.app.NotificationCompat;</span><br><span class="line"><span class="keyword">import</span> android.app.Service;</span><br><span class="line"><span class="keyword">import</span> android.content.Intent;</span><br><span class="line"><span class="keyword">import</span> android.os.IBinder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScreenRecordListenerService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"ScreenRecordListenerService, "</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PENDING_REQUEST_CODE = <span class="number">0x01</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NOTIFICATION_ID = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">private</span> NotificationManager mNotificationManager;</span><br><span class="line">    <span class="keyword">private</span> NotificationCompat.Builder builder;</span><br><span class="line">    <span class="keyword">private</span> Handler handler = <span class="keyword">new</span> Handler();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        initNotification();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 当前界面是桌面，且没有悬浮窗显示，则创建悬浮窗。</span></span><br><span class="line">        <span class="keyword">if</span> (!MyWindowManager.isWindowShowing()) &#123;</span><br><span class="line">            handler.post(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    MyWindowManager.createSmallWindow(getApplicationContext());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onStartCommand(intent, flags, startId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initNotification</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        builder = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</span><br><span class="line">                .setSmallIcon(R.drawable.ic_launcher)</span><br><span class="line">                .setContentTitle(getResources().getString(R.string.app_name))</span><br><span class="line">                .setContentText(<span class="string">"您正在录制视频内容哦"</span>)</span><br><span class="line">                .setOngoing(<span class="keyword">true</span>)</span><br><span class="line">                .setDefaults(Notification.DEFAULT_VIBRATE);</span><br><span class="line"></span><br><span class="line">        Intent backIntent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, RecordActivityV2.class);</span><br><span class="line">        PendingIntent pendingIntent = PendingIntent.getActivity(<span class="keyword">this</span>, PENDING_REQUEST_CODE, backIntent, PendingIntent.FLAG_UPDATE_CURRENT);</span><br><span class="line">        builder.setContentIntent(pendingIntent);</span><br><span class="line">        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line">        mNotificationManager.notify(NOTIFICATION_ID, builder.build());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="keyword">if</span> (mNotificationManager != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mNotificationManager.cancel(NOTIFICATION_ID);</span><br><span class="line">        &#125;</span><br><span class="line">        MyWindowManager.removeSmallWindow(getApplicationContext());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码我们可以看出服务启动后进行了Notification的初始化，我这里按照Bilibili的样式去实现的。在Activity中当启动直播时，Bilibili是通过<code>moveTaskToBack(true)</code>直接回到桌面的，所以我猜想开启通知栏和悬浮窗服务应该是在Activity生命周期的<code>onStop()</code>启动和<code>onResume()</code>关闭，当然这些都是业务逻辑可自己定义。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onResume();</span><br><span class="line">    <span class="keyword">if</span> (isRecording) stopScreenRecordService();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onStop();</span><br><span class="line">    <span class="keyword">if</span> (isRecording) startScreenRecordService();</span><br><span class="line">&#125;</span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startScreenRecordService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mRecorder != <span class="keyword">null</span> &amp;&amp; mRecorder.getStatus()) &#123;</span><br><span class="line">            Intent runningServiceIT = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, ScreenRecordListenerService.class);</span><br><span class="line">		   <span class="comment">// bindService(runningServiceIT, connection, BIND_AUTO_CREATE); </span></span><br><span class="line">            startService(runningServiceIT);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">stopScreenRecordService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Intent runningServiceIT = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, ScreenRecordListenerService.class);</span><br><span class="line">    stopService(runningServiceIT);</span><br><span class="line">    <span class="keyword">if</span> (mRecorder != <span class="keyword">null</span> &amp;&amp; mRecorder.getStatus()) &#123;</span><br><span class="line">        Toast.makeText(<span class="keyword">this</span>, <span class="string">"现在正在进行录屏直播哦"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后别忘了在AndroidManifest.xml中进行Service的注册和对悬浮窗的授权。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /&gt;</span><br><span class="line">&lt;application</span><br><span class="line">    &lt;service</span><br><span class="line">        android:name=".service.ScreenRecordListenerService"</span><br><span class="line">        android:enabled="true"</span><br><span class="line">        android:exported="false" /&gt;</span><br><span class="line">&lt;/application&gt;</span><br></pre></td></tr></table></figure>
+<p>关于悬浮窗与通知栏差不多就介绍到这里了，更多细节请查看源码，本Demo源码都是基于上篇博客提到的ScreenRecorder实现的。</p>
+<p>我们来看看最终效果吧：</p>
+<p><img src="https://raw.githubusercontent.com/eterrao/ScreenRecorder/master/images/screenRecorderDemo.gif" alt="效果图"></p>
+<h2 id="录屏直播的实现机制"><a href="#录屏直播的实现机制" class="headerlink" title="录屏直播的实现机制"></a>录屏直播的实现机制</h2><p>使用MediaProjection与VirtualDisplay等Android 5.0以上的API实现的，在此就不多说了，请看<a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396" target="_blank" rel="external">上篇博客</a>吧。</p>
+<h1 id="尾语"><a href="#尾语" class="headerlink" title="尾语"></a>尾语</h1><p>果然还是有个提纲要好下笔的多，至少知道写些什么。因为最近文章写的都有点赶，有疑问的朋友还请留言指正！接下来准备写一下<strong>MediaProjection 实现录屏中 MediaCodec 的详细用法</strong>，至于反编译Bilibili的过程就不写了，反编译为的是参考别人的思路，并不是为了做代码小偷，这点职业操守还是有的，如果说业务上有盗窃之意请出门左转找我们的产品经理，我是无辜的码农[笑]。之后会在别的文章中提及一下我个人使用反编译时的一些心得和小技巧吧。别的主题都还需要花些时间再看看，毕竟都是工作时候囫囵吞枣接触的，理论知识可不能瞎糊弄。</p>
+<h2 id="Demo源码"><a href="#Demo源码" class="headerlink" title="Demo源码"></a><a href="https://github.com/eterrao/ScreenRecorder" target="_blank" rel="external">Demo源码</a></h2><p>Demo源码都在我的<a href="https://github.com/eterrao/ScreenRecorder" target="_blank" rel="external">GitHub仓库</a>中，有需要的朋友可以去 <code>clone</code> 或 <code>fork</code>，如对您有帮助还请给个Star，十分感谢~</p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ul>
+<li><a href="http://blog.csdn.net/guolin_blog/article/details/8689140" target="_blank" rel="external">Android桌面悬浮窗效果实现，仿360手机卫士悬浮窗效果</a></li>
+<li><a href="https://developer.android.google.cn/reference/android/app/Notification.html" target="_blank" rel="external">Android Notification</a></li>
+<li><a href="http://blog.csdn.net/zxccxzzxz/article/details/52377191" target="_blank" rel="external">Android面试一天一题（1Day）IntentService作用是什么</a></li>
+<li><a href="http://www.cnblogs.com/plokmju/p/android_Notification.html" target="_blank" rel="external">Android–通知之Notification</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/直播-录屏/" rel="tag">#直播,录屏</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/" rel="next" title="Android实现录屏直播（一）ScreenRecorder的简单分析">
+                <i class="fa fa-chevron-left"></i> Android实现录屏直播（一）ScreenRecorder的简单分析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/"
+           data-title="Android实现录屏直播（二）需求才是硬道理之产品功能调研" data-url="http://www.shutu.tech/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Codios" />
+          <p class="site-author-name" itemprop="name">Codios</p>
+          <p class="site-description motion-element" itemprop="description">积跬步而至千里</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/eterrao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/raomengyang" target="_blank" title="cnblogs">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  cnblogs
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="weibo.com/raomengyang/" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#产品功能调研"><span class="nav-number">1.</span> <span class="nav-text">产品功能调研</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直播悬浮窗"><span class="nav-number">1.1.</span> <span class="nav-text">直播悬浮窗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直播提示通知栏"><span class="nav-number">1.2.</span> <span class="nav-text">直播提示通知栏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通知栏的实现"><span class="nav-number">1.2.1.</span> <span class="nav-text">通知栏的实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#录屏直播的实现机制"><span class="nav-number">1.3.</span> <span class="nav-text">录屏直播的实现机制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#尾语"><span class="nav-number">2.</span> <span class="nav-text">尾语</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo源码"><span class="nav-number">2.1.</span> <span class="nav-text">Demo源码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文档"><span class="nav-number">3.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Codios</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"raomengyang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("yJRSkUSfIEVQN5nXYHd2ibqh-gzGzoHsz", "yuNAcELkB0SkVGhLfl06MLe3");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
