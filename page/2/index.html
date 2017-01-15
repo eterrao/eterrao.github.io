@@ -260,6 +260,283 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/" itemprop="url">
+                  Android5.0以下NoClassDefFoundError的Bug
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-11T23:46:28+08:00" content="2016-09-11">
+              2016-09-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android异常/" itemprop="url" rel="index">
+                    <span itemprop="name">Android异常</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/11/Android5-0以下NoClassDefFoundError的Bug/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/" class="leancloud_visitors" data-flag-title="Android5.0以下NoClassDefFoundError的Bug">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>大周末的，突然接到老大的电话说很多用户无法安装新上线的APK，让我紧急Fix（现Android项目就我一己之力）。但奇怪的是也没有Bug Reporter，而且开发过程中也一直没问题。根据上报的几个用户的机型，我初步推断都是5.0以下的设备无法启动App，通过云测和优测的真机模拟（在此强烈推荐这两个测试平台，前者是腾讯的，机型较新，后者做的规模还不错，测试较为准确，并且每天都有免费兼容测试的资格和限时免费的机型）打印出Log后得出判断，错误异常居然是这个：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.NoClassDefFoundError</span><br></pre></td></tr></table></figure>
+<p>这可就折腾了，因为Log打印的是某个类没有找到，开始以为是该类的代码问题，仔细检查后发现根本不应该是这个类引发的问题。而分别打的两个正式包（Mac和PC环境）设备报错都不是同一个类，刚开始Google的时候，关键字是<code>NoClassDefFoundError android</code>，SF上网友遇到的是Eclipse的路径配置问题，和我遇到的不是同一个Bug，就在希望快崩溃的时候，再次Google<code>NoClassDefFoundError android studio</code>发现<a href="http://stackoverflow.com/questions/27698287/noclassdeffounderror-with-android-studio-on-android-4" target="_blank" rel="external">该问题描述</a>和我遇到的一模一样，回想前些日子遇到过<a href="https://developer.android.com/studio/build/multidex.html" target="_blank" rel="external">Configure Apps with Over 64K Methods</a>该问题，检查后发现Application并没继承<a href="https://developer.android.com/reference/android/support/multidex/MultiDexApplication.html" target="_blank" rel="external">MultiDexApplication</a>，而build.gradle中依赖也没了，仅仅剩余下述开关<code>multiDexEnabled true</code> 。重新打包测试后果然是这个问题引发的血案，而出现这个问题是因为我和同事merge代码时候丢失部分修改导致的。</p>
+<p>解决方法：</p>
+<ol>
+<li>配置build.gradle (app)</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 21</span><br><span class="line">    buildToolsVersion "21.1.0"</span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        ...</span><br><span class="line">        minSdkVersion 14</span><br><span class="line">        targetSdkVersion 21</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        // Enabling multidex support. 开关</span><br><span class="line">        multiDexEnabled true</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">  // 添加依赖</span><br><span class="line">  compile 'com.android.support:multidex:1.0.0'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用自定义的Application继承 <code>MultiDexApplication</code> 这个类，或者重写Application的方法attachBaseContext()，并调用<code>MultiDex.install()</code></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/02/Android-context-getSystemService-浅析/" itemprop="url">
+                  Android context.getSystemService()浅析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-02T00:55:52+08:00" content="2016-09-02">
+              2016-09-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android源码分析/" itemprop="url" rel="index">
+                    <span itemprop="name">Android源码分析</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/02/Android-context-getSystemService-浅析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/02/Android-context-getSystemService-浅析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/02/Android-context-getSystemService-浅析/" class="leancloud_visitors" data-flag-title="Android context.getSystemService()浅析">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>同事在进行code review的时候问到我context中的getSystemService方法在哪实现的，他看到了一个ClipBoardManager来进行剪切板存储数据的工具方法中用到了context.getSystemService()，而此处我使用的是Application级别的Context进行调用的，可IDE跳转时发现当前类中的getSystemService()方法居然是抽象的，Context类就是一个抽象类，没有具体的实现，可在进行调用的时候却一切正常，同事好奇该方法具体实现在哪实现的，于是我俩一起看源码和查资料后发现有几个值得注意的地方：</p>
+<ul>
+<li>系统service获取和分享的问题，源码中提示到：</li>
+</ul>
+<blockquote>
+<p>Note:  System services obtained via this API may be closely associated with the Context in which they are obtained from.  In general, do not share the service objects between various different contexts (Activities, Applications, Services, Providers, etc.)</p>
+<p> 大意： 获取的系统service可能和他们的context有紧密联系，一般来说不要在不同的context之间分享服务对象，如Activity、Application、Service、Provider</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/02/Android-context-getSystemService-浅析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/28/五年计划-内功修炼/" itemprop="url">
                   五年计划 -- 内功修炼
                 </a>
@@ -1386,7 +1663,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
