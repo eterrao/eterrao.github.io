@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shutu.tech/"/>
-  <updated>2017-01-15T14:04:20.000Z</updated>
+  <updated>2017-04-18T02:39:33.000Z</updated>
   <id>http://www.shutu.tech/</id>
   
   <author>
@@ -14,6 +14,92 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>个人对面试者和面试官的几点经验总结</title>
+    <link href="http://www.shutu.tech/2017/04/18/%E4%B8%AA%E4%BA%BA%E5%AF%B9%E9%9D%A2%E8%AF%95%E8%80%85%E5%92%8C%E9%9D%A2%E8%AF%95%E5%AE%98%E7%9A%84%E5%87%A0%E7%82%B9%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.shutu.tech/2017/04/18/个人对面试者和面试官的几点经验总结/</id>
+    <published>2017-04-18T02:39:33.000Z</published>
+    <updated>2017-04-18T02:39:33.000Z</updated>
+    
+    <content type="html">&lt;p&gt;近期因为公司招人的原因做了回面试官，做了些许总结以备自戒。&lt;/p&gt;
+&lt;h2 id=&quot;面试者：&quot;&gt;&lt;a href=&quot;#面试者：&quot; class=&quot;headerlink&quot; title=&quot;面试者：&quot;&gt;&lt;/a&gt;面试者：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;大部分面试者都有些紧张，其实很正常，我自己面试的时候感觉比他们紧张多了，而且刚开始的时候我自己虽然是面试官，也会感觉很紧张，生怕因为自己的不足导致面试者失去一次宝贵的工作机会，但多面几次就逐渐适应了，所以紧张还是因为自己经历得比较少&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;面试者简历投递的时候，一定不要超过 3 页，并且把你熟悉掌握的技术从前往后依次排列&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;工作经历很重要，但是感觉很多面试者的简历上面并没有突出面试官想看到的重点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;是否项目的负责人，或负责项目的比重，承担那些重要职责&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在项目中攻克了哪些难关，复杂度如何,我很在意面试者有没有对疑难杂症有更好的思路，如果出现问题第一时间如何去解决，有没有责任感，但是往往这一点很难从简短的面试中体现出来&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;最好提供自己的技术博客和 GitHub，有助于面试官多了解你个人的技术能力&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;简历如实写作，遇到过简历上写了自己并不掌握的知识点，这样面试官问到但无法回答的时候会冷场很尴尬的&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;面试官：&quot;&gt;&lt;a href=&quot;#面试官：&quot; class=&quot;headerlink&quot; title=&quot;面试官：&quot;&gt;&lt;/a&gt;面试官：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在面试前要看看将面试的面试者的简历，做个准备&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;除了简历上的点，还需要准备一些必问的题，不能临时想什么问什么，这样会让人感觉不专业不负责，再根据面试者简历准备一下适合他的问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;对面试者的时候态度要谨慎，毕竟很多面试者难免都会很紧张，适当的暖暖场可以让双方的交流更顺畅，面试者也能充分发挥自己的实力&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;掌握时间，技术能力强的，值得面的人可以多花时间深入了解，技术一般的。不合适的人，需要的话可以给予建议，根据自己的时间适时而止&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;切记，不要把你熟悉掌握的某一个专一技术点拿来抨击和当作评判别人的标准，很可能别人比你牛的多，只是这部分没接触过罢了&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;懂得尊重，谁都是从菜鸟过来的&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;后续想到再补充。。。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近期因为公司招人的原因做了回面试官，做了些许总结以备自戒。&lt;/p&gt;
+&lt;h2 id=&quot;面试者：&quot;&gt;&lt;a href=&quot;#面试者：&quot; class=&quot;headerlink&quot; title=&quot;面试者：&quot;&gt;&lt;/a&gt;面试者：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;大部分面试者都有些紧张，其实很正
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="http://www.shutu.tech/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://www.shutu.tech/2017/02/24/%E5%A6%82%E6%9E%9C%E5%BD%93%E6%97%B6%E6%B2%A1%E6%9C%89%E9%80%89%E6%8B%A9%EF%BC%8C%E9%82%A3%E4%B9%88%E6%88%91%E4%BC%9A%E5%9C%A8%E5%93%AA%EF%BC%9F/"/>
+    <id>http://www.shutu.tech/2017/02/24/如果当时没有选择，那么我会在哪？/</id>
+    <published>2017-02-23T17:23:52.000Z</published>
+    <updated>2017-02-23T17:23:52.000Z</updated>
+    
+    <content type="html">&lt;p&gt;如果当时没有选择，那么我会在哪？&lt;/p&gt;
+&lt;p&gt;如今毕业已快两年已久，两年前的今天我还在初学Java，刚通过师兄接触Android，从此踏入编程这条不归路。&lt;/p&gt;
+&lt;p&gt;很感激自己当初的选择，让我能够在一个单纯又靠自己双手创造价值的环境中工作。&lt;/p&gt;
+&lt;p&gt;最近对自己这一两年的得失反思总结了下，回首看着这踏过的一步步脚印，这一路以来也有不少坎坷和艰辛。&lt;/p&gt;
+&lt;p&gt;两年的分水岭，似乎我没有达到预期的及格线。虽然之前一直强调基础，但是基础真的太重要了。没有绝对坚固的知识基础，很难在一个领域有所深入的建树，尤其在阅读《Android内核剖析》作者柯元旦对自己曾经学习和创业之事叙述的时候，明显感觉到了高校之间的巨大差距。&lt;/p&gt;
+&lt;p&gt;好学校是存在学渣，但如果学霸之间的比较呢？大家的平均水平真的不是一个档次的，如果可以的话很希望能够经历一次真正的奋斗考研去往一所自己梦想的大学读研。可惜现实如此，只能不甘的苟活并在技术上能够让自己变得异常的强大才行。&lt;/p&gt;
+&lt;p&gt;最近投简历的时候也感觉自己的不争气，其实两年应该可以证明一个人的技术能力了，可是自己浪荡，没有充分利用时间成长达到应有的水平，很是失望。&lt;/p&gt;
+&lt;p&gt;希望剩下的这关键的一年能够放下心结，努力拼搏对未来的自己有一个交代。不想成为三年技术还是渣的人。&lt;/p&gt;
+&lt;p&gt;不要总是给自己找理由！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果当时没有选择，那么我会在哪？&lt;/p&gt;
+&lt;p&gt;如今毕业已快两年已久，两年前的今天我还在初学Java，刚通过师兄接触Android，从此踏入编程这条不归路。&lt;/p&gt;
+&lt;p&gt;很感激自己当初的选择，让我能够在一个单纯又靠自己双手创造价值的环境中工作。&lt;/p&gt;
+&lt;p&gt;最近对自己这
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Android libyuv应用系列（二）libyuv的使用</title>
@@ -296,9 +382,12 @@
     <link href="http://www.shutu.tech/2017/01/09/Android%E5%AE%9E%E7%8E%B0%E5%BD%95%E5%B1%8F%E7%9B%B4%E6%92%AD%EF%BC%88%E4%BA%8C%EF%BC%89%E9%9C%80%E6%B1%82%E6%89%8D%E6%98%AF%E7%A1%AC%E9%81%93%E7%90%86%E4%B9%8B%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E8%B0%83%E7%A0%94/"/>
     <id>http://www.shutu.tech/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/</id>
     <published>2017-01-08T16:24:46.000Z</published>
-    <updated>2017-01-15T13:55:32.000Z</updated>
+    <updated>2017-03-13T12:31:05.000Z</updated>
     
     <content type="html">&lt;p&gt;请尊重分享成果，转载请注明出处，本文来自&lt;a href=&quot;http://my.csdn.net/zxccxzzxz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Coder包子哥&lt;/a&gt;，原文链接：&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54254244&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/zxccxzzxz/article/details/54254244&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54150396&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android实现录屏直播（一）ScreenRecorder的简单分析&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54254244&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android实现录屏直播（二）需求才是硬道理之产品功能调研&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/55230272&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;前面的&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54150396&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android实现录屏直播（一）ScreenRecorder的简单分析&lt;/a&gt;一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，稍微不注意就会深入每个知识点的细节导致文章又臭又长还表述不清晰，于是我决定把这7天实现该功能的整个流程重新梳理一遍，按照我开发和研究学习的步骤来写，大致过程如下：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#产品功能调研&quot;&gt;产品功能调研&lt;/a&gt;&lt;/li&gt;
@@ -307,7 +396,7 @@
 &lt;li&gt;对 H264 结构、FLV 格式封装的研究学习&lt;/li&gt;
 &lt;li&gt;sps pps avcc 关键帧等视频封装原理的学习与分析&lt;/li&gt;
 &lt;li&gt;MediaProjection 实现录屏中 MediaCodec 的详细用法&lt;/li&gt;
-&lt;li&gt;编码后的帧进行推流&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/55230272&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;编码后的帧进行推流&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h1 id=&quot;产品功能调研&quot;&gt;&lt;a href=&quot;#产品功能调研&quot; class=&quot;headerlink&quot; title=&quot;产品功能调研&quot;&gt;&lt;/a&gt;产品功能调研&lt;/h1&gt;&lt;p&gt;我们作为技术开发人员，任务下发的时候首先要与产品经理进行需求的深入了解，只有了解对方想要的是什么后我们功能实现才能达到他们最大的期望值。当然一旦确定需求后把菜刀亮出来，然后就轻松愉快的写代码吧😜。嗯，本次任务就是尽可能的还原Bilibili的录屏直播功能，汗颜，无需设计，无需讨论，我自己研究吧，反正项目一直都是我一人开发，也习惯了（PS: 尽管是Bilibili的忠实用户，当然不能在工作的时候看番剧啦)，废话不多说，瞄准几个功能：&lt;/p&gt;
@@ -344,6 +433,9 @@
     <summary type="html">
     
       &lt;p&gt;请尊重分享成果，转载请注明出处，本文来自&lt;a href=&quot;http://my.csdn.net/zxccxzzxz&quot;&gt;Coder包子哥&lt;/a&gt;，原文链接：&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54254244&quot;&gt;http://blog.csdn.net/zxccxzzxz/article/details/54254244&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54150396&quot;&gt;Android实现录屏直播（一）ScreenRecorder的简单分析&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54254244&quot;&gt;Android实现录屏直播（二）需求才是硬道理之产品功能调研&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/55230272&quot;&gt;Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;前面的&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54150396&quot;&gt;Android实现录屏直播（一）ScreenRecorder的简单分析&lt;/a&gt;一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，稍微不注意就会深入每个知识点的细节导致文章又臭又长还表述不清晰，于是我决定把这7天实现该功能的整个流程重新梳理一遍，按照我开发和研究学习的步骤来写，大致过程如下：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#产品功能调研&quot;&gt;产品功能调研&lt;/a&gt;&lt;/li&gt;
@@ -352,7 +444,7 @@
 &lt;li&gt;对 H264 结构、FLV 格式封装的研究学习&lt;/li&gt;
 &lt;li&gt;sps pps avcc 关键帧等视频封装原理的学习与分析&lt;/li&gt;
 &lt;li&gt;MediaProjection 实现录屏中 MediaCodec 的详细用法&lt;/li&gt;
-&lt;li&gt;编码后的帧进行推流&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/55230272&quot;&gt;编码后的帧进行推流&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
     
     </summary>
@@ -369,9 +461,12 @@
     <link href="http://www.shutu.tech/2017/01/07/Android%E5%AE%9E%E7%8E%B0%E5%BD%95%E5%B1%8F%E7%9B%B4%E6%92%AD%EF%BC%88%E4%B8%80%EF%BC%89ScreenRecorder%E7%9A%84%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/"/>
     <id>http://www.shutu.tech/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/</id>
     <published>2017-01-06T16:53:49.000Z</published>
-    <updated>2017-01-06T16:53:49.000Z</updated>
+    <updated>2017-03-12T17:19:47.000Z</updated>
     
-    <content type="html">&lt;p&gt;应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54150396&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android实现录屏直播（一）ScreenRecorder的简单分析&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54254244&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android实现录屏直播（二）需求才是硬道理之产品功能调研&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/55230272&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。&lt;/p&gt;
 &lt;p&gt;其实官方提供的&lt;a href=&quot;https://github.com/googlesamples/android-ScreenCapture&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;android-ScreenCapture&lt;/a&gt;这个Sample中已经有了MediaRecorder的实现与使用方式，还有使用MediaRecorder实现的录制屏幕到本地文件的Demo，从中我们都能了解这些API的使用。&lt;/p&gt;
 &lt;p&gt;而如果需要直播推流的话就需要自定义MediaCodec，再从MediaCodec进行编码后获取编码后的帧，免去了我们进行原始帧的采集的步骤省了不少事。可是问题来了，因为之前没有仔细了解H264文件的结构与FLV封装的相关技术，其中爬了不少坑，此后我会一一记录下来，希望对用到的朋友有帮助。&lt;/p&gt;
 &lt;p&gt;项目中对我参考意义最大的一个Demo是网友Yrom的GitHub项目&lt;a href=&quot;https://github.com/yrom/ScreenRecorder&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ScreenRecorder&lt;/a&gt;，Demo中实现了录屏并将视频流存为本地的MP4文件（咳咳，其实Yrom就是Bilibili的员工吧？( ゜- ゜)つロ）😏。在此先大致分析一下该Demo的实现，之后我会再说明我的实现方式。&lt;/p&gt;
@@ -417,11 +512,22 @@
 &lt;p&gt;实现编码：&lt;/p&gt;
 &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;encodeToVideoTrack&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; index)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ByteBuffer encodedData = mEncoder.getOutputBuffer(index);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ((mBufferInfo.flags &amp;amp; MediaCodec.BUFFER_FLAG_CODEC_CONFIG) != &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// The codec config data was pulled out and fed to the muxer when we got&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// the INFO_OUTPUT_FORMAT_CHANGED status.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// Ignore it.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 大致意思就是配置信息(avcc)已经在之前的resetOutputFormat()中喂给了Muxer，此处已经用不到了，然而在我的项目中这一步却是十分重要的一步，因为我需要手动提前实现sps, pps的合成发送给流媒体服务器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Log.d(TAG, &lt;span class=&quot;string&quot;&gt;&quot;ignoring BUFFER_FLAG_CODEC_CONFIG&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        mBufferInfo.size = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (mBufferInfo.size == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Log.d(TAG, &lt;span class=&quot;string&quot;&gt;&quot;info.size == 0, drop it.&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        encodedData = &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Log.d(TAG, &lt;span class=&quot;string&quot;&gt;&quot;got buffer, info: size=&quot;&lt;/span&gt; + mBufferInfo.size&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                + &lt;span class=&quot;string&quot;&gt;&quot;, presentationTimeUs=&quot;&lt;/span&gt; + mBufferInfo.presentationTimeUs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                + &lt;span class=&quot;string&quot;&gt;&quot;, offset=&quot;&lt;/span&gt; + mBufferInfo.offset);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (encodedData != &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        encodedData.position(mBufferInfo.offset);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        encodedData.limit(mBufferInfo.offset + mBufferInfo.size); &lt;span class=&quot;comment&quot;&gt;// encodedData是编码后的视频帧，但注意作者在此并没有进行关键帧与普通视频帧的区别，统一将数据写入Muxer&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        mMuxer.writeSampleData(mVideoTrackIndex, encodedData, mBufferInfo);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Log.i(TAG, &lt;span class=&quot;string&quot;&gt;&quot;sent &quot;&lt;/span&gt; + mBufferInfo.size + &lt;span class=&quot;string&quot;&gt;&quot; bytes to muxer...&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;以上就是对ScreenRecorder这个Demo的大体分析，由于总结时间仓促，很多细节部分我也没有进行深入的发掘研究，所以请大家抱着怀疑的态度阅读，如果说明有误或是理解不到位的地方，希望大家帮忙指出，谢谢！&lt;/p&gt;
+&lt;h2 id=&quot;参考文档&quot;&gt;&lt;a href=&quot;#参考文档&quot; class=&quot;headerlink&quot; title=&quot;参考文档&quot;&gt;&lt;/a&gt;参考文档&lt;/h2&gt;&lt;p&gt;在功能的开发中还参考了很多有价值的资料与文章：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.dobest.me/blog/2016/06/17/Android%E5%B1%8F%E5%B9%95%E7%9B%B4%E6%92%AD%E6%96%B9%E6%A1%88/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android屏幕直播方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://android.googlesource.com/platform/cts/+/kitkat-release/tests/tests/media/src/android/media/cts/EncodeVirtualDisplayTest.java&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Google官方的EncodeVirtualDisplayTest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000007361184&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;FLV文件格式解析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.codeman.net/2014/01/439.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用librtmp进行H264与AAC直播&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;后续更新…&lt;/li&gt;
+&lt;/ol&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54150396&quot;&gt;Android实现录屏直播（一）ScreenRecorder的简单分析&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/54254244&quot;&gt;Android实现录屏直播（二）需求才是硬道理之产品功能调研&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/55230272&quot;&gt;Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。&lt;/p&gt;
 &lt;p&gt;其实官方提供的&lt;a href=&quot;https://github.com/googlesamples/android-ScreenCapture&quot;&gt;android-ScreenCapture&lt;/a&gt;这个Sample中已经有了MediaRecorder的实现与使用方式，还有使用MediaRecorder实现的录制屏幕到本地文件的Demo，从中我们都能了解这些API的使用。&lt;/p&gt;
 &lt;p&gt;而如果需要直播推流的话就需要自定义MediaCodec，再从MediaCodec进行编码后获取编码后的帧，免去了我们进行原始帧的采集的步骤省了不少事。可是问题来了，因为之前没有仔细了解H264文件的结构与FLV封装的相关技术，其中爬了不少坑，此后我会一一记录下来，希望对用到的朋友有帮助。&lt;/p&gt;
 &lt;p&gt;项目中对我参考意义最大的一个Demo是网友Yrom的GitHub项目&lt;a href=&quot;https://github.com/yrom/ScreenRecorder&quot;&gt;ScreenRecorder&lt;/a&gt;，Demo中实现了录屏并将视频流存为本地的MP4文件（咳咳，其实Yrom就是Bilibili的员工吧？( ゜- ゜)つロ）😏。在此先大致分析一下该Demo的实现，之后我会再说明我的实现方式。&lt;/p&gt;
@@ -1505,218 +1611,6 @@
 &lt;li&gt;&lt;a href=&quot;http://tangzm.com/blog/?p=18&quot;&gt;ANDROID 高性能图形处理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/yanzi1225627/article/details/8626411&quot;&gt;Android摄像头开发：实时摄像头视频预览帧的编码问题（二）&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://www.shutu.tech/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="http://www.shutu.tech/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android动画浅析+模仿</title>
-    <link href="http://www.shutu.tech/2016/05/20/AnimationExamples/"/>
-    <id>http://www.shutu.tech/2016/05/20/AnimationExamples/</id>
-    <published>2016-05-19T16:19:54.000Z</published>
-    <updated>2016-06-27T16:13:42.000Z</updated>
-    
-    <content type="html">&lt;h4 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;Android动画浅析+模仿
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;ObjectAnimator&quot;&gt;&lt;a href=&quot;#ObjectAnimator&quot; class=&quot;headerlink&quot; title=&quot;ObjectAnimator:&quot;&gt;&lt;/a&gt;ObjectAnimator:&lt;/h4&gt;&lt;p&gt;属性动画（ObjectAnimator）的概念这里就不解释了，直接从代码中说明，以下是模仿Persicope的加载动画，简单的几行代码即可实现，当然我也是模仿的，更好的实现思路还请各位朋友自己仔细思考。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;先说说我的思路：&lt;/strong&gt; &lt;/p&gt;
-&lt;p&gt;首先下载Periscope然后改名zip解包，获取对应的png图片（搜索相关的loading文件：ps__bg_loading.png），看到了该文件的大小，仔细观察后，发现可以把很多张图连在一起从右–&amp;gt;左的连续位移动画，而这里我用到了属性动画，当然不是最好的选择，而且我这里实现的方法很笨，就是将两个LinearLayout不同x的坐标轴同样的距离和时间进行右到左的translate。实现结果如下图：&lt;/p&gt;
-&lt;h4 id=&quot;Demo-演示&quot;&gt;&lt;a href=&quot;#Demo-演示&quot; class=&quot;headerlink&quot; title=&quot;Demo 演示:&quot;&gt;&lt;/a&gt;Demo 演示:&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/eterrao/AnimationExamples/master/periscopeLoading.gif&quot; alt=&quot;Loading&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Demo地址：&lt;/strong&gt; &lt;a href=&quot;https://github.com/eterrao/AnimationExamples&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/eterrao/AnimationExamples&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;Android动画浅析+模仿
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;ObjectAnimator&quot;&gt;&lt;a href=&quot;#
-    
-    </summary>
-    
-      <category term="Android" scheme="http://www.shutu.tech/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="http://www.shutu.tech/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android-Classical-OpenSource</title>
-    <link href="http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/"/>
-    <id>http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/</id>
-    <published>2016-05-09T05:02:52.000Z</published>
-    <updated>2016-10-27T05:03:14.000Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;p&gt;Android开发中 个人遇到和使用过的值得分享的资源合集&lt;/p&gt;
-&lt;h1 id=&quot;Trinea的OpenProject&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Trinea的OpenProject&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;强烈推荐的Android 开源项目分类汇总，star数量1.7W+&lt;/p&gt;
-&lt;h4 id=&quot;项目说明：&quot;&gt;&lt;a href=&quot;#项目说明：&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;Android 开源项目第一篇——个性化控件(View)篇&lt;br&gt;  包括ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style、其他&lt;br&gt;Android 开源项目第二篇——工具库篇&lt;br&gt;  包括依赖注入、图片缓存、网络请求、数据库 ORM 工具包、Android 公共库、高版本向低版本兼容库、多媒体、事件总线、传感器、安全、插件化、文件、其他&lt;br&gt;Android 开源项目第三篇——优秀项目篇&lt;br&gt;  比较有意思的完整的 Android 项目&lt;br&gt;Android 开源项目第四篇——开发及测试工具篇&lt;br&gt;  包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他&lt;br&gt;Android 开源项目第五篇——优秀个人和团体篇&lt;br&gt;  乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;awesome-android-ui&lt;/a&gt;&lt;/h1&gt;&lt;h4 id=&quot;项目说明：-1&quot;&gt;&lt;a href=&quot;#项目说明：-1&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;p&gt;国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A curated list of awesome Android UI/UX libraries.                       &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AndroidDevTools 开源项目分类汇总&lt;/a&gt;&lt;/h1&gt;&lt;h4 id=&quot;官方网站&quot;&gt;&lt;a href=&quot;#官方网站&quot; class=&quot;headerlink&quot; title=&quot;官方网站&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.androiddevtools.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方网站&lt;/a&gt;&lt;/h4&gt;&lt;h4 id=&quot;项目说明：-2&quot;&gt;&lt;a href=&quot;#项目说明：-2&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。&lt;br&gt;欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;android-tech-frontier&lt;/a&gt;&lt;/h1&gt;&lt;h4 id=&quot;项目说明：-3&quot;&gt;&lt;a href=&quot;#项目说明：-3&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。&lt;/p&gt;
-&lt;p&gt;我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;List-of-Free-Learning-Resources&quot;&gt;&lt;a href=&quot;#List-of-Free-Learning-Resources&quot; class=&quot;headerlink&quot; title=&quot;List of Free Learning Resources&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/vhf/free-programming-books&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;List of Free Learning Resources&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;超神的资源网站，各种国家的编程资料、电子书和博客，应有尽有。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;#个人博客资源：&lt;/p&gt;
-&lt;h2 id=&quot;stormZhang&quot;&gt;&lt;a href=&quot;#stormZhang&quot; class=&quot;headerlink&quot; title=&quot;stormZhang&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://stormzhang.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stormZhang&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;每个人都有一段艰辛、苦逼的成长时光，所以学会从博客开始记录自己一点一滴。这个博客的文章每次看都让自己有更多的动力去学习。提醒自己别忘了还有梦想。&lt;br&gt;PS：&lt;code&gt;还有很多干货&lt;/code&gt;。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;##&lt;a href=&quot;http://ticktick.blog.51cto.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tickTick 的BLOG&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;本目录下的代码都是来自于我的博客《Android应用开发》系列文章，本系列文章介绍Android开发的一些基础和进阶知识，并附带有一些简单的Demo示例，这些示例代码中很多Java文件都对Android API进行了良好的封装，可以直接拿到自己的项目中使用。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Code List&lt;/strong&gt;&lt;br&gt;Builder 给出了使用ant编译Android工程的通用shell脚本，相关博文：Android开发实践：用脚本编译Android工程&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;GroupList&lt;/strong&gt;&lt;br&gt;封装并演示了如何使用Android的ExpandableListView控件，相关博文：Android开发实践：多级列表的封装与应用&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;PopDialog&lt;/strong&gt;&lt;br&gt;封装并演示了如何使用Android的PopupWindow控件，相关博文：Android开发实践：用PopupWindow实现自定义Dailog&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;JniCallback&lt;/strong&gt;&lt;br&gt;演示了如何从Native线程回调Java的函数，相关博文：Android开发实践：JNI层线程回调Java函数示例&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;JniBuffer&lt;/strong&gt;&lt;br&gt;演示了各种从Java端到Native层的Buffer传递方法，相关博文：Android开发实践：Java层与Jni层的数组传递&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;LoopThread&lt;/strong&gt;&lt;br&gt;演示了如何实现一个自定义的带Loop消息循环的线程，相关博文：Android开发实践：自定义带消息循环（Looper）的工作线程&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;VideoPlayer&lt;/strong&gt;&lt;br&gt;演示了Android隐式Intent的用法，相关博文：Android开发实践：实战演练隐式Intent的用法&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;VideoServer&lt;/strong&gt;&lt;br&gt;演示了如何利用NanoHttpd搭建一个Android视频服务器，相关博文：基于NanoHttpd的Android视频服务器开发&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;CustomView&lt;/strong&gt;&lt;br&gt;演示了如何自定义View和ViewGroup，并给出了一个柱状图动画自定义View的实现，相关博文：&lt;/p&gt;
-&lt;p&gt;（1）Android开发实践：为什么要继承onMeasure()&lt;/p&gt;
-&lt;p&gt;（2）Android开发实践：自定义ViewGroup的onLayout()分析&lt;/p&gt;
-&lt;p&gt;（3）Android开发实践：自定义带动画的View&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;WIFI&lt;/strong&gt; 封装了Andriod WIFI扫描和连接的相关API，相关博文：&lt;/p&gt;
-&lt;p&gt;（1）Android开发实践：WIFI扫描功能的封装&lt;/p&gt;
-&lt;p&gt;（2）Android开发实践：WIFI连接功能的封装&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Socket&lt;/strong&gt;封装了Android中的Socket相关API&lt;/p&gt;
-&lt;p&gt;（1） Broadcaster.java 封装了UDP广播包的收发操作，相关博文：Android Socket 发送广播包的那些坑&lt;/p&gt;
-&lt;p&gt;MediaDemo 给出了Android平台下多媒体相关API的demo代码，相关博文：Android中如何提取和生成mp4文件&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Utils&lt;/strong&gt; 给出了一系列的工具类代码&lt;/p&gt;
-&lt;p&gt;（1）SignatureGen.java 一个可以生成Java函数签名字符串的工具类，相关博文: Android开发实践：JNI函数签名生成器&lt;/p&gt;
-&lt;p&gt;（2）BitmapHelper.java 一个封装了Bitmap操作的工具类，包括图片的打开、保存、剪裁、旋转等操作，相关博文: Android开发实践：自己动手编写图片剪裁应用（3）&lt;/p&gt;
-&lt;p&gt;（3）ImageConvertor.java 封装了Android中各种图像格式转换，包括：NV21，YUY2、RGB565、ARGB8888、PNG、JPEG、Bitmap之间的转换操作。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;工具类：&quot;&gt;&lt;a href=&quot;#工具类：&quot; class=&quot;headerlink&quot; title=&quot;工具类：&quot;&gt;&lt;/a&gt;工具类：&lt;/h1&gt;&lt;h2 id=&quot;通用&quot;&gt;&lt;a href=&quot;#通用&quot; class=&quot;headerlink&quot; title=&quot;通用&quot;&gt;&lt;/a&gt;通用&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/bd90dee57ad0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于APK瘦身值得分享的一些经验&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://tinypng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;PNG压缩&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/ae6749858f28&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;几条小经验帮你美化你的GitHub开源项目&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://audiojungle.net/category/sound/buttons-menus&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;BGM音频素材网站&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.strikingly.com/s/select_template?is_new_user=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一个很好的网站模版&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;MarkDown编辑器&quot;&gt;&lt;a href=&quot;#MarkDown编辑器&quot; class=&quot;headerlink&quot; title=&quot;MarkDown编辑器&quot;&gt;&lt;/a&gt;MarkDown编辑器&lt;/h2&gt;&lt;h3 id=&quot;Typora&quot;&gt;&lt;a href=&quot;#Typora&quot; class=&quot;headerlink&quot; title=&quot;Typora&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.typora.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Typora&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;正在使用，简单方便。&lt;strong&gt;强烈推荐！&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;优点：&lt;ul&gt;
-&lt;li&gt;实时预览&lt;/li&gt;
-&lt;li&gt;支持常用的几种主题（GitHub、Night等等）&lt;/li&gt;
-&lt;li&gt;快捷键插入十分方便&lt;/li&gt;
-&lt;li&gt;支持代码的高亮及多种语言的高亮选择&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;: 由于是国外网站，所以下载比较慢，耐心等待&lt;/p&gt;
-&lt;h3 id=&quot;Mou&quot;&gt;&lt;a href=&quot;#Mou&quot; class=&quot;headerlink&quot; title=&quot;Mou&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://25.io/mou/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mou&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;该有的都有了，羞耻的使用了破解版，但是个人唯一受不了的是这货居然不支持多窗口！！&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;优点：左边编辑右边实时预览；&lt;/li&gt;
-&lt;li&gt;缺点：&lt;ul&gt;
-&lt;li&gt;不支持多窗口，不知道能不能设置；&lt;/li&gt;
-&lt;li&gt;收费软件；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;Cmd-Markdown编辑器&quot;&gt;&lt;a href=&quot;#Cmd-Markdown编辑器&quot; class=&quot;headerlink&quot; title=&quot;Cmd Markdown编辑器&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.zybuluo.com/mdeditor#403095&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cmd Markdown编辑器&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;一款&lt;strong&gt;在线&lt;/strong&gt;编辑的MarkDown编辑器，设计简洁。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;优点：&lt;ul&gt;
-&lt;li&gt;浏览器在线编辑，可以实时同步到不同的设备&lt;/li&gt;
-&lt;li&gt;支持导出的格式挺多&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;缺点：&lt;ul&gt;
-&lt;li&gt;需要注册登录账号&lt;/li&gt;
-&lt;li&gt;没有网貌似没法用&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;StackEdit&quot;&gt;&lt;a href=&quot;#StackEdit&quot; class=&quot;headerlink&quot; title=&quot;StackEdit&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://stackedit.io/editor&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;StackEdit&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;同样是&lt;strong&gt;在线&lt;/strong&gt;编辑器，国外的&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;Android-Studio插件&quot;&gt;&lt;a href=&quot;#Android-Studio插件&quot; class=&quot;headerlink&quot; title=&quot;Android Studio插件&quot;&gt;&lt;/a&gt;Android Studio插件&lt;/h2&gt;&lt;h3 id=&quot;CodeGlance&quot;&gt;&lt;a href=&quot;#CodeGlance&quot; class=&quot;headerlink&quot; title=&quot;CodeGlance&quot;&gt;&lt;/a&gt;CodeGlance&lt;/h3&gt;&lt;p&gt;一款生成代码缩略图，快速定位的插件，强烈推荐！&lt;br&gt;这个插件会把IDE右侧的滚动条换成代码缩略图，这样在滚动代码的时候非常便捷，极大提高了浏览代码的效率。 &lt;/p&gt;
-&lt;h2 id=&quot;真机调试&quot;&gt;&lt;a href=&quot;#真机调试&quot; class=&quot;headerlink&quot; title=&quot;真机调试&quot;&gt;&lt;/a&gt;真机调试&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.testin.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;云测 (Testin)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://utest.qq.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;优测 (腾讯的)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;数据统计-Bug-Crash-Reporter&quot;&gt;&lt;a href=&quot;#数据统计-Bug-Crash-Reporter&quot; class=&quot;headerlink&quot; title=&quot;数据统计 / Bug / Crash Reporter&quot;&gt;&lt;/a&gt;数据统计 / Bug / Crash Reporter&lt;/h2&gt;&lt;h3 id=&quot;国内&quot;&gt;&lt;a href=&quot;#国内&quot; class=&quot;headerlink&quot; title=&quot;国内&quot;&gt;&lt;/a&gt;&lt;strong&gt;国内&lt;/strong&gt;&lt;/h3&gt;&lt;h4 id=&quot;友盟&quot;&gt;&lt;a href=&quot;#友盟&quot; class=&quot;headerlink&quot; title=&quot;友盟&quot;&gt;&lt;/a&gt;&lt;strong&gt;&lt;a href=&quot;http://www.umeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;友盟&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;&lt;p&gt;友盟的功能集成挺多，常用的基本都覆盖了，社会化组件/数据统计/Bug分析基本都通用，并且使用起来比较直观。SDK使用的话也不算麻烦。&lt;br&gt;优点就不说了，说说缺点吧，就是Crash Report不能实时邮件反馈，第二天9点30左右才会收到前一天的统计概况。详情的话倒是可以实时查询。&lt;/p&gt;
-&lt;h3 id=&quot;国外&quot;&gt;&lt;a href=&quot;#国外&quot; class=&quot;headerlink&quot; title=&quot;国外&quot;&gt;&lt;/a&gt;国外&lt;/h3&gt;&lt;h4 id=&quot;Fabric-Twitter出的&quot;&gt;&lt;a href=&quot;#Fabric-Twitter出的&quot; class=&quot;headerlink&quot; title=&quot;Fabric (Twitter出的)&quot;&gt;&lt;/a&gt;&lt;strong&gt;&lt;a href=&quot;https://fabric.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Fabric&lt;/a&gt; (Twitter出的)&lt;/strong&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;优点&lt;/strong&gt;：反馈及时，一般有了Bug邮件没过多久就收到了，并且集成起来很方便，基于Android Studio的一个插件自动将SDK打入项目中。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;缺点&lt;/strong&gt;：如果平时Debug频率高的话建议关闭，每次切换分之如果有什么意外总会重新拉取最新的版本，一等就是十几分钟，等待真正公测的时候再打开，这样信息比较准确，还有建议测试的时候打包使用Debug版本号，能够在日志清楚的区分线上线下版本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;公共API&quot;&gt;&lt;a href=&quot;#公共API&quot; class=&quot;headerlink&quot; title=&quot;公共API&quot;&gt;&lt;/a&gt;公共API&lt;/h2&gt;&lt;h3 id=&quot;和风天气&quot;&gt;&lt;a href=&quot;#和风天气&quot; class=&quot;headerlink&quot; title=&quot;和风天气&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.heweather.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;和风天气&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;一款功能较多，可以免费使用的天气API（免费的日访问量为3000，开发练手足够了）。&lt;/p&gt;
-&lt;h3 id=&quot;干货集中营&quot;&gt;&lt;a href=&quot;#干货集中营&quot; class=&quot;headerlink&quot; title=&quot;干货集中营&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://gank.io/api&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;干货集中营&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;想要更多API？来这里吧，各种福利、干活日日推荐。&lt;/p&gt;
-&lt;h3 id=&quot;Unsplash&quot;&gt;&lt;a href=&quot;#Unsplash&quot; class=&quot;headerlink&quot; title=&quot;Unsplash&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://unsplash.it/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Unsplash&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;一个全球集中的图片开放API&lt;/p&gt;
-&lt;h3 id=&quot;看知乎&quot;&gt;&lt;a href=&quot;#看知乎&quot; class=&quot;headerlink&quot; title=&quot;看知乎&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.kanzhihu.com/api-document&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;看知乎&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;知乎开放的API，同样可以练练手&lt;/p&gt;
-&lt;h3 id=&quot;OhMyBilibili&quot;&gt;&lt;a href=&quot;#OhMyBilibili&quot; class=&quot;headerlink&quot; title=&quot;OhMyBilibili&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.jianshu.com/p/f69a55b94c05&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;OhMyBilibili&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;该作者为了信仰对Bilibili仿写的一个APP&lt;/p&gt;
-&lt;p&gt;Bilibili的API如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;BiliBili API / REST service written in Go&lt;br&gt;&lt;a href=&quot;https://github.com/WhiteBlue&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;WhiteBlue&lt;/a&gt;/&lt;strong&gt;bilibili-go&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;bilibili官方文档搬运(官方文档已不对外开放)&lt;br&gt;&lt;a href=&quot;https://github.com/fython&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;fython&lt;/a&gt;/&lt;strong&gt;BilibiliAPIDocs&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;Android资源网站&quot;&gt;&lt;a href=&quot;#Android资源网站&quot; class=&quot;headerlink&quot; title=&quot;Android资源网站&quot;&gt;&lt;/a&gt;Android资源网站&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.see-source.com/androidwidget/list.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;资源网站：看源社区&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://tech.meituan.com/archives&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;美团点评技术团队博客&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;看看Android新技术&quot;&gt;&lt;a href=&quot;#看看Android新技术&quot; class=&quot;headerlink&quot; title=&quot;看看Android新技术&quot;&gt;&lt;/a&gt;看看Android新技术&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.jianshu.com/p/8ed9543b15db&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/8ed9543b15db&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;感觉Android不停的更新迭代，技术也是层出不穷，在深度学习的同时也要了解当今技术广度的变化嘛，这篇博客写的挺全面，涉及Retrofit，RxJava，MVP，MVVM等等&lt;/p&gt;
-&lt;h2 id=&quot;VR相关资源&quot;&gt;&lt;a href=&quot;#VR相关资源&quot; class=&quot;headerlink&quot; title=&quot;VR相关资源&quot;&gt;&lt;/a&gt;VR相关资源&lt;/h2&gt;&lt;p&gt;一个VR资源汇总贴：&lt;a href=&quot;https://github.com/GeekLiB/Lee-VR-Source&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/GeekLiB/Lee-VR-Source&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;设计&quot;&gt;&lt;a href=&quot;#设计&quot; class=&quot;headerlink&quot; title=&quot;设计&quot;&gt;&lt;/a&gt;设计&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://share.jike.ruguoapp.com/topics/5517b3d3e4b08971ae480d7d&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dribbble每日最佳设计推送&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;面试相关&quot;&gt;&lt;a href=&quot;#面试相关&quot; class=&quot;headerlink&quot; title=&quot;面试相关&quot;&gt;&lt;/a&gt;面试相关&lt;/h1&gt;&lt;p&gt;面试，面试，面试！重要的事情说三遍！&lt;/p&gt;
-&lt;h2 id=&quot;Android面试经验-–-乐视&quot;&gt;&lt;a href=&quot;#Android面试经验-–-乐视&quot; class=&quot;headerlink&quot; title=&quot;Android面试经验 – 乐视&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz/article/details/52733726&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android面试经验 – 乐视&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;此次投的是三年经验的&lt;a href=&quot;http://lib.csdn.net/base/15&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android&lt;/a&gt;开发，最后反而因为自己的失误，没有准备充分而导致结果很悲剧，以此告诫自己千万不能疏忽大意。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;AndroidInterview-Q-A&quot;&gt;&lt;a href=&quot;#AndroidInterview-Q-A&quot; class=&quot;headerlink&quot; title=&quot;AndroidInterview-Q-A&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/JackyAndroid/AndroidInterview-Q-A&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AndroidInterview-Q-A&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;以下面试题来自于百度、小米、乐视、美团、58、猎豹、360、新浪、搜狐内部题库&lt;/p&gt;
-&lt;p&gt;熟悉本文中列出的知识点会大大增加通过前两轮技术面试的几率。&lt;/p&gt;
-&lt;h3 id=&quot;一、Java基础&quot;&gt;&lt;a href=&quot;#一、Java基础&quot; class=&quot;headerlink&quot; title=&quot;一、Java基础&quot;&gt;&lt;/a&gt;一、Java基础&lt;/h3&gt;&lt;h3 id=&quot;二、Android基础&quot;&gt;&lt;a href=&quot;#二、Android基础&quot; class=&quot;headerlink&quot; title=&quot;二、Android基础&quot;&gt;&lt;/a&gt;二、Android基础&lt;/h3&gt;&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;LearningNotes&quot;&gt;&lt;a href=&quot;#LearningNotes&quot; class=&quot;headerlink&quot; title=&quot;LearningNotes&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/GeniusVJR/LearningNotes&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LearningNotes&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;内容涵盖了Android各大知识点，不必要都看别人总结的，可以自己试着总结这样学习更快，但可以根据别人列出的知识点查缺补漏。博主第六部分的&lt;strong&gt;面试经验&lt;/strong&gt;值得借鉴&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;一个五年Android开发者百度、阿里、聚美、映客的面试心经&quot;&gt;&lt;a href=&quot;#一个五年Android开发者百度、阿里、聚美、映客的面试心经&quot; class=&quot;headerlink&quot; title=&quot;一个五年Android开发者百度、阿里、聚美、映客的面试心经&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://gdky005.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一个五年Android开发者百度、阿里、聚美、映客的面试心经&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;先简单说说我最近的面试经历吧。面试的公司很多，其中有让我心血沸腾的经历，也有让我感到失望到无助的经历，我将这些体会都记录下来，细想之后很值得，面了这么多公司，要是最后什么也没有留下来，那就太浪费了。至少对于我来说有些东西在整理总结之后才能得到一个肯定的答案。希望这些能对即将换工作或者打算看看机会的你有一些帮助。&lt;/p&gt;
-&lt;p&gt;……&lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Android-Classical-OpenSource&quot;&gt;&lt;a href=&quot;#Android-Classical-OpenSource&quot; class=&quot;headerlink&quot; title=&quot;Android-Classical-OpenSource&quot;&gt;&lt;/a&gt;Android-Classical-OpenSource&lt;/h1&gt;&lt;p&gt;Android开发中 个人遇到和使用过的值得分享的资源合集&lt;/p&gt;
-&lt;h1 id=&quot;Trinea的OpenProject&quot;&gt;&lt;a href=&quot;#Trinea的OpenProject&quot; class=&quot;headerlink&quot; title=&quot;Trinea的OpenProject&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/Trinea/android-open-project&quot;&gt;Trinea的OpenProject&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;强烈推荐的Android 开源项目分类汇总，star数量1.7W+&lt;/p&gt;
-&lt;h4 id=&quot;项目说明：&quot;&gt;&lt;a href=&quot;#项目说明：&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;Android 开源项目第一篇——个性化控件(View)篇&lt;br&gt;  包括ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style、其他&lt;br&gt;Android 开源项目第二篇——工具库篇&lt;br&gt;  包括依赖注入、图片缓存、网络请求、数据库 ORM 工具包、Android 公共库、高版本向低版本兼容库、多媒体、事件总线、传感器、安全、插件化、文件、其他&lt;br&gt;Android 开源项目第三篇——优秀项目篇&lt;br&gt;  比较有意思的完整的 Android 项目&lt;br&gt;Android 开源项目第四篇——开发及测试工具篇&lt;br&gt;  包括开发效率工具、开发自测相关、测试工具、开发及编译环境、其他&lt;br&gt;Android 开源项目第五篇——优秀个人和团体篇&lt;br&gt;  乐于分享并且有一些很不错的开源项目的个人和组织，包括 JakeWharton、Chris Banes、Koushik Dutta 等&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;awesome-android-ui&quot;&gt;&lt;a href=&quot;#awesome-android-ui&quot; class=&quot;headerlink&quot; title=&quot;awesome-android-ui&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/wasabeef/awesome-android-ui&quot;&gt;awesome-android-ui&lt;/a&gt;&lt;/h1&gt;&lt;h4 id=&quot;项目说明：-1&quot;&gt;&lt;a href=&quot;#项目说明：-1&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;p&gt;国外wasabeef大神分享的一个库，同上面Trinea开源的共享库。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A curated list of awesome Android UI/UX libraries.                       &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;AndroidDevTools-开源项目分类汇总&quot;&gt;&lt;a href=&quot;#AndroidDevTools-开源项目分类汇总&quot; class=&quot;headerlink&quot; title=&quot;AndroidDevTools 开源项目分类汇总&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/inferjay/AndroidDevTools&quot;&gt;AndroidDevTools 开源项目分类汇总&lt;/a&gt;&lt;/h1&gt;&lt;h4 id=&quot;官方网站&quot;&gt;&lt;a href=&quot;#官方网站&quot; class=&quot;headerlink&quot; title=&quot;官方网站&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.androiddevtools.cn/&quot;&gt;官方网站&lt;/a&gt;&lt;/h4&gt;&lt;h4 id=&quot;项目说明：-2&quot;&gt;&lt;a href=&quot;#项目说明：-2&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。&lt;br&gt;欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材，欢迎Star、Fork 😄。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;android-tech-frontier&quot;&gt;&lt;a href=&quot;#android-tech-frontier&quot; class=&quot;headerlink&quot; title=&quot;android-tech-frontier&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/eterrao/android-tech-frontier.git&quot;&gt;android-tech-frontier&lt;/a&gt;&lt;/h1&gt;&lt;h4 id=&quot;项目说明：-3&quot;&gt;&lt;a href=&quot;#项目说明：-3&quot; class=&quot;headerlink&quot; title=&quot;项目说明：&quot;&gt;&lt;/a&gt;项目说明：&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;一个定期翻译、发布国内外Android优质的技术、开源库、软件架构设计、测试等文章的开源项目,让我们的技术跟上国际步伐。&lt;/p&gt;
-&lt;p&gt;我们翻译的文章在能够联系到作者的情况下都会在获得作者授权后进行翻译，并且公开发布。发布的文章中都会保留原文链接、作者名，如有相关的版权协议我们也会一并附上。目前已经联系到的作者列表请参考授权文档;&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     

@@ -87,21 +87,27 @@
 
 
 <meta name="description" content="请尊重分享成果，转载请注明出处，本文来自Coder包子哥，原文链接：http://blog.csdn.net/zxccxzzxz/article/details/54254244
-前面的Android实现录屏直播（一）ScreenRecorder的简单分析一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，">
+Android实现录屏直播（一）ScreenRecorder的简单分析
+Android实现录屏直播（二）需求才是硬道理之产品功能调研
+Android实现录屏直播（三）MediaProjection + VirtualDi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android实现录屏直播（二）需求才是硬道理之产品功能调研">
 <meta property="og:url" content="http://www.shutu.tech/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/index.html">
 <meta property="og:site_name" content="书途">
 <meta property="og:description" content="请尊重分享成果，转载请注明出处，本文来自Coder包子哥，原文链接：http://blog.csdn.net/zxccxzzxz/article/details/54254244
-前面的Android实现录屏直播（一）ScreenRecorder的简单分析一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，">
+Android实现录屏直播（一）ScreenRecorder的简单分析
+Android实现录屏直播（二）需求才是硬道理之产品功能调研
+Android实现录屏直播（三）MediaProjection + VirtualDi">
 <meta property="og:image" content="https://raw.githubusercontent.com/eterrao/ScreenRecorder/master/images/floating_window.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/eterrao/ScreenRecorder/master/images/notification.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/eterrao/ScreenRecorder/master/images/screenRecorderDemo.gif">
-<meta property="og:updated_time" content="2017-01-15T13:55:32.000Z">
+<meta property="og:updated_time" content="2017-03-13T12:31:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android实现录屏直播（二）需求才是硬道理之产品功能调研">
 <meta name="twitter:description" content="请尊重分享成果，转载请注明出处，本文来自Coder包子哥，原文链接：http://blog.csdn.net/zxccxzzxz/article/details/54254244
-前面的Android实现录屏直播（一）ScreenRecorder的简单分析一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，">
+Android实现录屏直播（一）ScreenRecorder的简单分析
+Android实现录屏直播（二）需求才是硬道理之产品功能调研
+Android实现录屏直播（三）MediaProjection + VirtualDi">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/eterrao/ScreenRecorder/master/images/floating_window.png">
 
 
@@ -346,6 +352,9 @@
 
       
         <p>请尊重分享成果，转载请注明出处，本文来自<a href="http://my.csdn.net/zxccxzzxz" target="_blank" rel="external">Coder包子哥</a>，原文链接：<a href="http://blog.csdn.net/zxccxzzxz/article/details/54254244" target="_blank" rel="external">http://blog.csdn.net/zxccxzzxz/article/details/54254244</a></p>
+<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396" target="_blank" rel="external">Android实现录屏直播（一）ScreenRecorder的简单分析</a></p>
+<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54254244" target="_blank" rel="external">Android实现录屏直播（二）需求才是硬道理之产品功能调研</a></p>
+<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/55230272" target="_blank" rel="external">Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器</a></p>
 <p>前面的<a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396" target="_blank" rel="external">Android实现录屏直播（一）ScreenRecorder的简单分析</a>一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，稍微不注意就会深入每个知识点的细节导致文章又臭又长还表述不清晰，于是我决定把这7天实现该功能的整个流程重新梳理一遍，按照我开发和研究学习的步骤来写，大致过程如下：</p>
 <ol>
 <li><a href="#产品功能调研">产品功能调研</a></li>
@@ -354,7 +363,7 @@
 <li>对 H264 结构、FLV 格式封装的研究学习</li>
 <li>sps pps avcc 关键帧等视频封装原理的学习与分析</li>
 <li>MediaProjection 实现录屏中 MediaCodec 的详细用法</li>
-<li>编码后的帧进行推流</li>
+<li><a href="http://blog.csdn.net/zxccxzzxz/article/details/55230272" target="_blank" rel="external">编码后的帧进行推流</a></li>
 </ol>
 <a id="more"></a>
 <h1 id="产品功能调研"><a href="#产品功能调研" class="headerlink" title="产品功能调研"></a>产品功能调研</h1><p>我们作为技术开发人员，任务下发的时候首先要与产品经理进行需求的深入了解，只有了解对方想要的是什么后我们功能实现才能达到他们最大的期望值。当然一旦确定需求后把菜刀亮出来，然后就轻松愉快的写代码吧😜。嗯，本次任务就是尽可能的还原Bilibili的录屏直播功能，汗颜，无需设计，无需讨论，我自己研究吧，反正项目一直都是我一人开发，也习惯了（PS: 尽管是Bilibili的忠实用户，当然不能在工作的时候看番剧啦)，废话不多说，瞄准几个功能：</p>
@@ -498,7 +507,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -515,7 +524,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

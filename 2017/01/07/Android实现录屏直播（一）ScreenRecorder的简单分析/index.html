@@ -86,19 +86,25 @@
 
 
 
-<meta name="description" content="应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。
-其实官方提供的android-ScreenCapture这个Sample中已经有了MediaRecorder的实现与使用方式，还有使用Med">
+<meta name="description" content="Android实现录屏直播（一）ScreenRecorder的简单分析
+Android实现录屏直播（二）需求才是硬道理之产品功能调研
+Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器
+应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android实现录屏直播（一）ScreenRecorder的简单分析">
 <meta property="og:url" content="http://www.shutu.tech/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/index.html">
 <meta property="og:site_name" content="书途">
-<meta property="og:description" content="应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。
-其实官方提供的android-ScreenCapture这个Sample中已经有了MediaRecorder的实现与使用方式，还有使用Med">
-<meta property="og:updated_time" content="2017-01-06T16:53:49.000Z">
+<meta property="og:description" content="Android实现录屏直播（一）ScreenRecorder的简单分析
+Android实现录屏直播（二）需求才是硬道理之产品功能调研
+Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器
+应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilib">
+<meta property="og:updated_time" content="2017-03-12T17:19:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android实现录屏直播（一）ScreenRecorder的简单分析">
-<meta name="twitter:description" content="应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。
-其实官方提供的android-ScreenCapture这个Sample中已经有了MediaRecorder的实现与使用方式，还有使用Med">
+<meta name="twitter:description" content="Android实现录屏直播（一）ScreenRecorder的简单分析
+Android实现录屏直播（二）需求才是硬道理之产品功能调研
+Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器
+应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilib">
 
 
 
@@ -322,7 +328,10 @@
       
 
       
-        <p>应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。</p>
+        <p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396" target="_blank" rel="external">Android实现录屏直播（一）ScreenRecorder的简单分析</a></p>
+<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54254244" target="_blank" rel="external">Android实现录屏直播（二）需求才是硬道理之产品功能调研</a></p>
+<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/55230272" target="_blank" rel="external">Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器</a></p>
+<p>应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。</p>
 <p>其实官方提供的<a href="https://github.com/googlesamples/android-ScreenCapture" target="_blank" rel="external">android-ScreenCapture</a>这个Sample中已经有了MediaRecorder的实现与使用方式，还有使用MediaRecorder实现的录制屏幕到本地文件的Demo，从中我们都能了解这些API的使用。</p>
 <p>而如果需要直播推流的话就需要自定义MediaCodec，再从MediaCodec进行编码后获取编码后的帧，免去了我们进行原始帧的采集的步骤省了不少事。可是问题来了，因为之前没有仔细了解H264文件的结构与FLV封装的相关技术，其中爬了不少坑，此后我会一一记录下来，希望对用到的朋友有帮助。</p>
 <p>项目中对我参考意义最大的一个Demo是网友Yrom的GitHub项目<a href="https://github.com/yrom/ScreenRecorder" target="_blank" rel="external">ScreenRecorder</a>，Demo中实现了录屏并将视频流存为本地的MP4文件（咳咳，其实Yrom就是Bilibili的员工吧？( ゜- ゜)つロ）😏。在此先大致分析一下该Demo的实现，之后我会再说明我的实现方式。</p>
@@ -368,6 +377,14 @@
 <p>实现编码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">encodeToVideoTrack</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    ByteBuffer encodedData = mEncoder.getOutputBuffer(index);</span><br><span class="line">    <span class="keyword">if</span> ((mBufferInfo.flags &amp; MediaCodec.BUFFER_FLAG_CODEC_CONFIG) != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// The codec config data was pulled out and fed to the muxer when we got</span></span><br><span class="line">        <span class="comment">// the INFO_OUTPUT_FORMAT_CHANGED status.</span></span><br><span class="line">        <span class="comment">// Ignore it.</span></span><br><span class="line">        <span class="comment">// 大致意思就是配置信息(avcc)已经在之前的resetOutputFormat()中喂给了Muxer，此处已经用不到了，然而在我的项目中这一步却是十分重要的一步，因为我需要手动提前实现sps, pps的合成发送给流媒体服务器</span></span><br><span class="line">        Log.d(TAG, <span class="string">"ignoring BUFFER_FLAG_CODEC_CONFIG"</span>);</span><br><span class="line">        mBufferInfo.size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (mBufferInfo.size == <span class="number">0</span>) &#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"info.size == 0, drop it."</span>);</span><br><span class="line">        encodedData = <span class="keyword">null</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"got buffer, info: size="</span> + mBufferInfo.size</span><br><span class="line">                + <span class="string">", presentationTimeUs="</span> + mBufferInfo.presentationTimeUs</span><br><span class="line">                + <span class="string">", offset="</span> + mBufferInfo.offset);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (encodedData != <span class="keyword">null</span>) &#123;</span><br><span class="line">        encodedData.position(mBufferInfo.offset);</span><br><span class="line">        encodedData.limit(mBufferInfo.offset + mBufferInfo.size); <span class="comment">// encodedData是编码后的视频帧，但注意作者在此并没有进行关键帧与普通视频帧的区别，统一将数据写入Muxer</span></span><br><span class="line">        mMuxer.writeSampleData(mVideoTrackIndex, encodedData, mBufferInfo);</span><br><span class="line">        Log.i(TAG, <span class="string">"sent "</span> + mBufferInfo.size + <span class="string">" bytes to muxer..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上就是对ScreenRecorder这个Demo的大体分析，由于总结时间仓促，很多细节部分我也没有进行深入的发掘研究，所以请大家抱着怀疑的态度阅读，如果说明有误或是理解不到位的地方，希望大家帮忙指出，谢谢！</p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p>在功能的开发中还参考了很多有价值的资料与文章：</p>
+<ol>
+<li><a href="http://www.dobest.me/blog/2016/06/17/Android%E5%B1%8F%E5%B9%95%E7%9B%B4%E6%92%AD%E6%96%B9%E6%A1%88/" target="_blank" rel="external">Android屏幕直播方案</a></li>
+<li><a href="https://android.googlesource.com/platform/cts/+/kitkat-release/tests/tests/media/src/android/media/cts/EncodeVirtualDisplayTest.java" target="_blank" rel="external">Google官方的EncodeVirtualDisplayTest</a></li>
+<li><a href="https://segmentfault.com/a/1190000007361184" target="_blank" rel="external">FLV文件格式解析</a></li>
+<li><a href="http://www.codeman.net/2014/01/439.html" target="_blank" rel="external">使用librtmp进行H264与AAC直播</a></li>
+<li>后续更新…</li>
+</ol>
 
       
     </div>
@@ -480,7 +497,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -497,7 +514,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -562,7 +579,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ScreenRecorder"><span class="nav-number">1.</span> <span class="nav-text">ScreenRecorder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MainActivity"><span class="nav-number">1.1.</span> <span class="nav-text">MainActivity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ScreenRecorder-1"><span class="nav-number">1.2.</span> <span class="nav-text">ScreenRecorder</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程主体"><span class="nav-number">1.2.1.</span> <span class="nav-text">线程主体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MediaCodec的初始化"><span class="nav-number">1.2.2.</span> <span class="nav-text">MediaCodec的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码器实现循环编码"><span class="nav-number">1.2.3.</span> <span class="nav-text">编码器实现循环编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#录屏视频帧的编码过程"><span class="nav-number">1.2.4.</span> <span class="nav-text">录屏视频帧的编码过程</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ScreenRecorder"><span class="nav-number">1.</span> <span class="nav-text">ScreenRecorder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MainActivity"><span class="nav-number">1.1.</span> <span class="nav-text">MainActivity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ScreenRecorder-1"><span class="nav-number">1.2.</span> <span class="nav-text">ScreenRecorder</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程主体"><span class="nav-number">1.2.1.</span> <span class="nav-text">线程主体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MediaCodec的初始化"><span class="nav-number">1.2.2.</span> <span class="nav-text">MediaCodec的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码器实现循环编码"><span class="nav-number">1.2.3.</span> <span class="nav-text">编码器实现循环编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#录屏视频帧的编码过程"><span class="nav-number">1.2.4.</span> <span class="nav-text">录屏视频帧的编码过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">1.3.</span> <span class="nav-text">参考文档</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
