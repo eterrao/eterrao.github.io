@@ -4,9 +4,9 @@
   <subtitle>人无书而涂，因书而智，终老以书为伴，是为书途</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.shutu.tech/"/>
+  <link href="http://www.raomengyang.com/"/>
   <updated>2017-05-15T16:15:03.000Z</updated>
-  <id>http://www.shutu.tech/</id>
+  <id>http://www.raomengyang.com/</id>
   
   <author>
     <name>Codios</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>求职，离职，入职</title>
-    <link href="http://www.shutu.tech/2017/05/16/%E6%B1%82%E8%81%8C%EF%BC%8C%E7%A6%BB%E8%81%8C%EF%BC%8C%E5%85%A5%E8%81%8C/"/>
-    <id>http://www.shutu.tech/2017/05/16/求职，离职，入职/</id>
+    <link href="http://www.raomengyang.com/2017/05/16/%E6%B1%82%E8%81%8C%EF%BC%8C%E7%A6%BB%E8%81%8C%EF%BC%8C%E5%85%A5%E8%81%8C/"/>
+    <id>http://www.raomengyang.com/2017/05/16/求职，离职，入职/</id>
     <published>2017-05-15T16:15:03.000Z</published>
     <updated>2017-05-15T16:15:03.000Z</updated>
     
@@ -46,14 +46,14 @@
     </summary>
     
     
-      <category term="感悟" scheme="http://www.shutu.tech/tags/%E6%84%9F%E6%82%9F/"/>
+      <category term="感悟" scheme="http://www.raomengyang.com/tags/%E6%84%9F%E6%82%9F/"/>
     
   </entry>
   
   <entry>
     <title>Android实现录屏直播（三）MediaProjection VirtualDisplay librtmp MediaCodec实现视频编码并推流到rtmp服务器</title>
-    <link href="http://www.shutu.tech/2017/04/18/Android%E5%AE%9E%E7%8E%B0%E5%BD%95%E5%B1%8F%E7%9B%B4%E6%92%AD%EF%BC%88%E4%B8%89%EF%BC%89MediaProjection%20VirtualDisplay%20librtmp%20MediaCodec%E5%AE%9E%E7%8E%B0%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81%E5%B9%B6%E6%8E%A8%E6%B5%81%E5%88%B0rtmp%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>http://www.shutu.tech/2017/04/18/Android实现录屏直播（三）MediaProjection VirtualDisplay librtmp MediaCodec实现视频编码并推流到rtmp服务器/</id>
+    <link href="http://www.raomengyang.com/2017/04/18/Android%E5%AE%9E%E7%8E%B0%E5%BD%95%E5%B1%8F%E7%9B%B4%E6%92%AD%EF%BC%88%E4%B8%89%EF%BC%89MediaProjection%20VirtualDisplay%20librtmp%20MediaCodec%E5%AE%9E%E7%8E%B0%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81%E5%B9%B6%E6%8E%A8%E6%B5%81%E5%88%B0rtmp%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://www.raomengyang.com/2017/04/18/Android实现录屏直播（三）MediaProjection VirtualDisplay librtmp MediaCodec实现视频编码并推流到rtmp服务器/</id>
     <published>2017-04-18T02:45:33.000Z</published>
     <updated>2017-04-18T02:45:46.000Z</updated>
     
@@ -160,17 +160,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://www.shutu.tech/categories/Android/"/>
+      <category term="Android" scheme="http://www.raomengyang.com/categories/Android/"/>
     
     
-      <category term="Android, 录屏" scheme="http://www.shutu.tech/tags/Android-%E5%BD%95%E5%B1%8F/"/>
+      <category term="Android, 录屏" scheme="http://www.raomengyang.com/tags/Android-%E5%BD%95%E5%B1%8F/"/>
     
   </entry>
   
   <entry>
     <title>个人对面试者和面试官的几点经验总结</title>
-    <link href="http://www.shutu.tech/2017/04/18/%E4%B8%AA%E4%BA%BA%E5%AF%B9%E9%9D%A2%E8%AF%95%E8%80%85%E5%92%8C%E9%9D%A2%E8%AF%95%E5%AE%98%E7%9A%84%E5%87%A0%E7%82%B9%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    <id>http://www.shutu.tech/2017/04/18/个人对面试者和面试官的几点经验总结/</id>
+    <link href="http://www.raomengyang.com/2017/04/18/%E4%B8%AA%E4%BA%BA%E5%AF%B9%E9%9D%A2%E8%AF%95%E8%80%85%E5%92%8C%E9%9D%A2%E8%AF%95%E5%AE%98%E7%9A%84%E5%87%A0%E7%82%B9%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.raomengyang.com/2017/04/18/个人对面试者和面试官的几点经验总结/</id>
     <published>2017-04-18T02:39:33.000Z</published>
     <updated>2017-04-18T02:39:33.000Z</updated>
     
@@ -219,14 +219,14 @@
     </summary>
     
     
-      <category term="面试" scheme="http://www.shutu.tech/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="http://www.raomengyang.com/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title></title>
-    <link href="http://www.shutu.tech/2017/02/24/%E5%A6%82%E6%9E%9C%E5%BD%93%E6%97%B6%E6%B2%A1%E6%9C%89%E9%80%89%E6%8B%A9%EF%BC%8C%E9%82%A3%E4%B9%88%E6%88%91%E4%BC%9A%E5%9C%A8%E5%93%AA%EF%BC%9F/"/>
-    <id>http://www.shutu.tech/2017/02/24/如果当时没有选择，那么我会在哪？/</id>
+    <link href="http://www.raomengyang.com/2017/02/24/%E5%A6%82%E6%9E%9C%E5%BD%93%E6%97%B6%E6%B2%A1%E6%9C%89%E9%80%89%E6%8B%A9%EF%BC%8C%E9%82%A3%E4%B9%88%E6%88%91%E4%BC%9A%E5%9C%A8%E5%93%AA%EF%BC%9F/"/>
+    <id>http://www.raomengyang.com/2017/02/24/如果当时没有选择，那么我会在哪？/</id>
     <published>2017-02-23T17:23:52.000Z</published>
     <updated>2017-02-23T17:23:52.000Z</updated>
     
@@ -255,8 +255,8 @@
   
   <entry>
     <title>Android libyuv应用系列（二）libyuv的使用</title>
-    <link href="http://www.shutu.tech/2017/01/15/Android-libyuv%E5%BA%94%E7%94%A8%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89libyuv%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://www.shutu.tech/2017/01/15/Android-libyuv应用系列（二）libyuv的使用/</id>
+    <link href="http://www.raomengyang.com/2017/01/15/Android-libyuv%E5%BA%94%E7%94%A8%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89libyuv%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://www.raomengyang.com/2017/01/15/Android-libyuv应用系列（二）libyuv的使用/</id>
     <published>2017-01-15T14:02:37.000Z</published>
     <updated>2017-01-15T14:04:20.000Z</updated>
     
@@ -378,17 +378,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://www.shutu.tech/categories/Android/"/>
+      <category term="Android" scheme="http://www.raomengyang.com/categories/Android/"/>
     
     
-      <category term="Android, libyuv" scheme="http://www.shutu.tech/tags/Android-libyuv/"/>
+      <category term="Android, libyuv" scheme="http://www.raomengyang.com/tags/Android-libyuv/"/>
     
   </entry>
   
   <entry>
     <title>Android libyuv应用系列（一）Android常用的几种格式：NV21/NV12/YV12/YUV420P的区别</title>
-    <link href="http://www.shutu.tech/2017/01/15/Android-libyuv%E5%BA%94%E7%94%A8%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89Android%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%A0%BC%E5%BC%8F%EF%BC%9ANV21-NV12-YV12-YUV420P%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>http://www.shutu.tech/2017/01/15/Android-libyuv应用系列（一）Android常用的几种格式：NV21-NV12-YV12-YUV420P的区别/</id>
+    <link href="http://www.raomengyang.com/2017/01/15/Android-libyuv%E5%BA%94%E7%94%A8%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89Android%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%A0%BC%E5%BC%8F%EF%BC%9ANV21-NV12-YV12-YUV420P%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://www.raomengyang.com/2017/01/15/Android-libyuv应用系列（一）Android常用的几种格式：NV21-NV12-YV12-YUV420P的区别/</id>
     <published>2017-01-15T13:58:55.000Z</published>
     <updated>2017-01-15T14:04:36.000Z</updated>
     
@@ -522,17 +522,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://www.shutu.tech/categories/Android/"/>
+      <category term="Android" scheme="http://www.raomengyang.com/categories/Android/"/>
     
     
-      <category term="Android, libyuv" scheme="http://www.shutu.tech/tags/Android-libyuv/"/>
+      <category term="Android, libyuv" scheme="http://www.raomengyang.com/tags/Android-libyuv/"/>
     
   </entry>
   
   <entry>
     <title>Android实现录屏直播（二）需求才是硬道理之产品功能调研</title>
-    <link href="http://www.shutu.tech/2017/01/09/Android%E5%AE%9E%E7%8E%B0%E5%BD%95%E5%B1%8F%E7%9B%B4%E6%92%AD%EF%BC%88%E4%BA%8C%EF%BC%89%E9%9C%80%E6%B1%82%E6%89%8D%E6%98%AF%E7%A1%AC%E9%81%93%E7%90%86%E4%B9%8B%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E8%B0%83%E7%A0%94/"/>
-    <id>http://www.shutu.tech/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/</id>
+    <link href="http://www.raomengyang.com/2017/01/09/Android%E5%AE%9E%E7%8E%B0%E5%BD%95%E5%B1%8F%E7%9B%B4%E6%92%AD%EF%BC%88%E4%BA%8C%EF%BC%89%E9%9C%80%E6%B1%82%E6%89%8D%E6%98%AF%E7%A1%AC%E9%81%93%E7%90%86%E4%B9%8B%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E8%B0%83%E7%A0%94/"/>
+    <id>http://www.raomengyang.com/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/</id>
     <published>2017-01-08T16:24:46.000Z</published>
     <updated>2017-03-13T12:31:05.000Z</updated>
     
@@ -601,17 +601,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://www.shutu.tech/categories/Android/"/>
+      <category term="Android" scheme="http://www.raomengyang.com/categories/Android/"/>
     
     
-      <category term="直播,录屏" scheme="http://www.shutu.tech/tags/%E7%9B%B4%E6%92%AD-%E5%BD%95%E5%B1%8F/"/>
+      <category term="直播,录屏" scheme="http://www.raomengyang.com/tags/%E7%9B%B4%E6%92%AD-%E5%BD%95%E5%B1%8F/"/>
     
   </entry>
   
   <entry>
     <title>Android实现录屏直播（一）ScreenRecorder的简单分析</title>
-    <link href="http://www.shutu.tech/2017/01/07/Android%E5%AE%9E%E7%8E%B0%E5%BD%95%E5%B1%8F%E7%9B%B4%E6%92%AD%EF%BC%88%E4%B8%80%EF%BC%89ScreenRecorder%E7%9A%84%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/"/>
-    <id>http://www.shutu.tech/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/</id>
+    <link href="http://www.raomengyang.com/2017/01/07/Android%E5%AE%9E%E7%8E%B0%E5%BD%95%E5%B1%8F%E7%9B%B4%E6%92%AD%EF%BC%88%E4%B8%80%EF%BC%89ScreenRecorder%E7%9A%84%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/"/>
+    <id>http://www.raomengyang.com/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/</id>
     <published>2017-01-06T16:53:49.000Z</published>
     <updated>2017-03-12T17:19:47.000Z</updated>
     
@@ -687,14 +687,14 @@
     </summary>
     
     
-      <category term="直播" scheme="http://www.shutu.tech/tags/%E7%9B%B4%E6%92%AD/"/>
+      <category term="直播" scheme="http://www.raomengyang.com/tags/%E7%9B%B4%E6%92%AD/"/>
     
   </entry>
   
   <entry>
     <title>2016年终总结</title>
-    <link href="http://www.shutu.tech/2016/12/31/2016%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
-    <id>http://www.shutu.tech/2016/12/31/2016年终总结/</id>
+    <link href="http://www.raomengyang.com/2016/12/31/2016%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.raomengyang.com/2016/12/31/2016年终总结/</id>
     <published>2016-12-31T05:10:40.000Z</published>
     <updated>2016-12-31T05:12:44.000Z</updated>
     
@@ -705,7 +705,7 @@
 &lt;p&gt;第一次实现交易订单，凡是跟钱挂钩的业务，必须要谨慎对待马虎不得。但是偏偏有一次粗心犯了错，损失了2000多RMB的订单，问题源于字符串精度转换的问题，第二天上线后吓尿了😱紧急修复再上线。感谢服务器的同事的救援才挽回了不少的损失，运营同事也受了不少用户的抱怨。庆幸的是当时公司的业务量还不大，不然就像日本的那位同行一下子让公司蒙受损失400个亿，这400个小目标打几辈子工才能还得起？没有经历就不会长记性，从那次起我对代码的测试和鲁棒性就十分重视。代码质量代表了个人的水平，切勿贪图速度不保证代码的严密性和健壮性！&lt;/p&gt;
 &lt;p&gt;除了业务，我和同事还一起将大部分的代码进行了一次重构，此次调整为的将代码的耦合度降低。所以最终基于MVP的框架确实省了不少事。所以设计模式真的很重要，再次重复面试官的那句话，想起了一本设计模式的书中也有类似的话语。&lt;/p&gt;
 &lt;p&gt;后期同事离职后剩我一人孤军奋战，完善了Android客户端的两个核心功能，感觉技能提升了不少。不过一个人闭门造车的日子真的很难熬，遇到瓶颈或是深入思考细节的时候可能会越陷越深无法自拔，特别希望有人能够探讨或者指点迷津，毕竟是一个Team，生产效率要高得多。&lt;/p&gt;
-&lt;h3 id=&quot;开始写博客&quot;&gt;&lt;a href=&quot;#开始写博客&quot; class=&quot;headerlink&quot; title=&quot;开始写博客&quot;&gt;&lt;/a&gt;开始写博客&lt;/h3&gt;&lt;p&gt;对于我这种文笔不好的人，写一篇像样的博客真的很难，既要言简意赅，还要图文并茂的把概念说明白是一件很要命的事。博客重要性我从15年刚开始学编程的时候就意识到了，真正开始写一写东西是从16年才动手的，搭了&lt;a href=&quot;http://www.shutu.tech&quot;&gt;个人博客&lt;/a&gt;，又将&lt;a href=&quot;http://www.cnblogs.com/raomengyang&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客园&lt;/a&gt;搬家到&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSDN&lt;/a&gt;，瞎搞半天最后三个博客都在维护。然而这一年来也没有什么产出，这是我最大的遗憾，看到别人一天天在进步，自己的内心也十分的浮躁总想一口吃个胖子，导致了这样一种情况，&lt;strong&gt;刚想好了一个主题写了一半不到因为工作或别的事情耽搁了就忘记这个事了，下次再想起来就不写篇文章了又重新开启另一篇博客&lt;/strong&gt;，这样死循环下去最后没有一篇正式的文章发布。我个人也早就意识到这个很严重的问题而一直没有改正。要么就是&lt;strong&gt;总觉得这个主题是否太简单，别人都写过了自己就不写了&lt;/strong&gt;。最近看到一位大神曾经的博文，原来他也遇到过类似的问题，他得出的结论是：&lt;/p&gt;
+&lt;h3 id=&quot;开始写博客&quot;&gt;&lt;a href=&quot;#开始写博客&quot; class=&quot;headerlink&quot; title=&quot;开始写博客&quot;&gt;&lt;/a&gt;开始写博客&lt;/h3&gt;&lt;p&gt;对于我这种文笔不好的人，写一篇像样的博客真的很难，既要言简意赅，还要图文并茂的把概念说明白是一件很要命的事。博客重要性我从15年刚开始学编程的时候就意识到了，真正开始写一写东西是从16年才动手的，搭了&lt;a href=&quot;http://www.shutu.tech&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;个人博客&lt;/a&gt;，又将&lt;a href=&quot;http://www.cnblogs.com/raomengyang&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客园&lt;/a&gt;搬家到&lt;a href=&quot;http://blog.csdn.net/zxccxzzxz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSDN&lt;/a&gt;，瞎搞半天最后三个博客都在维护。然而这一年来也没有什么产出，这是我最大的遗憾，看到别人一天天在进步，自己的内心也十分的浮躁总想一口吃个胖子，导致了这样一种情况，&lt;strong&gt;刚想好了一个主题写了一半不到因为工作或别的事情耽搁了就忘记这个事了，下次再想起来就不写篇文章了又重新开启另一篇博客&lt;/strong&gt;，这样死循环下去最后没有一篇正式的文章发布。我个人也早就意识到这个很严重的问题而一直没有改正。要么就是&lt;strong&gt;总觉得这个主题是否太简单，别人都写过了自己就不写了&lt;/strong&gt;。最近看到一位大神曾经的博文，原来他也遇到过类似的问题，他得出的结论是：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;对于coding这件事，不止于会问，如果想要有提高，夯实基础和总结积累是两个很重要的方面。夯实基础即是要多看书，看好书，看经典。把基本的原理，概念要理解透。总结积累即是要在实践的过程中，对每次遇到的问题、困难进行总结提炼，遇到的问题是什么，自己是怎么解决的，总结的一个好方式就是做笔记写备忘，所谓好记性不如烂笔头，与其相同的问题一次次重复地遇到不如把每次遇到的问题及解决方法都记录下来，一是加深了理解，二来把东西放在自家后院，那才是自己的，用起来或者平时翻出来看看也是方便。&lt;/p&gt;
 &lt;p&gt;刚刚开始写笔记的时候常常会觉得，这个东西太简单了，用一次就记住了，没有必要去写。其实并不是这样。简单又何妨，就我个人经验而言，只要是一开始把你难住的问题，往往还会有第二次，第三次。所以，多思考，勤笔记，下次再遇则有迹可循。只有足够努力，方显毫不费力。想做一件事，任何时候都不算太晚，除非只是想想而已。&lt;/p&gt;
@@ -727,17 +727,17 @@
     
     </summary>
     
-      <category term="计划" scheme="http://www.shutu.tech/categories/%E8%AE%A1%E5%88%92/"/>
+      <category term="计划" scheme="http://www.raomengyang.com/categories/%E8%AE%A1%E5%88%92/"/>
     
     
-      <category term="计划，年终总结" scheme="http://www.shutu.tech/tags/%E8%AE%A1%E5%88%92%EF%BC%8C%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+      <category term="计划，年终总结" scheme="http://www.raomengyang.com/tags/%E8%AE%A1%E5%88%92%EF%BC%8C%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>工作一年后的状态与总结</title>
-    <link href="http://www.shutu.tech/2016/12/18/%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E5%90%8E%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E6%80%BB%E7%BB%93/"/>
-    <id>http://www.shutu.tech/2016/12/18/工作一年后的状态与总结/</id>
+    <link href="http://www.raomengyang.com/2016/12/18/%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E5%90%8E%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.raomengyang.com/2016/12/18/工作一年后的状态与总结/</id>
     <published>2016-12-18T09:43:56.000Z</published>
     <updated>2016-12-31T05:27:01.000Z</updated>
     
@@ -810,14 +810,14 @@
     </summary>
     
     
-      <category term="计划" scheme="http://www.shutu.tech/tags/%E8%AE%A1%E5%88%92/"/>
+      <category term="计划" scheme="http://www.raomengyang.com/tags/%E8%AE%A1%E5%88%92/"/>
     
   </entry>
   
   <entry>
     <title>2016 Beijing GDG DevFest大会参后感</title>
-    <link href="http://www.shutu.tech/2016/11/25/2016-Beijing-GDG-DevFest%E5%A4%A7%E4%BC%9A%E5%8F%82%E5%90%8E%E6%84%9F/"/>
-    <id>http://www.shutu.tech/2016/11/25/2016-Beijing-GDG-DevFest大会参后感/</id>
+    <link href="http://www.raomengyang.com/2016/11/25/2016-Beijing-GDG-DevFest%E5%A4%A7%E4%BC%9A%E5%8F%82%E5%90%8E%E6%84%9F/"/>
+    <id>http://www.raomengyang.com/2016/11/25/2016-Beijing-GDG-DevFest大会参后感/</id>
     <published>2016-11-25T15:43:50.000Z</published>
     <updated>2016-11-25T15:43:50.000Z</updated>
     
@@ -870,14 +870,14 @@
     </summary>
     
     
-      <category term="技术分享会" scheme="http://www.shutu.tech/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E4%BC%9A/"/>
+      <category term="技术分享会" scheme="http://www.raomengyang.com/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E4%BC%9A/"/>
     
   </entry>
   
   <entry>
     <title>修复ijkPlayer进行m3u8 hls流播放时seek进度条拖动不准确的问题</title>
-    <link href="http://www.shutu.tech/2016/11/09/%E4%BF%AE%E5%A4%8DijkPlayer%E8%BF%9B%E8%A1%8Cm3u8-hls%E6%B5%81%E6%92%AD%E6%94%BE%E6%97%B6seek%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%8B%96%E5%8A%A8%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.shutu.tech/2016/11/09/修复ijkPlayer进行m3u8-hls流播放时seek进度条拖动不准确的问题/</id>
+    <link href="http://www.raomengyang.com/2016/11/09/%E4%BF%AE%E5%A4%8DijkPlayer%E8%BF%9B%E8%A1%8Cm3u8-hls%E6%B5%81%E6%92%AD%E6%94%BE%E6%97%B6seek%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%8B%96%E5%8A%A8%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.raomengyang.com/2016/11/09/修复ijkPlayer进行m3u8-hls流播放时seek进度条拖动不准确的问题/</id>
     <published>2016-11-09T08:21:35.000Z</published>
     <updated>2016-11-09T08:21:35.000Z</updated>
     
@@ -931,14 +931,14 @@
     </summary>
     
     
-      <category term="ijkPlayer" scheme="http://www.shutu.tech/tags/ijkPlayer/"/>
+      <category term="ijkPlayer" scheme="http://www.raomengyang.com/tags/ijkPlayer/"/>
     
   </entry>
   
   <entry>
     <title>mac linux批量修改文件名</title>
-    <link href="http://www.shutu.tech/2016/11/05/mac-linux%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/"/>
-    <id>http://www.shutu.tech/2016/11/05/mac-linux批量修改文件名/</id>
+    <link href="http://www.raomengyang.com/2016/11/05/mac-linux%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/"/>
+    <id>http://www.raomengyang.com/2016/11/05/mac-linux批量修改文件名/</id>
     <published>2016-11-05T08:19:51.000Z</published>
     <updated>2016-11-05T08:19:51.000Z</updated>
     
@@ -961,14 +961,14 @@
     </summary>
     
     
-      <category term="shell" scheme="http://www.shutu.tech/tags/shell/"/>
+      <category term="shell" scheme="http://www.raomengyang.com/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>面试经验--乐视</title>
-    <link href="http://www.shutu.tech/2016/10/04/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E4%B9%90%E8%A7%86/"/>
-    <id>http://www.shutu.tech/2016/10/04/面试经验-乐视/</id>
+    <link href="http://www.raomengyang.com/2016/10/04/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E4%B9%90%E8%A7%86/"/>
+    <id>http://www.raomengyang.com/2016/10/04/面试经验-乐视/</id>
     <published>2016-10-04T06:03:56.000Z</published>
     <updated>2017-01-08T15:24:38.000Z</updated>
     
@@ -1014,14 +1014,14 @@
     </summary>
     
     
-      <category term="面试" scheme="http://www.shutu.tech/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="http://www.raomengyang.com/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>Android5.0以下NoClassDefFoundError的Bug</title>
-    <link href="http://www.shutu.tech/2016/09/11/Android5-0%E4%BB%A5%E4%B8%8BNoClassDefFoundError%E7%9A%84Bug/"/>
-    <id>http://www.shutu.tech/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/</id>
+    <link href="http://www.raomengyang.com/2016/09/11/Android5-0%E4%BB%A5%E4%B8%8BNoClassDefFoundError%E7%9A%84Bug/"/>
+    <id>http://www.raomengyang.com/2016/09/11/Android5-0以下NoClassDefFoundError的Bug/</id>
     <published>2016-09-11T15:46:28.000Z</published>
     <updated>2016-09-11T16:19:58.000Z</updated>
     
@@ -1044,17 +1044,17 @@
     
     </summary>
     
-      <category term="Android异常" scheme="http://www.shutu.tech/categories/Android%E5%BC%82%E5%B8%B8/"/>
+      <category term="Android异常" scheme="http://www.raomengyang.com/categories/Android%E5%BC%82%E5%B8%B8/"/>
     
     
-      <category term="Android" scheme="http://www.shutu.tech/tags/Android/"/>
+      <category term="Android" scheme="http://www.raomengyang.com/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>Android context.getSystemService()浅析</title>
-    <link href="http://www.shutu.tech/2016/09/02/Android-context-getSystemService-%E6%B5%85%E6%9E%90/"/>
-    <id>http://www.shutu.tech/2016/09/02/Android-context-getSystemService-浅析/</id>
+    <link href="http://www.raomengyang.com/2016/09/02/Android-context-getSystemService-%E6%B5%85%E6%9E%90/"/>
+    <id>http://www.raomengyang.com/2016/09/02/Android-context-getSystemService-浅析/</id>
     <published>2016-09-01T16:55:52.000Z</published>
     <updated>2016-09-01T16:57:31.000Z</updated>
     
@@ -1102,15 +1102,15 @@
     
     </summary>
     
-      <category term="Android源码分析" scheme="http://www.shutu.tech/categories/Android%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
+      <category term="Android源码分析" scheme="http://www.raomengyang.com/categories/Android%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
     
     
   </entry>
   
   <entry>
     <title>五年计划 -- 内功修炼</title>
-    <link href="http://www.shutu.tech/2016/08/28/%E4%BA%94%E5%B9%B4%E8%AE%A1%E5%88%92-%E5%86%85%E5%8A%9F%E4%BF%AE%E7%82%BC/"/>
-    <id>http://www.shutu.tech/2016/08/28/五年计划-内功修炼/</id>
+    <link href="http://www.raomengyang.com/2016/08/28/%E4%BA%94%E5%B9%B4%E8%AE%A1%E5%88%92-%E5%86%85%E5%8A%9F%E4%BF%AE%E7%82%BC/"/>
+    <id>http://www.raomengyang.com/2016/08/28/五年计划-内功修炼/</id>
     <published>2016-08-28T02:06:30.000Z</published>
     <updated>2016-08-28T02:08:24.000Z</updated>
     
@@ -1208,17 +1208,17 @@
     
     </summary>
     
-      <category term="职业生涯" scheme="http://www.shutu.tech/categories/%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF/"/>
+      <category term="职业生涯" scheme="http://www.raomengyang.com/categories/%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF/"/>
     
     
-      <category term="个人计划" scheme="http://www.shutu.tech/tags/%E4%B8%AA%E4%BA%BA%E8%AE%A1%E5%88%92/"/>
+      <category term="个人计划" scheme="http://www.raomengyang.com/tags/%E4%B8%AA%E4%BA%BA%E8%AE%A1%E5%88%92/"/>
     
   </entry>
   
   <entry>
     <title>《App研发录》总结</title>
-    <link href="http://www.shutu.tech/2016/07/24/%E3%80%8AApp%E7%A0%94%E5%8F%91%E5%BD%95%E3%80%8B--%20%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/"/>
-    <id>http://www.shutu.tech/2016/07/24/《App研发录》-- 读书总结/</id>
+    <link href="http://www.raomengyang.com/2016/07/24/%E3%80%8AApp%E7%A0%94%E5%8F%91%E5%BD%95%E3%80%8B--%20%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.raomengyang.com/2016/07/24/《App研发录》-- 读书总结/</id>
     <published>2016-07-24T03:55:46.000Z</published>
     <updated>2016-08-07T04:26:55.000Z</updated>
     
@@ -1240,7 +1240,7 @@
 &lt;h2 id=&quot;统一编程模型&quot;&gt;&lt;a href=&quot;#统一编程模型&quot; class=&quot;headerlink&quot; title=&quot;统一编程模型&quot;&gt;&lt;/a&gt;统一编程模型&lt;/h2&gt;&lt;p&gt;这个地方个人不是太赞同作者推荐的View.setOnClickListener(new OnClickListener() { Override onclick() { … } }这种方式来进行事件注册。确实switch … case … 有点“扰乱”面向对象的风格，可想想一个代码较多的Activity中，你要迅速定位某个onClick事件使用后者有多么方便，并且onClick的事件都能统一管理，无需再担心某个地方漏了一个onClIck。&lt;/p&gt;
 &lt;h2 id=&quot;实体化编程&quot;&gt;&lt;a href=&quot;#实体化编程&quot; class=&quot;headerlink&quot; title=&quot;实体化编程&quot;&gt;&lt;/a&gt;实体化编程&lt;/h2&gt;&lt;p&gt;通过固定的类库达到我们想要的目的，常用类库Gson、FastJson等，不用过多赘述。其中有一点值得一看，就是关于后面提到的Crash事件处理，其实在传递Intent的时候也可进行避免某些Crash的操作，如长时间的闲置导致内存回收时将关键的变量给回收了，当前跳转页面的时候是需要那个变量的，而传递变量的同时可以进行检查判断是否为null来减少跳转后的NPE(NullPointerException) Crash。这些都是我个人的经验。&lt;/p&gt;
 &lt;h3 id=&quot;推荐工具：&quot;&gt;&lt;a href=&quot;#推荐工具：&quot; class=&quot;headerlink&quot; title=&quot;推荐工具：&quot;&gt;&lt;/a&gt;推荐工具：&lt;/h3&gt;&lt;p&gt;这里书中提到的工具都过时了吧（绝对没有嘲讽的意思，能分享的人都是伟大的）。因为拿来主义的我一般用的都是Android Studio中的插件&lt;a href=&quot;https://github.com/zzz40500/GsonFormat&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GsonFormat&lt;/a&gt; ，不支持Eclipse！&lt;/p&gt;
-&lt;p&gt;关于更多工具，推荐看看我的博文：&lt;a href=&quot;http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/#more&quot;&gt;Android-Classical-OpenSource&lt;/a&gt;的工具篇，有我常用的AS的插件和相关工具的介绍。&lt;/p&gt;
+&lt;p&gt;关于更多工具，推荐看看我的博文：&lt;a href=&quot;http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/#more&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android-Classical-OpenSource&lt;/a&gt;的工具篇，有我常用的AS的插件和相关工具的介绍。&lt;/p&gt;
 &lt;h1 id=&quot;第二章小结&quot;&gt;&lt;a href=&quot;#第二章小结&quot; class=&quot;headerlink&quot; title=&quot;第二章小结&quot;&gt;&lt;/a&gt;第二章小结&lt;/h1&gt;&lt;p&gt;第二章主讲网络框架的经验，涉及到的有对网络底层框架的封装，作者遇到的坑和某些网络类库的使用优化建议等。对于网络请求这类操作，当前衍生的各种相关类库功能十分强大，而且基本都封装好了，在使用方便的同时可不要忽略底层的概念，一门技术要做到：知其然，知其所以然。这样无论遇到什么问题都能有一颗冷静沉着的心去面对和挑战。&lt;/p&gt;
 &lt;h2 id=&quot;网络底层封装&quot;&gt;&lt;a href=&quot;#网络底层封装&quot; class=&quot;headerlink&quot; title=&quot;网络底层封装&quot;&gt;&lt;/a&gt;网络底层封装&lt;/h2&gt;&lt;p&gt;家家使用的工具都不同，但常用的也就那么几个：&lt;/p&gt;
 &lt;h3 id=&quot;Volley&quot;&gt;&lt;a href=&quot;#Volley&quot; class=&quot;headerlink&quot; title=&quot;Volley&quot;&gt;&lt;/a&gt;Volley&lt;/h3&gt;&lt;p&gt;目前公司项目用的就是这一个，还是我当时建项以来综合对比后挑的一个，那时候的OkHttp还没有现在这样火好不好。所以我们也当然对Volley进行了简单的封装，这里不说文章，先谈谈我对Volley封装的看法吧。&lt;/p&gt;
@@ -1280,17 +1280,17 @@
     
     </summary>
     
-      <category term="读书" scheme="http://www.shutu.tech/categories/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="http://www.raomengyang.com/categories/%E8%AF%BB%E4%B9%A6/"/>
     
     
-      <category term="Android" scheme="http://www.shutu.tech/tags/Android/"/>
+      <category term="Android" scheme="http://www.raomengyang.com/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>LeetCode刷题系列</title>
-    <link href="http://www.shutu.tech/2016/07/02/LeetCode%E5%88%B7%E9%A2%98%E7%B3%BB%E5%88%97/"/>
-    <id>http://www.shutu.tech/2016/07/02/LeetCode刷题系列/</id>
+    <link href="http://www.raomengyang.com/2016/07/02/LeetCode%E5%88%B7%E9%A2%98%E7%B3%BB%E5%88%97/"/>
+    <id>http://www.raomengyang.com/2016/07/02/LeetCode刷题系列/</id>
     <published>2016-07-01T23:06:38.000Z</published>
     <updated>2016-12-25T08:23:33.000Z</updated>
     
@@ -1510,17 +1510,17 @@
     
     </summary>
     
-      <category term="LeetCode" scheme="http://www.shutu.tech/categories/LeetCode/"/>
+      <category term="LeetCode" scheme="http://www.raomengyang.com/categories/LeetCode/"/>
     
     
-      <category term="Java刷题" scheme="http://www.shutu.tech/tags/Java%E5%88%B7%E9%A2%98/"/>
+      <category term="Java刷题" scheme="http://www.raomengyang.com/tags/Java%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>偷偷《暗时间》</title>
-    <link href="http://www.shutu.tech/2016/06/29/%E5%81%B7%E5%81%B7%E3%80%8A%E6%9A%97%E6%97%B6%E9%97%B4%E3%80%8B/"/>
-    <id>http://www.shutu.tech/2016/06/29/偷偷《暗时间》/</id>
+    <link href="http://www.raomengyang.com/2016/06/29/%E5%81%B7%E5%81%B7%E3%80%8A%E6%9A%97%E6%97%B6%E9%97%B4%E3%80%8B/"/>
+    <id>http://www.raomengyang.com/2016/06/29/偷偷《暗时间》/</id>
     <published>2016-06-29T15:07:42.000Z</published>
     <updated>2016-08-17T05:55:40.000Z</updated>
     
@@ -1586,10 +1586,10 @@
     
     </summary>
     
-      <category term="读书" scheme="http://www.shutu.tech/categories/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="http://www.raomengyang.com/categories/%E8%AF%BB%E4%B9%A6/"/>
     
     
-      <category term="时间管理，思维导图" scheme="http://www.shutu.tech/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%EF%BC%8C%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
+      <category term="时间管理，思维导图" scheme="http://www.raomengyang.com/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%EF%BC%8C%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
     
   </entry>
   

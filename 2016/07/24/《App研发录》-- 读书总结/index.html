@@ -91,7 +91,7 @@
 再说说值得一看的地方吧，首先也如前面提到的，书中内容基本都是作者工作之谈，所以有很实用的内容，推荐阅读章节">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《App研发录》总结">
-<meta property="og:url" content="http://www.shutu.tech/2016/07/24/《App研发录》-- 读书总结/index.html">
+<meta property="og:url" content="http://www.raomengyang.com/2016/07/24/《App研发录》-- 读书总结/index.html">
 <meta property="og:site_name" content="书途">
 <meta property="og:description" content="说明看这本书的时候，总感觉怪怪的。
 因为在地铁上看完的，作者书中基本都是他自己工作中遇到的问题和坑，虽说这样会让人感觉找到了解决方案，可以再进行深入的研究，可是某些地方介绍的有点片面，仅仅是引用部分博客就以偏概全了。还有可能是涉及的内容大部分都是我自己已经踩过的坑，所以觉得学到的东西不太多。
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://www.shutu.tech/2016/07/24/《App研发录》-- 读书总结/"/>
+  <link rel="canonical" href="http://www.raomengyang.com/2016/07/24/《App研发录》-- 读书总结/"/>
 
   <title> 《App研发录》总结 | 书途 </title>
 </head>
@@ -362,7 +362,7 @@
 <h2 id="统一编程模型"><a href="#统一编程模型" class="headerlink" title="统一编程模型"></a>统一编程模型</h2><p>这个地方个人不是太赞同作者推荐的View.setOnClickListener(new OnClickListener() { Override onclick() { … } }这种方式来进行事件注册。确实switch … case … 有点“扰乱”面向对象的风格，可想想一个代码较多的Activity中，你要迅速定位某个onClick事件使用后者有多么方便，并且onClick的事件都能统一管理，无需再担心某个地方漏了一个onClIck。</p>
 <h2 id="实体化编程"><a href="#实体化编程" class="headerlink" title="实体化编程"></a>实体化编程</h2><p>通过固定的类库达到我们想要的目的，常用类库Gson、FastJson等，不用过多赘述。其中有一点值得一看，就是关于后面提到的Crash事件处理，其实在传递Intent的时候也可进行避免某些Crash的操作，如长时间的闲置导致内存回收时将关键的变量给回收了，当前跳转页面的时候是需要那个变量的，而传递变量的同时可以进行检查判断是否为null来减少跳转后的NPE(NullPointerException) Crash。这些都是我个人的经验。</p>
 <h3 id="推荐工具："><a href="#推荐工具：" class="headerlink" title="推荐工具："></a>推荐工具：</h3><p>这里书中提到的工具都过时了吧（绝对没有嘲讽的意思，能分享的人都是伟大的）。因为拿来主义的我一般用的都是Android Studio中的插件<a href="https://github.com/zzz40500/GsonFormat" target="_blank" rel="external">GsonFormat</a> ，不支持Eclipse！</p>
-<p>关于更多工具，推荐看看我的博文：<a href="http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/#more">Android-Classical-OpenSource</a>的工具篇，有我常用的AS的插件和相关工具的介绍。</p>
+<p>关于更多工具，推荐看看我的博文：<a href="http://www.shutu.tech/2016/05/09/Android-Classical-OpenSource/#more" target="_blank" rel="external">Android-Classical-OpenSource</a>的工具篇，有我常用的AS的插件和相关工具的介绍。</p>
 <h1 id="第二章小结"><a href="#第二章小结" class="headerlink" title="第二章小结"></a>第二章小结</h1><p>第二章主讲网络框架的经验，涉及到的有对网络底层框架的封装，作者遇到的坑和某些网络类库的使用优化建议等。对于网络请求这类操作，当前衍生的各种相关类库功能十分强大，而且基本都封装好了，在使用方便的同时可不要忽略底层的概念，一门技术要做到：知其然，知其所以然。这样无论遇到什么问题都能有一颗冷静沉着的心去面对和挑战。</p>
 <h2 id="网络底层封装"><a href="#网络底层封装" class="headerlink" title="网络底层封装"></a>网络底层封装</h2><p>家家使用的工具都不同，但常用的也就那么几个：</p>
 <h3 id="Volley"><a href="#Volley" class="headerlink" title="Volley"></a>Volley</h3><p>目前公司项目用的就是这一个，还是我当时建项以来综合对比后挑的一个，那时候的OkHttp还没有现在这样火好不好。所以我们也当然对Volley进行了简单的封装，这里不说文章，先谈谈我对Volley封装的看法吧。</p>
@@ -456,7 +456,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/07/24/《App研发录》-- 读书总结/"
-           data-title="《App研发录》总结" data-url="http://www.shutu.tech/2016/07/24/《App研发录》-- 读书总结/">
+           data-title="《App研发录》总结" data-url="http://www.raomengyang.com/2016/07/24/《App研发录》-- 读书总结/">
       </div>
     
   </div>
