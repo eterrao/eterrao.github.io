@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.raomengyang.com/"/>
-  <updated>2017-05-15T16:15:03.000Z</updated>
+  <updated>2017-10-31T16:14:50.000Z</updated>
   <id>http://www.raomengyang.com/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>续厨师与母亲的厨艺问题的一些想法</title>
+    <link href="http://www.raomengyang.com/2017/11/01/%E7%BB%AD%E5%8E%A8%E5%B8%88%E4%B8%8E%E6%AF%8D%E4%BA%B2%E7%9A%84%E5%8E%A8%E8%89%BA%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/"/>
+    <id>http://www.raomengyang.com/2017/11/01/续厨师与母亲的厨艺问题的一些想法/</id>
+    <published>2017-10-31T16:14:50.000Z</published>
+    <updated>2017-10-31T16:14:50.000Z</updated>
+    
+    <content type="html">&lt;p&gt;之前看到一个小问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为什么初学两年的厨师比20年经验的母亲做的饭好吃的多？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;把问题迁移到编程上来说也一样，相关的问题可以参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一年工作经验十年用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今天看了一本讲解学习技巧的 cook book，里面也提到了这个问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;驾龄5年的司机和20年驾龄的司机谁的车技更好？&lt;/li&gt;
+&lt;li&gt;3、4年工作经验的医生和30年从医经历的老医师谁的医术更高？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其实大部分都是前者有优势，因为后者常常是重复做了几十年同样的事，而并无太大的长进。写代码也一样，一年的时间学会基础语法、业务编写，然后从业十年编程一直处于业务需求的修改，可能技术和业界大牛比起来有天壤之别。这其中的道理又是为什么呢？&lt;/p&gt;
+&lt;p&gt;我自己总结的大概有这么几个部分：&lt;/p&gt;
+&lt;h2 id=&quot;技术深度&quot;&gt;&lt;a href=&quot;#技术深度&quot; class=&quot;headerlink&quot; title=&quot;技术深度&quot;&gt;&lt;/a&gt;技术深度&lt;/h2&gt;&lt;p&gt;所谓的技术深度，就是前面提到的语法、业务，不同的业务涉及到的技术含量是不一样的， 如果是简单的社交软件，可能对 API 和数据的处理多一些，让用户的体验用起来更棒，基本就达到了这个产品的需求，而如果从事的是卫星遥感，舰船识别，那么就要对自身的算法能力加强，不仅是专业软件的熟练掌握，对相关的算法做到得心应手那么同样三年工作经验，后者的工资可能是前者的好几倍（行业领先的水平），所以这也说明了选工作和业务的重要性。比如获得了几家公司的 Offer，业务的侧重点不同，对个人的发展影响也极大，去微信开发组的肯定比去易信的要幸运得多（当然还有别的很多关键因素）。&lt;/p&gt;
+&lt;h2 id=&quot;舒适区&quot;&gt;&lt;a href=&quot;#舒适区&quot; class=&quot;headerlink&quot; title=&quot;舒适区&quot;&gt;&lt;/a&gt;舒适区&lt;/h2&gt;&lt;p&gt;每个人都会遇到瓶颈，在瓶颈的时候其实也算是处于舒适区，当没有突破的时候，这种状态会一直伴随着自己长存，时间再长，可能会忘记自己追求的是什么，我是谁？我在哪？我要做什么？参见铁蕾的博客。但我个人体会是，瓶颈区有两种类型，一种是舒适区，一种是紧迫区，紧迫区不同于舒适区的是，在这段时间会特别难熬，尤其自己某项技术掌握的不到位，或者不熟练，但是工作上、业务上却急需使用，自己有种心有余而力不足的感觉，无力感随身而出，睡也睡不好，吃也吃不香，工作效率还很低下，这种状态会严重影响自己的自信心，怀疑自己的能力。然而往往紧迫区过后就是一段快速上升的时期，某一天头疼不已的 BUG、技术难点突然解决，或是自己领悟都真谛了，喜悦感，成就感油然而生。&lt;/p&gt;
+&lt;h2 id=&quot;临界值&quot;&gt;&lt;a href=&quot;#临界值&quot; class=&quot;headerlink&quot; title=&quot;临界值&quot;&gt;&lt;/a&gt;临界值&lt;/h2&gt;&lt;p&gt;人的天性都是懒惰的（说的是我自己么？）每当某件事做到一定程度时（也可以说达成最低目标），人就开始懈怠了，成就非凡的人一般来说都会把活干的很漂亮，技术能力也一样，或许我们不停的突破自己的极限，但就像打字一样，每个人都有自己的一个“基本极限”，我初三学习的盲打，从刚开始练习的每分钟30多字到后来每分钟的最快180字，渐渐落回150以下，从此再无心关注这个问题，至此我的极限就是100多字每分钟。而专注练习的打字员基本每分钟几百字不是问题（可能方法也不同，还有使用的是专用打字机）。相信大家最快也都最多200吧？编程似乎也一样，一旦陷入了这个临界值，我们就需要考虑下一步如何突破成为真正的打字高手了&lt;/p&gt;
+&lt;h2 id=&quot;突破&quot;&gt;&lt;a href=&quot;#突破&quot; class=&quot;headerlink&quot; title=&quot;突破&quot;&gt;&lt;/a&gt;突破&lt;/h2&gt;&lt;p&gt;既然达到了舒适区、紧迫区、极限，那就要考虑突破，而往往这个问题是最为关键又无解的，因为每个人的状态不同，单一的方法不一定适用每个人，想要寻找一种有效的方法，可能会消耗很多精力、时间，还有可能走了一圈弯路。就个人情况具体问题具体分析吧，我也只是在不停的尝试，不敢妄言。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前看到一个小问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为什么初学两年的厨师比20年经验的母亲做的饭好吃的多？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;把问题迁移到编程上来说也一样，相关的问题可以参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一年工作经验十年用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今天看了一本讲解
+    
+    </summary>
+    
+    
+      <category term="思考" scheme="http://www.raomengyang.com/tags/%E6%80%9D%E8%80%83/"/>
+    
+  </entry>
   
   <entry>
     <title>求职，离职，入职</title>
@@ -1514,82 +1561,6 @@
     
     
       <category term="Java刷题" scheme="http://www.raomengyang.com/tags/Java%E5%88%B7%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>偷偷《暗时间》</title>
-    <link href="http://www.raomengyang.com/2016/06/29/%E5%81%B7%E5%81%B7%E3%80%8A%E6%9A%97%E6%97%B6%E9%97%B4%E3%80%8B/"/>
-    <id>http://www.raomengyang.com/2016/06/29/偷偷《暗时间》/</id>
-    <published>2016-06-29T15:07:42.000Z</published>
-    <updated>2016-08-17T05:55:40.000Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;关于这本书，是通过知乎了解的，不犹豫的下单，结果一发不可收拾。不得不说，作者刘未鹏真的很NB。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/eterrao/eterrao.github.io/master/%E6%9A%97%E6%97%B6%E9%97%B4.jpg&quot; alt=&quot;暗时间&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;心得&quot;&gt;&lt;a href=&quot;#心得&quot; class=&quot;headerlink&quot; title=&quot;心得&quot;&gt;&lt;/a&gt;心得&lt;/h1&gt;&lt;p&gt;懒惰的我很少写这种读书笔记，但是既然读了这本书，那么就应该做些什么才对，例如总结阅读后的知识点，问题深思后的理论分析等。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;缺点：&lt;ul&gt;
-&lt;li&gt;在详细总结这本书的时候，先说说看了一半后感觉到的不足吧。首先是总觉得这本书是在记叙成功学的书，虽然成功没有什么不好，人人都希望成功，但长篇提及成功的字眼让我感觉有点难受。这是一本思维导图，时间、自我管理的书籍，如果没有那么多的字眼就完美了。可能是因为我看了《把时间当作朋友》书中提及反对成功学的部分，从此对所谓成功学说心生厌恶。&lt;/li&gt;
-&lt;li&gt;如豆友所说的，连贯性不够。如作者提及的，看书要择优选择阅读，所以部分章节我仅仅是粗略的扫了一眼，这本书是挤地铁的时候看的，所以没有那么多精力仔细集中在某些需要细思的章节中，如”逃出你的肖申克“。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;缺点说完了，我该感激作者了，所谓先抑后扬。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;环境的重要性&quot;&gt;&lt;a href=&quot;#环境的重要性&quot; class=&quot;headerlink&quot; title=&quot;环境的重要性&quot;&gt;&lt;/a&gt;环境的重要性&lt;/h1&gt;&lt;p&gt;如果作者没有一位耐心、专注的父亲作为榜样来引导自己，或许会花更多时间来悟出书中的感想。毕竟父母是我们一辈子最好的老师。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;写一个博客有很多好处，却没有任何明显的坏处&lt;/p&gt;
-&lt;p&gt;书写是为了更好的思考&lt;/p&gt;
-&lt;p&gt;如果一件事情你不能讲清楚，十有八九你还没有完全理解&lt;/p&gt;
-&lt;p&gt;博客可以激励你去持续学习和思考，如果你没有持续学习和思考的习惯，你的博客很快就没有内容可写，就只能碎碎念或者转载。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;此前我一直希望能够写出NB精彩绝伦的博客，引来无数网友的围观和赞赏，以此满足自己的虚荣心并且可以当作找工作的敲门砖。庆幸早读这本书，不然走向不归路啊，我一直没有耐心去写完一篇我满意的博客，原因之一就是每次写什么的时候，根本没有透彻的思考问题，导致写着写着感觉和别人的都一样雷同，千篇一律的像工具说明书一样没有什么价值所在，于是存为草稿，之后只会变为删除草稿的结局。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;让你自己成为一个持续学习和思考的人，并只写你真正思考和总结之后的产物，其他的一切就会随之而来&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;尤为喜欢这句话，所以今天把曾经的博文都整理了一遍，垃圾该清理的清理，接下来学习深度总结和思考，不跟风随波逐流。&lt;/p&gt;
-&lt;h1 id=&quot;其他&quot;&gt;&lt;a href=&quot;#其他&quot; class=&quot;headerlink&quot; title=&quot;其他&quot;&gt;&lt;/a&gt;其他&lt;/h1&gt;&lt;p&gt;仅仅接触此书两天不到的时间，之后每次写代码之前，都会有意识的去思考更多，不再像曾经拿着就开始着手实现业务逻辑，更注重设计模式，架构的重要性。真的是这种感觉。&lt;/p&gt;
-&lt;p&gt;暂时就这么多，看完再说吧。&lt;/p&gt;
-&lt;h1 id=&quot;近期感悟&quot;&gt;&lt;a href=&quot;#近期感悟&quot; class=&quot;headerlink&quot; title=&quot;近期感悟&quot;&gt;&lt;/a&gt;近期感悟&lt;/h1&gt;&lt;p&gt;直到”跟波利亚学解题”，已经一周没看这本书了，但是工作之余却反思和遵循一些书中所说的行为或者技巧，如：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;充分利用自己的暗时间，就相当于自己多活了一段时间&lt;/li&gt;
-&lt;li&gt;每个人都有自己的思维体力，需要锻炼才能持续更长更久&lt;/li&gt;
-&lt;li&gt;嘈杂的环境看书是最能锻炼注意力的（地铁上）&lt;/li&gt;
-&lt;li&gt;睡觉前思考一些问题，让大脑长时间保持对问题的思考，潜意识就能解决很多问题&lt;/li&gt;
-&lt;li&gt;最近正在复习数据结构与算法，每当自己觉得明白了以后，会习惯的反问和思考自己是否真的理解透彻了，受益匪浅；&lt;/li&gt;
-&lt;li&gt;每当走在路上的时候，曾经的我会看天看地看人，如今却总觉得这部分暗时间需要利用起来，毕竟我也想“多活一段时间”嘛；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;“跟波利亚学解题”后篇&quot;&gt;&lt;a href=&quot;#“跟波利亚学解题”后篇&quot; class=&quot;headerlink&quot; title=&quot;“跟波利亚学解题”后篇&quot;&gt;&lt;/a&gt;“跟波利亚学解题”后篇&lt;/h4&gt;&lt;p&gt;今天又继续阅读”跟波利亚学解题”，发现以前的我好傻，庆幸现在还不晚。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;学会总结，一个问题从理解到运用相差十万八千里，所以曾经做题并不是看完答案恍然大悟就可以了，而需要仔细思考实现的思想，把能够举一反三的部分提取出来；&lt;/li&gt;
-&lt;li&gt;学以复用，知识学而不用死读书记在脑子里反而浪费脑容量；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;悟&quot;&gt;&lt;a href=&quot;#悟&quot; class=&quot;headerlink&quot; title=&quot;悟&quot;&gt;&lt;/a&gt;悟&lt;/h1&gt;&lt;p&gt;人都是惰性的，前些日子有些倦怠，尤其是在面临庞杂的基础知识点因为曾经没学或者学的太浅，导致自己变得着急且浮躁。&lt;/p&gt;
-&lt;p&gt;自己想想，同样写博客，也需要追求质与量。如果逃避的去不敢面对自己的软肋，当然得不到太大的成长。&lt;/p&gt;
-&lt;p&gt;凡事总有先难后易，如暗时间所说的，硬着头皮去做，麻木了以后也就变成习惯了。所以博客一定要坚持写下去，并且保证内容的可读性，别总是模仿别人，自己有感而发并没什么不好的。&lt;/p&gt;
-&lt;p&gt;自己准备试着翻译一下外文资料或者书籍，一是对英语有提高，二是知识点理解也更为透彻。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;关于这本书，是通过知乎了解的，不犹豫的下单，结果一发不可收拾。不得不说，作者刘未鹏真的很NB。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/eterrao/eterrao.github.io/master/%E6%9A%97%E6%97%B6%E9%97%B4.jpg&quot; alt=&quot;暗时间&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;心得&quot;&gt;&lt;a href=&quot;#心得&quot; class=&quot;headerlink&quot; title=&quot;心得&quot;&gt;&lt;/a&gt;心得&lt;/h1&gt;&lt;p&gt;懒惰的我很少写这种读书笔记，但是既然读了这本书，那么就应该做些什么才对，例如总结阅读后的知识点，问题深思后的理论分析等。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;缺点：&lt;ul&gt;
-&lt;li&gt;在详细总结这本书的时候，先说说看了一半后感觉到的不足吧。首先是总觉得这本书是在记叙成功学的书，虽然成功没有什么不好，人人都希望成功，但长篇提及成功的字眼让我感觉有点难受。这是一本思维导图，时间、自我管理的书籍，如果没有那么多的字眼就完美了。可能是因为我看了《把时间当作朋友》书中提及反对成功学的部分，从此对所谓成功学说心生厌恶。&lt;/li&gt;
-&lt;li&gt;如豆友所说的，连贯性不够。如作者提及的，看书要择优选择阅读，所以部分章节我仅仅是粗略的扫了一眼，这本书是挤地铁的时候看的，所以没有那么多精力仔细集中在某些需要细思的章节中，如”逃出你的肖申克“。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;缺点说完了，我该感激作者了，所谓先抑后扬。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="读书" scheme="http://www.raomengyang.com/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-    
-      <category term="时间管理，思维导图" scheme="http://www.raomengyang.com/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%EF%BC%8C%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
     
   </entry>
   
