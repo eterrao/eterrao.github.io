@@ -260,6 +260,279 @@
             
               
                 
+                <a class="post-title-link" href="/2018/04/25/git-使用分享/" itemprop="url">
+                  git 使用分享
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-25T10:40:34+08:00" content="2018-04-25">
+              2018-04-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/04/25/git-使用分享/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/25/git-使用分享/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/04/25/git-使用分享/" class="leancloud_visitors" data-flag-title="git 使用分享">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="git-使用分享"><a href="#git-使用分享" class="headerlink" title="git 使用分享"></a>git 使用分享</h1><ul>
+<li><h5 id="git-命令行必备"><a href="#git-命令行必备" class="headerlink" title="git 命令行必备"></a>git 命令行必备</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 设置 alias 别名</span><br><span class="line">git config --global alias.st &quot;status&quot;</span><br><span class="line">git config --global alias.ci &quot;commit&quot;</span><br><span class="line">git config --global alias.co &quot;checkout&quot;</span><br><span class="line">git config --global alias.br &quot;branch&quot;</span><br><span class="line">git config --global alias.ps &quot;push&quot;</span><br><span class="line">git config --global alias.pl &quot;pull&quot;</span><br><span class="line">git config --global alias.bra &quot;branch -a&quot;</span><br><span class="line">git config --global alias.cob &quot;checkout -b&quot;</span><br><span class="line">git config --global alias.lg &quot;log --color --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit&quot;</span><br><span class="line"></span><br><span class="line"># 配置用户名</span><br><span class="line">git config --global user.name &quot;your name&quot;</span><br><span class="line">git config --global user.email &quot;ericrao@welove-inc.com&quot;</span><br><span class="line"></span><br><span class="line"># 查看 git 配置</span><br><span class="line">$ cat .gitconfig</span><br><span class="line">[alias]</span><br><span class="line">    co = checkout</span><br><span class="line">    ci = commit</span><br><span class="line">    br = branch</span><br><span class="line">    st = status</span><br><span class="line">[user]</span><br><span class="line">    name = Your Name</span><br><span class="line">    email = your@email.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 credential，避免每次都输入用户名和密码</p>
+<ul>
+<li><code>git config --global credential.helper store &lt;file path&gt;</code></li>
+</ul>
+</li>
+<li><p>忽略无用文件：</p>
+<ul>
+<li><p>推荐插件 .ignore on IDEA</p>
+</li>
+<li><p><code>.gitignore</code> templates ：<a href="https://github.com/github/gitignore">https://github.com/github/gitignore</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>常用命令 <code>git merge</code>  和 <code>git fecth / pull</code> 的区别</li>
+<li>巧用保存进度 <code>git stash</code> 和 <code>git stash pop / apply</code></li>
+<li>每次发版需要打标签:<ul>
+<li><code>git tag 1.0.0 -m &quot;tag message&quot;</code></li>
+<li>查看 TAG： <code>git tag --list</code> 、<code>git show 1.0.0</code></li>
+</ul>
+</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/04/25/git-使用分享/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/02/28/Android设计模式-巧用策略模式告别繁琐的-if-else/" itemprop="url">
+                  Android设计模式 -- 巧用策略模式告别繁琐的 if...else...
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-28T18:56:43+08:00" content="2018-02-28">
+              2018-02-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/02/28/Android设计模式-巧用策略模式告别繁琐的-if-else/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/28/Android设计模式-巧用策略模式告别繁琐的-if-else/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/02/28/Android设计模式-巧用策略模式告别繁琐的-if-else/" class="leancloud_visitors" data-flag-title="Android设计模式 -- 巧用策略模式告别繁琐的 if...else...">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>根据后台配置进行不同的广告加载策略，例如有广告 A / B / C，某个时段后台配置播放广告 C，默认播放 A；</p>
+<h3 id="普通的实现方式"><a href="#普通的实现方式" class="headerlink" title="普通的实现方式"></a>普通的实现方式</h3><ol>
+<li>创建广告管理类，实现广告加载/播放的控制：</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AdManager</span></span>(adName: String) &#123;</span><br><span class="line">    <span class="keyword">var</span> ad = adName</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">initAd</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">when</span> (ad) &#123;</span><br><span class="line">            <span class="string">"A"</span> -&gt; initA()</span><br><span class="line">            <span class="string">"B"</span> -&gt; initB()</span><br><span class="line">            <span class="string">"C"</span> -&gt; initC()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">playAd</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">when</span> (ad) &#123;</span><br><span class="line">            <span class="string">"A"</span> -&gt; initA()</span><br><span class="line">            <span class="string">"B"</span> -&gt; initB()</span><br><span class="line">            <span class="string">"C"</span> -&gt; initC()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">stopAd</span><span class="params">()</span></span> &#123;<span class="string">"A"</span></span><br><span class="line">        <span class="keyword">when</span> (ad) &#123;</span><br><span class="line">            <span class="string">"A"</span> -&gt; initA()</span><br><span class="line">            <span class="string">"B"</span> -&gt; initB()</span><br><span class="line">            <span class="string">"C"</span> -&gt; initC()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">initA</span><span class="params">()</span></span> &#123;</span><br><span class="line">        print(<span class="string">"init A"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 代码省略...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">playA</span><span class="params">()</span></span> &#123;</span><br><span class="line">        print(<span class="string">"play A"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 代码省略...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">stopA</span><span class="params">()</span></span> &#123;</span><br><span class="line">        print(<span class="string">"stop A"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 代码省略...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用方式：</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteAd</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">var</span> adManager = AdManager(<span class="string">"A"</span>)</span><br><span class="line">        adManager.initAd()</span><br><span class="line">        adManager.playAd()</span><br><span class="line">        adManager.stopAd()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面看到，充斥着大量的if…else…（Kotlin 中用的 when 语法），并且耦合度很高，想要增加广告就要在同一个类中进行修改。那么使用策略模式来进行优化后，大致是这样的：</p>
+<ol>
+<li>创建广告策略接口 IAdStrategy 类：</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IAdStrategy</span> </span>&#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="function"><span class="keyword">fun</span> <span class="title">initAd</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">abstract</span> <span class="function"><span class="keyword">fun</span> <span class="title">playAd</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">abstract</span> <span class="function"><span class="keyword">fun</span> <span class="title">stopAd</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>针对不同的广告进行策略的实现（下面以广告A为例）：</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> : <span class="type">IAdStrategy &#123;</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">initAd</span><span class="params">()</span></span> &#123;</span><br><span class="line">        print(<span class="string">"init A"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">playAd</span><span class="params">()</span></span> &#123;</span><br><span class="line">        print(<span class="string">"play A"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">stopAd</span><span class="params">()</span></span> &#123;</span><br><span class="line">        print(<span class="string">"stop A"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>创建策略相关的Context来绑定广告和策略接口之间的关系：</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AdStrategyContext</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> lateinit <span class="keyword">var</span> mAdStrategy: IAdStrategy</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(adStrategy: IAdStrategy) &#123;</span><br><span class="line">        <span class="keyword">this</span>.mAdStrategy = adStrategy</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">initAd</span><span class="params">()</span></span> &#123;</span><br><span class="line">        mAdStrategy.initAd()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">playAd</span><span class="params">()</span></span> &#123;</span><br><span class="line">        mAdStrategy.playAd()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用方式：</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteAd</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    	<span class="comment">// 普通</span></span><br><span class="line">        <span class="keyword">var</span> adManager = AdManager(<span class="string">"A"</span>)</span><br><span class="line">        adManager.initAd()</span><br><span class="line">        adManager.playAd()</span><br><span class="line">        adManager.stopAd()</span><br><span class="line">        </span><br><span class="line">		<span class="comment">// 策略模式</span></span><br><span class="line">        <span class="keyword">var</span> adCtx  = AdStrategyContext(A())</span><br><span class="line">        adCtx.initAd()</span><br><span class="line">        adCtx.playAd()</span><br><span class="line">        adCtx.stopAd()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的例子可以看到，一旦需要增加广告D的话，去实现对应的 IAdStrategy 接口即可，和之前的代码没有耦合，符合设计原则。但缺点就是如果广告很多的话，会存在很多类文件，并且一旦接口需要补充和修改，那么所有的实现类都会变动。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/01/18/2017年终总结附2018小目标/" itemprop="url">
                   2017年终总结附2018小目标
                 </a>
@@ -1292,268 +1565,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/" itemprop="url">
-                  Android实现录屏直播（二）需求才是硬道理之产品功能调研
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-09T00:24:46+08:00" content="2017-01-09">
-              2017-01-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/" class="leancloud_visitors" data-flag-title="Android实现录屏直播（二）需求才是硬道理之产品功能调研">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>请尊重分享成果，转载请注明出处，本文来自<a href="http://my.csdn.net/zxccxzzxz">Coder包子哥</a>，原文链接：<a href="http://blog.csdn.net/zxccxzzxz/article/details/54254244">http://blog.csdn.net/zxccxzzxz/article/details/54254244</a></p>
-<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396">Android实现录屏直播（一）ScreenRecorder的简单分析</a></p>
-<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54254244">Android实现录屏直播（二）需求才是硬道理之产品功能调研</a></p>
-<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/55230272">Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器</a></p>
-<p>前面的<a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396">Android实现录屏直播（一）ScreenRecorder的简单分析</a>一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，稍微不注意就会深入每个知识点的细节导致文章又臭又长还表述不清晰，于是我决定把这7天实现该功能的整个流程重新梳理一遍，按照我开发和研究学习的步骤来写，大致过程如下：</p>
-<ol>
-<li><a href="#产品功能调研">产品功能调研</a></li>
-<li>Bilibili 的反编译及 UI 的编写</li>
-<li><a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396">ScreenRecorder 等 Demo 的代码分析</a></li>
-<li>对 H264 结构、FLV 格式封装的研究学习</li>
-<li>sps pps avcc 关键帧等视频封装原理的学习与分析</li>
-<li>MediaProjection 实现录屏中 MediaCodec 的详细用法</li>
-<li><a href="http://blog.csdn.net/zxccxzzxz/article/details/55230272">编码后的帧进行推流</a></li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/" itemprop="url">
-                  Android实现录屏直播（一）ScreenRecorder的简单分析
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-07T00:53:49+08:00" content="2017-01-07">
-              2017-01-07
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/" class="leancloud_visitors" data-flag-title="Android实现录屏直播（一）ScreenRecorder的简单分析">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396">Android实现录屏直播（一）ScreenRecorder的简单分析</a></p>
-<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54254244">Android实现录屏直播（二）需求才是硬道理之产品功能调研</a></p>
-<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/55230272">Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器</a></p>
-<p>应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。</p>
-<p>其实官方提供的<a href="https://github.com/googlesamples/android-ScreenCapture">android-ScreenCapture</a>这个Sample中已经有了MediaRecorder的实现与使用方式，还有使用MediaRecorder实现的录制屏幕到本地文件的Demo，从中我们都能了解这些API的使用。</p>
-<p>而如果需要直播推流的话就需要自定义MediaCodec，再从MediaCodec进行编码后获取编码后的帧，免去了我们进行原始帧的采集的步骤省了不少事。可是问题来了，因为之前没有仔细了解H264文件的结构与FLV封装的相关技术，其中爬了不少坑，此后我会一一记录下来，希望对用到的朋友有帮助。</p>
-<p>项目中对我参考意义最大的一个Demo是网友Yrom的GitHub项目<a href="https://github.com/yrom/ScreenRecorder">ScreenRecorder</a>，Demo中实现了录屏并将视频流存为本地的MP4文件（咳咳，其实Yrom就是Bilibili的员工吧？( ゜- ゜)つロ）😏。在此先大致分析一下该Demo的实现，之后我会再说明我的实现方式。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1599,7 +1610,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1616,7 +1627,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

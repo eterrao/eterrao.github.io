@@ -260,6 +260,268 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/" itemprop="url">
+                  Android实现录屏直播（二）需求才是硬道理之产品功能调研
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-09T00:24:46+08:00" content="2017-01-09">
+              2017-01-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/" class="leancloud_visitors" data-flag-title="Android实现录屏直播（二）需求才是硬道理之产品功能调研">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>请尊重分享成果，转载请注明出处，本文来自<a href="http://my.csdn.net/zxccxzzxz">Coder包子哥</a>，原文链接：<a href="http://blog.csdn.net/zxccxzzxz/article/details/54254244">http://blog.csdn.net/zxccxzzxz/article/details/54254244</a></p>
+<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396">Android实现录屏直播（一）ScreenRecorder的简单分析</a></p>
+<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54254244">Android实现录屏直播（二）需求才是硬道理之产品功能调研</a></p>
+<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/55230272">Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器</a></p>
+<p>前面的<a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396">Android实现录屏直播（一）ScreenRecorder的简单分析</a>一文中我们对 ScreenRecorder 这个开源 Demo 中的实现机制大概有了了解，但在继续写这个系列文章的时候发现每一个细节都太紧密了，稍微不注意就会深入每个知识点的细节导致文章又臭又长还表述不清晰，于是我决定把这7天实现该功能的整个流程重新梳理一遍，按照我开发和研究学习的步骤来写，大致过程如下：</p>
+<ol>
+<li><a href="#产品功能调研">产品功能调研</a></li>
+<li>Bilibili 的反编译及 UI 的编写</li>
+<li><a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396">ScreenRecorder 等 Demo 的代码分析</a></li>
+<li>对 H264 结构、FLV 格式封装的研究学习</li>
+<li>sps pps avcc 关键帧等视频封装原理的学习与分析</li>
+<li>MediaProjection 实现录屏中 MediaCodec 的详细用法</li>
+<li><a href="http://blog.csdn.net/zxccxzzxz/article/details/55230272">编码后的帧进行推流</a></li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/09/Android实现录屏直播（二）需求才是硬道理之产品功能调研/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/" itemprop="url">
+                  Android实现录屏直播（一）ScreenRecorder的简单分析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-07T00:53:49+08:00" content="2017-01-07">
+              2017-01-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/" class="leancloud_visitors" data-flag-title="Android实现录屏直播（一）ScreenRecorder的简单分析">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54150396">Android实现录屏直播（一）ScreenRecorder的简单分析</a></p>
+<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/54254244">Android实现录屏直播（二）需求才是硬道理之产品功能调研</a></p>
+<p><a href="http://blog.csdn.net/zxccxzzxz/article/details/55230272">Android实现录屏直播（三）MediaProjection + VirtualDisplay + librtmp + MediaCodec实现视频编码并推流到rtmp服务器</a></p>
+<p>应项目需求瞄准了Bilibili的录屏直播功能，基本就仿着做一个吧。研究后发现Bilibili是使用的MediaProjection 与 VirtualDisplay结合实现的，需要 Android 5.0 Lollipop API 21以上的系统才能使用。</p>
+<p>其实官方提供的<a href="https://github.com/googlesamples/android-ScreenCapture">android-ScreenCapture</a>这个Sample中已经有了MediaRecorder的实现与使用方式，还有使用MediaRecorder实现的录制屏幕到本地文件的Demo，从中我们都能了解这些API的使用。</p>
+<p>而如果需要直播推流的话就需要自定义MediaCodec，再从MediaCodec进行编码后获取编码后的帧，免去了我们进行原始帧的采集的步骤省了不少事。可是问题来了，因为之前没有仔细了解H264文件的结构与FLV封装的相关技术，其中爬了不少坑，此后我会一一记录下来，希望对用到的朋友有帮助。</p>
+<p>项目中对我参考意义最大的一个Demo是网友Yrom的GitHub项目<a href="https://github.com/yrom/ScreenRecorder">ScreenRecorder</a>，Demo中实现了录屏并将视频流存为本地的MP4文件（咳咳，其实Yrom就是Bilibili的员工吧？( ゜- ゜)つロ）😏。在此先大致分析一下该Demo的实现，之后我会再说明我的实现方式。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/07/Android实现录屏直播（一）ScreenRecorder的简单分析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/31/2016年终总结/" itemprop="url">
                   2016年终总结
                 </a>
@@ -1233,273 +1495,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/28/五年计划-内功修炼/" itemprop="url">
-                  五年计划 -- 内功修炼
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-28T10:06:30+08:00" content="2016-08-28">
-              2016-08-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/职业生涯/" itemprop="url" rel="index">
-                    <span itemprop="name">职业生涯</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/28/五年计划-内功修炼/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/28/五年计划-内功修炼/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/28/五年计划-内功修炼/" class="leancloud_visitors" data-flag-title="五年计划 -- 内功修炼">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="于2016-6-28-～-8-15记"><a href="#于2016-6-28-～-8-15记" class="headerlink" title="于2016.6.28 ～ 8.15记"></a>于2016.6.28 ～ 8.15记</h2><p>提前五年将你要做的事计划好，并且每天进步一点点，同样的五年后，意味着你比别人提前五年达到一个新的高度。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/28/五年计划-内功修炼/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/24/《App研发录》-- 读书总结/" itemprop="url">
-                  《App研发录》总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-24T11:55:46+08:00" content="2016-07-24">
-              2016-07-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/读书/" itemprop="url" rel="index">
-                    <span itemprop="name">读书</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/24/《App研发录》-- 读书总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/《App研发录》-- 读书总结/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/24/《App研发录》-- 读书总结/" class="leancloud_visitors" data-flag-title="《App研发录》总结">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>看这本书的时候，总感觉怪怪的。</p>
-<p>因为在地铁上看完的，作者书中基本都是他自己工作中遇到的问题和坑，虽说这样会让人感觉找到了解决方案，可以再进行深入的研究，可是某些地方介绍的有点片面，仅仅是引用部分博客就以偏概全了。还有可能是涉及的内容大部分都是我自己已经踩过的坑，所以觉得学到的东西不太多。</p>
-<p>再说说值得一看的地方吧，首先也如前面提到的，书中内容基本都是作者工作之谈，所以有很实用的内容，推荐阅读章节：</p>
-<h3 id="App竞品技术分析"><a href="#App竞品技术分析" class="headerlink" title="App竞品技术分析"></a>App竞品技术分析</h3><p>个人认为这是本书的精华，很少看到有人愿意这样详尽的介绍自己的“机密”经验，感谢作者的无私分享。</p>
-<h3 id="五、六、七章的异常和ProGuard"><a href="#五、六、七章的异常和ProGuard" class="headerlink" title="五、六、七章的异常和ProGuard"></a>五、六、七章的异常和ProGuard</h3><p>介绍很详细，网上都是非常琐碎的介绍，推荐新人看看这部分，尤其是ProGuard，虽然现在第三方已经给出了完善的解决方案，帮我们做了这部分事情，不过了解最基本的原理才能学得更透彻。</p>
-<h3 id="项目、团队管理部分"><a href="#项目、团队管理部分" class="headerlink" title="项目、团队管理部分"></a>项目、团队管理部分</h3><p>这部分是时间的积累才能收获的，提前学习了解以后我们必须经历的路没什么不好的。测试部分相关的部分是很少有书籍能够提及，值得看看。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/24/《App研发录》-- 读书总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1545,7 +1540,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1562,7 +1557,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
