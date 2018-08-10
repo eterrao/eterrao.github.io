@@ -260,6 +260,144 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/02/Android-context-getSystemService-浅析/" itemprop="url">
+                  Android context.getSystemService()浅析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-02T00:55:52+08:00" content="2016-09-02">
+              2016-09-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android源码分析/" itemprop="url" rel="index">
+                    <span itemprop="name">Android源码分析</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/02/Android-context-getSystemService-浅析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/02/Android-context-getSystemService-浅析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/02/Android-context-getSystemService-浅析/" class="leancloud_visitors" data-flag-title="Android context.getSystemService()浅析">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>同事在进行code review的时候问到我context中的getSystemService方法在哪实现的，他看到了一个ClipBoardManager来进行剪切板存储数据的工具方法中用到了context.getSystemService()，而此处我使用的是Application级别的Context进行调用的，可IDE跳转时发现当前类中的getSystemService()方法居然是抽象的，Context类就是一个抽象类，没有具体的实现，可在进行调用的时候却一切正常，同事好奇该方法具体实现在哪实现的，于是我俩一起看源码和查资料后发现有几个值得注意的地方：</p>
+<ul>
+<li>系统service获取和分享的问题，源码中提示到：</li>
+</ul>
+<blockquote>
+<p>Note:  System services obtained via this API may be closely associated with the Context in which they are obtained from.  In general, do not share the service objects between various different contexts (Activities, Applications, Services, Providers, etc.)</p>
+<p> 大意： 获取的系统service可能和他们的context有紧密联系，一般来说不要在不同的context之间分享服务对象，如Activity、Application、Service、Provider</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/02/Android-context-getSystemService-浅析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/28/五年计划-内功修炼/" itemprop="url">
                   五年计划 -- 内功修炼
                 </a>
@@ -1386,7 +1524,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
